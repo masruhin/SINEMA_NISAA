@@ -20,7 +20,7 @@ include 'config.php';
             name="keywords"
             content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
         <meta name="author" content="PIXINVENT">
-        <title>Dashboard Member</title>
+        <title>Admin</title>
         <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
         <link

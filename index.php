@@ -20,7 +20,6 @@ include "includes/header.php";
 																			<h3 class="mb-75 mt-2 pt-50">
 																					<a href="javascript:void(0);">Universitas</a>
 																			</h3>
-																			<p class="card-text font-small-3">Lihat untuk mengetahui lebih lanjut</p>
 																			<h3 class="mb-75 mt-2 pt-50">
 																					<a href="javascript:void(0);">151</a>
 																			</h3>
@@ -41,7 +40,6 @@ include "includes/header.php";
 																					<h3 class="mb-75 mt-2 pt-50">
 																							<a href="javascript:void(0);">Fakultas</a>
 																					</h3>
-																					<p class="card-text font-small-3">Lihat untuk mengetahui lebih lanjut</p>
 																					<h3 class="mb-75 mt-2 pt-50">
 																							<a href="javascript:void(0);">151</a>
 																					</h3>
@@ -61,7 +59,6 @@ include "includes/header.php";
 																					<h3 class="mb-75 mt-2 pt-50">
 																							<a href="javascript:void(0);">Unit</a>
 																					</h3>
-																					<p class="card-text font-small-3">Lihat untuk mengetahui lebih lanjut</p>
 																					<h3 class="mb-75 mt-2 pt-50">
 																							<a href="javascript:void(0);">151</a>
 																					</h3>
@@ -82,7 +79,6 @@ include "includes/header.php";
 																					<h3 class="mb-75 mt-2 pt-50">
 																							<a href="javascript:void(0);">Negara</a>
 																					</h3>
-																					<p class="card-text font-small-3">Lihat untuk mengetahui lebih lanjut</p>
 																					<h3 class="mb-75 mt-2 pt-50">
 																							<a href="javascript:void(0);">151</a>
 																					</h3>

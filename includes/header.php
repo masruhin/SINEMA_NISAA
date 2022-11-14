@@ -17,7 +17,7 @@ include 'config.php';
             name="keywords"
             content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
         <meta name="author" content="PIXINVENT">
-        <title>Dashboard Member</title>
+        <title>Member</title>
         <link rel="stylesheet" type="text/css" href="vendor/app-assets/css/pages/page-auth.css">
         <link rel="stylesheet" type="text/css" href="vendor/app-assets/css/plugins/forms/form-validation.css">
         <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
