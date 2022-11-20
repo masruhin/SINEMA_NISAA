@@ -14,7 +14,7 @@ if(empty($_SESSION['username'])){
 				<div class="col-lg-12">
 					<div class="card">
 						<div class="card-header">
-							<h4 class="card-title">Data Negara</h4>
+							<h4 class="card-title">Data Unit</h4>
 							<button
 									type="button"
 									class="btn btn-outline-success round btn-sm"
@@ -26,7 +26,9 @@ if(empty($_SESSION['username'])){
 									<thead>
 											<tr>
 													<th>No</th>
-													<th>NAMA NEGARA</th>
+													<th>Nama Unit</th>
+													<th>Tanggal dibuat</th>
+													<th>Tanggal di upadate</th>
 													<th>Aksi</th>
 											</tr>
 									</thead>
@@ -34,7 +36,7 @@ if(empty($_SESSION['username'])){
 											<?php 
 											include "config.php";
 											$no = 1;
-											$data = mysqli_query($kon, "SELECT * FROM negara ORDER BY id ASC");
+											$data = mysqli_query($kon, "SELECT * FROM unit ORDER BY id_unit ASC");
 											if (!$data) {
 												printf("Error: %s\n", mysqli_error($kon));
 												exit();
@@ -45,20 +47,22 @@ if(empty($_SESSION['username'])){
 														<td>
 															<?php echo $no++; ?>
 														</td>
-														<td><?php echo $hasil ['negara_nama'];?></td>
+														<td><?php echo $hasil ['unit_nama'];?></td>
+														<td><?php echo $hasil ['date_created'];?></td>
+														<td><?php echo $hasil ['date_updated'];?></td>
 														<td>
-															<a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id']; ?>">Edit</a>
+															<a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id_unit']; ?>">Edit</a>
 																	<button
 																	type="button"
 																	class="btn btn-outline-danger round btn-sm"
 																	data-toggle="modal"
-																	data-target="#deleteEmployeeModal<?php echo $hasil['id']; ?>">hapus</button>
+																	data-target="#deleteEmployeeModal<?php echo $hasil['id_unit']; ?>">hapus</button>
 														</td>
 												</tr>
 											<!-- MODAL EDIT -->
 										<div
 												class="modal fade text-left modal-success"
-												id="edit<?php echo $hasil['id']; ?>"
+												id="edit<?php echo $hasil['id_unit']; ?>"
 												tabindex="-1"
 												role="dialog"
 												aria-labelledby="myModalLabel110"
@@ -66,38 +70,56 @@ if(empty($_SESSION['username'])){
 												<div class="modal-dialog modal-dialog-centered" role="document">
 													<div class="modal-content">
 														<div class="modal-header">
-																<h5 class="modal-title" id="myModalLabel110">Edit Negara</h5>
+																<h5 class="modal-title" id="myModalLabel110">Edit Unit</h5>
 																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																		<span aria-hidden="true">&times;</span>
 																</button>
 														</div>
 															<div class="modal-body">
-																<form class="form form-horizontal" action="negara_act.php" method="POST">
+																<form class="form form-horizontal" action="unit_act.php" method="POST">
 																<?php
-																	$id = $hasil['id']; 
-																	$query_edit = mysqli_query($kon, "SELECT * FROM negara WHERE id='$id'");
-																	//$result = mysqli_query($conn, $query);
+																	$id = $hasil['id_unit']; 
+																	$query_edit = mysqli_query($kon, "SELECT * FROM unit WHERE id_unit='$id'");
 																	while ($row = mysqli_fetch_array($query_edit)) {  
 																	?>
-																	<input type="hidden" name="id" value="<?= $row['id']?>">
+																	<input type="hidden" name="id_unit" value="<?= $row['id_unit']?>">
 																		<div class="row">
 																			<div class="col-12">
 																					<div class="form-group row">
 																							<div class="col-sm-3 col-form-label">
-																									<label for="negara">Nama Negara</label>
+																									<label for="unit_nama">Nama Unit</label>
 																							</div>
 																							<div class="col-sm-9">
 																									<div class="input-group input-group-merge">
 																											<div class="input-group-prepend">
 																													<span class="input-group-text">
-																															<i data-feather="flag"></i>
+																															<i data-feather="git-pull-request"></i>
 																													</span>
 																											</div>
 																											<input
 																													type="text"
 																													class="form-control"
-																													name="negara" value="<?= $row['negara_nama']?>"
-																													placeholder="Isikan dengan nama Negara"/>
+																													name="unit_nama" value="<?= $row['unit_nama']?>"
+																													placeholder="Isikan dengan nama Unit"/>
+																									</div>
+																							</div>
+																					</div>
+																					<div class="form-group row">
+																							<div class="col-sm-3 col-form-label">
+																									<label for="date_created">Tanggal diBuat</label>
+																							</div>
+																							<div class="col-sm-9">
+																									<div class="input-group input-group-merge">
+																											<div class="input-group-prepend">
+																													<span class="input-group-text">
+																															<i data-feather="git-pull-request"></i>
+																													</span>
+																											</div>
+																											<input
+																													type="text"
+																													class="form-control"
+																													name="date_created" value="<?= $row['date_created']?>"
+																													disabled/>
 																									</div>
 																							</div>
 																					</div>
@@ -119,24 +141,24 @@ if(empty($_SESSION['username'])){
 										<!-- END MODAL EDIT -->
 
 									<!-- MODAL HAPUS -->
-									<div id="deleteEmployeeModal<?php echo $hasil['id']; ?>" class="modal fade">
+									<div id="deleteEmployeeModal<?php echo $hasil['id_unit']; ?>" class="modal fade">
 										<div class="modal-dialog">
 											<div class="modal-content">
-											<form method="post" action="negara_act.php">
+											<form method="post" action="unit_act.php">
 											<?php
-												$id = $hasil['id']; 
-												$query_edit = mysqli_query($kon, "SELECT * FROM negara WHERE id='$id'");
+												$id = $hasil['id_unit']; 
+												$query_edit = mysqli_query($kon, "SELECT * FROM unit WHERE id_unit='$id'");
 												//$result = mysqli_query($conn, $query);
 												while ($row = mysqli_fetch_array($query_edit)) {  
 												?>
-												<input type="hidden" class="form-control" value="<?php echo $hasil['id']; ?>" name="id" required>
+												<input type="hidden" class="form-control" value="<?php echo $hasil['id_unit']; ?>" name="id_unit" required>
 												
 													<div class="modal-header">
 														<h4 class="modal-title">Delete</h4>
 														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 													</div>
 													<div class="modal-body">
-														<p>Apakah Kamu akan menghapus Data Negara <?php echo $hasil['negara_nama']; ?>?</p>
+														<p>Apakah Kamu akan menghapus Data Unit <?php echo $hasil['unit_nama']; ?>?</p>
 													</div>
 													<div class="modal-footer">
 													<button type="submit" class="btn btn-danger mr-1 btn-sm" name="delete">Hapus</button>
@@ -174,35 +196,35 @@ if(empty($_SESSION['username'])){
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel110">Tambah Negara</h5>
+						<h5 class="modal-title" id="myModalLabel110">Tambah Unit</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 						</button>
-				</div>
+				</div> 
 				<div class="modal-body">
-					<form class="form form-horizontal" action="negara_act.php" method="POST">
+					<form class="form form-horizontal" action="unit_act.php" method="POST">
 						<div class="row">
 							<div class="col-12">
-										<div class="form-group row">
-												<div class="col-sm-3 col-form-label">
-														<label for="negara_nama">Nama Negara</label>
-												</div>
-												<div class="col-sm-9">
-														<div class="input-group input-group-merge">
-																<div class="input-group-prepend">
-																		<span class="input-group-text">
-																				<i data-feather="flag"></i>
-																		</span>
-																</div>
-																<input
-																		type="text"
-																		id="negara_nama"
-																		class="form-control"
-																		name="negara_nama"
-																		placeholder="Isikan dengan nama Negara"/>
+								<div class="form-group row">
+										<div class="col-sm-3 col-form-label">
+												<label for="unit_nama">Nama Unit</label>
+										</div>
+										<div class="col-sm-9">
+												<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+																<span class="input-group-text">
+																		<i data-feather="git-pull-request"></i>
+																</span>
 														</div>
+														<input
+																type="text"
+																id="unit_nama"
+																class="form-control"
+																name="unit_nama"
+																placeholder="Isikan dengan nama Unit"/>
 												</div>
 										</div>
+								</div>
 							</div>
 							<div class="col-sm-9 offset-sm-3">
 									<button type="submit" class="btn btn-info mr-1 btn-sm" name="tambah">Simpan</button>

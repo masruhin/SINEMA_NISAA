@@ -14,7 +14,7 @@ if(empty($_SESSION['username'])){
 				<div class="col-lg-12">
 					<div class="card">
 						<div class="card-header">
-							<h4 class="card-title">Data Negara</h4>
+							<h4 class="card-title">Data Universitas</h4>
 							<button
 									type="button"
 									class="btn btn-outline-success round btn-sm"

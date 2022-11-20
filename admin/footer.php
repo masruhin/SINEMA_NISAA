@@ -6,10 +6,10 @@
     <i data-feather="arrow-up"></i>
 </button>
 <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
-<script src="../vendor/app-assets/vendors/js/ui/jquery.sticky.js"></script>
+<!-- <script src="../vendor/app-assets/vendors/js/ui/jquery.sticky.js"></script> -->
 <script src="../vendor/app-assets/vendors/js/charts/chart.min.js"></script>
-<script src="../vendor/app-assets/js/scripts/pages/dashboard-ecommerce.min.js"></script>
-<script src="../vendor/app-assets/js/scripts/pages/app-ecommerce-details.js"></script>
+<!-- <script src="../vendor/app-assets/js/scripts/pages/dashboard-ecommerce.min.js"></script> -->
+<!-- <script src="../vendor/app-assets/js/scripts/pages/app-ecommerce-details.js"></script> -->
 <script src="../vendor/app-assets/vendors/js/vendors.min.js"></script>
 <script src="../vendor/app-assets/vendors/js/charts/chart.min.js"></script>
 <script src="../vendor/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
@@ -18,7 +18,7 @@
 <script src="../vendor/app-assets/js/scripts/charts/chart-chartjs.js"></script>
 <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- <script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script> -->
 <script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script>

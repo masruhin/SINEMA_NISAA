@@ -56,20 +56,18 @@
                                 <li data-menu="">
                                     <a
                                         class="dropdown-item d-flex align-items-center"
-                                        href="#"
+                                        href="unit_data.php"
                                         data-toggle="dropdown"
-                                        data-i18n="Raise Support"
-                                        target="_blank">
+                                        data-i18n="Raise Support">
                                         <i data-feather='git-pull-request'></i>
                                         <span data-i18n="Raise Support">Data Unit</span></a>
                                 </li>
                                 <li data-menu="">
                                     <a
                                         class="dropdown-item d-flex align-items-center"
-                                        href="#"
+                                        href="universitas_data.php"
                                         data-toggle="dropdown"
-                                        data-i18n="Raise Support"
-                                        target="_blank">
+                                        data-i18n="Raise Support">
                                         <i data-feather='award'></i>
                                         <span data-i18n="Raise Support">Data Universitas</span></a>
                                 </li>
