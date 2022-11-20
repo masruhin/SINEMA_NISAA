@@ -26,6 +26,7 @@ if(empty($_SESSION['username'])){
 									<thead>
 											<tr>
 													<th>No</th>
+													<th>Kode Unit</th>
 													<th>Nama Unit</th>
 													<th>Tanggal dibuat</th>
 													<th>Tanggal di upadate</th>
@@ -36,7 +37,7 @@ if(empty($_SESSION['username'])){
 											<?php 
 											include "config.php";
 											$no = 1;
-											$data = mysqli_query($kon, "SELECT * FROM unit ORDER BY id_unit ASC");
+											$data = mysqli_query($kon, "SELECT * FROM unit ORDER BY unit_nama ASC");
 											if (!$data) {
 												printf("Error: %s\n", mysqli_error($kon));
 												exit();
@@ -47,6 +48,7 @@ if(empty($_SESSION['username'])){
 														<td>
 															<?php echo $no++; ?>
 														</td>
+														<td><?php echo $hasil ['unit_kode'];?></td>
 														<td><?php echo $hasil ['unit_nama'];?></td>
 														<td><?php echo $hasil ['date_created'];?></td>
 														<td><?php echo $hasil ['date_updated'];?></td>
@@ -100,6 +102,25 @@ if(empty($_SESSION['username'])){
 																													type="text"
 																													class="form-control"
 																													name="unit_nama" value="<?= $row['unit_nama']?>"
+																													placeholder="Isikan dengan nama Unit"/>
+																									</div>
+																							</div>
+																					</div>
+																					<div class="form-group row">
+																							<div class="col-sm-3 col-form-label">
+																									<label for="unit_kode">Kode Unit</label>
+																							</div>
+																							<div class="col-sm-9">
+																									<div class="input-group input-group-merge">
+																											<div class="input-group-prepend">
+																													<span class="input-group-text">
+																															<i data-feather="git-pull-request"></i>
+																													</span>
+																											</div>
+																											<input
+																													type="text"
+																													class="form-control"
+																													name="unit_kode" value="<?= $row['unit_kode']?>"
 																													placeholder="Isikan dengan nama Unit"/>
 																									</div>
 																							</div>
@@ -222,6 +243,26 @@ if(empty($_SESSION['username'])){
 																class="form-control"
 																name="unit_nama"
 																placeholder="Isikan dengan nama Unit"/>
+												</div>
+										</div>
+								</div>
+								<div class="form-group row">
+										<div class="col-sm-3 col-form-label">
+												<label for="unit_kode">Kode Unit</label>
+										</div>
+										<div class="col-sm-9">
+												<div class="input-group input-group-merge">
+														<div class="input-group-prepend">
+																<span class="input-group-text">
+																		<i data-feather="terminal"></i>
+																</span>
+														</div>
+														<input
+																type="text"
+																id="unit_kode"
+																class="form-control"
+																name="unit_kode"
+																placeholder="Isikan dengan kode Unit"/>
 												</div>
 										</div>
 								</div>

@@ -220,8 +220,5 @@ if(empty($_SESSION['username'])){
 		<div class="sidenav-overlay"></div>
 		<div class="drag-target"></div>
 		<?php include "footer.php";?>
-		<script type="text/javascript">
-
-		</script>
 </body>
 </html>

@@ -31,7 +31,7 @@
                         id="main-menu-navigation"
                         data-menu="menu-navigation">
                         <li data-menu="">
-                            <a class="dropdown-item d-flex align-items-center" href="index.php">
+                            <a class="dropdown-item d-flex align-items-center" href="home.php">
                                 <i data-feather="home"></i>
                                 <span data-i18n="Documentation">Home</span>
                             </a>
@@ -74,10 +74,9 @@
                                 <li data-menu="">
                                     <a
                                         class="dropdown-item d-flex align-items-center"
-                                        href="#"
+                                        href="fakultas_data.php"
                                         data-toggle="dropdown"
-                                        data-i18n="Raise Support"
-                                        target="_blank">
+                                        data-i18n="Raise Support">
                                         <i data-feather='layers'></i>
                                         <span data-i18n="Raise Support">Data Fakultas</span></a>
                                 </li>

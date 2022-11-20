@@ -7,7 +7,7 @@ error_reporting();
 include "config.php";
 
 if (isset($_POST['tambah'])) {
-  $tambah = mysqli_query($kon, "INSERT INTO unit (unit_nama) VALUES ('$_POST[unit_nama]')");
+  $tambah = mysqli_query($kon, "INSERT INTO unit (unit_kode, unit_nama) VALUES ('$_POST[unit_kode]','$_POST[unit_nama]')");
   if ($tambah) {
     echo "<script>alert('Anda Berhasil Menambah Data');
           document.location='unit_data.php';
@@ -22,9 +22,10 @@ if (isset($_POST['tambah'])) {
 if (isset($_POST['ubah'])) {
 $id = isset($_GET['id_unit']) ? $_GET['id_unit'] : null;
 $id = $_POST['id_unit'];
+$unit_kode = $_POST['unit_kode'];
 $unit_nama = $_POST['unit_nama'];
 //query update
-$query = "UPDATE unit SET unit_nama='$unit_nama' WHERE id_unit='$id' ";
+$query = "UPDATE unit SET unit_kode='$unit_kode', unit_nama='$unit_nama' WHERE id_unit='$id' ";
 if (mysqli_query($kon,$query)) {
  # credirect ke page unit
  echo "<script type='text/javascript'>
