@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2022 at 04:27 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.39
+-- Generation Time: Nov 21, 2022 at 10:25 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `sinema`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fakultas`
+--
+
+CREATE TABLE `fakultas` (
+  `id_fak` int(11) NOT NULL,
+  `fak_kode` varchar(20) NOT NULL,
+  `fak_nama` varchar(100) NOT NULL,
+  `fak_ket` text NOT NULL,
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `fakultas`
+--
+
+INSERT INTO `fakultas` (`id_fak`, `fak_kode`, `fak_nama`, `fak_ket`, `date_created`, `date_updated`) VALUES
+(1, 'BM/I/01', 'Informatika', 'teradapat dua prodi pada fakultas ini', '2022-11-21 02:11:26', '2022-11-21 02:15:08'),
+(2, 'asdasd', 'Kedokteran', 'asdsd                                                            ', '2022-11-21 02:45:08', '2022-11-21 02:56:14');
 
 -- --------------------------------------------------------
 
@@ -38,17 +60,243 @@ CREATE TABLE `negara` (
 --
 
 INSERT INTO `negara` (`id`, `negara_nama`) VALUES
-(9, 'Laosaaa'),
-(11, 'Jerman'),
-(12, 'Amerika as'),
-(13, 'Taiwan'),
-(15, 'solo'),
-(16, 'Rusia'),
-(17, 'Rusia'),
-(20, 'kicik'),
-(21, 'edan'),
-(22, 'jancuk'),
-(23, 'senegal');
+(1, 'Makau'),
+(2, 'Monako'),
+(3, 'Singapura'),
+(4, 'Hong Kong'),
+(5, 'Gibraltar'),
+(6, 'Jalur Gaza'),
+(7, 'Vatikan'),
+(8, 'Malta'),
+(9, 'Bermuda'),
+(10, 'Maladewa'),
+(11, 'Bahrain'),
+(12, 'Bangladesh'),
+(13, 'Guernsey'),
+(14, 'Jersey'),
+(15, 'Barbados'),
+(16, 'Republik Cina (Taiwan)'),
+(17, 'Nauru'),
+(18, 'Mauritius'),
+(19, 'Mayotte'),
+(20, 'Korea Selatan'),
+(21, 'San Marino'),
+(22, 'Tuvalu'),
+(23, 'Puerto Riko'),
+(24, 'Tepi Barat'),
+(25, 'Belanda'),
+(26, 'Martinique'),
+(27, 'Aruba'),
+(28, 'Lebanon'),
+(29, 'Belgia'),
+(30, 'Jepang'),
+(31, 'India'),
+(32, 'Kepulauan Marshall'),
+(33, 'Rwanda'),
+(34, 'El Salvador'),
+(35, 'Komoro'),
+(36, 'Kepulauan Virgin'),
+(37, 'Reunion'),
+(38, 'Guam'),
+(39, 'Sri Lanka'),
+(40, 'Israel'),
+(41, 'Saint Vincent dan Grenadines'),
+(42, 'Filipina'),
+(43, 'Haiti'),
+(44, 'Samoa Amerika'),
+(45, 'Saint Lucia'),
+(46, 'Grenada'),
+(47, 'Vietnam'),
+(48, 'Guadeloupe'),
+(49, 'Jamaika'),
+(50, 'Britania Raya'),
+(51, 'Jerman'),
+(52, 'Antillen Belanda'),
+(53, 'Burundi'),
+(54, 'Trinidad dan Tobago'),
+(55, 'Liechtenstein'),
+(56, 'Pakistan'),
+(57, 'Nepal'),
+(58, 'Italia'),
+(59, 'Korea Utara'),
+(60, 'Sao Tome dan Principe'),
+(61, 'Republik Dominika'),
+(62, 'Swiss'),
+(63, 'Luxembourg'),
+(64, 'Seychelles'),
+(65, 'Kepulauan Cayman'),
+(66, 'Kepulauan Mariana Utara'),
+(67, 'Antigua dan Barbuda'),
+(68, 'Mikronesia'),
+(69, 'Andorra'),
+(70, 'Tonga'),
+(71, 'Saint Kitts dan Nevis'),
+(72, 'Kepulauan Virgin Inggris'),
+(73, 'Atol Johnston'),
+(74, 'Gambia'),
+(75, 'Tokelau'),
+(76, 'Nigeria'),
+(77, 'Republik Rakyat Cina'),
+(78, 'Guatemala'),
+(79, 'Moldavia'),
+(80, 'Kuwait'),
+(81, 'Pulau Man'),
+(82, 'Ceko'),
+(83, 'Anguilla'),
+(84, 'Thailand'),
+(85, 'Kiribati'),
+(86, 'Indonesia'),
+(87, 'Denmark'),
+(88, 'Albania'),
+(89, 'Polandia'),
+(90, 'Uganda'),
+(91, 'Portugal'),
+(92, 'Uni Eropa'),
+(93, 'Slowakia'),
+(94, 'Perancis (Metropolitan)'),
+(95, 'Hongaria'),
+(96, 'Serbia dan Montenegro'),
+(97, 'Tanjung Verde'),
+(98, 'Malawi'),
+(99, 'Kuba'),
+(100, 'Armenia'),
+(101, 'Togo'),
+(102, 'Suriah'),
+(103, 'Slovenia'),
+(104, 'Austria'),
+(105, 'Romania'),
+(106, 'Dominika'),
+(107, 'Azerbaijan'),
+(108, 'Montserrat'),
+(109, 'Turki'),
+(110, 'Kepulauan Cook'),
+(111, 'Ghana'),
+(112, 'Spanyol'),
+(113, 'Siprus'),
+(114, 'Sierra Leone'),
+(115, 'Yunani'),
+(116, 'Makedonia'),
+(117, 'Kroasia'),
+(118, 'Bosnia Herzegovina'),
+(119, 'Kosta Rika'),
+(120, 'Ukraina'),
+(121, 'Mesir'),
+(122, 'Qatar'),
+(123, 'Kamboja'),
+(124, 'Maroko'),
+(125, 'Malaysia'),
+(126, 'Timor Leste'),
+(127, 'Swaziland'),
+(128, 'Bulgaria'),
+(129, 'Georgia'),
+(130, 'Benin'),
+(131, 'Ethiopia'),
+(132, 'Brunei'),
+(133, 'Polinesia Perancis'),
+(134, 'Myanmar'),
+(135, 'Yordania'),
+(136, 'Honduras'),
+(137, 'Tunisia'),
+(138, 'Lesotho'),
+(139, 'Samoa'),
+(140, 'Uzbekistan'),
+(141, 'Irak'),
+(142, 'Kenya'),
+(143, 'Wallis dan Futuna'),
+(144, 'Irlandia'),
+(145, 'Senegal'),
+(146, 'Lithuania'),
+(147, 'Meksiko'),
+(148, 'Pantai Gading'),
+(149, 'Pulau Norfolk'),
+(150, 'Burkina Faso'),
+(151, 'Tajikistan'),
+(152, 'Belarus'),
+(153, 'Fiji'),
+(154, 'Bhutan'),
+(155, 'Ekuador'),
+(156, 'Kepulauan Turks dan Caicos'),
+(157, 'Afganistan'),
+(158, 'Palau'),
+(159, 'Kepulauan Cocos'),
+(160, 'Nikaragua'),
+(161, 'Iran'),
+(162, 'Yaman'),
+(163, 'Guinea Bissau'),
+(164, 'Tanzania'),
+(165, 'Panama'),
+(166, 'Guinea'),
+(167, 'Kolombia'),
+(168, 'Eritrea'),
+(169, 'Afrika Selatan'),
+(170, 'Latvia'),
+(171, 'Kamerun'),
+(172, 'Kepulauan Faroe'),
+(173, 'Zimbabwe'),
+(174, 'Liberia'),
+(175, 'Uni Emirat Arab'),
+(176, 'Madagaskar'),
+(177, 'Amerika Serikat'),
+(178, 'Estonia'),
+(179, 'Saint Pierre dan Miquelon'),
+(180, 'Venezuela'),
+(181, 'Laos'),
+(182, 'Kirgizia'),
+(183, 'Republik Demokratik Kongo'),
+(184, 'Mozambik'),
+(185, 'Brasil'),
+(186, 'Peru'),
+(187, 'Bahama'),
+(188, 'Chili'),
+(189, 'Djibouti'),
+(190, 'Swedia'),
+(191, 'Uruguay'),
+(192, 'Guinea Khatulistiwa'),
+(193, 'Solomon'),
+(194, 'Saint Helena'),
+(195, 'Vanuatu'),
+(196, 'Sudan'),
+(197, 'Paraguay'),
+(198, 'Finlandia'),
+(199, 'Selandia Baru'),
+(200, 'Zambia'),
+(201, 'Argentina'),
+(202, 'Norwegia'),
+(203, 'Oman'),
+(204, 'Aljazair'),
+(205, 'Arab Saudi'),
+(206, 'Somalia'),
+(207, 'Belize'),
+(208, 'Papua Nugini'),
+(209, 'Kaledonia Baru'),
+(210, 'Turkmenistan'),
+(211, 'Mali'),
+(212, 'Niger'),
+(213, 'Angola'),
+(214, 'Republik Kongo'),
+(215, 'Rusia'),
+(216, 'Bolivia'),
+(217, 'Chad'),
+(218, 'Libya'),
+(219, 'Kazakhstan'),
+(220, 'Gabon'),
+(221, 'Guyana'),
+(222, 'Kanada'),
+(223, 'Rep Afrika Tengah'),
+(224, 'Mauritania'),
+(225, 'Islandia'),
+(226, 'Botswana'),
+(227, 'Suriname'),
+(228, 'Australia'),
+(229, 'Namibia'),
+(230, 'Pulau Natal'),
+(231, 'Guyana Perancis'),
+(232, 'Mongolia'),
+(233, 'Sahara Barat'),
+(234, 'Kepulauan Pitcairn'),
+(235, 'Kepulauan Falkland'),
+(236, 'Svalbard'),
+(237, 'Greenland');
 
 -- --------------------------------------------------------
 
@@ -79,8 +327,8 @@ CREATE TABLE `unit` (
   `id_unit` int(11) NOT NULL,
   `unit_kode` varchar(20) NOT NULL,
   `unit_nama` varchar(255) NOT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -102,8 +350,7 @@ INSERT INTO `unit` (`id_unit`, `unit_kode`, `unit_nama`, `date_created`, `date_u
 (13, '', 'Biro Hukum', '2022-11-20 14:17:45', NULL),
 (14, '', 'Biro Administrasi Umum', '2022-11-20 14:17:45', NULL),
 (15, '', 'Biro Administrasi Akademik', '2022-11-20 14:17:45', NULL),
-(16, '', 'Lembaga Penelitian dan Pengembangan Masyarakat', '2022-11-20 14:17:45', NULL),
-(17, 'aa', 'ab', '2022-11-20 15:16:46', '2022-11-20 15:20:03');
+(16, '', 'Lembaga Penelitian dan Pengembangan Masyarakat', '2022-11-20 14:17:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -119,8 +366,8 @@ CREATE TABLE `universitas` (
   `univ_wa` varchar(20) NOT NULL,
   `univ_email` varchar(50) NOT NULL,
   `univ_fax` varchar(50) NOT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -159,6 +406,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `nama_user`, `level`, `blokir
 --
 
 --
+-- Indexes for table `fakultas`
+--
+ALTER TABLE `fakultas`
+  ADD PRIMARY KEY (`id_fak`);
+
+--
 -- Indexes for table `negara`
 --
 ALTER TABLE `negara`
@@ -193,10 +446,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `fakultas`
+--
+ALTER TABLE `fakultas`
+  MODIFY `id_fak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `negara`
 --
 ALTER TABLE `negara`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=238;
 
 --
 -- AUTO_INCREMENT for table `negara_kategori`

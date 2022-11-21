@@ -75,7 +75,7 @@ if(empty($_SESSION['username'])){
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel110">Edit Data Universitas</h5>
+                <h5 class="modal-title" id="myModalLabel110">Edit Data Fakultas</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -106,7 +106,7 @@ if(empty($_SESSION['username'])){
                                   id="fak_kode"
                                   class="form-control"
                                   name="fak_kode"
-                                  placeholder="Isikan dengan nama Universitas" value="<?= $row['fak_kode']?>"/>
+                                  placeholder="Isikan dengan nama Fakultas" value="<?= $row['fak_kode']?>"/>
                           </div>
                       </div>
                       </div>
@@ -126,7 +126,7 @@ if(empty($_SESSION['username'])){
                                   id="fak_nama"
                                   class="form-control"
                                   name="fak_nama"
-                                  placeholder="Isikan dengan nama Universitas" value="<?= $row['fak_nama']?>"/>
+                                  placeholder="Isikan dengan nama Fakultas" value="<?= $row['fak_nama']?>"/>
                           </div>
                       </div>
                       </div>
@@ -136,7 +136,7 @@ if(empty($_SESSION['username'])){
                           </div>
                           <div class="col-sm-8">
                               <div class="input-group input-group">
-                                <textarea class="form-control" id="" name="fak_ket" colspan="4" rows="3" placeholder="Alamat Universitas"><?= $row['fak_ket']?>
+                                <textarea class="form-control" id="" name="fak_ket" colspan="4" rows="3" placeholder="Keterangan Fakultas"><?= $row['fak_ket']?>
                               </textarea>
                               </div>
                           </div>
@@ -157,7 +157,7 @@ if(empty($_SESSION['username'])){
                                       id="date_created"
                                       class="form-control"
                                       name="date_created"
-                                      placeholder="Masukan No Telpon" value="<?= $row['date_created']?>" disabled/>
+                                      placeholder="tanggal dibuat" value="<?= $row['date_created']?>" disabled/>
                               </div>
                           </div>
                       </div>
@@ -182,10 +182,10 @@ if(empty($_SESSION['username'])){
     <div id="deleteEmployeeModal<?php echo $hasil['id_fak']; ?>" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
-        <form method="post" action="universitas_act.php">
+        <form method="post" action="fakultas_act.php">
         <?php
           $id = $hasil['id_univ']; 
-          $query_edit = mysqli_query($kon, "SELECT * FROM universitas WHERE id_univ='$id'");
+          $query_edit = mysqli_query($kon, "SELECT * FROM fakultas WHERE id_fak='$id'");
           //$result = mysqli_query($conn, $query);
           while ($row = mysqli_fetch_array($query_edit)) {  
           ?>
