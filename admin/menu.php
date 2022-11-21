@@ -93,10 +93,9 @@
                                 <li data-menu="">
                                     <a
                                         class="dropdown-item d-flex align-items-center"
-                                        href="#"
+                                        href="lembaga_data.php"
                                         data-toggle="dropdown"
-                                        data-i18n="Raise Support"
-                                        target="_blank">
+                                        data-i18n="Raise Support">
                                         <i data-feather="life-buoy"></i>
                                         <span data-i18n="Raise Support">Jenis Lembaga</span></a>
                                 </li>
@@ -113,10 +112,9 @@
                                 <li data-menu="">
                                     <a
                                         class="dropdown-item d-flex align-items-center"
-                                        href="#"
+                                        href="jenis_dok_kerjasama.php"
                                         data-toggle="dropdown"
-                                        data-i18n="Raise Support"
-                                        target="_blank">
+                                        data-i18n="Raise Support"">
                                         <i data-feather="life-buoy"></i>
                                         <span data-i18n="Raise Support">Jenis Dokumen Kerjasama</span></a>
                                 </li>

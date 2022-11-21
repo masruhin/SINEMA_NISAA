@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2022 at 10:25 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Generation Time: Nov 21, 2022 at 05:03 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 5.6.39
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,8 +33,8 @@ CREATE TABLE `fakultas` (
   `fak_kode` varchar(20) NOT NULL,
   `fak_nama` varchar(100) NOT NULL,
   `fak_ket` text NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -41,8 +42,54 @@ CREATE TABLE `fakultas` (
 --
 
 INSERT INTO `fakultas` (`id_fak`, `fak_kode`, `fak_nama`, `fak_ket`, `date_created`, `date_updated`) VALUES
-(1, 'BM/I/01', 'Informatika', 'teradapat dua prodi pada fakultas ini', '2022-11-21 02:11:26', '2022-11-21 02:15:08'),
+(1, 'BM/I/011', 'Informatika', 'teradapat dua prodi pada fakultas ini                              ', '2022-11-21 02:11:26', '2022-11-21 15:10:04'),
 (2, 'asdasd', 'Kedokteran', 'asdsd                                                            ', '2022-11-21 02:45:08', '2022-11-21 02:56:14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jenis_dok`
+--
+
+CREATE TABLE `jenis_dok` (
+  `id_jenis_dok` int(11) NOT NULL,
+  `jenis_dok` varchar(255) NOT NULL,
+  `jenis_ket` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jenis_dok`
+--
+
+INSERT INTO `jenis_dok` (`id_jenis_dok`, `jenis_dok`, `jenis_ket`) VALUES
+(1, 'MEMORANDUM OR UNDERSTANDING / NOTA KESEPAHAMAN / PIAGAM KERJA', 'MOU'),
+(2, 'IMPLEMENTATION ARRANGEMENT / PETUNJUK PELAKSANAAN TEKNIS', 'IA'),
+(3, 'MEMORANDUM OF AGREEMENT / PERJANJIAN KERJASAMA', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lembaga`
+--
+
+CREATE TABLE `lembaga` (
+  `id_lembaga` int(11) NOT NULL,
+  `lembaga_kode` varchar(20) NOT NULL,
+  `lembaga_nama` varchar(255) NOT NULL,
+  `lembaga_ket` text NOT NULL,
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lembaga`
+--
+
+INSERT INTO `lembaga` (`id_lembaga`, `lembaga_kode`, `lembaga_nama`, `lembaga_ket`, `date_created`, `date_updated`) VALUES
+(1, 'LMG01', 'LEMBAGA PENDIDIKAN (DALAM NEGERI)', '', '2022-11-20 17:00:00', NULL),
+(2, 'LMG02', 'LEMBAGA PENDIDIKAN (LUAR NEGERI)', '', '2022-11-20 17:00:00', NULL),
+(3, 'LMG03', 'DUNIA KERJA DAN INDUSTRI (LUAR NEGERI)', '   dunia industri                           ', '2022-11-20 17:00:00', '2022-11-21 15:37:44'),
+(4, 'LMG04', 'ORGANISASI (DALAM NEGERI)', '                              ', '2022-11-21 15:32:29', NULL);
 
 -- --------------------------------------------------------
 
@@ -327,8 +374,8 @@ CREATE TABLE `unit` (
   `id_unit` int(11) NOT NULL,
   `unit_kode` varchar(20) NOT NULL,
   `unit_nama` varchar(255) NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -366,8 +413,8 @@ CREATE TABLE `universitas` (
   `univ_wa` varchar(20) NOT NULL,
   `univ_email` varchar(50) NOT NULL,
   `univ_fax` varchar(50) NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -412,6 +459,18 @@ ALTER TABLE `fakultas`
   ADD PRIMARY KEY (`id_fak`);
 
 --
+-- Indexes for table `jenis_dok`
+--
+ALTER TABLE `jenis_dok`
+  ADD PRIMARY KEY (`id_jenis_dok`);
+
+--
+-- Indexes for table `lembaga`
+--
+ALTER TABLE `lembaga`
+  ADD PRIMARY KEY (`id_lembaga`);
+
+--
 -- Indexes for table `negara`
 --
 ALTER TABLE `negara`
@@ -450,6 +509,18 @@ ALTER TABLE `users`
 --
 ALTER TABLE `fakultas`
   MODIFY `id_fak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `jenis_dok`
+--
+ALTER TABLE `jenis_dok`
+  MODIFY `id_jenis_dok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `lembaga`
+--
+ALTER TABLE `lembaga`
+  MODIFY `id_lembaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `negara`
