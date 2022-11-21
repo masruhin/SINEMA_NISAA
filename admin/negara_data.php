@@ -34,7 +34,7 @@ if(empty($_SESSION['username'])){
 											<?php 
 											include "config.php";
 											$no = 1;
-											$data = mysqli_query($kon, "SELECT * FROM negara ORDER BY id ASC");
+											$data = mysqli_query($kon, "SELECT * FROM negara ORDER BY negara_nama ASC");
 											if (!$data) {
 												printf("Error: %s\n", mysqli_error($kon));
 												exit();

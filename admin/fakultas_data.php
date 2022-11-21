@@ -14,7 +14,7 @@ if(empty($_SESSION['username'])){
 				<div class="col-lg-12">
 					<div class="card">
 						<div class="card-header">
-							<h4 class="card-title">Data Universitas</h4>
+							<h4 class="card-title">Data Fakultas</h4>
 							<button
 									type="button"
 									class="btn btn-outline-success round btn-sm"
@@ -26,12 +26,9 @@ if(empty($_SESSION['username'])){
 									<thead>
 											<tr>
 													<th>No</th>
-													<th>NAMA UNIVERSITAS</th>
-													<th>ALAMAT</th>
-													<th>TELPON</th>
-													<th>WHATSAPP</th>
-													<th>EMAIL</th>
-													<th>FAX</th>
+													<th>KODE FAKULTAS</th>
+													<th>NAMA FAKULTAS</th>
+													<th>KETERANGAN</th>
 													<th>TGL DIBUAT</th>
 													<th>TGL DIUBAH</th>
 													<th>Aksi</th>
@@ -41,7 +38,7 @@ if(empty($_SESSION['username'])){
 											<?php 
 											include "config.php";
 											$no = 1;
-											$data = mysqli_query($kon, "SELECT * FROM universitas ORDER BY id_univ ASC");
+											$data = mysqli_query($kon, "SELECT * FROM fakultas ORDER BY fak_nama ASC");
 											if (!$data) {
 												printf("Error: %s\n", mysqli_error($kon));
 												exit();
@@ -52,28 +49,25 @@ if(empty($_SESSION['username'])){
 														<td>
 															<?php echo $no++; ?>
 														</td>
-														<td><?php echo $hasil ['univ_nama'];?></td>
-														<td><?php echo $hasil ['univ_alamat'];?></td>
-														<td><?php echo $hasil ['univ_telp'];?></td>
-														<td><?php echo $hasil ['univ_wa'];?></td>
-														<td><?php echo $hasil ['univ_email'];?></td>
-														<td><?php echo $hasil ['univ_fax'];?></td>
+														<td><?php echo $hasil ['fak_kode'];?></td>
+														<td><?php echo $hasil ['fak_nama'];?></td>
+														<td><?php echo $hasil ['fak_ket'];?></td>
 														<td><?php echo $hasil ['date_created'];?></td>
 														<td><?php echo $hasil ['date_updated'];?></td>
 														<td>
-															<a href="#" type="button" class="open_modal btn btn-flat-info btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id_univ']; ?>">Edit</a>
+															<a href="#" type="button" class="open_modal btn btn-flat-info btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id_fak']; ?>">Edit</a>
 																	<button
 																	type="button"
 																	class="btn btn-flat-danger btn-sm"
 																	data-toggle="modal"
-																	data-target="#deleteEmployeeModal<?php echo $hasil['id_univ']; ?>">Hapus</button>
+																	data-target="#deleteEmployeeModal<?php echo $hasil['id_fak']; ?>">Hapus</button>
 														</td>
 												</tr>
 
 <!-- MODAL EDIT -->
     <div
         class="modal fade text-left modal-success"
-        id="edit<?php echo $hasil['id_univ']; ?>"
+        id="edit<?php echo $hasil['id_fak']; ?>"
         tabindex="-1"
         role="dialog"
         aria-labelledby="myModalLabel110"
@@ -87,49 +81,69 @@ if(empty($_SESSION['username'])){
                 </button>
             </div>
               <div class="modal-body">
-                <form class="form form-horizontal" action="universitas_act.php" method="POST">
+                <form class="form form-horizontal" action="fakultas_act.php" method="POST">
                 <?php
-                  $id = $hasil['id_univ']; 
-                  $query_edit = mysqli_query($kon, "SELECT * FROM universitas WHERE id_univ='$id'");
+                  $id = $hasil['id_fak']; 
+                  $query_edit = mysqli_query($kon, "SELECT * FROM fakultas WHERE id_fak='$id'");
                   while ($row = mysqli_fetch_array($query_edit)) {  
                   ?>
-                  <input type="hidden" name="id_univ" value="<?= $row['id_univ']?>">
+                  <input type="hidden" name="id_fak" value="<?= $row['id_fak']?>">
                     <div class="row">
                       <div class="col-12">
-                      <div class="form-group row">
+                      <div div class="form-group row">
                       <div class="col-sm-4 col-form-label">
-                          <label for="univ_nama"><strong> Nama Universitas </strong></label>
+                          <label for="fak_kode"><strong>Kode Fakultas </strong></label>
                       </div>
                       <div class="col-sm-8">
                           <div class="input-group input-group-merge">
                               <div class="input-group-prepend">
                                   <span class="input-group-text">
-                                      <i data-feather="award"></i>
+                                      <i data-feather="terminal"></i>
                                   </span>
                               </div>
                               <input
                                   type="text"
-                                  id="univ_nama"
+                                  id="fak_kode"
                                   class="form-control"
-                                  name="univ_nama"
-                                  placeholder="Isikan dengan nama Universitas" value="<?= $row['univ_nama']?>"/>
+                                  name="fak_kode"
+                                  placeholder="Isikan dengan nama Universitas" value="<?= $row['fak_kode']?>"/>
+                          </div>
+                      </div>
+                      </div>
+											<div class="form-group row">
+                      <div class="col-sm-4 col-form-label">
+                          <label for="fak_nama"><strong>Nama Fakultas </strong></label>
+                      </div>
+                      <div class="col-sm-8">
+                          <div class="input-group input-group-merge">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i data-feather="layers"></i>
+                                  </span>
+                              </div>
+                              <input
+                                  type="text"
+                                  id="fak_nama"
+                                  class="form-control"
+                                  name="fak_nama"
+                                  placeholder="Isikan dengan nama Universitas" value="<?= $row['fak_nama']?>"/>
                           </div>
                       </div>
                       </div>
                       <div class="form-group row">
                           <div class="col-sm-4 col-form-label">
-                              <label for="univ_alamat"><strong> Alamat </strong></label>
+                              <label for="fak_ket"><strong> Keterangan </strong></label>
                           </div>
                           <div class="col-sm-8">
                               <div class="input-group input-group">
-                                <textarea class="form-control" id="" name="univ_alamat" colspan="4" rows="3" placeholder="Alamat Universitas"><?= $row['univ_alamat']?>
+                                <textarea class="form-control" id="" name="fak_ket" colspan="4" rows="3" placeholder="Alamat Universitas"><?= $row['fak_ket']?>
                               </textarea>
                               </div>
                           </div>
                       </div>
                       <div class="form-group row">
                           <div class="col-sm-4 col-form-label">
-                              <label for="univ_telp"><strong> Telpon </strong></label>
+                              <label for="date_created"><strong> Tgl diBuat </strong></label>
                           </div>
                           <div class="col-sm-8">
                               <div class="input-group input-group-merge">
@@ -140,70 +154,10 @@ if(empty($_SESSION['username'])){
                                   </div>
                                   <input
                                       type="text"
-                                      id="univ_telp"
+                                      id="date_created"
                                       class="form-control"
-                                      name="univ_telp"
-                                      placeholder="Masukan No Telpon" value="<?= $row['univ_telp']?>"/>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <div class="col-sm-4 col-form-label">
-                              <label for="univ_wa"><strong> Whatsapp </strong></label>
-                          </div>
-                          <div class="col-sm-8">
-                              <div class="input-group input-group-merge">
-                                  <div class="input-group-prepend">
-                                      <span class="input-group-text">
-                                          <i data-feather="message-square"></i>
-                                      </span>
-                                  </div>
-                                  <input
-                                      type="text"
-                                      id="univ_wa"
-                                      class="form-control"
-                                      name="univ_wa"
-                                      placeholder="Masukan No Whatsapp" value="<?= $row['univ_wa']?>"/>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <div class="col-sm-4 col-form-label">
-                              <label for="univ_email"><strong> E-mail </strong></label>
-                          </div>
-                          <div class="col-sm-8">
-                              <div class="input-group input-group-merge">
-                                  <div class="input-group-prepend">
-                                      <span class="input-group-text">
-                                          <i data-feather="mail"></i>
-                                      </span>
-                                  </div>
-                                  <input
-                                      type="text"
-                                      id="univ_email"
-                                      class="form-control"
-                                      name="univ_email"
-                                      placeholder="Masukan Alamat Email" value="<?= $row['univ_email']?>"/>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <div class="col-sm-4 col-form-label">
-                              <label for="univ_fax"><strong> Fax </strong></label>
-                          </div>
-                          <div class="col-sm-8">
-                              <div class="input-group input-group-merge">
-                                  <div class="input-group-prepend">
-                                      <span class="input-group-text">
-                                          <i data-feather="file-text"></i>
-                                      </span>
-                                  </div>
-                                  <input
-                                      type="text"
-                                      id="univ_fax"
-                                      class="form-control"
-                                      name="univ_fax"
-                                      placeholder="Masukan Alamat Fax" value="<?= $row['univ_fax']?>"/>
+                                      name="date_created"
+                                      placeholder="Masukan No Telpon" value="<?= $row['date_created']?>" disabled/>
                               </div>
                           </div>
                       </div>
@@ -225,7 +179,7 @@ if(empty($_SESSION['username'])){
 <!-- END MODAL EDIT -->
 
 <!-- MODAL HAPUS -->
-    <div id="deleteEmployeeModal<?php echo $hasil['id_univ']; ?>" class="modal fade">
+    <div id="deleteEmployeeModal<?php echo $hasil['id_fak']; ?>" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
         <form method="post" action="universitas_act.php">
@@ -278,125 +232,66 @@ if(empty($_SESSION['username'])){
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel110"><strong>Tambah Data Universitas</strong></h5>
+						<h5 class="modal-title" id="myModalLabel110"><strong>Tambah Data Fakultas</strong></h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 						</button>
 				</div>
 				<div class="modal-body">
-					<form class="form form-horizontal" action="universitas_act.php" method="POST">
+					<form class="form form-horizontal" action="fakultas_act.php" method="POST">
 						<div class="row">
 							<div class="col-12">
-										<div class="form-group row">
-												<div class="col-sm-4 col-form-label">
-														<label for="univ_nama"><strong> Nama Universitas </strong></label>
-												</div>
-												<div class="col-sm-8">
-														<div class="input-group input-group-merge">
-																<div class="input-group-prepend">
-																		<span class="input-group-text">
-																				<i data-feather="award"></i>
-																		</span>
-																</div>
-																<input
-																		type="text"
-																		id="univ_nama"
-																		class="form-control"
-																		name="univ_nama"
-																		placeholder="Isikan dengan nama Universitas"/>
-														</div>
-												</div>
-										</div>
-                    <div class="form-group row">
-												<div class="col-sm-4 col-form-label">
-														<label for="univ_alamat"><strong> Alamat </strong></label>
-												</div>
-												<div class="col-sm-8">
-														<div class="input-group input-group">
-                              <textarea class="form-control" id="" name="univ_alamat" colspan="4" rows="3" placeholder="Alamat Universitas"></textarea>
-														</div>
-												</div>
-										</div>
-                    <div class="form-group row">
-												<div class="col-sm-4 col-form-label">
-														<label for="univ_telp"><strong> Telpon </strong></label>
-												</div>
-												<div class="col-sm-8">
-														<div class="input-group input-group-merge">
-																<div class="input-group-prepend">
-																		<span class="input-group-text">
-																				<i data-feather="phone-call"></i>
-																		</span>
-																</div>
-																<input
-																		type="text"
-																		id="univ_telp"
-																		class="form-control"
-																		name="univ_telp"
-																		placeholder="Masukan No Telpon"/>
-														</div>
-												</div>
-										</div>
-                    <div class="form-group row">
-												<div class="col-sm-4 col-form-label">
-														<label for="univ_wa"><strong> Whatsapp </strong></label>
-												</div>
-												<div class="col-sm-8">
-														<div class="input-group input-group-merge">
-																<div class="input-group-prepend">
-																		<span class="input-group-text">
-																				<i data-feather="message-square"></i>
-																		</span>
-																</div>
-																<input
-																		type="text"
-																		id="univ_wa"
-																		class="form-control"
-																		name="univ_wa"
-																		placeholder="Masukan No Whatsapp"/>
-														</div>
-												</div>
-										</div>
-                    <div class="form-group row">
-												<div class="col-sm-4 col-form-label">
-														<label for="univ_email"><strong> E-mail </strong></label>
-												</div>
-												<div class="col-sm-8">
-														<div class="input-group input-group-merge">
-																<div class="input-group-prepend">
-																		<span class="input-group-text">
-																				<i data-feather="mail"></i>
-																		</span>
-																</div>
-																<input
-																		type="text"
-																		id="univ_email"
-																		class="form-control"
-																		name="univ_email"
-																		placeholder="Masukan Alamat Email"/>
-														</div>
-												</div>
-										</div>
-                    <div class="form-group row">
-												<div class="col-sm-4 col-form-label">
-														<label for="univ_fax"><strong> Fax </strong></label>
-												</div>
-												<div class="col-sm-8">
-														<div class="input-group input-group-merge">
-																<div class="input-group-prepend">
-																		<span class="input-group-text">
-																				<i data-feather="file-text"></i>
-																		</span>
-																</div>
-																<input
-																		type="text"
-																		id="univ_fax"
-																		class="form-control"
-																		name="univ_fax"
-																		placeholder="Masukan Alamat Fax"/>
-														</div>
-												</div>
-										</div>
+							<div div class="form-group row">
+                      <div class="col-sm-4 col-form-label">
+                          <label for="fak_kode"><strong>Kode Fakultas </strong></label>
+                      </div>
+                      <div class="col-sm-8">
+                          <div class="input-group input-group-merge">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i data-feather="terminal"></i>
+                                  </span>
+                              </div>
+                              <input
+                                  type="text"
+                                  id="fak_kode"
+                                  class="form-control"
+                                  name="fak_kode"
+                                  placeholder="Isikan dengan Kode Fakultas"/>
+                          </div>
+                      </div>
+                      </div>
+											<div class="form-group row">
+                      <div class="col-sm-4 col-form-label">
+                          <label for="fak_nama"><strong>Nama Fakultas </strong></label>
+                      </div>
+                      <div class="col-sm-8">
+                          <div class="input-group input-group-merge">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                      <i data-feather="layers"></i>
+                                  </span>
+                              </div>
+                              <input
+                                  type="text"
+                                  id="fak_nama"
+                                  class="form-control"
+                                  name="fak_nama"
+                                  placeholder="Isikan dengan nama Fakultas"/>
+                          </div>
+                      </div>
+                      </div>
+                      <div class="form-group row">
+                          <div class="col-sm-4 col-form-label">
+                              <label for="fak_ket"><strong> Keterangan </strong></label>
+                          </div>
+                          <div class="col-sm-8">
+                              <div class="input-group input-group">
+                                <textarea class="form-control" id="" name="fak_ket" colspan="4" rows="3" placeholder="Keterangan Fakultas">
+                              </textarea>
+                              </div>
+                          </div>
+                      </div>
 							</div>
 							<div class="col-sm-9 offset-sm-3">
 									<button type="submit" class="btn btn-info mr-1 btn-sm" name="tambah">Simpan</button>
