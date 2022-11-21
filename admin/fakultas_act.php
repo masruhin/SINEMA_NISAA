@@ -39,10 +39,10 @@ if (mysqli_query($kon,$query)) {
 }
 if(isset($_POST['delete']))
 {
-  $id = isset($_GET['id_unit']) ? $_GET['id_unit'] : null;
-  $id = $_POST['id_unit'];
+  $id = isset($_GET['id_fak']) ? $_GET['id_fak'] : null;
+  $id = $_POST['id_fak'];
 	//delete
-	$sql = "DELETE FROM unit WHERE id_unit = '$id'";
+	$sql = "DELETE FROM fakultas WHERE id_fak = '$id'";
 	if(mysqli_query($kon, $sql))
 	{
 		echo "<script type='text/javascript'>

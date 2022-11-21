@@ -184,19 +184,19 @@ if(empty($_SESSION['username'])){
         <div class="modal-content">
         <form method="post" action="fakultas_act.php">
         <?php
-          $id = $hasil['id_univ']; 
+          $id = $hasil['id_fak']; 
           $query_edit = mysqli_query($kon, "SELECT * FROM fakultas WHERE id_fak='$id'");
           //$result = mysqli_query($conn, $query);
           while ($row = mysqli_fetch_array($query_edit)) {  
           ?>
-          <input type="hidden" class="form-control" value="<?php echo $hasil['id_univ']; ?>" name="id_univ" required>
+          <input type="hidden" class="form-control" value="<?php echo $hasil['id_fak']; ?>" name="id_fak" required>
           
             <div class="modal-header">
               <h4 class="modal-title">Delete</h4>
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-              <p>Apakah Kamu akan menghapus Universitas <?php echo $hasil['univ_nama']; ?>?</p>
+              <p>Apakah Kamu akan menghapus Universitas <?php echo $hasil['fak_nama']; ?>?</p>
             </div>
             <div class="modal-footer">
             <button type="submit" class="btn btn-danger mr-1 btn-sm" name="delete">Hapus</button>
