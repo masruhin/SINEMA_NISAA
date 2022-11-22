@@ -96,7 +96,7 @@
                                         href="lembaga_data.php"
                                         data-toggle="dropdown"
                                         data-i18n="Raise Support">
-                                        <i data-feather="life-buoy"></i>
+                                        <i data-feather='slack'></i>
                                         <span data-i18n="Raise Support">Jenis Lembaga</span></a>
                                 </li>
                                 <li data-menu="">
@@ -105,7 +105,7 @@
                                         href="bentuk_kerjasama_data.php"
                                         data-toggle="dropdown"
                                         data-i18n="Raise Support">
-                                        <i data-feather="life-buoy"></i>
+                                        <i data-feather='check-square'></i>
                                         <span data-i18n="Raise Support">Bentuk Kerjasama</span></a>
                                 </li>
                                 <li data-menu="">
@@ -114,7 +114,7 @@
                                         href="jenis_dok_data.php"
                                         data-toggle="dropdown"
                                         data-i18n="Raise Support"">
-                                        <i data-feather="life-buoy"></i>
+                                        <i data-feather='file-text'></i>
                                         <span data-i18n="Raise Support">Jenis Dokumen Kerjasama</span></a>
                                 </li>
                             </ul>
