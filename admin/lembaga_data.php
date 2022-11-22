@@ -15,11 +15,9 @@ if(empty($_SESSION['username'])){
 					<div class="card">
 						<div class="card-header">
 							<h4 class="card-title">Data Lembaga</h4>
-							<button
-									type="button"
-									class="btn btn-outline-success round btn-sm"
-									data-toggle="modal"
-									data-target="#tambah_data">Tambah</button>
+                <button type="button" class="btn btn-outline-success round btn-sm" data-toggle="modal" data-target="#add">
+                  <strong>Tambah</strong>
+                </button>
 						</div>
 							<div class="card-body table-responsive">
 								<table id="dataTables" class="table table-striped">
@@ -64,153 +62,149 @@ if(empty($_SESSION['username'])){
 														</td>
 												</tr>
 
-<!-- MODAL EDIT -->
-    <div
-        class="modal fade text-left modal-success"
-        id="edit<?php echo $hasil['id_lembaga']; ?>"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="myModalLabel110"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel110">Edit Data Lembaga</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-              <div class="modal-body">
-                <form class="form form-horizontal" action="lembaga_act.php" method="POST">
-                <?php
-                  $id = $hasil['id_lembaga']; 
-                  $query_edit = mysqli_query($kon, "SELECT * FROM lembaga WHERE id_lembaga='$id'");
-                  while ($row = mysqli_fetch_array($query_edit)) {  
-                  ?>
-                  <input type="hidden" name="id_lembaga" value="<?= $row['id_lembaga']?>">
-                    <div class="row">
-                      <div class="col-12">
-                      <div div class="form-group row">
-                      <div class="col-sm-4 col-form-label">
-                          <label for="lembaga_kode"><strong>Kode Lembaga </strong></label>
-                      </div>
-                      <div class="col-sm-8">
-                          <div class="input-group input-group-merge">
-                              <div class="input-group-prepend">
-                                  <span class="input-group-text">
-                                      <i data-feather="terminal"></i>
-                                  </span>
-                              </div>
-                              <input
-                                  type="text"
-                                  id="lembaga_kode"
-                                  class="form-control"
-                                  name="lembaga_kode"
-                                  placeholder="Isikan dengan nama Lembaga" value="<?= $row['lembaga_kode']?>"/>
-                          </div>
-                      </div>
-                      </div>
-											<div class="form-group row">
-                      <div class="col-sm-4 col-form-label">
-                          <label for="lembaga_nama"><strong>Nama Lembaga </strong></label>
-                      </div>
-                      <div class="col-sm-8">
-                          <div class="input-group input-group-merge">
-                              <div class="input-group-prepend">
-                                  <span class="input-group-text">
-                                      <i data-feather="layers"></i>
-                                  </span>
-                              </div>
-                              <input
-                                  type="text"
-                                  id="lembaga_nama"
-                                  class="form-control"
-                                  name="lembaga_nama"
-                                  placeholder="Isikan dengan nama Lembaga" value="<?= $row['lembaga_nama']?>"/>
-                          </div>
-                      </div>
-                      </div>
-                      <div class="form-group row">
-                          <div class="col-sm-4 col-form-label">
-                              <label for="lembaga_ket"><strong> Keterangan </strong></label>
-                          </div>
-                          <div class="col-sm-8">
-                              <div class="input-group input-group">
-                                <textarea class="form-control" id="" name="lembaga_ket" colspan="4" rows="3" placeholder="Keterangan Lembaga"><?= $row['lembaga_ket']?>
-                              </textarea>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <div class="col-sm-4 col-form-label">
-                              <label for="date_created"><strong> Tgl diBuat </strong></label>
-                          </div>
-                          <div class="col-sm-8">
-                              <div class="input-group input-group-merge">
-                                  <div class="input-group-prepend">
-                                      <span class="input-group-text">
-                                          <i data-feather="phone-call"></i>
-                                      </span>
-                                  </div>
-                                  <input
-                                      type="text"
-                                      id="date_created"
-                                      class="form-control"
-                                      name="date_created"
-                                      placeholder="tanggal dibuat" value="<?= $row['date_created']?>" disabled/>
-                              </div>
-                          </div>
-                      </div>
-                      </div>
-                        <div class="col-sm-9 offset-sm-3">
-                            <button type="submit" class="btn btn-info mr-1 btn-sm" name="ubah">Simpan</button>
-                            <button type="reset" class="btn btn-outline-danger btn-sm">Reset</button>
+                        <!-- MODAL EDIT -->
+                        <div class="modal-size-lg d-inline-block">
+                        <div class="modal fade text-left" id="edit<?php echo $hasil['id_lembaga']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                        <h5 class="modal-title" id="myModalLabel110">Tambah Data Lembaga</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                </div>
+                                <div class="modal-body">
+                                  <form class="form form-horizontal" action="lembaga_act.php" method="POST">
+                                  <?php
+                                    $id = $hasil['id_lembaga']; 
+                                    $query_edit = mysqli_query($kon, "SELECT * FROM lembaga WHERE id_lembaga='$id'");
+                                    while ($row = mysqli_fetch_array($query_edit)) {  
+                                    ?>
+                                    <input type="hidden" name="id_lembaga" value="<?= $row['id_lembaga']?>">
+                                      <div class="row">
+                                        <div class="col-12">
+                                        <div div class="form-group row">
+                                        <div class="col-sm-4 col-form-label">
+                                            <label for="lembaga_kode"><strong>Kode Lembaga </strong></label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="input-group input-group-merge">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i data-feather="terminal"></i>
+                                                    </span>
+                                                </div>
+                                                <input
+                                                    type="text"
+                                                    id="lembaga_kode"
+                                                    class="form-control"
+                                                    name="lembaga_kode"
+                                                    placeholder="Isikan dengan nama Lembaga" value="<?= $row['lembaga_kode']?>"/>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="form-group row">
+                                        <div class="col-sm-4 col-form-label">
+                                            <label for="lembaga_nama"><strong>Nama Lembaga </strong></label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="input-group input-group-merge">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i data-feather="layers"></i>
+                                                    </span>
+                                                </div>
+                                                <input
+                                                    type="text"
+                                                    id="lembaga_nama"
+                                                    class="form-control"
+                                                    name="lembaga_nama"
+                                                    placeholder="Isikan dengan nama Lembaga" value="<?= $row['lembaga_nama']?>"/>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-4 col-form-label">
+                                                <label for="lembaga_ket"><strong> Keterangan </strong></label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <div class="input-group input-group">
+                                                  <textarea class="form-control" id="" name="lembaga_ket" colspan="4" rows="3" placeholder="Keterangan Lembaga"><?= $row['lembaga_ket']?>
+                                                </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-4 col-form-label">
+                                                <label for="date_created"><strong> Tgl diBuat </strong></label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <div class="input-group input-group-merge">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i data-feather="phone-call"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input
+                                                        type="text"
+                                                        id="date_created"
+                                                        class="form-control"
+                                                        name="date_created"
+                                                        placeholder="tanggal dibuat" value="<?= $row['date_created']?>" disabled/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                          <div class="col-sm-9 offset-sm-3">
+                                              <button type="submit" class="btn btn-info mr-1 btn-sm" name="ubah">Simpan</button>
+                                              <button type="reset" class="btn btn-outline-danger btn-sm">Reset</button>
+                                          </div>
+                                      </div>
+                                      <?php 
+                                      }
+                                      //mysql_close($host);
+                                      ?>  
+                                  </form>
+                                </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <?php 
-                    }
-                    //mysql_close($host);
-                    ?>  
-                </form>
-              </div>
-          </div>
-        </div>
-    </div>
-<!-- END MODAL EDIT -->
+                        </div>
+                        <!-- END MODAL EDIT -->
 
-<!-- MODAL HAPUS -->
-    <div id="deleteEmployeeModal<?php echo $hasil['id_lembaga']; ?>" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-        <form method="post" action="Lembaga_act.php">
-        <?php
-          $id = $hasil['id_lembaga']; 
-          $query_edit = mysqli_query($kon, "SELECT * FROM Lembaga WHERE id_lembaga='$id'");
-          //$result = mysqli_query($conn, $query);
-          while ($row = mysqli_fetch_array($query_edit)) {  
-          ?>
-          <input type="hidden" class="form-control" value="<?php echo $hasil['id_lembaga']; ?>" name="id_lembaga" required>
-          
-            <div class="modal-header">
-              <h4 class="modal-title">Delete</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-            <div class="modal-body">
-              <p>Apakah Kamu akan menghapus Lembaga <?php echo $hasil['lembaga_nama']; ?>?</p>
-            </div>
-            <div class="modal-footer">
-            <button type="submit" class="btn btn-danger mr-1 btn-sm" name="delete">Hapus</button>
-            <button type="submit" class="btn btn-info mr-1 btn-sm" name="hapus" value="Batal" data-dismiss="modal">Batal</button>
-            </div>
-            <?php 
-              }
-              //mysql_close($host);
-              ?>  
-          </form>
-        </div>
-      </div>
-    </div>		
-<!-- END MODAL HAPUS -->
+                        <!-- MODAL HAPUS -->
+                            <div id="deleteEmployeeModal<?php echo $hasil['id_lembaga']; ?>" class="modal fade">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                <form method="post" action="Lembaga_act.php">
+                                <?php
+                                  $id = $hasil['id_lembaga']; 
+                                  $query_edit = mysqli_query($kon, "SELECT * FROM Lembaga WHERE id_lembaga='$id'");
+                                  //$result = mysqli_query($conn, $query);
+                                  while ($row = mysqli_fetch_array($query_edit)) {  
+                                  ?>
+                                  <input type="hidden" class="form-control" value="<?php echo $hasil['id_lembaga']; ?>" name="id_lembaga" required>
+                                  
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">Delete</h4>
+                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Apakah Kamu akan menghapus Lembaga <?php echo $hasil['lembaga_nama']; ?>?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger mr-1 btn-sm" name="delete">Hapus</button>
+                                    <button type="submit" class="btn btn-info mr-1 btn-sm" name="hapus" value="Batal" data-dismiss="modal">Batal</button>
+                                    </div>
+                                    <?php 
+                                      }
+                                      //mysql_close($host);
+                                      ?>  
+                                  </form>
+                                </div>
+                              </div>
+                            </div>		
+                        <!-- END MODAL HAPUS -->
 								<?php               
 									} 
 									?>
@@ -222,30 +216,27 @@ if(empty($_SESSION['username'])){
 	</div>
 </div>
 
-<!-- MODAL ADD -->
-<div class="modal fade text-left modal-success"
-		id="tambah_data"
-		tabindex="-1"
-		role="dialog"
-		aria-labelledby="myModalLabel110"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel110"><strong>Tambah Data Lembaga</strong></h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-						</button>
-				</div>
+
+<!-- Modal ADD-->
+<div class="modal-size-lg d-inline-block">
+<div class="modal fade text-left" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel110">Tambah Data Lembaga</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
 				<div class="modal-body">
 					<form class="form form-horizontal" action="lembaga_act.php" method="POST">
 						<div class="row">
 							<div class="col-12">
 							<div div class="form-group row">
-                      <div class="col-sm-4 col-form-label">
+                      <div class="col-sm-3 col-form-label">
                           <label for="lembaga_kode"><strong>Kode Lembaga </strong></label>
                       </div>
-                      <div class="col-sm-8">
+                      <div class="col-sm-9">
                           <div class="input-group input-group-merge">
                               <div class="input-group-prepend">
                                   <span class="input-group-text">
@@ -262,10 +253,10 @@ if(empty($_SESSION['username'])){
                       </div>
                       </div>
 											<div class="form-group row">
-                      <div class="col-sm-4 col-form-label">
+                      <div class="col-sm-3 col-form-label">
                           <label for="lembaga_nama"><strong>Nama Lembaga </strong></label>
                       </div>
-                      <div class="col-sm-8">
+                      <div class="col-sm-9">
                           <div class="input-group input-group-merge">
                               <div class="input-group-prepend">
                                   <span class="input-group-text">
@@ -282,10 +273,10 @@ if(empty($_SESSION['username'])){
                       </div>
                       </div>
                       <div class="form-group row">
-                          <div class="col-sm-4 col-form-label">
+                          <div class="col-sm-3 col-form-label">
                               <label for="lembaga_ket"><strong> Keterangan </strong></label>
                           </div>
-                          <div class="col-sm-8">
+                          <div class="col-sm-9">
                               <div class="input-group input-group">
                                 <textarea class="form-control" id="" name="lembaga_ket" colspan="4" rows="3" placeholder="Keterangan Lembaga">
                               </textarea>
@@ -300,12 +291,11 @@ if(empty($_SESSION['username'])){
 						</div>
 					</form>
 				</div>
-			</div>
-		</div>
+        </div>
+    </div>
 </div>
-<!-- END MODAL ADD -->
-					
-
+</div>
+<!-- Modal ADD-->
 		<div class="sidenav-overlay"></div>
 		<div class="drag-target"></div>
 		<?php include "footer.php";?>

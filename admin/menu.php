@@ -112,7 +112,7 @@
                                 <li data-menu="">
                                     <a
                                         class="dropdown-item d-flex align-items-center"
-                                        href="jenis_dok_kerjasama.php"
+                                        href="jenis_dok_data.php"
                                         data-toggle="dropdown"
                                         data-i18n="Raise Support"">
                                         <i data-feather="life-buoy"></i>

@@ -7,31 +7,30 @@ error_reporting();
 include "config.php";
 
 if (isset($_POST['tambah'])) {
-  $tambah = mysqli_query($kon, "INSERT INTO lembaga (lembaga_kode, lembaga_nama, lembaga_ket) VALUES ('$_POST[lembaga_kode]','$_POST[lembaga_nama]','$_POST[lembaga_ket]')");
+  $tambah = mysqli_query($kon, "INSERT INTO jenis_dok (Jenis_dok, jenis_ket) VALUES ('$_POST[jenis_dok]','$_POST[jenis_ket]')");
   if ($tambah) {
     echo "<script>alert('Anda Berhasil Menambah Data');
-          document.location='lembaga_data.php';
+          document.location='jenis_dok_data.php';
         </script>";
   }else{
 		echo "<script>alert('Anda Gagal  Menambah Data');
-          document.location='lembaga_data.php';
+          document.location='jenis_dok_data.php';
         </script>";
 	}
 }
 
 if (isset($_POST['ubah'])) {
-$id = isset($_GET['id_lembaga']) ? $_GET['id_lembaga'] : null;
-$id = $_POST['id_lembaga'];
-$lembaga_kode = $_POST['lembaga_kode'];
-$lembaga_nama = $_POST['lembaga_nama'];
-$lembaga_ket = $_POST['lembaga_ket'];
+$id = isset($_GET['id_jenis_dok']) ? $_GET['id_jenis_dok'] : null;
+$id = $_POST['id_jenis_dok'];
+$jenis_dok = $_POST['jenis_dok'];
+$jenis_ket = $_POST['jenis_ket'];
 //query update
-$query = "UPDATE lembaga SET lembaga_kode='$lembaga_kode', lembaga_nama='$lembaga_nama', lembaga_ket='$lembaga_ket' WHERE id_lembaga='$id' ";
+$query = "UPDATE jenis_dok SET jenis_dok='$jenis_dok', jenis_ket='$jenis_ket' WHERE id_jenis_dok='$id' ";
 if (mysqli_query($kon,$query)) {
  # credirect ke page unit
  echo "<script type='text/javascript'>
 			alert('Berhasil Ubah data.'); 
-			document.location = 'lembaga_data.php'; 
+			document.location = 'jenis_dok_data.php'; 
 		</script>";
 }else{
  echo "ERROR, data gagal diupdate". mysqli_error($kon);
@@ -39,15 +38,15 @@ if (mysqli_query($kon,$query)) {
 }
 if(isset($_POST['delete']))
 {
-  $id = isset($_GET['id_lembaga']) ? $_GET['id_lembaga'] : null;
-  $id = $_POST['id_lembaga'];
+  $id = isset($_GET['id_jenis_dok']) ? $_GET['id_jenis_dok'] : null;
+  $id = $_POST['id_jenis_dok'];
 	//delete
-	$sql = "DELETE FROM lembaga WHERE id_lembaga = '$id'";
+	$sql = "DELETE FROM jenis_dok WHERE id_jenis_dok = '$id'";
 	if(mysqli_query($kon, $sql))
 	{
 		echo "<script type='text/javascript'>
 			alert('Berhasil Hapus data.'); 
-			document.location = 'lembaga_data.php'; 
+			document.location = 'jenis_dok_data.php'; 
 		</script>";
 	} 
 	else
