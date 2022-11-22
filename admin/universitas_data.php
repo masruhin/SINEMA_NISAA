@@ -34,7 +34,7 @@ if(empty($_SESSION['username'])){
 													<th>FAX</th>
 													<th>TGL DIBUAT</th>
 													<th>TGL DIUBAH</th>
-													<th>Aksi</th>
+													<th style="text-align:center ;">Aksi</th>
 											</tr>
 									</thead>
 										<tbody>
@@ -60,13 +60,9 @@ if(empty($_SESSION['username'])){
 														<td><?php echo $hasil ['univ_fax'];?></td>
 														<td><?php echo $hasil ['date_created'];?></td>
 														<td><?php echo $hasil ['date_updated'];?></td>
-														<td>
-															<a href="#" type="button" class="open_modal btn btn-flat-info btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id_univ']; ?>">Edit</a>
-																	<button
-																	type="button"
-																	class="btn btn-flat-danger btn-sm"
-																	data-toggle="modal"
-																	data-target="#deleteEmployeeModal<?php echo $hasil['id_univ']; ?>">Hapus</button>
+														<td style="text-align:center ;">
+															<a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id_univ']; ?>">Edit</a>
+															<a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal" data-target="#deleteEmployeeModal<?php echo $hasil['id_univ']; ?>">Hapus</a>
 														</td>
 												</tr>
 

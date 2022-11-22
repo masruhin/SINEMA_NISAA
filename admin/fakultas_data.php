@@ -31,7 +31,7 @@ if(empty($_SESSION['username'])){
 													<th>KETERANGAN</th>
 													<th>TGL DIBUAT</th>
 													<th>TGL DIUBAH</th>
-													<th>Aksi</th>
+													<th style="text-align:center ;">Aksi</th>
 											</tr>
 									</thead>
 										<tbody>
@@ -54,13 +54,9 @@ if(empty($_SESSION['username'])){
 														<td><?php echo $hasil ['fak_ket'];?></td>
 														<td><?php echo $hasil ['date_created'];?></td>
 														<td><?php echo $hasil ['date_updated'];?></td>
-														<td>
-															<a href="#" type="button" class="open_modal btn btn-flat-info btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id_fak']; ?>">Edit</a>
-																	<button
-																	type="button"
-																	class="btn btn-flat-danger btn-sm"
-																	data-toggle="modal"
-																	data-target="#deleteEmployeeModal<?php echo $hasil['id_fak']; ?>">Hapus</button>
+														<td style="text-align:center ;">
+															<a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id_fak']; ?>">Edit</a> |
+                                                            <a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal" data-target="#deleteEmployeeModal<?php echo $hasil['id_fak']; ?>">Hapus</a>
 														</td>
 												</tr>
 
@@ -162,7 +158,7 @@ if(empty($_SESSION['username'])){
                           </div>
                       </div>
                       </div>
-                        <div class="col-sm-9 offset-sm-3">
+                        <div class="col-sm-12 offset-sm-12 modal-footer">
                             <button type="submit" class="btn btn-info mr-1 btn-sm" name="ubah">Simpan</button>
                             <button type="reset" class="btn btn-outline-danger btn-sm">Reset</button>
                         </div>
@@ -198,7 +194,7 @@ if(empty($_SESSION['username'])){
             <div class="modal-body">
               <p>Apakah Kamu akan menghapus Universitas <?php echo $hasil['fak_nama']; ?>?</p>
             </div>
-            <div class="modal-footer">
+            <div class="col-sm-12 offset-sm-12 modal-footer">
             <button type="submit" class="btn btn-danger mr-1 btn-sm" name="delete">Hapus</button>
             <button type="submit" class="btn btn-info mr-1 btn-sm" name="hapus" value="Batal" data-dismiss="modal">Batal</button>
             </div>
@@ -293,7 +289,7 @@ if(empty($_SESSION['username'])){
                           </div>
                       </div>
 							</div>
-							<div class="col-sm-9 offset-sm-3">
+							<div class="col-sm-12 offset-sm-12 modal-footer">
 									<button type="submit" class="btn btn-info mr-1 btn-sm" name="tambah">Simpan</button>
 									<button type="reset" class="btn btn-outline-danger btn-sm">Reset</button>
 							</div>

@@ -30,7 +30,7 @@ if(empty($_SESSION['username'])){
 													<th>Nama Unit</th>
 													<th>Tanggal dibuat</th>
 													<th>Tanggal di upadate</th>
-													<th>Aksi</th>
+													<th style="text-align:center ;">Aksi</th>
 											</tr>
 									</thead>
 										<tbody>
@@ -52,13 +52,9 @@ if(empty($_SESSION['username'])){
 														<td><?php echo $hasil ['unit_nama'];?></td>
 														<td><?php echo $hasil ['date_created'];?></td>
 														<td><?php echo $hasil ['date_updated'];?></td>
-														<td>
-															<a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id_unit']; ?>">Edit</a>
-																	<button
-																	type="button"
-																	class="btn btn-outline-danger round btn-sm"
-																	data-toggle="modal"
-																	data-target="#deleteEmployeeModal<?php echo $hasil['id_unit']; ?>">hapus</button>
+														<td style="text-align:center ;">
+															<a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id_unit']; ?>">Edit</a> |
+															<a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal" data-target="#deleteEmployeeModal<?php echo $hasil['id_unit']; ?>">Hapus</a>
 														</td>
 												</tr>
 											<!-- MODAL EDIT -->

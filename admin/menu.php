@@ -102,10 +102,9 @@
                                 <li data-menu="">
                                     <a
                                         class="dropdown-item d-flex align-items-center"
-                                        href="#"
+                                        href="bentuk_kerjasama_data.php"
                                         data-toggle="dropdown"
-                                        data-i18n="Raise Support"
-                                        target="_blank">
+                                        data-i18n="Raise Support">
                                         <i data-feather="life-buoy"></i>
                                         <span data-i18n="Raise Support">Bentuk Kerjasama</span></a>
                                 </li>

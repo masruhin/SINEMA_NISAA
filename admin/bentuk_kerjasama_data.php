@@ -26,8 +26,9 @@ if(empty($_SESSION['username'])){
 									<thead>
 											<tr>
 													<th>No</th>
-													<th>Jenis Dokumen Kerjasama</th>
-													<th>KETERANGAN</th>
+													<th>Bentuk Kerjasama</th>
+													<th>Tgl Dibuat</th>
+													<th>Tgl DiUpdate</th>
 													<th style="text-align:center;">Aksi</th>
 											</tr>
 									</thead>
@@ -35,7 +36,7 @@ if(empty($_SESSION['username'])){
 											<?php 
 											include "config.php";
 											$no = 1;
-											$data = mysqli_query($kon, "SELECT * FROM jenis_dok ORDER BY jenis_dok ASC");
+											$data = mysqli_query($kon, "SELECT * FROM bentuk_kerjasama ORDER BY bkerja_nama ASC");
 											if (!$data) {
 												printf("Error: %s\n", mysqli_error($kon));
 												exit();
@@ -46,11 +47,12 @@ if(empty($_SESSION['username'])){
 														<td>
 															<?php echo $no++; ?>
 														</td>
-														<td><?php echo $hasil ['jenis_dok'];?></td>
-														<td><?php echo $hasil ['jenis_ket'];?></td>
+														<td><?php echo $hasil ['bkerja_nama'];?></td>
+														<td><?php echo $hasil ['date_created'];?></td>
+														<td><?php echo $hasil ['date_updated'];?></td>
 														<td style="text-align:center ;">
-															<a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id_jenis_dok']; ?>">Edit</a> |
-                              <a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal" data-target="#deleteEmployeeModal<?php echo $hasil['id_jenis_dok']; ?>">Hapus</a>
+															<a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id_bkerja']; ?>">Edit</a> |
+                              <a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal" data-target="#deleteEmployeeModal<?php echo $hasil['id_bkerja']; ?>">Hapus</a>
 														</td>
 												</tr>
 
@@ -125,7 +127,7 @@ if(empty($_SESSION['username'])){
                         <!-- END MODAL EDIT -->
 
                         <!-- MODAL HAPUS -->
-                            <div id="deleteEmployeeModal<?php echo $hasil['id_jenis_dok']; ?>" class="modal fade">
+                            <div id="deleteEmployeeModal<?php echo $hasil['id_bkerja']; ?>" class="modal fade">
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                 <form method="post" action="jenis_dok_act.php">

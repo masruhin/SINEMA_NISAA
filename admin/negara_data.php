@@ -27,7 +27,7 @@ if(empty($_SESSION['username'])){
 											<tr>
 													<th>No</th>
 													<th>NAMA NEGARA</th>
-													<th>Aksi</th>
+													<th style="text-align:center ;">Aksi</th>
 											</tr>
 									</thead>
 										<tbody>
@@ -46,13 +46,10 @@ if(empty($_SESSION['username'])){
 															<?php echo $no++; ?>
 														</td>
 														<td><?php echo $hasil ['negara_nama'];?></td>
-														<td>
+														<td style="text-align:center ;">
 															<a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal" data-target="#edit<?php echo $hasil['id']; ?>">Edit</a>
-																	<button
-																	type="button"
-																	class="btn btn-outline-danger round btn-sm"
-																	data-toggle="modal"
-																	data-target="#deleteEmployeeModal<?php echo $hasil['id']; ?>">hapus</button>
+															|
+															<a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal" data-target="#deleteEmployeeModal<?php echo $hasil['id']; ?>">Hapus</a>
 														</td>
 												</tr>
 											<!-- MODAL EDIT -->
