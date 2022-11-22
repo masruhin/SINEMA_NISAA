@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2022 at 05:03 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.39
+-- Generation Time: Nov 22, 2022 at 04:20 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -33,8 +32,8 @@ CREATE TABLE `fakultas` (
   `fak_kode` varchar(20) NOT NULL,
   `fak_nama` varchar(100) NOT NULL,
   `fak_ket` text NOT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -77,8 +76,8 @@ CREATE TABLE `lembaga` (
   `lembaga_kode` varchar(20) NOT NULL,
   `lembaga_nama` varchar(255) NOT NULL,
   `lembaga_ket` text NOT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -86,10 +85,20 @@ CREATE TABLE `lembaga` (
 --
 
 INSERT INTO `lembaga` (`id_lembaga`, `lembaga_kode`, `lembaga_nama`, `lembaga_ket`, `date_created`, `date_updated`) VALUES
-(1, 'LMG01', 'LEMBAGA PENDIDIKAN (DALAM NEGERI)', '', '2022-11-20 17:00:00', NULL),
-(2, 'LMG02', 'LEMBAGA PENDIDIKAN (LUAR NEGERI)', '', '2022-11-20 17:00:00', NULL),
-(3, 'LMG03', 'DUNIA KERJA DAN INDUSTRI (LUAR NEGERI)', '   dunia industri                           ', '2022-11-20 17:00:00', '2022-11-21 15:37:44'),
-(4, 'LMG04', 'ORGANISASI (DALAM NEGERI)', '                              ', '2022-11-21 15:32:29', NULL);
+(6, 'LPDN', 'LEMBAGA PENDIDIKAN (DALAM NEGERI)', '', '2022-11-22 02:35:40', NULL),
+(7, 'LPLN', 'LEMBAGA PENDIDIKAN (LUAR NEGERI)', '', '2022-11-22 02:35:40', NULL),
+(8, 'DKDILN', 'DUNIA KERJA DAN INDUSTRI (LUAR NEGERI)', '', '2022-11-22 02:35:40', NULL),
+(9, 'ODN', 'ORGANISASI (DALAM NEGERI)', '', '2022-11-22 02:35:40', NULL),
+(10, 'OLN', 'ORGANISASI (LUAR NEGERI)', '', '2022-11-22 02:35:40', NULL),
+(11, 'LPDN', 'LEMBAGA PEMERINTAHAN (DALAM NEGERI)', '', '2022-11-22 02:35:40', NULL),
+(12, 'LPLN', 'LEMBAGA PEMERINTAHAN (LUAR NEGERI)', '', '2022-11-22 02:35:40', NULL),
+(13, 'IKDN', 'INSTANSI KESEHATAN (DALAM NEGERI)', '', '2022-11-22 02:35:40', NULL),
+(14, 'IKLN', 'INSTANSI KESEHATAN (LUAR NEGERI)', '', '2022-11-22 02:35:40', NULL),
+(15, 'PDLIDN', 'PESANTREN DAN LEMBAGA ISLAM (DALAM NEGERI)', '', '2022-11-22 02:35:40', NULL),
+(16, 'PDLILN', 'PESANTREN DAN LEMBAGA ISLAM (LUAR NEGERI)', '', '2022-11-22 02:35:40', NULL),
+(17, 'KDJDLN', 'KONSORSIUM DAN JEJARING (DALAM DAN LUAR NEGERI)', '', '2022-11-22 02:35:40', NULL),
+(18, 'DKDIDN', 'DUNIA KERJA DAN INDUSTRI (DALAM NEGERI)', '                                                                              ', '2022-11-22 02:35:40', '2022-11-22 03:04:16'),
+(19, 'LSKDN', 'LEMBAGA SERIFIKASI KEAHLIAN (DALAM NEGERI)', '', '2022-11-22 02:35:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -374,8 +383,8 @@ CREATE TABLE `unit` (
   `id_unit` int(11) NOT NULL,
   `unit_kode` varchar(20) NOT NULL,
   `unit_nama` varchar(255) NOT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -413,8 +422,8 @@ CREATE TABLE `universitas` (
   `univ_wa` varchar(20) NOT NULL,
   `univ_email` varchar(50) NOT NULL,
   `univ_fax` varchar(50) NOT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -514,13 +523,13 @@ ALTER TABLE `fakultas`
 -- AUTO_INCREMENT for table `jenis_dok`
 --
 ALTER TABLE `jenis_dok`
-  MODIFY `id_jenis_dok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jenis_dok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `lembaga`
 --
 ALTER TABLE `lembaga`
-  MODIFY `id_lembaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_lembaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `negara`
