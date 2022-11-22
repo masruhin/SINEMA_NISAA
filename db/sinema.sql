@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 04:20 AM
+-- Generation Time: Nov 22, 2022 at 08:56 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -20,6 +20,54 @@ SET time_zone = "+00:00";
 --
 -- Database: `sinema`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bentuk_kerjasama`
+--
+
+CREATE TABLE `bentuk_kerjasama` (
+  `id_bkerja` int(11) NOT NULL,
+  `bkerja_nama` varchar(255) NOT NULL,
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bentuk_kerjasama`
+--
+
+INSERT INTO `bentuk_kerjasama` (`id_bkerja`, `bkerja_nama`, `date_created`, `date_updated`) VALUES
+(1, 'GELAR GANDA / DOUBLE DEGREE', '2022-11-22 04:45:51', NULL),
+(2, 'PROGRAM KEMBARAN / TWINNING PROGRAM', '2022-11-22 04:45:51', NULL),
+(3, 'GELAR BERSAMA / JOINT DEGREE', '2022-11-22 04:46:20', NULL),
+(4, 'PERTUKARAN MAHASISWA / STUDENT EXCHANGE', '2022-11-22 04:46:30', NULL),
+(5, 'PERTUKARAN DOSEN DAN STAF / FACULTY EXCHANGE', '2022-11-22 04:46:38', NULL),
+(6, 'PENGEMBANGAN KURIKULUM / CURRICULUM DEVELOPMENT', '2022-11-22 04:46:48', NULL),
+(7, 'PEMAGANGAN / INTERNSHIP', '2022-11-22 04:46:57', NULL),
+(8, 'PENYERAPAN LULUSAN / ALUMNI EMPLOYMENT', '2022-11-22 04:47:10', NULL),
+(9, 'KULIAH PENDEK, SUMMER PROGRAM, PROGRAM BERSAMA / SHORT COURSE', '2022-11-22 04:47:27', NULL),
+(10, 'PENELITIAN BERSAMA / JOINT RESEARCH', '2022-11-22 04:47:35', NULL),
+(11, 'PENGEMBANGAN PUSAT STUDI / RESEARCH CENTER DEVELOPMENT', '2022-11-22 04:47:47', NULL),
+(12, 'PENGEMBANGAN PRODUK / PRODUCT DEVELOPMENT', '2022-11-22 04:47:56', NULL),
+(13, 'PUBLIKASI BERSAMA / JOINT PUBLICATION', '2022-11-22 04:48:04', NULL),
+(14, 'KONFERENSI DAN SEMINAR BERSAMA / JOINT CONFERENCE AND SEMINAR', '2022-11-22 04:48:13', NULL),
+(15, 'PENGABDIAN MASYARAKAT / COMMUNITY SERVICE', '2022-11-22 04:48:21', NULL),
+(16, 'RUMAH SAKIT PENDIDIKAN', '2022-11-22 04:48:29', NULL),
+(17, 'PENERIMAAN MAHASISWA BARU (PMB)', '2022-11-22 04:48:38', NULL),
+(18, 'PEMBERIAN BEASISWA', '2022-11-22 04:48:46', NULL),
+(19, 'PELATIHAN DOSEN, STAF, DAN MAHASISWA / TRAINING FOR LECTURER', '2022-11-22 04:48:56', NULL),
+(20, 'PENDAMPINGAN DAN KONSULTASI DI BIDANG PATEN, DESAIN TATA LETAK', '2022-11-22 04:49:12', NULL),
+(21, 'PENDIDIKAN', '2022-11-22 04:49:22', NULL),
+(22, 'POJOK PENGAWASAN BAWALU/BAWASLU CORNER, PUBLIKASI DATA DIGITA', '2022-11-22 04:49:35', NULL),
+(23, 'TEACHING FACTORY', '2022-11-22 04:49:49', NULL),
+(24, 'PENDIDIKAN KHUSUS PROFESI ADVOKAT', '2022-11-22 04:49:57', NULL),
+(25, 'PEMUATAN BERITA, OPINI, PROFILE, ADVETORIAL, TULISAN LAIN', '2022-11-22 04:50:09', NULL),
+(26, 'PENELITIAN', '2022-11-22 04:50:17', NULL),
+(27, 'KEPANITERAAN KLINIK', '2022-11-22 04:50:24', NULL),
+(28, 'SOSIALISASI, LITERASI, PENGHIMPUNAN, DAN PENGELOLAAN DANA WAKAF', '2022-11-22 04:50:33', NULL),
+(29, 'PROGRAM MBKM', '2022-11-22 04:50:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -63,7 +111,7 @@ CREATE TABLE `jenis_dok` (
 INSERT INTO `jenis_dok` (`id_jenis_dok`, `jenis_dok`, `jenis_ket`) VALUES
 (1, 'MEMORANDUM OR UNDERSTANDING / NOTA KESEPAHAMAN / PIAGAM KERJA', 'MOU'),
 (2, 'IMPLEMENTATION ARRANGEMENT / PETUNJUK PELAKSANAAN TEKNIS', 'IA'),
-(3, 'MEMORANDUM OF AGREEMENT / PERJANJIAN KERJASAMA', '');
+(3, 'MEMORANDUM OF AGREEMENT / PERJANJIAN KERJASAMA', 'MOA                                                      ');
 
 -- --------------------------------------------------------
 
@@ -462,6 +510,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `nama_user`, `level`, `blokir
 --
 
 --
+-- Indexes for table `bentuk_kerjasama`
+--
+ALTER TABLE `bentuk_kerjasama`
+  ADD PRIMARY KEY (`id_bkerja`);
+
+--
 -- Indexes for table `fakultas`
 --
 ALTER TABLE `fakultas`
@@ -514,6 +568,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `bentuk_kerjasama`
+--
+ALTER TABLE `bentuk_kerjasama`
+  MODIFY `id_bkerja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
 -- AUTO_INCREMENT for table `fakultas`
 --
 ALTER TABLE `fakultas`
@@ -523,19 +583,19 @@ ALTER TABLE `fakultas`
 -- AUTO_INCREMENT for table `jenis_dok`
 --
 ALTER TABLE `jenis_dok`
-  MODIFY `id_jenis_dok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_jenis_dok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `lembaga`
 --
 ALTER TABLE `lembaga`
-  MODIFY `id_lembaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_lembaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `negara`
 --
 ALTER TABLE `negara`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=238;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
 
 --
 -- AUTO_INCREMENT for table `negara_kategori`
@@ -547,7 +607,7 @@ ALTER TABLE `negara_kategori`
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `universitas`
