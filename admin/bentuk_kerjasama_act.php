@@ -7,30 +7,29 @@ error_reporting();
 include "config.php";
 
 if (isset($_POST['tambah'])) {
-  $tambah = mysqli_query($kon, "INSERT INTO jenis_dok (Jenis_dok, jenis_ket) VALUES ('$_POST[jenis_dok]','$_POST[jenis_ket]')");
+  $tambah = mysqli_query($kon, "INSERT INTO bentuk_kerjasama (bkerja_nama) VALUES ('$_POST[bkerja_nama]')");
   if ($tambah) {
     echo "<script>alert('Anda Berhasil Menambah Data');
-          document.location='jenis_dok_data.php';
+          document.location='bentuk_kerjasama_data.php';
         </script>";
   }else{
 		echo "<script>alert('Anda Gagal  Menambah Data');
-          document.location='jenis_dok_data.php';
+          document.location='bentuk_kerjasama_data.php';
         </script>";
 	}
 }
 
 if (isset($_POST['ubah'])) {
-$id = isset($_GET['id_jenis_dok']) ? $_GET['id_jenis_dok'] : null;
-$id = $_POST['id_jenis_dok'];
-$jenis_dok = $_POST['jenis_dok'];
-$jenis_ket = $_POST['jenis_ket'];
+$id = isset($_GET['id_bkerja']) ? $_GET['id_bkerja'] : null;
+$id = $_POST['id_bkerja'];
+$bkerja_nama = $_POST['bkerja_nama'];
 //query update
-$query = "UPDATE jenis_dok SET jenis_dok='$jenis_dok', jenis_ket='$jenis_ket' WHERE id_jenis_dok='$id' ";
+$query = "UPDATE bentuk_kerjasama SET bkerja_nama='$bkerja_nama' WHERE id_bkerja='$id' ";
 if (mysqli_query($kon,$query)) {
  # credirect ke page unit
  echo "<script type='text/javascript'>
 			alert('Berhasil Ubah data.'); 
-			document.location = 'jenis_dok_data.php'; 
+			document.location = 'bentuk_kerjasama_data.php'; 
 		</script>";
 }else{
  echo "ERROR, data gagal diupdate". mysqli_error($kon);
@@ -38,15 +37,15 @@ if (mysqli_query($kon,$query)) {
 }
 if(isset($_POST['delete']))
 {
-  $id = isset($_GET['id_jenis_dok']) ? $_GET['id_jenis_dok'] : null;
-  $id = $_POST['id_jenis_dok'];
+  $id = isset($_GET['id_bkerja']) ? $_GET['id_bkerja'] : null;
+  $id = $_POST['id_bkerja'];
 	//delete
-	$sql = "DELETE FROM jenis_dok WHERE id_jenis_dok = '$id'";
+	$sql = "DELETE FROM bentuk_kerjasama WHERE id_bkerja = '$id'";
 	if(mysqli_query($kon, $sql))
 	{
 		echo "<script type='text/javascript'>
 			alert('Berhasil Hapus data.'); 
-			document.location = 'jenis_dok_data.php'; 
+			document.location = 'bentuk_kerjasama_data.php'; 
 		</script>";
 	} 
 	else

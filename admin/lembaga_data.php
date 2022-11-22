@@ -15,9 +15,9 @@ if(empty($_SESSION['username'])){
 					<div class="card">
 						<div class="card-header">
 							<h4 class="card-title">Data Lembaga</h4>
-                <button type="button" class="btn btn-outline-success round btn-sm" data-toggle="modal" data-target="#add">
-                  <strong>Tambah</strong>
-                </button>
+                        <button type="button" class="btn btn-outline-success round btn-sm" data-toggle="modal" data-target="#add">
+                        <strong>Tambah</strong>
+                        </button>
 						</div>
 							<div class="card-body table-responsive">
 								<table id="dataTables" class="table table-striped">

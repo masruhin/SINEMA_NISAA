@@ -79,7 +79,7 @@ if(empty($_SESSION['username'])){
                                               <div class="col-12">
                                               <div class="form-group row">
                                               <div class="col-sm-3 col-form-label">
-                                                  <label for="bkerja_nama"><strong>Jenis Dokumen </strong></label>
+                                                  <label for="bkerja_nama"><strong>Bentuk Kerjasama </strong></label>
                                               </div>
                                               <div class="col-sm-9">
                                                   <div class="input-group input-group-merge">
@@ -93,13 +93,13 @@ if(empty($_SESSION['username'])){
                                                           id="bkerja_nama"
                                                           class="form-control"
                                                           name="bkerja_nama"
-                                                          placeholder="Isikan dengan nama Jenis Dokumen Kerjasama" value="<?= $row['bkerja_nama']?>"/>
+                                                          placeholder="Isikan dengan nama Bentuk Kerjasama Kerjasama" value="<?= $row['bkerja_nama']?>"/>
                                                   </div>
                                               </div>
                                               </div>
                                               <div class="form-group row">
 																							<div class="col-sm-3 col-form-label">
-																									<label for="date_created">Tanggal diBuat</label>
+																									<label for="date_created"><strong>Tanggal diBuat</strong></label>
 																							</div>
 																							<div class="col-sm-9">
 																									<div class="input-group input-group-merge">
@@ -138,21 +138,21 @@ if(empty($_SESSION['username'])){
                             <div id="deleteEmployeeModal<?php echo $hasil['id_bkerja']; ?>" class="modal fade">
                               <div class="modal-dialog">
                                 <div class="modal-content">
-                                <form method="post" action="jenis_dok_act.php">
+                                <form method="post" action="bentuk_kerjasama_act.php">
                                 <?php
-                                  $id = $hasil['id_jenis_dok']; 
-                                  $query_edit = mysqli_query($kon, "SELECT * FROM jenis_dok WHERE id_jenis_dok='$id'");
+                                  $id = $hasil['id_bkerja']; 
+                                  $query_edit = mysqli_query($kon, "SELECT * FROM bentuk_kerjasama WHERE id_bkerja='$id'");
                                   //$result = mysqli_query($conn, $query);
                                   while ($row = mysqli_fetch_array($query_edit)) {  
                                   ?>
-                                  <input type="hidden" class="form-control" value="<?php echo $hasil['id_jenis_dok']; ?>" name="id_jenis_dok" required>
+                                  <input type="hidden" class="form-control" value="<?php echo $hasil['id_bkerja']; ?>" name="id_bkerja" required>
                                   
                                     <div class="modal-header">
                                       <h4 class="modal-title">Delete</h4>
                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                     </div>
                                     <div class="modal-body">
-                                      <p>Apakah Kamu akan menghapus Jenis Dokumen <?php echo $hasil['jenis_dok']; ?>?</p>
+                                      <p>Apakah Kamu akan menghapus Jenis Dokumen <?php echo $hasil['bkerja_nama']; ?>?</p>
                                     </div>
                                     <div class="col-sm-12 offset-sm-12 modal-footer">
                                     <button type="submit" class="btn btn-danger mr-1 btn-sm" name="delete">Hapus</button>
@@ -185,45 +185,34 @@ if(empty($_SESSION['username'])){
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
         <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel110">Tambah Data Jenis Dokumen Kerjasama</h5>
+                <h5 class="modal-title" id="myModalLabel110">Tambah Bentuk Kerjasama</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
         </div>
 				<div class="modal-body">
-        <form class="form form-horizontal" action="jenis_dok_act.php" method="POST">
+        <form class="form form-horizontal" action="bentuk_kerjasama_act.php" method="POST">
 						<div class="row">
 							<div class="col-12">
 							<div div class="form-group row">
                       <div class="col-sm-3 col-form-label">
-                          <label for="jenis_dok"><strong>Jenis Dokumen </strong></label>
+                          <label for="bkerja_nama"><strong>Bentuk Kerjasama </strong></label>
                       </div>
                       <div class="col-sm-9">
                           <div class="input-group input-group-merge">
                               <div class="input-group-prepend">
                                   <span class="input-group-text">
-                                      <i data-feather="terminal"></i>
+                                      <i data-feather="check-square"></i>
                                   </span>
                               </div>
                               <input
                                   type="text"
-                                  id="jenis_dok"
+                                  id="bkerja_nama"
                                   class="form-control"
-                                  name="jenis_dok"
-                                  placeholder="Isi dengan Nama Jenis Dokumen Kerjasama"/>
+                                  name="bkerja_nama"
+                                  placeholder="Isi dengan Nama Bentuk Kerjasama"/>
                           </div>
                       </div>
-                      </div>
-                      <div class="form-group row">
-                          <div class="col-sm-3 col-form-label">
-                              <label for="jenis_ket"><strong> Keterangan </strong></label>
-                          </div>
-                          <div class="col-sm-9">
-                              <div class="input-group input-group">
-                                <textarea class="form-control" id="" name="jenis_ket" colspan="4" rows="3" placeholder="Keterangan Jenis Dokumen">
-                              </textarea>
-                              </div>
-                          </div>
                       </div>
 							</div>
 							<div class="col-sm-12 offset-sm-12 modal-footer">

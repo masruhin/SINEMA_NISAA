@@ -1,4 +1,5 @@
 <?php 
+include "config.php";
   include "header.php";
     if(!isset($_SESSION)) 
     { 
@@ -7,7 +8,18 @@
 if(empty($_SESSION)){
   echo "<script>alert('Silahkan Login Terlebih Dahulu');window.location='index.php'</script>";
 }
-
+//total data univ
+$q_univ = $kon->query("SELECT * FROM universitas");
+$d_univ = mysqli_num_rows($q_univ);
+//total  data fakultas
+$q_fakultas = $kon->query("SELECT * FROM fakultas");
+$d_fakultas = mysqli_num_rows($q_fakultas);
+//total data Unit
+$q_unit = $kon->query("SELECT * FROM unit  WHERE status='Y' ");
+$d_unit = mysqli_num_rows($q_unit);
+//total data Negara
+$q_negara = $kon->query("SELECT * FROM negara");
+$d_negara = mysqli_num_rows($q_negara);
 ?>
   <!-- BEGIN: Content-->
   <div class="app-content content ">
@@ -26,7 +38,7 @@ if(empty($_SESSION)){
                 </h3>
                 <p class="card-text font-small-3">Lihat untuk mengetahui lebih lanjut</p>
                 <h3 class="mb-75 mt-2 pt-50">
-                  <a href="javascript:void(0);">20</a>
+                  <a href="javascript:void(0);">Jumlah <span></span><?php echo $d_univ?></a>
                 </h3>
                 <button type="button" class="btn btn-primary">Lihat</button>
                 <img src="../vendor/app-assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" />
@@ -44,7 +56,7 @@ if(empty($_SESSION)){
                 </h3>
                 <p class="card-text font-small-3">Lihat untuk mengetahui lebih lanjut</p>
                 <h3 class="mb-75 mt-2 pt-50">
-                  <a href="javascript:void(0);">151</a>
+                  <a href="javascript:void(0);">Jumlah <?php echo $d_fakultas?></a>
                 </h3>
                 <button type="button" class="btn btn-primary">Lihat</button>
                 <img src="../vendor/app-assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" />
@@ -61,7 +73,7 @@ if(empty($_SESSION)){
                 </h3>
                 <p class="card-text font-small-3">Lihat untuk mengetahui lebih lanjut</p>
                 <h3 class="mb-75 mt-2 pt-50">
-                  <a href="javascript:void(0);">151</a>
+                  <a href="javascript:void(0);">Jumlah <?php echo $d_unit?></a>
                 </h3>
                 <button type="button" class="btn btn-primary">Lihat</button>
                 <img src="../vendor/app-assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" />
@@ -79,7 +91,7 @@ if(empty($_SESSION)){
                 </h3>
                 <p class="card-text font-small-3">Lihat untuk mengetahui lebih lanjut</p>
                 <h3 class="mb-75 mt-2 pt-50">
-                  <a href="javascript:void(0);">50</a>
+                  <a href="javascript:void(0);">Jumlah <?php echo $d_negara?></a>
                 </h3>
                 <button type="button" class="btn btn-primary">Lihat</button>
                 <img src="../vendor/app-assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" />
