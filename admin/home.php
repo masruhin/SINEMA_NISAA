@@ -45,7 +45,7 @@ $d_negara = mysqli_num_rows($q_negara);
               </div>
             </div>
           </div>
-          <!--/ Medal Card -->
+          <!--/ Medal Carda -->
 
           <!-- Medal Card -->
           <div class="col-xl-3 col-md-3 col-12">
