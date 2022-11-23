@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 08:56 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Generation Time: Nov 23, 2022 at 06:22 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 5.6.39
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,8 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `bentuk_kerjasama` (
   `id_bkerja` int(11) NOT NULL,
   `bkerja_nama` varchar(255) NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -41,7 +42,7 @@ CREATE TABLE `bentuk_kerjasama` (
 INSERT INTO `bentuk_kerjasama` (`id_bkerja`, `bkerja_nama`, `date_created`, `date_updated`) VALUES
 (1, 'GELAR GANDA / DOUBLE DEGREE', '2022-11-22 04:45:51', NULL),
 (2, 'PROGRAM KEMBARAN / TWINNING PROGRAM', '2022-11-22 04:45:51', NULL),
-(3, 'GELAR BERSAMA / JOINT DEGREE', '2022-11-22 04:46:20', NULL),
+(3, 'GELAR BERSAMA / JOINT DEGREE', '2022-11-22 04:46:20', '2022-11-22 13:24:42'),
 (4, 'PERTUKARAN MAHASISWA / STUDENT EXCHANGE', '2022-11-22 04:46:30', NULL),
 (5, 'PERTUKARAN DOSEN DAN STAF / FACULTY EXCHANGE', '2022-11-22 04:46:38', NULL),
 (6, 'PENGEMBANGAN KURIKULUM / CURRICULUM DEVELOPMENT', '2022-11-22 04:46:48', NULL),
@@ -80,8 +81,8 @@ CREATE TABLE `fakultas` (
   `fak_kode` varchar(20) NOT NULL,
   `fak_nama` varchar(100) NOT NULL,
   `fak_ket` text NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -124,8 +125,8 @@ CREATE TABLE `lembaga` (
   `lembaga_kode` varchar(20) NOT NULL,
   `lembaga_nama` varchar(255) NOT NULL,
   `lembaga_ket` text NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -431,30 +432,30 @@ CREATE TABLE `unit` (
   `id_unit` int(11) NOT NULL,
   `unit_kode` varchar(20) NOT NULL,
   `unit_nama` varchar(255) NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `status` enum('Y','N') NOT NULL DEFAULT 'Y',
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `unit`
 --
 
-INSERT INTO `unit` (`id_unit`, `unit_kode`, `unit_nama`, `date_created`, `date_updated`) VALUES
-(1, '', 'Biro Administrasi Umum', '2022-11-19 17:00:00', '2022-11-20 07:38:35'),
-(2, '', 'Fakultas Ekonomi dan Bisnis', '2022-11-19 17:00:00', NULL),
-(3, '', 'Fakultas Teknik Informatika', '2022-11-20 07:22:46', '2022-11-20 07:38:23'),
-(5, '', 'Pascasarjana', '2022-11-20 14:17:45', NULL),
-(6, '', 'Biro Keuangan', '2022-11-20 14:17:45', NULL),
-(7, '', 'Lembaga Pengembangan Kemahasiswaan dan Alumni', '2022-11-20 14:17:45', NULL),
-(8, '', 'Biro Sumber Daya Insani', '2022-11-20 14:17:45', NULL),
-(9, '', 'Direktorat Pemakmuran Masjid', '2022-11-20 14:17:45', NULL),
-(10, '', 'Satuan Pengendalian Internal', '2022-11-20 14:17:45', NULL),
-(11, '', 'UPT Perpustakaan', '2022-11-20 14:17:45', NULL),
-(12, '', 'UPT Pemasaran dan Kehumasan', '2022-11-20 14:17:45', NULL),
-(13, '', 'Biro Hukum', '2022-11-20 14:17:45', NULL),
-(14, '', 'Biro Administrasi Umum', '2022-11-20 14:17:45', NULL),
-(15, '', 'Biro Administrasi Akademik', '2022-11-20 14:17:45', NULL),
-(16, '', 'Lembaga Penelitian dan Pengembangan Masyarakat', '2022-11-20 14:17:45', NULL);
+INSERT INTO `unit` (`id_unit`, `unit_kode`, `unit_nama`, `status`, `date_created`, `date_updated`) VALUES
+(1, '', 'Biro Administrasi Umum', 'Y', '2022-11-19 17:00:00', '2022-11-20 07:38:35'),
+(2, '', 'Fakultas Ekonomi dan Bisnis', 'Y', '2022-11-19 17:00:00', NULL),
+(3, '', 'Fakultas Teknik Informatika', 'Y', '2022-11-20 07:22:46', '2022-11-20 07:38:23'),
+(5, '', 'Pascasarjana', 'Y', '2022-11-20 14:17:45', NULL),
+(6, '', 'Biro Keuangan', 'Y', '2022-11-20 14:17:45', NULL),
+(7, '', 'Lembaga Pengembangan Kemahasiswaan dan Alumni', 'Y', '2022-11-20 14:17:45', NULL),
+(8, '', 'Biro Sumber Daya Insani', 'Y', '2022-11-20 14:17:45', NULL),
+(9, '', 'Direktorat Pemakmuran Masjid', 'Y', '2022-11-20 14:17:45', NULL),
+(10, '', 'Satuan Pengendalian Internal', 'Y', '2022-11-20 14:17:45', NULL),
+(11, '', 'UPT Perpustakaan', 'Y', '2022-11-20 14:17:45', NULL),
+(12, '', 'UPT Pemasaran dan Kehumasan', 'Y', '2022-11-20 14:17:45', NULL),
+(13, '', 'Biro Hukum', 'Y', '2022-11-20 14:17:45', NULL),
+(15, '', 'Biro Administrasi Akademik', 'Y', '2022-11-20 14:17:45', NULL),
+(16, '', 'Lembaga Penelitian dan Pengembangan Masyarakat', 'Y', '2022-11-20 14:17:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -470,8 +471,8 @@ CREATE TABLE `universitas` (
   `univ_wa` varchar(20) NOT NULL,
   `univ_email` varchar(50) NOT NULL,
   `univ_fax` varchar(50) NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -504,6 +505,29 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `password`, `nama_user`, `level`, `blokir`) VALUES
 (1, 'member', '17c4520f6cfd1ab53d8745e84681eb49', 'member', 'user', 'Y'),
 (2, 'superadmin', '17c4520f6cfd1ab53d8745e84681eb49', 'superadmin', 'admin', 'Y');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `web`
+--
+
+CREATE TABLE `web` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `status` enum('Y','N') NOT NULL DEFAULT 'Y'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `web`
+--
+
+INSERT INTO `web` (`id`, `judul`, `deskripsi`, `gambar`, `date_created`, `date_updated`, `status`) VALUES
+(1, 'MOU', 'perjanjian dengan perusahaan teh 2 tang', 'DEBUG.jpg', '2022-11-23 17:00:00', NULL, 'Y');
 
 --
 -- Indexes for dumped tables
@@ -564,6 +588,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `web`
+--
+ALTER TABLE `web`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -583,19 +613,19 @@ ALTER TABLE `fakultas`
 -- AUTO_INCREMENT for table `jenis_dok`
 --
 ALTER TABLE `jenis_dok`
-  MODIFY `id_jenis_dok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_jenis_dok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `lembaga`
 --
 ALTER TABLE `lembaga`
-  MODIFY `id_lembaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_lembaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `negara`
 --
 ALTER TABLE `negara`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=238;
 
 --
 -- AUTO_INCREMENT for table `negara_kategori`
@@ -607,19 +637,25 @@ ALTER TABLE `negara_kategori`
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `universitas`
 --
 ALTER TABLE `universitas`
-  MODIFY `id_univ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_univ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `web`
+--
+ALTER TABLE `web`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

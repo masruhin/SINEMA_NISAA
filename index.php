@@ -96,10 +96,8 @@ $data = mysqli_query($kon, "SELECT * FROM web ORDER BY id ASC");
 									</div>
 
 									<!-- Revenue Report Card -->
-<div class="col-lg-6 col-12" id="basic-carousel" style="background-color:black ;" >
-	<div class="card">
-		<div class="card-body">
-			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+									
+			<div id="carouselExampleIndicators" class="carousel slide col-lg-6 col-12" data-ride="carousel">
 					<ol class="carousel-indicators">
 				<?php
 						for($i=0; $i<$data->num_rows;$i++){
@@ -133,9 +131,6 @@ $data = mysqli_query($kon, "SELECT * FROM web ORDER BY id ASC");
 						<span class="sr-only">Next</span>
 					</a>
 				</div>
-			</div>
-		</div>
-	</div>
 									<!-- <div class="col-lg-6 col-12" id="basic-carousel">
 												<div class="card">
 															<div class="card-body">
