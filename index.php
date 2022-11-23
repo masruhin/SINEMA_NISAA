@@ -1,5 +1,7 @@
 <?php 
 include "includes/header.php";
+include "config.php";
+$data = mysqli_query($kon, "SELECT * FROM web ORDER BY id ASC");
 ?>
 	<div class="app-content content ">
 			<div class="content-overlay"></div>
@@ -94,14 +96,55 @@ include "includes/header.php";
 									</div>
 
 									<!-- Revenue Report Card -->
-									<div class="col-lg-6 col-12" id="basic-carousel">
+<div class="col-lg-6 col-12" id="basic-carousel" style="background-color:black ;" >
+	<div class="card">
+		<div class="card-body">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+				<?php
+						for($i=0; $i<$data->num_rows;$i++){
+								echo '
+								<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'"';
+								if($i==0){echo'class="active"';}echo'></li>';
+						}?>
+					</ol>
+					<div class="carousel-inner">
+							<?php
+							if($data->num_rows > 0){
+								while ($row = $data->fetch_assoc()) {
+								if($row['id'] == 1){
+									echo'<div class="carousel-item active">';}else{echo'<div class="carousel-item">';}
+									echo'
+										<img src="img/'.$row['gambar'].'" alt="'.$row['judul'].'">
+										<div class="carousel-caption d-none d-md-block">
+												<h5>'.$row['judul'].'</h5>
+												<p>'.$row['deskripsi'].'</p>
+										</div>  
+									</div>';
+							}}?>
+		
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+									<!-- <div class="col-lg-6 col-12" id="basic-carousel">
 												<div class="card">
 															<div class="card-body">
 																	<div id="carousel-example-caption" class="carousel slide" data-ride="carousel">
 																			<ol class="carousel-indicators">
-																					<li data-target="#carousel-example-caption" data-slide-to="0" class="active"></li>
-																					<li data-target="#carousel-example-caption" data-slide-to="1"></li>
-																					<li data-target="#carousel-example-caption" data-slide-to="2"></li>
+																				<?php 
+																					for ($i=0; $i<$data->num_rows; $i++) { 
+																					}
+																				?>
 																			</ol>
 																			<div class="carousel-inner" role="listbox">
 																					<div class="carousel-item active">
@@ -114,33 +157,6 @@ include "includes/header.php";
 																									<p class="text-white">
 																											Donut jujubes I love topping I love sweet. Jujubes I love brownie gummi bears I
 																											love donut sweet chocolate. Tart chocolate marshmallow.Tart carrot cake muffin.
-																									</p>
-																							</div>
-																					</div>
-																					<div class="carousel-item">
-																							<img
-																									class="img-fluid"
-																									src="vendor/app-assets/images/slider/08.jpg"
-																									alt="Second slide"/>
-																							<div class="carousel-caption">
-																									<h3 class="text-white">Second Slide Label</h3>
-																									<p class="text-white">
-																											Tart macaroon marzipan I love soufflé apple pie wafer. Chocolate bar jelly
-																											caramels jujubes chocolate cake gummies. Cupcake cake I love cake danish carrot
-																											cake.
-																									</p>
-																							</div>
-																					</div>
-																					<div class="carousel-item">
-																							<img
-																									class="img-fluid"
-																									src="vendor/app-assets/images/slider/10.jpg"
-																									alt="Third slide"/>
-																							<div class="carousel-caption">
-																									<h3 class="text-white">Third Slide Label</h3>
-																									<p class="text-white">
-																											Pudding sweet pie gummies. Chocolate bar sweet tiramisu cheesecake chocolate
-																											cotton candy pastry muffin. Marshmallow cake powder icing.
 																									</p>
 																							</div>
 																					</div>
@@ -164,7 +180,7 @@ include "includes/header.php";
 																	</div>
 															</div>
 													</div>
-									</div>
+									</div> -->
 									<!--/ Revenue Report Card -->
 							</div>
 
