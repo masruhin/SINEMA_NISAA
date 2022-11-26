@@ -7,45 +7,49 @@ error_reporting();
 include "config.php";
 
 if (isset($_POST['tambah'])) {
-  $tambah = mysqli_query($kon, "INSERT INTO unit (unit_nama) VALUES ('$_POST[unit_nama]')");
+  $tambah = mysqli_query($kon, "INSERT INTO negara (negara_nama) VALUES ('$_POST[negara_nama]')");
+//   var_dump($tambah);
+// die();
   if ($tambah) {
     echo "<script>alert('Anda Berhasil Menambah Data');
-          document.location='unit_data.php';
+          document.location='negara_data.php';
         </script>";
   }else{
 		echo "<script>alert('Anda Gagal  Menambah Data');
-          document.location='unit_data.php';
+          document.location='negara_data.php';
         </script>";
 	}
 }
 
 if (isset($_POST['ubah'])) {
-$id = isset($_GET['id_unit']) ? $_GET['id_unit'] : null;
-$id = $_POST['id_unit'];
-$unit_nama = $_POST['unit_nama'];
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+$id = $_POST['id'];
+$negara = $_POST['negara'];
 //query update
-$query = "UPDATE unit SET unit_nama='$unit_nama' WHERE id_unit='$id' ";
+$query = "UPDATE negara SET negara_nama='$negara' WHERE id='$id' ";
 if (mysqli_query($kon,$query)) {
- # credirect ke page unit
+ # credirect ke page index
  echo "<script type='text/javascript'>
 			alert('Berhasil Ubah data.'); 
-			document.location = 'unit_data.php'; 
+			document.location = 'negara_data.php'; 
 		</script>";
+//  header("location:negara_data.php"); 
 }else{
  echo "ERROR, data gagal diupdate". mysqli_error($kon);
 }
 }
+//mysql_close($host);
 if(isset($_POST['delete']))
 {
-  $id = isset($_GET['id_unit']) ? $_GET['id_unit'] : null;
-  $id = $_POST['id_unit'];
+  $id = isset($_GET['id']) ? $_GET['id'] : null;
+  $id = $_POST['id'];
 	//delete
-	$sql = "DELETE FROM unit WHERE id_unit = '$id'";
+	$sql = "DELETE FROM negara WHERE id = '$id'";
 	if(mysqli_query($kon, $sql))
 	{
 		echo "<script type='text/javascript'>
 			alert('Berhasil Hapus data.'); 
-			document.location = 'unit_data.php'; 
+			document.location = 'negara_data.php'; 
 		</script>";
 	} 
 	else
