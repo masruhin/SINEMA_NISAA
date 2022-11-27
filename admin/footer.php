@@ -17,7 +17,10 @@
 <script src="../vendor/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
 <script src="../vendor/app-assets/js/core/app-menu.js"></script>
 <script src="../vendor/app-assets/js/core/app.js"></script>
+<script src="../vendor/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
 <script src="../vendor/app-assets/js/scripts/charts/chart-chartjs.js"></script>
+<script src="../vendor/app-assets/js/scripts/forms/form-select2.js"></script>
+<!-- <script src="../vendor/app-assets/vendors/js/forms/select/select2.full.min.js"></script> -->
 <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
