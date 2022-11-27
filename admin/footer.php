@@ -3,7 +3,10 @@
   <p class="clearfix mb-0"><span class="float-md-left d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a
         class="ml-25" href="#" target="_blank">Development</a></span></p>
 </footer>
+
 <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+<script src="../plugins/jquery/jquery.min.js"></script>
+<script src="../plugins/select2/js/select2.full.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script src="../vendor/app-assets/vendors/js/ui/jquery.sticky.js"></script>
 <script src="../vendor/app-assets/vendors/js/charts/chart.min.js"></script>
@@ -19,7 +22,14 @@
 <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-
+<script>
+$(function() {
+  $("#dataTables").DataTable({
+    "responsive": true,
+    "autoWidth": true,
+  });
+});
+</script>
 <script>
 $(window).on('load', function() {
   if (feather) {
