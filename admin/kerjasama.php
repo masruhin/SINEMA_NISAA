@@ -14,7 +14,7 @@ if(empty($_SESSION['username'])){
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Kerjasama</h4>
+            <h4 class="card-title">Jenis Dokumen Kerjasama</h4>
             <a href="kerjasama_form_add.php" type="button" class="btn btn-outline-success round btn-sm">Tambah</a>
           </div>
           <div class="card-body table-responsive">
@@ -22,7 +22,7 @@ if(empty($_SESSION['username'])){
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Kerjasama</th>
+                  <th>Jenis Dokumen Kerjasama</th>
                   <th>KETERANGAN</th>
                   <th style="text-align:center;">Aksi</th>
                 </tr>

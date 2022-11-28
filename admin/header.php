@@ -38,13 +38,31 @@ include 'config.php';
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/themes/semi-dark-layout.css">
 
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/core/menu/menu-types/horizontal-menu.css">
-    <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/pages/dashboard-ecommerce.css">
+    <link rel="stylesheet" type="text/  css" href="../vendor/app-assets/css/pages/dashboard-ecommerce.css">
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/plugins/charts/chart-apex.css">
     <link rel="stylesheet" type="text/css" href="../vendor/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/vendors/css/forms/select/select2.min.css">
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/vendors/css/pickers/pickadate/pickadate.css">
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
   </head>
+  <style>
+  body {
+    font-family: Rubik-Bold, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-rendering: optimizeLegibility !important;
+    letter-spacing: 0.05em;
+  }
+
+  label {
+    font-family: Rubik-Bold, sans-serif;
+    font-size: 13px;
+    font-weight: 550;
+    text-rendering: optimizeLegibility !important;
+    letter-spacing: 0.05em;
+  }
+
+  </style>
 
   <body class="horizontal-layout horizontal-menu  navbar-floating footer-static  " data-open="hover"
     data-menu="horizontal-menu" data-col="">
