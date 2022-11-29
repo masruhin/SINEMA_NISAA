@@ -54,7 +54,8 @@ if (empty($_SESSION['username'])) {
                               Awal</label>
                             <div class="input-group ">
                               <span class="input-group-text"><i data-feather="calendar"></i></span>
-                              <input type="date" id="tanggal_awal" class="form-control" name="tanggal_awal" required />
+                              <input type="date" id="tanggal_awal" class="form-control" name="tanggal_awal"
+                                value="27-11-22" required />
                             </div>
                           </div>
                         </div>
@@ -65,7 +66,7 @@ if (empty($_SESSION['username'])) {
                             <div class="input-group ">
                               <span class="input-group-text"><i data-feather="calendar"></i></span>
                               <input type="date" id="tanggal_akhir" class="form-control" name="tanggal_akhir"
-                                required />
+                                value="27-11-22" required />
                             </div>
                           </div>
                         </div>
@@ -81,7 +82,6 @@ if (empty($_SESSION['username'])) {
                       <div class="row">
                         <div class="col-12">
                           <div class="mb-1">
-<<<<<<< HEAD
                             <div class="col-12">
                               <div class="mb-1">
                                 <label class="form-label" for="id_jenis_dokumen">Jenis
@@ -95,18 +95,6 @@ if (empty($_SESSION['username'])) {
                                       <?php
                                   $query =
                                       'SELECT * FROM jenis_dok ORDER BY id_jenis_dok';
-=======
-                            <label class="form-label" for="id_jenis_dokumen">Jenis Dokumen
-                              Kerjasama</label>
-                            <div class="input-group input-group-merge">
-                              <span class="input-group-text"><i data-feather="list"></i></span>
-                              <div class="col-10">
-                                <select class="select2 form-select id_jenis_dokumen form-control"
-                                  name="id_jenis_dokumen" id="id_jenis_dokumen">
-                                  <option value="" selected="selected">--- Pilih Jenis Dokumen Kerjasama ---</option>
-                                  <?php
-                                  $query = "SELECT * FROM jenis_dok ORDER BY id_jenis_dok";
->>>>>>> 99db60444a08b0ae6f3b70309fb71e2f83bea8f3
                                   $hasil = mysqli_query($kon, $query);
                                   while ($row = mysqli_fetch_array($hasil)) { ?>
                                       <option value="<?php echo $row[
@@ -140,7 +128,6 @@ if (empty($_SESSION['username'])) {
                               </div>
                             </div>
                           </div>
-<<<<<<< HEAD
                           <div class="col-12">
                             <div class="mb-1">
                               <label class="form-label" for="nomor_dokumen">Nomor
@@ -159,44 +146,6 @@ if (empty($_SESSION['username'])) {
                                 <input type="file" class="form-control-file" id="basicInputFile" />
                               </div>
                             </div>
-=======
-                        </div>
-                        <div class="col-12">
-                          <div class="mb-1">
-                            <label class="form-label" for="nomor_dokumen">Nomor
-                              Kerjasama</label>
-                            <div class="input-group input-group-merge">
-                              <span class="input-group-text"><i data-feather="slack"></i></span>
-                              <input type="text" id="nomor_dokumen" class="form-control" name="nomor_dokumen"
-                                placeholder="Nomor Kerjasama" required />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div class="mb-1">
-                            <label class="form-label" for="judul_kerjasama">Judul Kerjasama</label>
-                            <div class="input-group input-group-merge">
-                              <span class="input-group-text"><i data-feather="sun"></i></span>
-                              <input type="text" id="judul_kerjasama" class="form-control" name="judul_kerjasama"
-                                placeholder="Judul Kerjasama" required />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <div class="mb-1">
-                            <label class="form-label" for="deskripsi">Deskripsi</label>
-                            <textarea name="deskripsi" id="deskripsi" class="form-control" rows="4"
-                              placeholder="Ringkasan singkat terkait cakupan atau kegiatan kerja sama"></textarea>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <label for="customFile">Masukan Dokumen</label>
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile" />
-                            <label class="custom-file-label" for="customFile"
-                              style="background-color:aqua;color:black;">Pilih
-                              Dokumen</label>
->>>>>>> 99db60444a08b0ae6f3b70309fb71e2f83bea8f3
                           </div>
                         </div>
                       </div>
