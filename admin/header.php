@@ -1,8 +1,7 @@
 <?php
-    if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
+if (!isset($_SESSION)) {
+    session_start();
+}
 include 'config.php';
 ?>
 <!DOCTYPE html>
@@ -18,8 +17,7 @@ include 'config.php';
       content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Admin</title>
-    <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/pages/page-auth.css">
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/plugins/forms/form-validation.css">
     <link rel="apple-touch-icon" href="../vendor/app-assets/images/ico/apple-icon-120.png">
@@ -44,7 +42,29 @@ include 'config.php';
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/vendors/css/forms/select/select2.min.css">
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/vendors/css/pickers/pickadate/pickadate.css">
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/app-assets/vendors/css/file-uploaders/dropzone.min.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/plugins/forms/form-file-uploader.css">
   </head>
+  <style>
+  body {
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3f3f46 !important;
+    height: 50px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  span {
+    font-family: Rubik, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  </style>
 
   <body class="horizontal-layout horizontal-menu  navbar-floating footer-static  " data-open="hover"
     data-menu="horizontal-menu" data-col="">
@@ -84,9 +104,8 @@ include 'config.php';
                 <span class="avatar-status-online"></span></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
-              <?php 
-                          if (!empty($_SESSION)) {
-                            echo '<a class="dropdown-item" href="#">
+              <?php if (!empty($_SESSION['username'])) {
+                  echo '<a class="dropdown-item" href="#">
                                 <i class="mr-50" data-feather="edit"></i>
                                 Update Profile</a>
                             <a class="dropdown-item" href="page-auth-login-v2.html">
@@ -95,17 +114,16 @@ include 'config.php';
                             <a class="dropdown-item" href="logout.php">
                                 <i class="mr-50" data-feather="log-out"></i>
                                 Keluar</a> ';
-                          }else {
-                            echo '<a class="dropdown-item" href="login.php">
+              } else {
+                  echo '<a class="dropdown-item" href="login.php">
                                 <i class="mr-50" data-feather="check-circle"></i>
                                 Login</a>';
-                          }?>
+              } ?>
             </div>
           </li>
         </ul>
       </div>
     </nav>
 
-    <?php 
-      include "menu.php";
-      ?>
+    <?php include 'menu.php';
+?>

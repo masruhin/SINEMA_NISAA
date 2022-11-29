@@ -7,8 +7,8 @@
     Author: Pixinvent
     Author URL: hhttp://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
-(function (window, document, $) {
-  'use strict';
+;(function (window, document, $) {
+  'use strict'
   var select = $('.select2'),
     selectIcons = $('.select2-icons'),
     maxLength = $('.max-length'),
@@ -17,24 +17,24 @@
     selectAjax = $('.select2-data-ajax'),
     selectLg = $('.select2-size-lg'),
     selectSm = $('.select2-size-sm'),
-    selectInModal = $('.select2InModal');
+    selectInModal = $('.select2InModal')
 
   select.each(function () {
-    var $this = $(this);
-    $this.wrap('<div class="position-relative"></div>');
+    var $this = $(this)
+    $this.wrap('<div class="position-relative"></div>')
     $this.select2({
       // the following code is used to disable x-scrollbar when click in select input and
       // take 100% width in responsive also
       dropdownAutoWidth: true,
       width: '100%',
-      dropdownParent: $this.parent()
-    });
-  });
+      dropdownParent: $this.parent(),
+    })
+  })
 
   // Select With Icon
   selectIcons.each(function () {
-    var $this = $(this);
-    $this.wrap('<div class="position-relative"></div>');
+    var $this = $(this)
+    $this.wrap('<div class="position-relative"></div>')
     $this.select2({
       dropdownAutoWidth: true,
       width: '100%',
@@ -43,21 +43,21 @@
       templateResult: iconFormat,
       templateSelection: iconFormat,
       escapeMarkup: function (es) {
-        return es;
-      }
-    });
-  });
+        return es
+      },
+    })
+  })
 
   // Format icon
   function iconFormat(icon) {
-    var originalOption = icon.element;
+    var originalOption = icon.element
     if (!icon.id) {
-      return icon.text;
+      return icon.text
     }
 
-    var $icon = feather.icons[$(icon.element).data('icon')].toSvg() + icon.text;
+    var $icon = feather.icons[$(icon.element).data('icon')].toSvg() + icon.text
 
-    return $icon;
+    return $icon
   }
 
   // Limiting the number of selections
@@ -66,14 +66,14 @@
     width: '100%',
     maximumSelectionLength: 2,
     dropdownParent: maxLength.parent(),
-    placeholder: 'Select maximum 2 items'
-  });
+    placeholder: 'Select maximum 2 items',
+  })
 
   // Hide Search Box
   hideSearch.select2({
     placeholder: 'Select an option',
-    minimumResultsForSearch: Infinity
-  });
+    minimumResultsForSearch: Infinity,
+  })
 
   // Loading array data
   var data = [
@@ -81,15 +81,15 @@
     { id: 1, text: 'bug' },
     { id: 2, text: 'duplicate' },
     { id: 3, text: 'invalid' },
-    { id: 4, text: 'wontfix' }
-  ];
+    { id: 4, text: 'wontfix' },
+  ]
 
   selectArray.wrap('<div class="position-relative"></div>').select2({
     dropdownAutoWidth: true,
     dropdownParent: selectArray.parent(),
     width: '100%',
-    data: data
-  });
+    data: data,
+  })
 
   // Loading remote data
   selectAjax.wrap('<div class="position-relative"></div>').select2({
@@ -103,36 +103,36 @@
       data: function (params) {
         return {
           q: params.term, // search term
-          page: params.page
-        };
+          page: params.page,
+        }
       },
       processResults: function (data, params) {
         // parse the results into the format expected by Select2
         // since we are using custom formatting functions we do not need to
         // alter the remote JSON data, except to indicate that infinite
         // scrolling can be used
-        params.page = params.page || 1;
+        params.page = params.page || 1
 
         return {
           results: data.items,
           pagination: {
-            more: params.page * 30 < data.total_count
-          }
-        };
+            more: params.page * 30 < data.total_count,
+          },
+        }
       },
-      cache: true
+      cache: true,
     },
     placeholder: 'Search for a repository',
     escapeMarkup: function (markup) {
-      return markup;
+      return markup
     }, // let our custom formatter work
     minimumInputLength: 1,
     templateResult: formatRepo,
-    templateSelection: formatRepoSelection
-  });
+    templateSelection: formatRepoSelection,
+  })
 
   function formatRepo(repo) {
-    if (repo.loading) return repo.text;
+    if (repo.loading) return repo.text
 
     var markup =
       "<div class='select2-result-repository clearfix'>" +
@@ -142,10 +142,13 @@
       "<div class='select2-result-repository__meta'>" +
       "<div class='select2-result-repository__title'>" +
       repo.full_name +
-      '</div>';
+      '</div>'
 
     if (repo.description) {
-      markup += "<div class='select2-result-repository__description'>" + repo.description + '</div>';
+      markup +=
+        "<div class='select2-result-repository__description'>" +
+        repo.description +
+        '</div>'
     }
 
     markup +=
@@ -163,44 +166,44 @@
       repo.watchers_count +
       ' Watchers</div>' +
       '</div>' +
-      '</div></div>';
+      '</div></div>'
 
-    return markup;
+    return markup
   }
 
   function formatRepoSelection(repo) {
-    return repo.full_name || repo.text;
+    return repo.full_name || repo.text
   }
 
   // Sizing options
 
   // Large
   selectLg.each(function () {
-    var $this = $(this);
-    $this.wrap('<div class="position-relative"></div>');
+    var $this = $(this)
+    $this.wrap('<div class="position-relative"></div>')
     $this.select2({
       dropdownAutoWidth: true,
       dropdownParent: $this.parent(),
       width: '100%',
-      containerCssClass: 'select-lg'
-    });
-  });
+      containerCssClass: 'select-lg',
+    })
+  })
 
   // Small
   selectSm.each(function () {
-    var $this = $(this);
-    $this.wrap('<div class="position-relative"></div>');
+    var $this = $(this)
+    $this.wrap('<div class="position-relative"></div>')
     $this.select2({
       dropdownAutoWidth: true,
       dropdownParent: $this.parent(),
       width: '100%',
-      containerCssClass: 'select-sm'
-    });
-  });
+      containerCssClass: 'select-sm',
+    })
+  })
 
   $('#select2InModal').on('shown.bs.modal', function () {
     selectInModal.select2({
-      placeholder: 'Select a state'
-    });
-  });
-})(window, document, jQuery);
+      placeholder: 'Select a state',
+    })
+  })
+})(window, document, jQuery)

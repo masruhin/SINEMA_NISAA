@@ -32,7 +32,7 @@
           <li data-menu="" <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
             <a class="dropdown-item d-flex align-items-center" href="kerjasama.php?kerjasama">
               <i data-feather="plus"></i>
-              <span data-i18n="Documentation">Input Kerjasama</span>
+              <span data-i18n="Documentation">Kerjasama</span>
             </a>
           </li>
           <li class="dropdown nav-item" data-menu="dropdown"
@@ -70,7 +70,7 @@
           <li class="dropdown nav-item" data-menu="dropdown">
             <a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-toggle="dropdown">
               <i data-feather="paperclip"></i>
-              <span data-i18n="Misc">Kerjasama</span></a>
+              <span data-i18n="Misc">Referensi Kerjasama</span></a>
             <ul class="dropdown-menu">
               <!-- <li data-menu="" <?php if (isset($_GET["ksm"])){echo 'class="active"';}?>>
                 <a class="dropdown-item d-flex align-items-center" href="lembaga_data.php?ksm" data-toggle="dropdown"

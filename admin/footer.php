@@ -5,8 +5,9 @@
 </footer>
 
 <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
-<script src="../plugins/jquery/jquery.min.js"></script>
-<script src="../plugins/select2/js/select2.full.min.js"></script>
+<!-- <script src="../plugins/jquery/jquery.min.js"></script> -->
+<!-- <script src="../plugins/select2/js/select2.full.min.js"></script> -->
+<script src="../vendor/app-assets/vendors/js/vendors.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script src="../vendor/app-assets/vendors/js/ui/jquery.sticky.js"></script>
 <script src="../vendor/app-assets/vendors/js/charts/chart.min.js"></script>
@@ -17,14 +18,16 @@
 <script src="../vendor/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
 <script src="../vendor/app-assets/js/core/app-menu.js"></script>
 <script src="../vendor/app-assets/js/core/app.js"></script>
-<script src="../vendor/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+<!-- <script src="../vendor/app-assets/vendors/js/forms/select/select2.full.min.js"></script> -->
 <script src="../vendor/app-assets/js/scripts/charts/chart-chartjs.js"></script>
 <script src="../vendor/app-assets/js/scripts/forms/form-select2.js"></script>
-<!-- <script src="../vendor/app-assets/vendors/js/forms/select/select2.full.min.js"></script> -->
+<script src="../vendor/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
 <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../vendor/app-assets/vendors/js/file-uploaders/dropzone.min.js"></script>
+<script src="../vendor/app-assets/js/scripts/forms/form-file-uploader.js"></script>
 <script>
 $(function() {
   $("#dataTables").DataTable({
