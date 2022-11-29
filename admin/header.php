@@ -36,7 +36,7 @@ include 'config.php';
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/themes/semi-dark-layout.css">
 
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/core/menu/menu-types/horizontal-menu.css">
-    <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/pages/dashboard-ecommerce.css">
+    <link rel="stylesheet" type="text/  css" href="../vendor/app-assets/css/pages/dashboard-ecommerce.css">
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/plugins/charts/chart-apex.css">
     <link rel="stylesheet" type="text/css" href="../vendor/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/vendors/css/forms/select/select2.min.css">
@@ -49,6 +49,7 @@ include 'config.php';
   </head>
   <style>
   body {
+<<<<<<< HEAD
     font-family: Rubik, sans-serif;
     font-size: 14px;
     font-weight: 600;
@@ -62,6 +63,21 @@ include 'config.php';
     font-family: Rubik, sans-serif;
     font-size: 14px;
     font-weight: 600;
+=======
+    font-family: Rubik-Bold, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-rendering: optimizeLegibility !important;
+    letter-spacing: 0.05em;
+  }
+
+  label {
+    font-family: Rubik-Bold, sans-serif;
+    font-size: 13px;
+    font-weight: 550;
+    text-rendering: optimizeLegibility !important;
+    letter-spacing: 0.05em;
+>>>>>>> 99db60444a08b0ae6f3b70309fb71e2f83bea8f3
   }
 
   </style>
