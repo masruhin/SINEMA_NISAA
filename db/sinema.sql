@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2022 at 06:22 PM
+-- Generation Time: Nov 30, 2022 at 01:12 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -90,8 +90,9 @@ CREATE TABLE `fakultas` (
 --
 
 INSERT INTO `fakultas` (`id_fak`, `fak_kode`, `fak_nama`, `fak_ket`, `date_created`, `date_updated`) VALUES
-(1, 'BM/I/011', 'Informatika', 'teradapat dua prodi pada fakultas ini                              ', '2022-11-21 02:11:26', '2022-11-21 15:10:04'),
-(2, 'asdasd', 'Kedokteran', 'asdsd                                                            ', '2022-11-21 02:45:08', '2022-11-21 02:56:14');
+(3, 'FIKES', 'Fakultas Ilmu kesehatan', '', '2022-11-25 17:00:00', NULL),
+(4, 'FIKOM', 'Fakultas Ilmu Komputer', '', '2022-11-25 17:00:00', NULL),
+(5, 'FEB', 'Fakultas Ekonomi dan Bisnis', '', '2022-11-25 17:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -113,6 +114,31 @@ INSERT INTO `jenis_dok` (`id_jenis_dok`, `jenis_dok`, `jenis_ket`) VALUES
 (1, 'MEMORANDUM OR UNDERSTANDING / NOTA KESEPAHAMAN / PIAGAM KERJA', 'MOU'),
 (2, 'IMPLEMENTATION ARRANGEMENT / PETUNJUK PELAKSANAAN TEKNIS', 'IA'),
 (3, 'MEMORANDUM OF AGREEMENT / PERJANJIAN KERJASAMA', 'MOA                                                      ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `konfigurasi`
+--
+
+CREATE TABLE `konfigurasi` (
+  `id` int(11) NOT NULL,
+  `telpon` bigint(13) NOT NULL,
+  `email` varchar(256) NOT NULL,
+  `instagram` varchar(256) NOT NULL,
+  `alamat` text NOT NULL,
+  `judul` varchar(256) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `banner` text NOT NULL,
+  `logo` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `konfigurasi`
+--
+
+INSERT INTO `konfigurasi` (`id`, `telpon`, `email`, `instagram`, `alamat`, `judul`, `deskripsi`, `banner`, `logo`) VALUES
+(1, 89876543210, 'anp@gmail.com', 'anp', '<p>Jl. Anugerah Niagatama Perkasa</p>', 'PT. Anugrah Niagatama Perkasa', 'Hakshdkjahsdkjhashdkj', '', '29986_apple-touch-icon.png');
 
 -- --------------------------------------------------------
 
@@ -425,12 +451,22 @@ INSERT INTO `negara_kategori` (`id_kategori`, `kategori_nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `status_kerjasama`
+--
+
+CREATE TABLE `status_kerjasama` (
+  `id_status` int(11) NOT NULL,
+  `status` enum('aktif','nonaktif') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `unit`
 --
 
 CREATE TABLE `unit` (
   `id_unit` int(11) NOT NULL,
-  `unit_kode` varchar(20) NOT NULL,
   `unit_nama` varchar(255) NOT NULL,
   `status` enum('Y','N') NOT NULL DEFAULT 'Y',
   `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -441,21 +477,14 @@ CREATE TABLE `unit` (
 -- Dumping data for table `unit`
 --
 
-INSERT INTO `unit` (`id_unit`, `unit_kode`, `unit_nama`, `status`, `date_created`, `date_updated`) VALUES
-(1, '', 'Biro Administrasi Umum', 'Y', '2022-11-19 17:00:00', '2022-11-20 07:38:35'),
-(2, '', 'Fakultas Ekonomi dan Bisnis', 'Y', '2022-11-19 17:00:00', NULL),
-(3, '', 'Fakultas Teknik Informatika', 'Y', '2022-11-20 07:22:46', '2022-11-20 07:38:23'),
-(5, '', 'Pascasarjana', 'Y', '2022-11-20 14:17:45', NULL),
-(6, '', 'Biro Keuangan', 'Y', '2022-11-20 14:17:45', NULL),
-(7, '', 'Lembaga Pengembangan Kemahasiswaan dan Alumni', 'Y', '2022-11-20 14:17:45', NULL),
-(8, '', 'Biro Sumber Daya Insani', 'Y', '2022-11-20 14:17:45', NULL),
-(9, '', 'Direktorat Pemakmuran Masjid', 'Y', '2022-11-20 14:17:45', NULL),
-(10, '', 'Satuan Pengendalian Internal', 'Y', '2022-11-20 14:17:45', NULL),
-(11, '', 'UPT Perpustakaan', 'Y', '2022-11-20 14:17:45', NULL),
-(12, '', 'UPT Pemasaran dan Kehumasan', 'Y', '2022-11-20 14:17:45', NULL),
-(13, '', 'Biro Hukum', 'Y', '2022-11-20 14:17:45', NULL),
-(15, '', 'Biro Administrasi Akademik', 'Y', '2022-11-20 14:17:45', NULL),
-(16, '', 'Lembaga Penelitian dan Pengembangan Masyarakat', 'Y', '2022-11-20 14:17:45', NULL);
+INSERT INTO `unit` (`id_unit`, `unit_nama`, `status`, `date_created`, `date_updated`) VALUES
+(17, 'BAAK', 'Y', '2022-11-25 17:00:00', NULL),
+(18, 'BAU', 'Y', '2022-11-25 17:00:00', NULL),
+(19, 'Laboratorium', 'Y', '2022-11-25 17:00:00', NULL),
+(20, 'Perpustakaan', 'Y', '2022-11-25 17:00:00', NULL),
+(21, 'LP2M', 'Y', '2022-11-25 17:00:00', NULL),
+(22, 'LPM', 'Y', '2022-11-25 17:00:00', NULL),
+(23, 'Sarana dan Prasarana', 'Y', '2022-11-25 17:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -481,7 +510,8 @@ CREATE TABLE `universitas` (
 
 INSERT INTO `universitas` (`id_univ`, `univ_nama`, `univ_alamat`, `univ_telp`, `univ_wa`, `univ_email`, `univ_fax`, `date_created`, `date_updated`) VALUES
 (1, 'universitas TRISAKTI', 'Jalan Kyai Tapa No. 1 Grogol\r\nJakarta Barat, Indonesia                                              ', '(62-21) 566 3232', '(+62) 882 1948 5674', 'humas@trisakti.ac.id', '(62-21) 564 4270', '2022-11-20 12:21:20', '2022-11-20 14:39:54'),
-(2, 'udinus', 'semarang', '08232323', '0090232322', 'udinus@.gmail.com', '232323', '2022-11-20 13:23:50', NULL);
+(2, 'udinus', 'semarang', '08232323', '0090232322', 'udinus@.gmail.com', '232323', '2022-11-20 13:23:50', NULL),
+(3, 'Universitas Panca Sakti', 'Tegal', '02202022', '08232323232', 'user@gmail.com', '232323', '2022-11-25 05:30:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -504,7 +534,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `nama_user`, `level`, `blokir`) VALUES
 (1, 'member', '17c4520f6cfd1ab53d8745e84681eb49', 'member', 'user', 'Y'),
-(2, 'superadmin', '17c4520f6cfd1ab53d8745e84681eb49', 'superadmin', 'admin', 'Y');
+(2, 'superadmin', '17c4520f6cfd1ab53d8745e84681eb49', 'superadmin', 'admin', 'Y'),
+(3, 'masruhin', '04f7bfe02b96496002b53d146d527f28', 'masruhin', 'user', 'N'),
+(4, 'sample', '5e8ff9bf55ba3508199d22e984129be6', 'sample', 'user', 'Y');
 
 -- --------------------------------------------------------
 
@@ -527,7 +559,8 @@ CREATE TABLE `web` (
 --
 
 INSERT INTO `web` (`id`, `judul`, `deskripsi`, `gambar`, `date_created`, `date_updated`, `status`) VALUES
-(1, 'MOU', 'perjanjian dengan perusahaan teh 2 tang', 'DEBUG.jpg', '2022-11-23 17:00:00', NULL, 'Y');
+(1, 'MOU', 'perjanjian dengan perusahaan teh 2 tang', 'DEBUG.jpg', '2022-11-23 17:00:00', NULL, 'Y'),
+(2, 'MOU', 'perjanjian dengan Polres Slawi', 'mou.jpg', '2022-11-23 17:00:00', NULL, 'Y');
 
 --
 -- Indexes for dumped tables
@@ -570,6 +603,12 @@ ALTER TABLE `negara_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
+-- Indexes for table `status_kerjasama`
+--
+ALTER TABLE `status_kerjasama`
+  ADD PRIMARY KEY (`id_status`);
+
+--
 -- Indexes for table `unit`
 --
 ALTER TABLE `unit`
@@ -607,7 +646,7 @@ ALTER TABLE `bentuk_kerjasama`
 -- AUTO_INCREMENT for table `fakultas`
 --
 ALTER TABLE `fakultas`
-  MODIFY `id_fak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_fak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `jenis_dok`
@@ -634,28 +673,34 @@ ALTER TABLE `negara_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `status_kerjasama`
+--
+ALTER TABLE `status_kerjasama`
+  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `universitas`
 --
 ALTER TABLE `universitas`
-  MODIFY `id_univ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_univ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `web`
 --
 ALTER TABLE `web`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
