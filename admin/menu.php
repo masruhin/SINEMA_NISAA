@@ -37,7 +37,7 @@
           </li>
           <li class="dropdown nav-item" data-menu="dropdown"
             <?php if (isset($_GET["master"])){echo 'class="active"';}?>>
-            <a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-toggle="dropdown">
+            <a class="dropdown-toggle nav-link d-flex align-items-center" data-toggle="dropdown">
               <i data-feather="box"></i>
               <span data-i18n="Misc">Master Data</span></a>
             <ul class="dropdown-menu">
@@ -87,8 +87,8 @@
               <li data-menu="" <?php if (isset($_GET["ksm"])){echo 'class="active"';}?>>
                 <a class="dropdown-item d-flex align-items-center" href="jenis_dok_data.php?ksm" data-toggle="dropdown"
                   data-i18n="Raise Support"">
-                                        <i data-feather='twitch'></i>
-                                        <span data-i18n=" Raise Support">Jenis Dok Kerjasama</span></a>
+                <i data-feather='twitch'></i>
+                <span data-i18n=" Raise Support">Jenis Kerjasama</span></a>
               </li>
             </ul>
           </li>

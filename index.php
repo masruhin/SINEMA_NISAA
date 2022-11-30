@@ -2,6 +2,19 @@
 include "includes/header.php";
 include "config.php";
 $data = mysqli_query($kon, "SELECT * FROM web ORDER BY id ASC");
+
+$q_univ = $kon->query("SELECT * FROM universitas");
+$d_univ = mysqli_num_rows($q_univ);
+//total  data fakultas
+$q_fakultas = $kon->query("SELECT * FROM fakultas");
+$d_fakultas = mysqli_num_rows($q_fakultas);
+//total data Unit
+$q_unit = $kon->query("SELECT * FROM unit  WHERE status='Y' ");
+$d_unit = mysqli_num_rows($q_unit);
+//total data Negara
+$q_negara = $kon->query("SELECT * FROM negara");
+$d_negara = mysqli_num_rows($q_negara);
+?>
 ?>
 <div class="app-content content ">
   <div class="content-overlay"></div>
@@ -22,7 +35,7 @@ $data = mysqli_query($kon, "SELECT * FROM web ORDER BY id ASC");
                       <a href="javascript:void(0);">Universitas</a>
                     </h3>
                     <h3 class="mb-75 mt-2 pt-50">
-                      <a href="javascript:void(0);">151</a>
+                      <a href="javascript:void(0);">Jumlah <span></span><?php echo $d_univ?></a>
                     </h3>
                     <button type="button" class="btn btn-primary">Lihat</button>
                     <img src="vendor/app-assets/images/illustration/badge.svg" class="congratulation-medal"
@@ -40,7 +53,7 @@ $data = mysqli_query($kon, "SELECT * FROM web ORDER BY id ASC");
                       <a href="javascript:void(0);">Fakultas</a>
                     </h3>
                     <h3 class="mb-75 mt-2 pt-50">
-                      <a href="javascript:void(0);">151</a>
+                      <a href="javascript:void(0);">Jumlah <?php echo $d_fakultas?></a>
                     </h3>
                     <button type="button" class="btn btn-primary">Lihat</button>
                     <img src="vendor/app-assets/images/illustration/badge.svg" class="congratulation-medal"
@@ -57,7 +70,7 @@ $data = mysqli_query($kon, "SELECT * FROM web ORDER BY id ASC");
                       <a href="javascript:void(0);">Unit</a>
                     </h3>
                     <h3 class="mb-75 mt-2 pt-50">
-                      <a href="javascript:void(0);">151</a>
+                      <a href="javascript:void(0);">Jumlah <?php echo $d_unit?></a>
                     </h3>
                     <button type="button" class="btn btn-primary">Lihat</button>
                     <img src="vendor/app-assets/images/illustration/badge.svg" class="congratulation-medal"
@@ -75,7 +88,7 @@ $data = mysqli_query($kon, "SELECT * FROM web ORDER BY id ASC");
                       <a href="javascript:void(0);">Negara</a>
                     </h3>
                     <h3 class="mb-75 mt-2 pt-50">
-                      <a href="javascript:void(0);">151</a>
+                      <a href="javascript:void(0);">Jumlah <?php echo $d_negara?></a>
                     </h3>
                     <button type="button" class="btn btn-primary">Lihat</button>
                     <img src="vendor/app-assets/images/illustration/badge.svg" class="congratulation-medal"

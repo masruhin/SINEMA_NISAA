@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2022 at 06:22 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.39
+-- Generation Time: Nov 30, 2022 at 10:00 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,8 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `bentuk_kerjasama` (
   `id_bkerja` int(11) NOT NULL,
   `bkerja_nama` varchar(255) NOT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -81,8 +80,8 @@ CREATE TABLE `fakultas` (
   `fak_kode` varchar(20) NOT NULL,
   `fak_nama` varchar(100) NOT NULL,
   `fak_ket` text NOT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -90,8 +89,25 @@ CREATE TABLE `fakultas` (
 --
 
 INSERT INTO `fakultas` (`id_fak`, `fak_kode`, `fak_nama`, `fak_ket`, `date_created`, `date_updated`) VALUES
-(1, 'BM/I/011', 'Informatika', 'teradapat dua prodi pada fakultas ini                              ', '2022-11-21 02:11:26', '2022-11-21 15:10:04'),
-(2, 'asdasd', 'Kedokteran', 'asdsd                                                            ', '2022-11-21 02:45:08', '2022-11-21 02:56:14');
+(3, 'FIKES', 'Fakultas Ilmu kesehatan', '', '2022-11-25 17:00:00', NULL),
+(4, 'FIKOM', 'Fakultas Ilmu Komputer', '', '2022-11-25 17:00:00', NULL),
+(5, 'FEB', 'Fakultas Ekonomi dan Bisnis', '', '2022-11-25 17:00:00', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `file`
+--
+
+CREATE TABLE `file` (
+  `id_file` int(11) NOT NULL,
+  `judul_file` varchar(120) NOT NULL,
+  `nama_file` varchar(120) NOT NULL,
+  `tipe_file` varchar(20) NOT NULL,
+  `ukuran_file` varchar(30) NOT NULL,
+  `file` varchar(255) NOT NULL,
+  `tgl_entry` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -117,6 +133,49 @@ INSERT INTO `jenis_dok` (`id_jenis_dok`, `jenis_dok`, `jenis_ket`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kerjasama`
+--
+
+CREATE TABLE `kerjasama` (
+  `id_kerjasama` int(11) NOT NULL,
+  `id_jenis_dok` int(11) NOT NULL,
+  `judul_kerjasama` varchar(255) NOT NULL,
+  `deskripsi_kerjasama` text NOT NULL,
+  `id_file` int(11) NOT NULL,
+  `status_kerjasama` enum('aktif','nonaktif') NOT NULL,
+  `tanggal_awal` date NOT NULL,
+  `tanggal_akhir` date NOT NULL,
+  `no_ref_kerjasama` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `konfigurasi`
+--
+
+CREATE TABLE `konfigurasi` (
+  `id` int(11) NOT NULL,
+  `telpon` bigint(13) NOT NULL,
+  `email` varchar(256) NOT NULL,
+  `instagram` varchar(256) NOT NULL,
+  `alamat` text NOT NULL,
+  `judul` varchar(256) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `banner` text NOT NULL,
+  `logo` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `konfigurasi`
+--
+
+INSERT INTO `konfigurasi` (`id`, `telpon`, `email`, `instagram`, `alamat`, `judul`, `deskripsi`, `banner`, `logo`) VALUES
+(1, 89876543210, 'anp@gmail.com', 'anp', '<p>Jl. Anugerah Niagatama Perkasa</p>', 'PT. Anugrah Niagatama Perkasa', 'Hakshdkjahsdkjhashdkj', '', '29986_apple-touch-icon.png');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lembaga`
 --
 
@@ -125,8 +184,8 @@ CREATE TABLE `lembaga` (
   `lembaga_kode` varchar(20) NOT NULL,
   `lembaga_nama` varchar(255) NOT NULL,
   `lembaga_ket` text NOT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -430,32 +489,24 @@ INSERT INTO `negara_kategori` (`id_kategori`, `kategori_nama`) VALUES
 
 CREATE TABLE `unit` (
   `id_unit` int(11) NOT NULL,
-  `unit_kode` varchar(20) NOT NULL,
   `unit_nama` varchar(255) NOT NULL,
   `status` enum('Y','N') NOT NULL DEFAULT 'Y',
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `unit`
 --
 
-INSERT INTO `unit` (`id_unit`, `unit_kode`, `unit_nama`, `status`, `date_created`, `date_updated`) VALUES
-(1, '', 'Biro Administrasi Umum', 'Y', '2022-11-19 17:00:00', '2022-11-20 07:38:35'),
-(2, '', 'Fakultas Ekonomi dan Bisnis', 'Y', '2022-11-19 17:00:00', NULL),
-(3, '', 'Fakultas Teknik Informatika', 'Y', '2022-11-20 07:22:46', '2022-11-20 07:38:23'),
-(5, '', 'Pascasarjana', 'Y', '2022-11-20 14:17:45', NULL),
-(6, '', 'Biro Keuangan', 'Y', '2022-11-20 14:17:45', NULL),
-(7, '', 'Lembaga Pengembangan Kemahasiswaan dan Alumni', 'Y', '2022-11-20 14:17:45', NULL),
-(8, '', 'Biro Sumber Daya Insani', 'Y', '2022-11-20 14:17:45', NULL),
-(9, '', 'Direktorat Pemakmuran Masjid', 'Y', '2022-11-20 14:17:45', NULL),
-(10, '', 'Satuan Pengendalian Internal', 'Y', '2022-11-20 14:17:45', NULL),
-(11, '', 'UPT Perpustakaan', 'Y', '2022-11-20 14:17:45', NULL),
-(12, '', 'UPT Pemasaran dan Kehumasan', 'Y', '2022-11-20 14:17:45', NULL),
-(13, '', 'Biro Hukum', 'Y', '2022-11-20 14:17:45', NULL),
-(15, '', 'Biro Administrasi Akademik', 'Y', '2022-11-20 14:17:45', NULL),
-(16, '', 'Lembaga Penelitian dan Pengembangan Masyarakat', 'Y', '2022-11-20 14:17:45', NULL);
+INSERT INTO `unit` (`id_unit`, `unit_nama`, `status`, `date_created`, `date_updated`) VALUES
+(17, 'BAAK', 'Y', '2022-11-25 17:00:00', NULL),
+(18, 'BAU', 'Y', '2022-11-25 17:00:00', NULL),
+(19, 'Laboratorium', 'Y', '2022-11-25 17:00:00', NULL),
+(20, 'Perpustakaan', 'Y', '2022-11-25 17:00:00', NULL),
+(21, 'LP2M', 'Y', '2022-11-25 17:00:00', NULL),
+(22, 'LPM', 'Y', '2022-11-25 17:00:00', NULL),
+(23, 'Sarana dan Prasarana', 'Y', '2022-11-25 17:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -471,8 +522,8 @@ CREATE TABLE `universitas` (
   `univ_wa` varchar(20) NOT NULL,
   `univ_email` varchar(50) NOT NULL,
   `univ_fax` varchar(50) NOT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -481,7 +532,8 @@ CREATE TABLE `universitas` (
 
 INSERT INTO `universitas` (`id_univ`, `univ_nama`, `univ_alamat`, `univ_telp`, `univ_wa`, `univ_email`, `univ_fax`, `date_created`, `date_updated`) VALUES
 (1, 'universitas TRISAKTI', 'Jalan Kyai Tapa No. 1 Grogol\r\nJakarta Barat, Indonesia                                              ', '(62-21) 566 3232', '(+62) 882 1948 5674', 'humas@trisakti.ac.id', '(62-21) 564 4270', '2022-11-20 12:21:20', '2022-11-20 14:39:54'),
-(2, 'udinus', 'semarang', '08232323', '0090232322', 'udinus@.gmail.com', '232323', '2022-11-20 13:23:50', NULL);
+(2, 'udinus', 'semarang', '08232323', '0090232322', 'udinus@.gmail.com', '232323', '2022-11-20 13:23:50', NULL),
+(3, 'Universitas Panca Sakti', 'Tegal', '02202022', '08232323232', 'user@gmail.com', '232323', '2022-11-25 05:30:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -504,7 +556,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `nama_user`, `level`, `blokir`) VALUES
 (1, 'member', '17c4520f6cfd1ab53d8745e84681eb49', 'member', 'user', 'Y'),
-(2, 'superadmin', '17c4520f6cfd1ab53d8745e84681eb49', 'superadmin', 'admin', 'Y');
+(2, 'superadmin', '17c4520f6cfd1ab53d8745e84681eb49', 'superadmin', 'admin', 'Y'),
+(3, 'masruhin', '04f7bfe02b96496002b53d146d527f28', 'masruhin', 'user', 'N'),
+(4, 'sample', '5e8ff9bf55ba3508199d22e984129be6', 'sample', 'user', 'Y');
 
 -- --------------------------------------------------------
 
@@ -517,8 +571,8 @@ CREATE TABLE `web` (
   `judul` varchar(255) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `date_created` timestamp NULL DEFAULT current_timestamp(),
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
   `status` enum('Y','N') NOT NULL DEFAULT 'Y'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -527,7 +581,8 @@ CREATE TABLE `web` (
 --
 
 INSERT INTO `web` (`id`, `judul`, `deskripsi`, `gambar`, `date_created`, `date_updated`, `status`) VALUES
-(1, 'MOU', 'perjanjian dengan perusahaan teh 2 tang', 'DEBUG.jpg', '2022-11-23 17:00:00', NULL, 'Y');
+(1, 'MOU', 'perjanjian dengan perusahaan teh 2 tang', 'DEBUG.jpg', '2022-11-23 17:00:00', NULL, 'Y'),
+(2, 'MOU', 'perjanjian dengan Polres Slawi', 'mou.jpg', '2022-11-23 17:00:00', NULL, 'Y');
 
 --
 -- Indexes for dumped tables
@@ -546,10 +601,24 @@ ALTER TABLE `fakultas`
   ADD PRIMARY KEY (`id_fak`);
 
 --
+-- Indexes for table `file`
+--
+ALTER TABLE `file`
+  ADD PRIMARY KEY (`id_file`);
+
+--
 -- Indexes for table `jenis_dok`
 --
 ALTER TABLE `jenis_dok`
   ADD PRIMARY KEY (`id_jenis_dok`);
+
+--
+-- Indexes for table `kerjasama`
+--
+ALTER TABLE `kerjasama`
+  ADD PRIMARY KEY (`id_kerjasama`),
+  ADD KEY `id_jenis_dok` (`id_jenis_dok`),
+  ADD KEY `id_file` (`id_file`);
 
 --
 -- Indexes for table `lembaga`
@@ -607,13 +676,19 @@ ALTER TABLE `bentuk_kerjasama`
 -- AUTO_INCREMENT for table `fakultas`
 --
 ALTER TABLE `fakultas`
-  MODIFY `id_fak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_fak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `jenis_dok`
 --
 ALTER TABLE `jenis_dok`
   MODIFY `id_jenis_dok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `kerjasama`
+--
+ALTER TABLE `kerjasama`
+  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `lembaga`
@@ -637,25 +712,36 @@ ALTER TABLE `negara_kategori`
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `universitas`
 --
 ALTER TABLE `universitas`
-  MODIFY `id_univ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_univ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `web`
 --
 ALTER TABLE `web`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `kerjasama`
+--
+ALTER TABLE `kerjasama`
+  ADD CONSTRAINT `kerjasama_ibfk_1` FOREIGN KEY (`id_jenis_dok`) REFERENCES `jenis_dok` (`id_jenis_dok`),
+  ADD CONSTRAINT `kerjasama_ibfk_2` FOREIGN KEY (`id_file`) REFERENCES `file` (`id_file`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

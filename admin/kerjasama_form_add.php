@@ -33,8 +33,7 @@ if (empty($_SESSION['username'])) {
                             <div class="input-group input-group-merge">
                               <span class="input-group-text"><i data-feather='chevrons-down'></i></span>
                               <div class="col-lg-10">
-                                <select class="select2 form-select id_status_kerjasama form-control"
-                                  name="id_status_kerjasama" required>
+                                <select class="select2 form-select form-control" name="status" required>
                                   <option value="" readonly>Pilih Status Kerjasama
                                   </option>
                                   <option value="aktif">
@@ -54,8 +53,7 @@ if (empty($_SESSION['username'])) {
                               Awal</label>
                             <div class="input-group ">
                               <span class="input-group-text"><i data-feather="calendar"></i></span>
-                              <input type="date" id="tanggal_awal" class="form-control" name="tanggal_awal"
-                                value="27-11-22" required />
+                              <input type="date" id="tanggal_awal" class="form-control" name="tanggal_awal" required />
                             </div>
                           </div>
                         </div>
@@ -66,7 +64,7 @@ if (empty($_SESSION['username'])) {
                             <div class="input-group ">
                               <span class="input-group-text"><i data-feather="calendar"></i></span>
                               <input type="date" id="tanggal_akhir" class="form-control" name="tanggal_akhir"
-                                value="27-11-22" required />
+                                required />
                             </div>
                           </div>
                         </div>
@@ -87,24 +85,24 @@ if (empty($_SESSION['username'])) {
                                 <label class="form-label" for="id_jenis_dokumen">Jenis
                                   Kerjasama</label>
                                 <div class="input-group input-group-merge">
-                                  <span class="input-group-text"><i data-feather="sun"></i></span>
+                                  <span class="input-group-text"><i data-feather='paperclip'></i></i></span>
                                   <div class="col-10">
-                                    <select class="select2 form-control form-control-md" name="id_jenis_dokumen"
-                                      id="id_jenis_dokumen">
-                                      <option value="" selected="selected">--- Pilih Bentuk Kerjasama ---</option>
+                                    <select class="select2 form-control form-control-md" name="jenis_dok"
+                                      id="jenis_dok">
+                                      <option value="" selected="selected">-- Pilih Bentuk Kerjasama --</option>
                                       <?php
-                                  $query =
-                                      'SELECT * FROM jenis_dok ORDER BY id_jenis_dok';
-                                  $hasil = mysqli_query($kon, $query);
-                                  while ($row = mysqli_fetch_array($hasil)) { ?>
+                                      $query =
+                                          'SELECT * FROM jenis_dok ORDER BY id_jenis_dok';
+                                      $hasil = mysqli_query($kon, $query);
+                                      while ($row = mysqli_fetch_array($hasil)) { ?>
                                       <option value="<?php echo $row[
-                                      'id_jenis_dok'
-                                  ]; ?>">
+                                          'id_jenis_dok'
+                                      ]; ?>">
                                         <?php echo $row['id_jenis_dok'] .
-                                        ' | ' .
-                                        $row['jenis_dok']; ?></option>
+                                            ' | ' .
+                                            $row['jenis_dok']; ?></option>
                                       <?php }
-                                  ?>
+                                      ?>
                                     </select>
                                   </div>
                                 </div>
@@ -114,7 +112,7 @@ if (empty($_SESSION['username'])) {
                               <div class="mb-1">
                                 <label class="form-label" for="judul_kerjasama">Judul Kerjasama</label>
                                 <div class="input-group input-group-merge">
-                                  <span class="input-group-text"><i data-feather="sun"></i></span>
+                                  <span class="input-group-text"><i data-feather='pocket'></i></span>
                                   <input type="text" id="judul_kerjasama" class="form-control" name="judul_kerjasama"
                                     placeholder="Judul Kerjasama" required />
                                 </div>
@@ -133,7 +131,7 @@ if (empty($_SESSION['username'])) {
                               <label class="form-label" for="nomor_dokumen">Nomor
                                 Referensi</label>
                               <div class="input-group input-group-merge">
-                                <span class="input-group-text"><i data-feather="slack"></i></span>
+                                <span class="input-group-text"><i data-feather='file-minus'></i></i></span>
                                 <input type="text" id="nomor_dokumen" class="form-control" name="nomor_dokumen"
                                   placeholder="Nomor Dokumen" required />
                               </div>
