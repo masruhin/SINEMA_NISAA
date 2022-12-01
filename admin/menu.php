@@ -23,17 +23,31 @@
       <div class="shadow-bottom"></div>
       <div class="navbar-container main-menu-content" data-menu="menu-container">
         <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
-          <li data-menu="" <?php if (isset($_GET["home"])){echo 'class="active"';}?>>
+          <li class="" data-menu="" <?php if (isset($_GET["home"])){echo 'class="active"';}?>>
             <a class="dropdown-item d-flex align-items-center" href="home.php?home">
               <i data-feather="home"></i>
               <span data-i18n="Documentation">Home</span>
             </a>
           </li>
-          <li data-menu="" <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
+          <!-- <li data-menu="" <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
             <a class="dropdown-item d-flex align-items-center" href="kerjasama.php?kerjasama">
               <i data-feather="plus"></i>
               <span data-i18n="Documentation">Kerjasama</span>
             </a>
+          </li> -->
+          <li class="dropdown nav-item" data-menu="dropdown"
+            <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
+            <a class="dropdown-toggle nav-link d-flex align-items-center" data-toggle="dropdown">
+              <i data-feather='folder-plus'></i>
+              <span data-i18n="Misc">Kerjasama</span></a>
+            <ul class="dropdown-menu">
+              <li data-menu="" <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
+                <a class="dropdown-item d-flex align-items-center" href="kerjasama.php?kerjasama" data-toggle="dropdown"
+                  data-i18n="Raise Support">
+                  <i data-feather='file-text'></i>
+                  <span data-i18n="Raise Support">Data Kerjasama</span></a>
+              </li>
+            </ul>
           </li>
           <li class="dropdown nav-item" data-menu="dropdown"
             <?php if (isset($_GET["master"])){echo 'class="active"';}?>>

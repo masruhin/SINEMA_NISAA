@@ -87,10 +87,10 @@ if (empty($_SESSION['username'])) {
                                 <div class="input-group input-group-merge">
                                   <span class="input-group-text"><i data-feather='paperclip'></i></i></span>
                                   <div class="col-10">
-                                    <select class="select2 form-control form-control-md" name="jenis_dok"
-                                      id="jenis_dok">
+                                    <select class="select2 form-control form-control-md">
                                       <option value="" selected="selected">-- Pilih Bentuk Kerjasama --</option>
                                       <?php
+                                      $no = 1;
                                       $query =
                                           'SELECT * FROM jenis_dok ORDER BY id_jenis_dok';
                                       $hasil = mysqli_query($kon, $query);
@@ -142,6 +142,32 @@ if (empty($_SESSION['username'])) {
                               <div class="form-group">
                                 <label for="basicInputFile">Upload Dokumen Surat Perjanjian</label>
                                 <input type="file" class="form-control-file" id="basicInputFile" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="mb-1">
+                              <label class="form-label" for="id_jenis_dokumen">Unit Penggiat Kerjasama</label>
+                              <div class="input-group input-group-merge">
+                                <span class="input-group-text"><i data-feather='paperclip'></i></i></span>
+                                <div class="col-10">
+                                  <select class="select2 form-control form-control-md" name="jenis_dok" id="jenis_dok">
+                                    <option value="" selected="selected">-- Pilih Penggiat Kerjasama --</option>
+                                    <?php
+                                      $query =
+                                          'SELECT * FROM unit ORDER BY id_unit';
+                                      $hasil = mysqli_query($kon, $query);
+                                      while ($row = mysqli_fetch_array($hasil)) { ?>
+                                    <option value="<?php echo $row[
+                                          'id_unit'
+                                      ]; ?>">
+                                      <?php echo $row['id_unit'] .
+                                            ' | ' .
+                                            $row['unit_nama']; ?></option>
+                                    <?php }
+                                      ?>
+                                  </select>
+                                </div>
                               </div>
                             </div>
                           </div>

@@ -47,6 +47,21 @@ include 'config.php';
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/vendors/css/file-uploaders/dropzone.min.css">
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/plugins/forms/form-file-uploader.css">
   </head>
+  <style>
+  .nav-item .nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Rubik, sans-serif;
+  }
+
+  .navbar-floating,
+  .label {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Rubik, sans-serif;
+  }
+
+  </style>
 
   <body class="horizontal-layout horizontal-menu  navbar-floating footer-static  " data-open="hover"
     data-menu="horizontal-menu" data-col="">
