@@ -3,9 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Nov 30, 2022 at 10:00 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
+=======
+-- Generation Time: Nov 30, 2022 at 01:12 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 5.6.39
+>>>>>>> 748142cfd998d210844d4419969a72840d505872
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -92,6 +98,7 @@ INSERT INTO `fakultas` (`id_fak`, `fak_kode`, `fak_nama`, `fak_ket`, `date_creat
 (3, 'FIKES', 'Fakultas Ilmu kesehatan', '', '2022-11-25 17:00:00', NULL),
 (4, 'FIKOM', 'Fakultas Ilmu Komputer', '', '2022-11-25 17:00:00', NULL),
 (5, 'FEB', 'Fakultas Ekonomi dan Bisnis', '', '2022-11-25 17:00:00', NULL);
+<<<<<<< HEAD
 
 -- --------------------------------------------------------
 
@@ -108,6 +115,8 @@ CREATE TABLE `file` (
   `file` varchar(255) NOT NULL,
   `tgl_entry` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+=======
+>>>>>>> 748142cfd998d210844d4419969a72840d505872
 
 -- --------------------------------------------------------
 
@@ -133,6 +142,7 @@ INSERT INTO `jenis_dok` (`id_jenis_dok`, `jenis_dok`, `jenis_ket`) VALUES
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `kerjasama`
 --
 
@@ -151,6 +161,8 @@ CREATE TABLE `kerjasama` (
 -- --------------------------------------------------------
 
 --
+=======
+>>>>>>> 748142cfd998d210844d4419969a72840d505872
 -- Table structure for table `konfigurasi`
 --
 
@@ -484,6 +496,17 @@ INSERT INTO `negara_kategori` (`id_kategori`, `kategori_nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `status_kerjasama`
+--
+
+CREATE TABLE `status_kerjasama` (
+  `id_status` int(11) NOT NULL,
+  `status` enum('aktif','nonaktif') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `unit`
 --
 
@@ -639,6 +662,12 @@ ALTER TABLE `negara_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
+-- Indexes for table `status_kerjasama`
+--
+ALTER TABLE `status_kerjasama`
+  ADD PRIMARY KEY (`id_status`);
+
+--
 -- Indexes for table `unit`
 --
 ALTER TABLE `unit`
@@ -709,6 +738,12 @@ ALTER TABLE `negara_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `status_kerjasama`
+--
+ALTER TABLE `status_kerjasama`
+  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
@@ -731,6 +766,7 @@ ALTER TABLE `users`
 --
 ALTER TABLE `web`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+<<<<<<< HEAD
 
 --
 -- Constraints for dumped tables
@@ -742,6 +778,8 @@ ALTER TABLE `web`
 ALTER TABLE `kerjasama`
   ADD CONSTRAINT `kerjasama_ibfk_1` FOREIGN KEY (`id_jenis_dok`) REFERENCES `jenis_dok` (`id_jenis_dok`),
   ADD CONSTRAINT `kerjasama_ibfk_2` FOREIGN KEY (`id_file`) REFERENCES `file` (`id_file`);
+=======
+>>>>>>> 748142cfd998d210844d4419969a72840d505872
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
