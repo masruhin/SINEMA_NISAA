@@ -186,7 +186,7 @@ if (empty($_SESSION['username'])) {
                   </div>
                 </div>
                 <div class="col-sm-12 offset-sm-12 modal-footer">
-                  <button type="submit" class="btn btn-info mr-1 btn-sm" name="materiFile">Simpan</button>
+                  <button type="submit" class="btn btn-info mr-1 btn-sm" name="upload">Simpan</button>
                   <button type="reset" class="btn btn-outline-danger btn-sm">Reset</button>
                 </div>
               </div>

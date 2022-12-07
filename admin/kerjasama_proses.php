@@ -6,11 +6,12 @@ if(empty($_SESSION['username'])){
 error_reporting();
 include "config.php";
 
-if($_POST['upload']){
+if (isset($_POST['upload'])) {
 
   $status_kerjasama = $_POST['status_kerjasama'];
-  $tanggal_awal = date('Y-m-d');
-  $tanggal_akhir = date('Y-m-d');
+  $date = date('Y-m-d');
+  $tanggal_awal = $_POST['tanggal_awal'];
+  $tanggal_akhir = $_POST['tanggal_akhir'];
   $id_jenis_dok     = $_POST['id_jenis_dok'];
   $judul_kerjasama  = $_POST['judul_kerjasama'];
   $deskripsi_kerjasama = $_POST['deskripsi_kerjasama'];
@@ -18,31 +19,58 @@ if($_POST['upload']){
 
   
   $ekstensi_diperbolehkan    = array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'rar', 'zip', 'png', 'jpg', 'mp4', 'avi');
-  $nama    = $_FILES['file_ijazah']['name'];
+  $nama    = $_FILES['file']['name'];
   $x        = explode('.', $nama);
   $ekstensi    = strtolower(end($x));
-  $ukuran        = $_FILES['file_ijazah']['size'];
-  $file_tmp    = $_FILES['file_ijazah']['tmp_name']; 
-
-
+  $ukuran        = $_FILES['file']['size'];
+  $file_tmp    = $_FILES['file']['tmp_name']; 
   
   if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
       if($ukuran < 304407000){ 
           move_uploaded_file($file_tmp, 'aset/'.$nama);
-          $query    = mysqli_query($kon, "INSERT INTO tb_ijazah VALUES(NULL, '$nomor', '$nama')");
+          $query    = mysqli_query($kon, "INSERT INTO kerjasama (status_kerjasama,
+                                                                  tanggal_awal,
+                                                                  tanggal_akhir,
+                                                                  id_jenis_dok,
+                                                                  judul_kerjasama,
+                                                                  deskripsi_kerjasama,
+                                                                  no_ref_kerjasama,
+                                                                  file ) 
+                                          VALUES('$status_kerjasama', 
+                                                  '$tanggal_awal',
+                                                  '$tanggal_akhir',
+                                                  '$id_jenis_dok',
+                                                  '$judul_kerjasama',
+                                                  '$deskripsi_kerjasama',
+                                                  '$no_ref_kerjasama',
+                                                  '$nama')");
+          // var_dump($query);
+          // die();
           if($query){
-              echo 'FILE BERHASIL DI UPLOAD!';
+            echo "<script type='text/javascript'>
+            alert('Berhasil Tambah data.'); 
+            document.location = 'kerjasama.php'; 
+          </script>";
           }
           else{
-              echo 'FILE GAGAL DI UPLOAD!';
+            echo "<script type='text/javascript'>
+            alert('Gagal Insert data.'); 
+            document.location = 'kerjasama.php'; 
+          </script>";
           }
       }
       else{
-          echo 'UKURAN FILE TERLALU BESAR!';
+        echo "<script type='text/javascript'>
+        alert('File Terlalu Besar'); 
+        document.location = 'kerjasama.php'; 
+      </script>";
       }
   }
   else{
-      echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN!';
+    echo "<script type='text/javascript'>
+    alert('Berhasil'); 
+    document.location = 'kerjasama.php'; 
+  </script>";
   }
 }
 
