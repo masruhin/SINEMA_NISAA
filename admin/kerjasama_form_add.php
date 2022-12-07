@@ -144,7 +144,7 @@ if (empty($_SESSION['username'])) {
                               <div class="mb-1">
                                 <div class="form-group">
                                   <label for="basicInputFile">Upload Dokumen Surat Perjanjian</label>
-                                  <input type="file" class="form-control-file" id="basicInputFile" />
+                                  <input type="file" name="file" class="form-control-file" id="basicInputFile" />
                                   <span class="sm" style="color:red ;">
                                     File yang bisa di Upload hanya file dengan ekstensi .doc, .docx, .xls, .xlsx, .ppt,
                                     .pptx, .pdf, .rar, .exe, .zip dan besar file (file size) maksimal hanya <b>3 MB</b>.
@@ -184,6 +184,10 @@ if (empty($_SESSION['username'])) {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div class="col-sm-12 offset-sm-12 modal-footer">
+                  <button type="submit" class="btn btn-info mr-1 btn-sm" name="materiFile">Simpan</button>
+                  <button type="reset" class="btn btn-outline-danger btn-sm">Reset</button>
                 </div>
               </div>
             </form>
