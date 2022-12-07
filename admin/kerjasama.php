@@ -14,7 +14,7 @@ if(empty($_SESSION['username'])){
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Jenis Dokumen Kerjasama</h4>
+            <h4 class="card-title">Repository Kerjasama</h4>
             <a href="kerjasama_form_add.php" type="button" class="btn btn-outline-success round btn-sm">Tambah</a>
           </div>
           <div class="card-body table-responsive">
@@ -22,8 +22,12 @@ if(empty($_SESSION['username'])){
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Jenis Dokumen Kerjasama</th>
-                  <th>KETERANGAN</th>
+                  <th>Jenis</th>
+                  <th>Deskripsi</th>
+                  <th>Status</th>
+                  <th>Masa Berlaku</th>
+                  <th>No Ref</th>
+                  <th>Tanggal Dibuat</th>
                   <th style="text-align:center;">Aksi</th>
                 </tr>
               </thead>
@@ -31,7 +35,7 @@ if(empty($_SESSION['username'])){
                 <?php 
 											include "config.php";
 											$no = 1;
-											$data = mysqli_query($kon, "SELECT * FROM jenis_dok ORDER BY jenis_dok ASC");
+											$data = mysqli_query($kon, "SELECT * FROM kerjasama ORDER BY id_kerjasama ASC");
 											if (!$data) {
 												printf("Error: %s\n", mysqli_error($kon));
 												exit();
@@ -42,13 +46,26 @@ if(empty($_SESSION['username'])){
                   <td>
                     <?php echo $no++; ?>
                   </td>
-                  <td><?php echo $hasil ['jenis_dok'];?></td>
-                  <td><?php echo $hasil ['jenis_ket'];?></td>
+                  <td><?php echo $hasil ['judul_kerjasama'];?></td>
+                  <td><?php echo $hasil ['deskripsi_kerjasama'];?></td>
+                  <td><?php echo $hasil ['status_kerjasama'];?></td>
+                  <td><?php echo $hasil ['tanggal_awal'];?> <strong style="color:red ;">s/d</strong>
+                    <?php echo $hasil ['tanggal_akhir'];?>
+                  </td>
+                  <td><span
+                      class="badge badge-pill badge-light-success mr-1 lg"><?php echo $hasil ['status_kerjasama'];?></span>
+                  </td>
+                  <td><?php echo $hasil ['date_created'];?></td>
                   <td style="text-align:center ;">
-                    <a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal"
-                      data-target="#edit<?php echo $hasil['id_jenis_dok']; ?>">Edit</a> |
+                    <a href="#" type="button" class="open_modal btn btn-outline-secondary round btn-sm"
+                      data-toggle="modal" data-target="#edit<?php echo $hasil['id_jenis_dok']; ?>"
+                      data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat"><i data-feather="eye"></i></a>
                     <a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal"
-                      data-target="#deleteEmployeeModal<?php echo $hasil['id_jenis_dok']; ?>">Hapus</a>
+                      data-target="#edit<?php echo $hasil['id_jenis_dok']; ?>" data-bs-toggle="tooltip"
+                      data-bs-placement="top" title="Hapus"><i data-feather="trash"></i></a>
+                    <a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal"
+                      data-target="#deleteEmployeeModal<?php echo $hasil['id_jenis_dok']; ?>" data-bs-toggle="tooltip"
+                      data-bs-placement="top" title="Edit"><i data-feather="edit"></i></a>
                   </td>
                 </tr>
                 <?php               

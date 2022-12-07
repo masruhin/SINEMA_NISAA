@@ -34,7 +34,7 @@ if (empty($_SESSION['username'])) {
                               <span class="input-group-text"><i data-feather='chevrons-down'></i></span>
                               <div class="col-lg-10">
                                 <select class="select2 form-select form-control" name="status" required>
-                                  <option value="" readonly>Pilih Status Kerjasama
+                                  <option value="" readonly>-- Pilih Status Kerjasama --
                                   </option>
                                   <option value="aktif">
                                     Aktif

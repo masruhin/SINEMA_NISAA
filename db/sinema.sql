@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2022 at 09:24 AM
+-- Generation Time: Dec 05, 2022 at 09:41 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -109,6 +109,13 @@ CREATE TABLE `file` (
   `tgl_entry` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `file`
+--
+
+INSERT INTO `file` (`id_file`, `judul_file`, `nama_file`, `tipe_file`, `ukuran_file`, `file`, `tgl_entry`) VALUES
+(1, 'dokumen pendukung', 'data.xls', 'xls', '300mb', 'img', '2022-12-05');
+
 -- --------------------------------------------------------
 
 --
@@ -141,7 +148,7 @@ CREATE TABLE `kerjasama` (
   `id_jenis_dok` int(11) NOT NULL,
   `judul_kerjasama` varchar(255) NOT NULL,
   `deskripsi_kerjasama` text NOT NULL,
-  `id_file` int(11) NOT NULL,
+  `id_file` int(11) DEFAULT NULL,
   `status_kerjasama` enum('aktif','nonaktif') NOT NULL,
   `tanggal_awal` date NOT NULL,
   `tanggal_akhir` date NOT NULL,
@@ -149,6 +156,13 @@ CREATE TABLE `kerjasama` (
   `date_created` timestamp NULL DEFAULT current_timestamp(),
   `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kerjasama`
+--
+
+INSERT INTO `kerjasama` (`id_kerjasama`, `id_jenis_dok`, `judul_kerjasama`, `deskripsi_kerjasama`, `id_file`, `status_kerjasama`, `tanggal_awal`, `tanggal_akhir`, `no_ref_kerjasama`, `date_created`, `date_updated`) VALUES
+(3, 1, 'a', 'a', 1, 'aktif', '2022-12-01', '2022-12-31', 'a1', '2022-12-05 02:10:41', '2022-12-05 07:01:10');
 
 -- --------------------------------------------------------
 
@@ -690,7 +704,7 @@ ALTER TABLE `jenis_dok`
 -- AUTO_INCREMENT for table `kerjasama`
 --
 ALTER TABLE `kerjasama`
-  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `lembaga`

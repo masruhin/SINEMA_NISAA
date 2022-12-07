@@ -101,21 +101,18 @@ include 'config.php';
                 <span class="avatar-status-online"></span></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
-              <?php if (!empty($_SESSION['username'])) {
-                  echo '<a class="dropdown-item" href="#">
-                                <i class="mr-50" data-feather="edit"></i>
-                                Update Profile</a>
-                            <a class="dropdown-item" href="page-auth-login-v2.html">
-                                <i class="mr-50" data-feather="key"></i>
-                                Update Password</a>
-                            <a class="dropdown-item" href="logout.php">
-                                <i class="mr-50" data-feather="log-out"></i>
-                                Keluar</a> ';
-              } else {
-                  echo '<a class="dropdown-item" href="login.php">
-                                <i class="mr-50" data-feather="check-circle"></i>
-                                Login</a>';
-              } ?>
+              <a class="dropdown-item" href="#">
+                <i class="mr-50" data-feather="edit"></i>
+                Update Profile</a>
+              <a class="dropdown-item" href="page-auth-login-v2.html">
+                <i class="mr-50" data-feather="key"></i>
+                Update Password</a>
+              <a class="dropdown-item" href="logout.php">
+                <i class="mr-50" data-feather="log-out"></i>
+                Keluar</a>
+              <a class="dropdown-item" href="login.php">
+                <i class="mr-50" data-feather="check-circle"></i>
+                Login</a>
             </div>
           </li>
         </ul>
