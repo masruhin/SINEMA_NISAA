@@ -36,7 +36,7 @@ include 'config.php';
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/themes/semi-dark-layout.css">
 
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/core/menu/menu-types/horizontal-menu.css">
-    <link rel="stylesheet" type="text/  css" href="../vendor/app-assets/css/pages/dashboard-ecommerce.css">
+    <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/pages/dashboard-ecommerce.css">
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/plugins/charts/chart-apex.css">
     <link rel="stylesheet" type="text/css" href="../vendor/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/vendors/css/forms/select/select2.min.css">
