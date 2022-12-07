@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2022 at 09:41 AM
+-- Generation Time: Dec 07, 2022 at 09:41 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -146,13 +146,19 @@ INSERT INTO `jenis_dok` (`id_jenis_dok`, `jenis_dok`, `jenis_ket`) VALUES
 CREATE TABLE `kerjasama` (
   `id_kerjasama` int(11) NOT NULL,
   `id_jenis_dok` int(11) NOT NULL,
+  `id_unit` int(11) DEFAULT NULL,
+  `id_materi` int(11) DEFAULT NULL,
   `judul_kerjasama` varchar(255) NOT NULL,
   `deskripsi_kerjasama` text NOT NULL,
-  `id_file` int(11) DEFAULT NULL,
   `status_kerjasama` enum('aktif','nonaktif') NOT NULL,
   `tanggal_awal` date NOT NULL,
   `tanggal_akhir` date NOT NULL,
   `no_ref_kerjasama` varchar(255) NOT NULL,
+  `nama_file` varchar(255) DEFAULT NULL,
+  `tipe_file` varchar(50) DEFAULT NULL,
+  `ukuran_file` varchar(50) NOT NULL,
+  `file` varchar(255) NOT NULL,
+  `tgl_entry` date DEFAULT NULL,
   `date_created` timestamp NULL DEFAULT current_timestamp(),
   `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -161,8 +167,8 @@ CREATE TABLE `kerjasama` (
 -- Dumping data for table `kerjasama`
 --
 
-INSERT INTO `kerjasama` (`id_kerjasama`, `id_jenis_dok`, `judul_kerjasama`, `deskripsi_kerjasama`, `id_file`, `status_kerjasama`, `tanggal_awal`, `tanggal_akhir`, `no_ref_kerjasama`, `date_created`, `date_updated`) VALUES
-(3, 1, 'a', 'a', 1, 'aktif', '2022-12-01', '2022-12-31', 'a1', '2022-12-05 02:10:41', '2022-12-05 07:01:10');
+INSERT INTO `kerjasama` (`id_kerjasama`, `id_jenis_dok`, `id_unit`, `id_materi`, `judul_kerjasama`, `deskripsi_kerjasama`, `status_kerjasama`, `tanggal_awal`, `tanggal_akhir`, `no_ref_kerjasama`, `nama_file`, `tipe_file`, `ukuran_file`, `file`, `tgl_entry`, `date_created`, `date_updated`) VALUES
+(3, 1, NULL, NULL, 'a', 'a', 'aktif', '2022-12-01', '2022-12-31', 'a1', '', NULL, '', '', NULL, '2022-12-05 02:10:41', '2022-12-07 07:40:58');
 
 -- --------------------------------------------------------
 
@@ -500,6 +506,32 @@ INSERT INTO `negara_kategori` (`id_kategori`, `kategori_nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_materi`
+--
+
+CREATE TABLE `tb_materi` (
+  `id_materi` int(11) NOT NULL,
+  `judul_materi` varchar(120) NOT NULL,
+  `materi` text NOT NULL,
+  `nama_file` varchar(120) NOT NULL,
+  `tipe_file` varchar(20) NOT NULL,
+  `ukuran_file` varchar(30) NOT NULL,
+  `file` varchar(255) NOT NULL,
+  `tgl_entry` date NOT NULL,
+  `id_roleguru` int(11) DEFAULT NULL,
+  `public` enum('Y','N') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_materi`
+--
+
+INSERT INTO `tb_materi` (`id_materi`, `judul_materi`, `materi`, `nama_file`, `tipe_file`, `ukuran_file`, `file`, `tgl_entry`, `id_roleguru`, `public`) VALUES
+(12, '', '', '1670399718', 'xlsx', '16789', '../vendor/file/PERANGKAT_1670399718.xlsx', '2022-12-07', 0, 'Y');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `unit`
 --
 
@@ -634,7 +666,8 @@ ALTER TABLE `jenis_dok`
 ALTER TABLE `kerjasama`
   ADD PRIMARY KEY (`id_kerjasama`),
   ADD KEY `id_jenis_dok` (`id_jenis_dok`),
-  ADD KEY `id_file` (`id_file`);
+  ADD KEY `id_unit` (`id_unit`),
+  ADD KEY `kerjasama_ibfk_2` (`id_materi`);
 
 --
 -- Indexes for table `lembaga`
@@ -653,6 +686,13 @@ ALTER TABLE `negara`
 --
 ALTER TABLE `negara_kategori`
   ADD PRIMARY KEY (`id_kategori`);
+
+--
+-- Indexes for table `tb_materi`
+--
+ALTER TABLE `tb_materi`
+  ADD PRIMARY KEY (`id_materi`),
+  ADD KEY `id_roleguru` (`id_roleguru`);
 
 --
 -- Indexes for table `unit`
@@ -725,6 +765,12 @@ ALTER TABLE `negara_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `tb_materi`
+--
+ALTER TABLE `tb_materi`
+  MODIFY `id_materi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
@@ -757,7 +803,8 @@ ALTER TABLE `web`
 --
 ALTER TABLE `kerjasama`
   ADD CONSTRAINT `kerjasama_ibfk_1` FOREIGN KEY (`id_jenis_dok`) REFERENCES `jenis_dok` (`id_jenis_dok`),
-  ADD CONSTRAINT `kerjasama_ibfk_2` FOREIGN KEY (`id_file`) REFERENCES `file` (`id_file`);
+  ADD CONSTRAINT `kerjasama_ibfk_2` FOREIGN KEY (`id_materi`) REFERENCES `tb_materi` (`id_materi`),
+  ADD CONSTRAINT `kerjasama_ibfk_3` FOREIGN KEY (`id_unit`) REFERENCES `unit` (`id_unit`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
