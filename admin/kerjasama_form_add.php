@@ -154,12 +154,11 @@ if (empty($_SESSION['username'])) {
                             </div>
                             <div class="col-12">
                               <div class="mb-1">
-                                <label class="form-label" for="id_jenis_dokumen">Unit Penggiat Kerjasama</label>
+                                <label class="form-label" for="id_unit">Unit Penggiat Kerjasama</label>
                                 <div class="input-group input-group-merge">
                                   <span class="input-group-text"><i data-feather='paperclip'></i></i></span>
                                   <div class="col-10">
-                                    <select class="select2 form-control form-control-md" name="jenis_dok"
-                                      id="jenis_dok">
+                                    <select class="select2 form-control form-control-md" name="id_unit" id="id_unit">
                                       <option value="" selected="selected">-- Pilih Penggiat Kerjasama --</option>
                                       <?php
                                       $query =

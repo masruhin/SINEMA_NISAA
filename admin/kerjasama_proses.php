@@ -13,6 +13,7 @@ if (isset($_POST['upload'])) {
   $tanggal_awal = $_POST['tanggal_awal'];
   $tanggal_akhir = $_POST['tanggal_akhir'];
   $id_jenis_dok     = $_POST['id_jenis_dok'];
+  $id_unit     = $_POST['id_unit'];
   $judul_kerjasama  = $_POST['judul_kerjasama'];
   $deskripsi_kerjasama = $_POST['deskripsi_kerjasama'];
   $no_ref_kerjasama    = $_POST['no_ref_kerjasama'];
@@ -27,11 +28,12 @@ if (isset($_POST['upload'])) {
   
   if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
       if($ukuran < 304407000){ 
-          move_uploaded_file($file_tmp, 'aset/'.$nama);
+          move_uploaded_file($file_tmp, 'aset/' . 'PERANGKAT_' . $nama);
           $query    = mysqli_query($kon, "INSERT INTO kerjasama (status_kerjasama,
                                                                   tanggal_awal,
                                                                   tanggal_akhir,
                                                                   id_jenis_dok,
+                                                                  id_unit,
                                                                   judul_kerjasama,
                                                                   deskripsi_kerjasama,
                                                                   no_ref_kerjasama,
@@ -40,6 +42,7 @@ if (isset($_POST['upload'])) {
                                                   '$tanggal_awal',
                                                   '$tanggal_akhir',
                                                   '$id_jenis_dok',
+                                                  '$id_unit',
                                                   '$judul_kerjasama',
                                                   '$deskripsi_kerjasama',
                                                   '$no_ref_kerjasama',
