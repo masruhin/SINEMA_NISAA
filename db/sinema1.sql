@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2022 at 09:33 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Generation Time: Dec 08, 2022 at 05:00 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 5.6.39
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,8 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `bentuk_kerjasama` (
   `id_bkerja` int(11) NOT NULL,
   `bkerja_nama` varchar(255) NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -80,8 +81,8 @@ CREATE TABLE `fakultas` (
   `fak_kode` varchar(20) NOT NULL,
   `fak_nama` varchar(100) NOT NULL,
   `fak_ket` text NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -146,6 +147,7 @@ INSERT INTO `jenis_dok` (`id_jenis_dok`, `jenis_dok`, `jenis_ket`) VALUES
 CREATE TABLE `kerjasama` (
   `id_kerjasama` int(11) NOT NULL,
   `id_jenis_dok` int(11) NOT NULL,
+  `id_fak` int(11) DEFAULT NULL,
   `id_unit` int(11) DEFAULT NULL,
   `judul_kerjasama` varchar(255) CHARACTER SET latin1 NOT NULL,
   `deskripsi_kerjasama` text CHARACTER SET latin1 NOT NULL,
@@ -154,16 +156,17 @@ CREATE TABLE `kerjasama` (
   `tanggal_akhir` date NOT NULL,
   `no_ref_kerjasama` varchar(255) CHARACTER SET latin1 NOT NULL,
   `file` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `kerjasama`
 --
 
-INSERT INTO `kerjasama` (`id_kerjasama`, `id_jenis_dok`, `id_unit`, `judul_kerjasama`, `deskripsi_kerjasama`, `status_kerjasama`, `tanggal_awal`, `tanggal_akhir`, `no_ref_kerjasama`, `file`, `date_created`, `date_updated`) VALUES
-(0, 1, 3, 'adada', 'adada', 'aktif', '2022-12-01', '2022-12-31', '123', 'Repository Kerjasama.xlsx', '2022-12-08 07:09:53', '2022-12-08 07:11:26');
+INSERT INTO `kerjasama` (`id_kerjasama`, `id_jenis_dok`, `id_fak`, `id_unit`, `judul_kerjasama`, `deskripsi_kerjasama`, `status_kerjasama`, `tanggal_awal`, `tanggal_akhir`, `no_ref_kerjasama`, `file`, `date_created`, `date_updated`) VALUES
+(6, 1, 3, 1, 'sample', 'sampel lg', 'aktif', '2022-12-01', '2022-12-31', '123123', '2022-12-08-SURAT PERNYATAAN.pdf', '2022-12-08 13:40:42', '2022-12-08 15:59:49'),
+(8, 2, 3, 3, 'cari', 'cari', 'aktif', '2022-12-01', '2022-12-30', '1234567', '2022-12-08_CV.docx', '2022-12-08 15:48:42', NULL);
 
 -- --------------------------------------------------------
 
@@ -201,8 +204,8 @@ CREATE TABLE `lembaga` (
   `lembaga_kode` varchar(20) NOT NULL,
   `lembaga_nama` varchar(255) NOT NULL,
   `lembaga_ket` text NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -508,8 +511,8 @@ CREATE TABLE `unit` (
   `id_unit` int(11) NOT NULL,
   `unit_nama` varchar(255) NOT NULL,
   `status` enum('Y','N') NOT NULL DEFAULT 'Y',
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -539,8 +542,8 @@ CREATE TABLE `universitas` (
   `univ_wa` varchar(20) NOT NULL,
   `univ_email` varchar(50) NOT NULL,
   `univ_fax` varchar(50) NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -588,8 +591,8 @@ CREATE TABLE `web` (
   `judul` varchar(255) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `date_created` timestamp NULL DEFAULT current_timestamp(),
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `status` enum('Y','N') NOT NULL DEFAULT 'Y'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -635,7 +638,8 @@ ALTER TABLE `jenis_dok`
 ALTER TABLE `kerjasama`
   ADD PRIMARY KEY (`id_kerjasama`),
   ADD KEY `id_jenis_dok` (`id_jenis_dok`),
-  ADD KEY `id_unit` (`id_unit`);
+  ADD KEY `id_unit` (`id_unit`),
+  ADD KEY `id_fak` (`id_fak`);
 
 --
 -- Indexes for table `lembaga`
@@ -705,7 +709,7 @@ ALTER TABLE `jenis_dok`
 -- AUTO_INCREMENT for table `kerjasama`
 --
 ALTER TABLE `kerjasama`
-  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `lembaga`
@@ -729,7 +733,7 @@ ALTER TABLE `negara_kategori`
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `universitas`
@@ -758,7 +762,8 @@ ALTER TABLE `web`
 --
 ALTER TABLE `kerjasama`
   ADD CONSTRAINT `kerjasama_ibfk_1` FOREIGN KEY (`id_jenis_dok`) REFERENCES `jenis_dok` (`id_jenis_dok`),
-  ADD CONSTRAINT `kerjasama_ibfk_3` FOREIGN KEY (`id_unit`) REFERENCES `unit` (`id_unit`);
+  ADD CONSTRAINT `kerjasama_ibfk_3` FOREIGN KEY (`id_unit`) REFERENCES `unit` (`id_unit`),
+  ADD CONSTRAINT `kerjasama_ibfk_4` FOREIGN KEY (`id_fak`) REFERENCES `fakultas` (`id_fak`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -13,6 +13,7 @@ if (isset($_POST['upload'])) {
   $tanggal_awal = $_POST['tanggal_awal'];
   $tanggal_akhir = $_POST['tanggal_akhir'];
   $id_jenis_dok     = $_POST['id_jenis_dok'];
+  $id_fak     = $_POST['id_fak'];
   $id_unit     = $_POST['id_unit'];
   $judul_kerjasama  = $_POST['judul_kerjasama'];
   $deskripsi_kerjasama = $_POST['deskripsi_kerjasama'];
@@ -20,7 +21,8 @@ if (isset($_POST['upload'])) {
 
   
   $ekstensi_diperbolehkan    = array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'rar', 'zip', 'png', 'jpg', 'mp4', 'avi');
-  $nama    = $_FILES['file']['name'];
+  $nama = date("Y-m-d").'_'.basename($_FILES['file']['name']);
+  // $nama    = $_FILES['file']['name'];
   $x        = explode('.', $nama);
   $ekstensi    = strtolower(end($x));
   $ukuran        = $_FILES['file']['size'];
@@ -33,6 +35,7 @@ if (isset($_POST['upload'])) {
                                                                   tanggal_awal,
                                                                   tanggal_akhir,
                                                                   id_jenis_dok,
+                                                                  id_fak,
                                                                   id_unit,
                                                                   judul_kerjasama,
                                                                   deskripsi_kerjasama,
@@ -42,6 +45,7 @@ if (isset($_POST['upload'])) {
                                                   '$tanggal_awal',
                                                   '$tanggal_akhir',
                                                   '$id_jenis_dok',
+                                                  '$id_fak',
                                                   '$id_unit',
                                                   '$judul_kerjasama',
                                                   '$deskripsi_kerjasama',

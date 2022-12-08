@@ -30,7 +30,8 @@ if (empty($_SESSION['username'])) {
                         <div class="row">
                           <div class="col-12">
                             <div class="mb-1">
-                              <label class="form-label" for="first-name-icon">Status</label>
+                              <p>Status</p>
+                              <!-- <p class="form-p" for="first-name-icon">Status</p> -->
                               <div class="input-group input-group-merge">
                                 <span class="input-group-text"><i data-feather='chevrons-down'></i></span>
                                 <div class="col-lg-10">
@@ -50,8 +51,8 @@ if (empty($_SESSION['username'])) {
                           </div>
                           <div class="col-12">
                             <div class="mb-1">
-                              <label class="form-label" for="tanggal_awal">Tanggal
-                                Awal</label>
+                              <p class="form-p" for="tanggal_awal">Tanggal
+                                Awal</p>
                               <div class="input-group ">
                                 <span class="input-group-text"><i data-feather="calendar"></i></span>
                                 <input type="date" id="tanggal_awal" class="form-control" name="tanggal_awal"
@@ -61,8 +62,8 @@ if (empty($_SESSION['username'])) {
                           </div>
                           <div class="col-12">
                             <div class="mb-1">
-                              <label class="form-label" for="tanggal_akhir">Tanggal
-                                Akhir</label>
+                              <p class="form-p" for="tanggal_akhir">Tanggal
+                                Akhir</p>
                               <div class="input-group ">
                                 <span class="input-group-text"><i data-feather="calendar"></i></span>
                                 <input type="date" id="tanggal_akhir" class="form-control" name="tanggal_akhir"
@@ -84,8 +85,8 @@ if (empty($_SESSION['username'])) {
                             <div class="mb-1">
                               <div class="col-12">
                                 <div class="mb-1">
-                                  <label class="form-label" for="id_jenis_dok">Jenis
-                                    Kerjasama</label>
+                                  <p class="form-p" for="id_jenis_dok">Jenis
+                                    Kerjasama</p>
                                   <div class="input-group input-group-merge">
                                     <span class="input-group-text"><i data-feather='paperclip'></i></i></span>
                                     <div class="col-10">
@@ -112,7 +113,7 @@ if (empty($_SESSION['username'])) {
                               </div>
                               <div class="col-12">
                                 <div class="mb-1">
-                                  <label class="form-label" for="judul_kerjasama">Judul Kerjasama</label>
+                                  <p class="form-p" for="judul_kerjasama">Judul Kerjasama</p>
                                   <div class="input-group input-group-merge">
                                     <span class="input-group-text"><i data-feather='pocket'></i></span>
                                     <input type="text" id="judul_kerjasama" class="form-control" name="judul_kerjasama"
@@ -122,7 +123,7 @@ if (empty($_SESSION['username'])) {
                               </div>
                               <div class="col-12">
                                 <div class="mb-1">
-                                  <label class="form-label" for="deskripsi_kerjasama">Deskripsi</label>
+                                  <p class="form-p" for="deskripsi_kerjasama">Deskripsi</p>
                                   <textarea name="deskripsi_kerjasama" id="deskripsi_kerjasama" class="form-control"
                                     rows="4"
                                     placeholder="Ringkasan singkat terkait cakupan atau kegiatan kerja sama"></textarea>
@@ -131,8 +132,8 @@ if (empty($_SESSION['username'])) {
                             </div>
                             <div class="col-12">
                               <div class="mb-1">
-                                <label class="form-label" for="no_ref_kerjasama">Nomor
-                                  Referensi</label>
+                                <p class="form-p" for="no_ref_kerjasama">Nomor
+                                  Referensi</p>
                                 <div class="input-group input-group-merge">
                                   <span class="input-group-text"><i data-feather='file-minus'></i></i></span>
                                   <input type="text" id="no_ref_kerjasama" class="form-control" name="no_ref_kerjasama"
@@ -143,18 +144,22 @@ if (empty($_SESSION['username'])) {
                             <div class="col-12">
                               <div class="mb-1">
                                 <div class="form-group">
-                                  <label for="basicInputFile">Upload Dokumen Surat Perjanjian</label>
+                                  <p for="basicInputFile">Upload Dokumen Surat Perjanjian</p>
                                   <input type="file" name="file" class="form-control-file" id="basicInputFile" />
                                   <span class="sm" style="color:red ;">
-                                    File yang bisa di Upload hanya file dengan ekstensi .doc, .docx, .xls, .xlsx, .ppt,
-                                    .pptx, .pdf, .rar, .exe, .zip dan besar file (file size) maksimal hanya <b>3 MB</b>.
+                                    <label for="" style="color:red ;">
+                                      File yang bisa di Upload hanya file dengan ekstensi .doc, .docx, .xls, .xlsx,
+                                      .ppt,
+                                      .pptx, .pdf, .rar, .exe, .zip dan besar file (file size) maksimal hanya <b>3
+                                        MB</b>.
+                                    </label>
                                   </span>
                                 </div>
                               </div>
                             </div>
                             <div class="col-12">
                               <div class="mb-1">
-                                <label class="form-label" for="id_unit">Unit Penggiat Kerjasama</label>
+                                <p class="form-p" for="id_unit">Unit Penggiat Kerjasama</p>
                                 <div class="input-group input-group-merge">
                                   <span class="input-group-text"><i data-feather='paperclip'></i></i></span>
                                   <div class="col-10">
@@ -175,6 +180,42 @@ if (empty($_SESSION['username'])) {
                                       ?>
                                     </select>
                                   </div>
+                                  <span class="sm" style="color:red ;">
+                                    <label for="" style="color:red ;">
+                                      *boleh dikosongkan
+                                    </label>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="mb-1">
+                                <p class="form-p" for="id_fak">Fakultas Penggiat Kerjasama</p>
+                                <div class="input-group input-group-merge">
+                                  <span class="input-group-text"><i data-feather='paperclip'></i></i></span>
+                                  <div class="col-10">
+                                    <select class="select2 form-control form-control-md" name="id_fak" id="id_fak">
+                                      <option value="" selected="selected">-- Pilih Penggiat Kerjasama --</option>
+                                      <?php
+                                      $query =
+                                          'SELECT * FROM fakultas ORDER BY id_fak';
+                                      $hasil = mysqli_query($kon, $query);
+                                      while ($row = mysqli_fetch_array($hasil)) { ?>
+                                      <option value="<?php echo $row[
+                                          'id_fak'
+                                      ]; ?>">
+                                        <?php echo $row['fak_kode'] .
+                                            ' | ' .
+                                            $row['fak_nama']; ?></option>
+                                      <?php }
+                                      ?>
+                                    </select>
+                                  </div>
+                                  <span class="sm" style="color:red ;">
+                                    <label for="" style="color:red ;">
+                                      *boleh dikosongkan
+                                    </label>
+                                  </span>
                                 </div>
                               </div>
                             </div>
