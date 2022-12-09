@@ -30,7 +30,7 @@ if (isset($_POST['upload'])) {
   
   if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
       if($ukuran < 304407000){ 
-          move_uploaded_file($file_tmp, 'aset/' . 'PERANGKAT_' . $nama);
+          move_uploaded_file($file_tmp, 'aset/' . $nama);
           $query    = mysqli_query($kon, "INSERT INTO kerjasama (status_kerjasama,
                                                                   tanggal_awal,
                                                                   tanggal_akhir,

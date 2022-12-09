@@ -1,5 +1,5 @@
 <?php 
-include "header.php";
+include_once "header.php";
 if(empty($_SESSION['username'])){
 	echo "<script>alert('Silahkan Login Terlebih Dahulu');window.location='index.php'</script>";
 }
@@ -24,7 +24,7 @@ if(empty($_SESSION['username'])){
                   <th>No</th>
                   <th>Jenis</th>
                   <th>Judul</th>
-                  <th>Deskripsi</th>
+                  <th>File</th>
                   <th>Status</th>
                   <th>Masa Berlaku</th>
                   <th>No Ref</th>
@@ -71,18 +71,37 @@ if(empty($_SESSION['username'])){
                   </td>
                   <td><?php echo $hasil ['jenis_dok'];?></td>
                   <td><?php echo $hasil ['judul_kerjasama'];?></td>
-                  <td><?php echo $hasil ['deskripsi_kerjasama'];?></td>
-                  <td><?php echo $hasil ['status_kerjasama'];?></td>
+                  <td>
+                    <?php if ($hasil['file']!=0) {?>
+                    <button
+                      onclick="JavaScript:window.location.href='kerjasama_download.php?file=<?php echo $hasil['file']?>';"
+                      class="btn btn-outline-info round btn-sm">Download</button>
+                    <?php }else{ ?>
+                    <span class="badge badge-pill badge-light-danger mr-1 lg">Tidak ada file!</span>
+                    <?php }
+                    ?>
+                  </td>
+                  <?php 
+                    if ($hasil['status_kerjasama']=='aktif') {?>
+                  <td>
+                    <div class=" badge badge-pill badge-glow badge-success"><?php echo $hasil ['status_kerjasama'];?>
+                    </div>
+                  </td>
+                  <?php }else{ ?>
+                  <td>
+                    <div class="badge badge-pill badge-glow badge-danger"><?php echo $hasil ['status_kerjasama'];?>
+                    </div>
+                  </td>
+                  <?php }
+                  ?>
                   <td><?php echo $hasil ['tanggal_awal'];?> <strong style="color:red ;">s/d</strong>
                     <?php echo $hasil ['tanggal_akhir'];?>
                   </td>
-                  <td><span
-                      class="badge badge-pill badge-light-success mr-1 lg"><?php echo $hasil ['status_kerjasama'];?></span>
-                  </td>
-                  <td><?php echo $hasil ['date_created'];?></td>
+                  <td><?php echo $hasil ['no_ref_kerjasama'];?></td>
+                  <td><?php echo tanggal_indonesia("2022-02-02");?></td>
                   <td style="text-align:center ;">
                     <a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal"
-                      data-target="#view<?php echo $hasil['id_kerjasama']; ?>">View</a> |
+                      data-target="#view<?php echo $hasil['id_kerjasama']; ?>">Lihat</a> |
                     <a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal"
                       data-target="#deleteEmployeeModal<?php echo $hasil['id_kerjasama']; ?>">Hapus</a>
                   </td>
@@ -253,6 +272,17 @@ if(empty($_SESSION['username'])){
                                               <input type="text" id="date_created" class="form-control"
                                                 value="<?php echo $hasil ['date_created'];?>" name="date_created"
                                                 readonly />
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-12">
+                                          <div class="mb-1">
+                                            <P class="form-label" for="fak_nama">File Dokumen
+                                              Kerjasama</P>
+                                            <div class="input-group ">
+                                              <span class="input-group-text"><i data-feather="file"></i></span>
+                                              <input type="text" id="file" class="form-control"
+                                                value="<?php echo $hasil['file'];?>" name="file" readonly />
                                             </div>
                                           </div>
                                         </div>

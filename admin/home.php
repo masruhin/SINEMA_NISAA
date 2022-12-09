@@ -32,7 +32,6 @@ $d_negara = mysqli_num_rows($q_negara);
         <div class="col-xl-3 col-md-3 col-12">
           <div class="card card-congratulation-medal">
             <div class="card-body">
-              <!-- <h5>Universitas</h5> -->
               <img src="../img/universitas.png" class="rounded" width="50" height="50" alt="Medal Pic" />
               <h3 class="mb-75 mt-2 pt-50">
                 <a href="javascript:void(0);">Universitas</a>

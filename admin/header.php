@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-include 'config.php';
+include_once 'config.php';
 ?>
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
