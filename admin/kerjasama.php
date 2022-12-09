@@ -142,7 +142,7 @@ if(empty($_SESSION['username'])){
                                       <div class="row">
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <label class="form-label" for="first-name-icon">Status</label>
+                                            <P class="form-label" for="first-name-icon">Status</P>
                                             <div class="input-group mb-1">
                                               <div class="input-group-prepend">
                                                 <span class="input-group-text"><i data-feather="pocket"></i></span>
@@ -154,8 +154,8 @@ if(empty($_SESSION['username'])){
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <label class="form-label" for="tanggal_awal">Tanggal
-                                              Awal</label>
+                                            <P class="form-label" for="tanggal_awal">Tanggal
+                                              Awal</P>
                                             <div class="input-group ">
                                               <span class="input-group-text"><i data-feather="calendar"></i></span>
                                               <input type="date" id="tanggal_awal" class="form-control"
@@ -166,8 +166,8 @@ if(empty($_SESSION['username'])){
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <label class="form-label" for="tanggal_akhir">Tanggal
-                                              Akhir</label>
+                                            <P class="form-label" for="tanggal_akhir">Tanggal
+                                              Akhir</P>
                                             <div class="input-group ">
                                               <span class="input-group-text"><i data-feather="calendar"></i></span>
                                               <input type="date" id="tanggal_awal" class="form-control"
@@ -178,8 +178,8 @@ if(empty($_SESSION['username'])){
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <label class="form-label" for="fak_nama">Fakultas Penggiat
-                                              Kerjasama</label>
+                                            <P class="form-label" for="fak_nama">Fakultas Penggiat
+                                              Kerjasama</P>
                                             <div class="input-group ">
                                               <span class="input-group-text"><i data-feather="layers"></i></span>
                                               <input type="text" id="fak_nama" class="form-control"
@@ -199,8 +199,8 @@ if(empty($_SESSION['username'])){
                                       <div class="row">
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <label class="form-label" for="first-name-icon">Jenis Dokumen
-                                              Kerjasama</label>
+                                            <P class="form-label" for="first-name-icon">Jenis Dokumen
+                                              Kerjasama</P>
                                             <div class="input-group mb-1">
                                               <div class="input-group-prepend">
                                                 <span class="input-group-text"><i data-feather='link'></i></span>
@@ -212,7 +212,7 @@ if(empty($_SESSION['username'])){
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <label class="form-label" for="first-name-icon">Judul Kerjasama</label>
+                                            <P class="form-label" for="first-name-icon">Judul Kerjasama</P>
                                             <div class="input-group mb-1">
                                               <div class="input-group-prepend">
                                                 <span class="input-group-text"><i data-feather='at-sign'></i></span>
@@ -224,8 +224,8 @@ if(empty($_SESSION['username'])){
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <label class="form-label" for="deskripsi_kerjasama">Deskripsi
-                                              Kerjasama</label>
+                                            <P class="form-label" for="deskripsi_kerjasama">Deskripsi
+                                              Kerjasama</P>
                                             <div class="input-group ">
                                               <span class="input-group-text"><i data-feather="calendar"></i></span>
                                               <input type="text" id="deskripsi_kerjasama" class="form-control"
@@ -236,7 +236,7 @@ if(empty($_SESSION['username'])){
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <label class="form-label" for="tanggal_akhir">No Ref Kerjasama</label>
+                                            <P class="form-label" for="tanggal_akhir">No Ref Kerjasama</P>
                                             <div class="input-group ">
                                               <span class="input-group-text"><i data-feather='map-pin'></i></span>
                                               <input type="text" id="no_ref_kerjasama" class="form-control"
@@ -247,7 +247,7 @@ if(empty($_SESSION['username'])){
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <label class="form-label" for="tanggal_akhir">Tanggal Input</label>
+                                            <P class="form-label" for="tanggal_akhir">Tanggal Input</P>
                                             <div class="input-group ">
                                               <span class="input-group-text"><i data-feather='pen-tool'></i></span>
                                               <input type="text" id="date_created" class="form-control"
