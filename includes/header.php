@@ -138,26 +138,26 @@ include 'config.php';
         <div class="shadow-bottom"></div>
         <div class="navbar-container main-menu-content" data-menu="menu-container">
           <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
-            <li data-menu="">
-              <a class="dropdown-item d-flex align-items-center" href="member-dashboard.php">
+            <li data-menu="" <?php if (isset($_GET["home"])){echo 'class="active"';}?>>
+              <a class="dropdown-item d-flex align-items-center" href="index.php?home">
                 <i data-feather="home"></i>
                 <span data-i18n="Documentation">Home</span>
               </a>
             </li>
-            <li data-menu="">
-              <a class="dropdown-item d-flex align-items-center" href="profile-bhamada.php">
+            <li data-menu="" <?php if (isset($_GET["profile"])){echo 'class="active"';}?>>
+              <a class="dropdown-item d-flex align-items-center" href="profile.php?profile">
                 <i data-feather="bar-chart-2"></i>
                 <span data-i18n="Documentation">Profil</span>
               </a>
             </li>
-            <li data-menu="">
-              <a class="dropdown-item d-flex align-items-center" href="">
+            <li data-menu="" <?php if (isset($_GET["Download"])){echo 'class="active"';}?>>
+              <a class="dropdown-item d-flex align-items-center" href="download.php?download">
                 <i data-feather="download"></i>
-                <span data-i18n="Documentation">Download</span>
+                <span data-i18n="Documentation">Panduan Kerjasama</span>
               </a>
             </li>
-            <li data-menu="">
-              <a class="dropdown-item d-flex align-items-center" href="member-kontak-kami.php">
+            <li data-menu="" <?php if (isset($_GET["kontak"])){echo 'class="active"';}?>>
+              <a class="dropdown-item d-flex align-items-center" href="kontak-kami.php?kontak">
                 <i data-feather="phone-call"></i>
                 <span data-i18n="Documentation">Kontak Kami</span>
               </a>

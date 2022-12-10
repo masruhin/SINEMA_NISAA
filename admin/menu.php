@@ -23,7 +23,7 @@
       <div class="shadow-bottom"></div>
       <div class="navbar-container main-menu-content" data-menu="menu-container">
         <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
-          <li class="" data-menu="" <?php if (isset($_GET["home"])){echo 'class="active"';}?>>
+          <li data-menu="" <?php if (isset($_GET["home"])){echo 'class="active"';}?>>
             <a class="dropdown-item d-flex align-items-center" href="home.php?home">
               <i data-feather="home"></i>
               <span data-i18n="Documentation">Home</span>
