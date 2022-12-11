@@ -133,11 +133,10 @@ $d_negara = mysqli_num_rows($q_negara);
       </section>
 
       <div class="row match-height">
-        <div class="col-lg-12">
+        <div class="col-lg-12" id="kerjasama">
           <div class="card">
             <div class="card-header">
               <h4 class="card-title">Kerjasama</h4>
-              <a href="kerjasama_form_add.php" type="button" class="btn btn-outline-success round btn-sm">Tambah</a>
             </div>
             <div class="card-body table-responsive">
               <table id="dataTables" class="table table-striped">

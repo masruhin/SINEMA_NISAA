@@ -26,7 +26,7 @@
           <li data-menu="" <?php if (isset($_GET["home"])){echo 'class="active"';}?>>
             <a class="dropdown-item d-flex align-items-center" href="home.php?home">
               <i data-feather="home"></i>
-              <span data-i18n="Documentation">Home</span>
+              <span data-i18n="Documentation"><strong>Home</strong></span>
             </a>
           </li>
           <!-- <li data-menu="" <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
@@ -39,7 +39,7 @@
             <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
             <a class="dropdown-toggle nav-link d-flex align-items-center" data-toggle="dropdown">
               <i data-feather='folder-plus'></i>
-              <span data-i18n="Misc">Kerjasama</span></a>
+              <span data-i18n="Misc"><strong>Kerjasama</strong> </span></a>
             <ul class="dropdown-menu">
               <li data-menu="" <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
                 <a class="dropdown-item d-flex align-items-center" href="kerjasama.php?kerjasama" data-toggle="dropdown"
@@ -53,7 +53,7 @@
             <?php if (isset($_GET["master"])){echo 'class="active"';}?>>
             <a class="dropdown-toggle nav-link d-flex align-items-center" data-toggle="dropdown">
               <i data-feather="box"></i>
-              <span data-i18n="Misc">Master Data</span></a>
+              <span data-i18n="Misc"><strong>Master Data</strong></span></a>
             <ul class="dropdown-menu">
               <li data-menu="" <?php if (isset($_GET["master"])){echo 'class="active"';}?>>
                 <a class="dropdown-item d-flex align-items-center" href="negara_data.php?master" data-toggle="dropdown"
@@ -84,7 +84,7 @@
           <li class="dropdown nav-item" data-menu="dropdown">
             <a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-toggle="dropdown">
               <i data-feather="paperclip"></i>
-              <span data-i18n="Misc">Referensi Kerjasama</span></a>
+              <span data-i18n="Misc"><strong>Referensi Kerjasama</strong></span></a>
             <ul class="dropdown-menu">
               <!-- <li data-menu="" <?php if (isset($_GET["ksm"])){echo 'class="active"';}?>>
                 <a class="dropdown-item d-flex align-items-center" href="lembaga_data.php?ksm" data-toggle="dropdown"
@@ -109,7 +109,7 @@
           <li class="dropdown nav-item" data-menu="dropdown">
             <a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-toggle="dropdown">
               <i data-feather="database"></i>
-              <span data-i18n="Misc">Laporan</span></a>
+              <span data-i18n="Misc"><strong>Laporan</strong></span></a>
             <ul class="dropdown-menu">
               <li data-menu="">
                 <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"
@@ -122,7 +122,7 @@
           <li class="dropdown nav-item" data-menu="dropdown">
             <a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-toggle="dropdown">
               <i data-feather="settings"></i>
-              <span data-i18n="Misc">Pengaturan</span></a>
+              <span data-i18n="Misc"><strong>Pengaturan</strong></span></a>
             <ul class="dropdown-menu">
               <li data-menu="" <?php if (isset($_GET["config"])){echo 'class="active"';}?>>
                 <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"
@@ -141,7 +141,7 @@
           <li class="dropdown nav-item" data-menu="dropdown">
             <a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-toggle="dropdown">
               <i data-feather="settings"></i>
-              <span data-i18n="Misc">Users</span></a>
+              <span data-i18n="Misc"><strong>Users</strong></span></a>
             <ul class="dropdown-menu">
               <li data-menu="">
                 <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"

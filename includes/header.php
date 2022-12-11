@@ -141,31 +141,31 @@ include 'config.php';
             <li data-menu="" <?php if (isset($_GET["home"])){echo 'class="active"';}?>>
               <a class="dropdown-item d-flex align-items-center" href="index.php?home">
                 <i data-feather="home"></i>
-                <span data-i18n="Documentation">Home</span>
+                <span data-i18n="Documentation"><strong>Home</strong></span>
               </a>
             </li>
             <li data-menu="" <?php if (isset($_GET["profile"])){echo 'class="active"';}?>>
               <a class="dropdown-item d-flex align-items-center" href="profile.php?profile">
                 <i data-feather="bar-chart-2"></i>
-                <span data-i18n="Documentation">Profil</span>
+                <span data-i18n="Documentation"><strong>Profile</strong> </span>
               </a>
             </li>
             <li data-menu="" <?php if (isset($_GET["Download"])){echo 'class="active"';}?>>
-              <a class="dropdown-item d-flex align-items-center" href="download.php?download">
+              <a class="dropdown-item d-flex align-items-center" href="#kerjasama">
                 <i data-feather="download"></i>
-                <span data-i18n="Documentation">Panduan Kerjasama</span>
+                <span data-i18n="Documentation"> <strong>Kerjasama</strong> </span>
               </a>
             </li>
-            <li data-menu="" <?php if (isset($_GET["kontak"])){echo 'class="active"';}?>>
+            <!-- <li data-menu="" <?php if (isset($_GET["kontak"])){echo 'class="active"';}?>>
               <a class="dropdown-item d-flex align-items-center" href="kontak-kami.php?kontak">
                 <i data-feather="phone-call"></i>
                 <span data-i18n="Documentation">Kontak Kami</span>
               </a>
-            </li>
+            </li> -->
             <li data-menu="">
               <a class="dropdown-item d-flex align-items-center" href="member-statistik.php">
                 <i data-feather="bar-chart-2"></i>
-                <span data-i18n="Documentation">Statistik</span>
+                <span data-i18n="Documentation"><strong>Statistik</strong> </span>
               </a>
             </li>
           </ul>

@@ -48,11 +48,11 @@ include_once 'config.php';
     <link rel="stylesheet" type="text/css" href="../vendor/app-assets/css/plugins/forms/form-file-uploader.css">
   </head>
   <style>
-  .nav-item .nav-link {
+  /* .nav-item .nav-link {
     font-size: 14px;
     font-weight: 500;
     font-family: Rubik, sans-serif;
-  }
+  } */
 
   .navbar-floating,
   .label {
