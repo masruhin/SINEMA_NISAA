@@ -375,8 +375,17 @@ if(empty($_SESSION['username'])){
                                               <div class="input-group-prepend">
                                                 <span class="input-group-text"><i data-feather="pocket"></i></span>
                                               </div>
-                                              <input type="text" class="form-control"
-                                                value="<?php echo $hasil['status_kerjasama']?>" />
+                                              <select class="select2 form-select form-control" name="status_kerjasama"
+                                                required>
+                                                <option value="" readonly>-- Pilih Status Kerjasama --
+                                                </option>
+                                                <option value="aktif">
+                                                  Aktif
+                                                </option>
+                                                <option value="nonaktif">
+                                                  Tidak Aktif
+                                                </option>
+                                              </select>
                                             </div>
                                           </div>
                                         </div>
