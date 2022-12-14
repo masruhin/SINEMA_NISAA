@@ -104,14 +104,17 @@ if(empty($_SESSION['username'])){
                       class="open_modal btn btn-icon btn-icon rounded-circle btn-primary waves-effect waves-float waves-light btn-sm"
                       data-toggle="modal" data-target="#view<?php echo $hasil['id_kerjasama']; ?>"><i
                         data-feather='eye'></i></a>
-                    <a href="#" type="button"
-                      class="open_modal btn btn-icon btn-icon rounded-circle btn-success waves-effect waves-float waves-light btn-sm"
-                      data-toggle="modal" data-target="#edit<?php echo $hasil['id_kerjasama']; ?>"><i
+                    <a href="kerjasama_edit.php?id_kerjasama=<?php echo $hasil['id_kerjasama']?>" type="button"
+                      class="btn btn-icon btn-icon rounded-circle btn-success waves-effect waves-float waves-light btn-sm"><i
                         data-feather='edit-3'></i></a>
                     <a href="#" type="button"
                       class="open_modal btn btn-icon btn-icon rounded-circle btn-danger waves-effect waves-float waves-light btn-sm"
                       data-toggle="modal" data-target="#deleteEmployeeModal<?php echo $hasil['id_kerjasama']; ?>"><i
                         data-feather='trash-2'></i></a>
+                    <!-- <a href="#" type="button"
+                      class="open_modal btn btn-icon btn-icon rounded-circle btn-success waves-effect waves-float waves-light btn-sm"
+                      data-toggle="modal" data-target="#edit<?php echo $hasil['id_kerjasama']; ?>"><i
+                        data-feather='edit'></i></a> -->
                   </td>
                 </tr>
 
@@ -327,9 +330,7 @@ if(empty($_SESSION['username'])){
                         </button>
                       </div>
                       <div class="modal-body">
-                        <form class="form form-horizontal" action="jenis_dok_act.php" method="POST">
-                          <input type="hidden" name="id_kerjasama" value="<?= $row['id_kerjasama']?>">
-                          <?php
+                        <?php
                               $id = $hasil['id_kerjasama']; 
                               $query_edit = mysqli_query($kon, "SELECT
                               a.id_kerjasama,
@@ -356,6 +357,7 @@ if(empty($_SESSION['username'])){
                               LEFT JOIN unit c ON c.id_unit= a.id_unit WHERE id_kerjasama='$id'");
                               while ($row = mysqli_fetch_array($query_edit)) {  
                               ?>
+                        <form class="form form-horizontal" action="jenis_dok_act.php" method="POST">
                           <input type="hidden" name="id_kerjasama" value="<?= $row['id_kerjasama']?>">
                           <section id="input-sizing">
                             <div class="row match-height">

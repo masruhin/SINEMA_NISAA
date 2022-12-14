@@ -142,49 +142,94 @@ $d_negara = mysqli_num_rows($q_negara);
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">Info Kerjasama</h4>
+              <h4 class="card-title">Kerjasama</h4>
+              <a href="kerjasama_form_add.php" type="button" class="btn btn-outline-success round btn-sm">Tambah</a>
             </div>
-            <div class="table-responsive">
-              <table class="table">
+            <div class="card-body table-responsive">
+              <table id="dataTables" class="table table-striped">
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Jenis Kerjasama</th>
-                    <th>Judul Kerjasama</th>
-                    <th>Unit Pengajuan</th>
+                    <th>Jenis</th>
+                    <th>Judul</th>
+                    <th>File</th>
                     <th>Status</th>
-                    <th>Detail</th>
+                    <th>Masa Berlaku</th>
+                    <th>No Ref</th>
+                    <th>Tanggal Dibuat</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <?php 
+											include "config.php";
+											$no = 1;
+											$data = mysqli_query($kon, "SELECT
+                      a.id_kerjasama,
+                      b.id_jenis_dok,
+                      b.jenis_dok,
+                      d.id_fak,
+                      d.fak_kode,
+                      d.fak_nama,
+                      c.id_unit,
+                      c.unit_nama,
+                      a.judul_kerjasama,
+                      a.deskripsi_kerjasama,
+                      a.status_kerjasama,
+                      a.tanggal_awal,
+                      a.tanggal_akhir,
+                      a.no_ref_kerjasama,
+                      a.file,
+                      a.date_created,
+                      a.date_updated 
+                    FROM
+                      kerjasama a
+                      LEFT JOIN jenis_dok b ON b.id_jenis_dok = a.id_jenis_dok
+                      LEFT JOIN fakultas d ON d.id_fak = a.id_fak
+                      LEFT JOIN unit c ON c.id_unit= a.id_unit ORDER BY id_kerjasama asc");
+											if (!$data) {
+												printf("Error: %s\n", mysqli_error($kon));
+												exit();
+											}
+											while($hasil = mysqli_fetch_array($data)){
+											?>
                   <tr>
                     <td>
-                      <span class="font-weight-bold">1</span>
+                      <?php echo $no++; ?>
                     </td>
-                    <td>Memorandum of Agreement (MoA)</td>
+                    <td><?php echo $hasil ['jenis_dok'];?></td>
+                    <td><?php echo $hasil ['judul_kerjasama'];?></td>
                     <td>
-                      <p>PERJANJIAN KERJA SAMA ANTARA PROGRAM STUDI S1</p>
+                      <?php if ($hasil['file']!=0) {?>
+                      <button
+                        onclick="JavaScript:window.location.href='kerjasama_download.php?file=<?php echo $hasil['file']?>';"
+                        class="btn btn-outline-info round btn-sm">Download</button>
+                      <?php }else{ ?>
+                      <span class="badge badge-pill badge-light-danger mr-1 lg">Tidak ada file!</span>
+                      <?php }
+                    ?>
                     </td>
-                    <td><span class="badge badge-pill badge-light-primary mr-1">Fakultas Ekonomi Bisnis</span></td>
-                    <td><span class="badge badge-pill badge-light-primary mr-1">Active</span></td>
+                    <?php 
+                    if ($hasil['status_kerjasama']=='aktif') {?>
                     <td>
-                      <div class="dropdown">
-                        <button type="button" class="btn btn-sm dropdown-toggle hide-arrow">
-                          <i data-feather="more-vertical"></i>
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="javascript:void(0);">
-                            <i data-feather="edit-2" class="mr-50"></i>
-                            <span>Edit</span>
-                          </a>
-                          <a class="dropdown-item" href="javascript:void(0);">
-                            <i data-feather="trash" class="mr-50"></i>
-                            <span>Delete</span>
-                          </a>
-                        </div>
+                      <div class=" badge badge-pill badge-glow badge-success"><?php echo $hasil ['status_kerjasama'];?>
                       </div>
                     </td>
+                    <?php }else{ ?>
+                    <td>
+                      <div class="badge badge-pill badge-glow badge-danger"><?php echo $hasil ['status_kerjasama'];?>
+                      </div>
+                    </td>
+                    <?php }
+                  ?>
+                    <td><?php echo $hasil ['tanggal_awal'];?> <strong style="color:red ;">s/d</strong>
+                      <?php echo $hasil ['tanggal_akhir'];?>
+                    </td>
+                    <td><?php echo $hasil ['no_ref_kerjasama'];?></td>
+                    <td><?php echo tanggal_indonesia("2022-02-02");?></td>
                   </tr>
+                  <?php               
+									} 
+									?>
                 </tbody>
               </table>
             </div>
