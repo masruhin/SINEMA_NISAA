@@ -90,7 +90,7 @@ if (empty($_SESSION['username'])) {
                               <div class="input-group ">
                                 <span class="input-group-text"><i data-feather="calendar"></i></span>
                                 <input type="date" id="tanggal_awal" class="form-control" name="tanggal_awal"
-                                  required />
+                                  value="<?php echo $hasil ['tanggal_awal'];?>" required />
                               </div>
                             </div>
                           </div>
@@ -100,8 +100,8 @@ if (empty($_SESSION['username'])) {
                                 Akhir</p>
                               <div class="input-group ">
                                 <span class="input-group-text"><i data-feather="calendar"></i></span>
-                                <input type="date" id="tanggal_akhir" class="form-control" name="tanggal_akhir"
-                                  required />
+                                <input type="date" id="tanggal_akhir" class="form-control"
+                                  value="<?php echo $hasil ['tanggal_akhir'];?>" name="tanggal_akhir" required />
                               </div>
                             </div>
                           </div>
@@ -130,8 +130,8 @@ if (empty($_SESSION['username'])) {
                                       $no = 1;
                                       $query =
                                           'SELECT * FROM jenis_dok ORDER BY id_jenis_dok';
-                                      $hasil = mysqli_query($kon, $query);
-                                      while ($row = mysqli_fetch_array($hasil)) { ?>
+                                      $ok = mysqli_query($kon, $query);
+                                      while ($row = mysqli_fetch_array($ok)) { ?>
                                         <option value="<?php echo $row[
                                           'id_jenis_dok'
                                       ]; ?>">
@@ -150,8 +150,9 @@ if (empty($_SESSION['username'])) {
                                   <p class="form-p" for="judul_kerjasama">Judul Kerjasama</p>
                                   <div class="input-group input-group-merge">
                                     <span class="input-group-text"><i data-feather='pocket'></i></span>
-                                    <input type="text" id="judul_kerjasama" class="form-control" name="judul_kerjasama"
-                                      placeholder="Judul Kerjasama" required />
+                                    <input type="text" id="judul_kerjasama"
+                                      value="<?php echo $hasil ['judul_kerjasama'];?>" class="form-control"
+                                      name="judul_kerjasama" placeholder="Judul Kerjasama" required />
                                   </div>
                                 </div>
                               </div>
@@ -160,7 +161,7 @@ if (empty($_SESSION['username'])) {
                                   <p class="form-p" for="deskripsi_kerjasama">Deskripsi</p>
                                   <textarea name="deskripsi_kerjasama" id="deskripsi_kerjasama" class="form-control"
                                     rows="4"
-                                    placeholder="Ringkasan singkat terkait cakupan atau kegiatan kerja sama"></textarea>
+                                    placeholder="Ringkasan singkat terkait cakupan atau kegiatan kerja sama"><?php echo $hasil ['deskripsi_kerjasama'];?></textarea>
                                 </div>
                               </div>
                             </div>
@@ -170,16 +171,18 @@ if (empty($_SESSION['username'])) {
                                   Referensi</p>
                                 <div class="input-group input-group-merge">
                                   <span class="input-group-text"><i data-feather='file-minus'></i></i></span>
-                                  <input type="text" id="no_ref_kerjasama" class="form-control" name="no_ref_kerjasama"
+                                  <input type="text" id="no_ref_kerjasama" class="form-control"
+                                    value="<?php echo $hasil ['no_ref_kerjasama'];?>" name="no_ref_kerjasama"
                                     placeholder="Nomor Dokumen" required />
                                 </div>
                               </div>
                             </div>
                             <div class="col-12">
-                              <div class="mb-1">
+                              <div class="">
                                 <div class="form-group">
                                   <p for="basicInputFile">Upload Dokumen Surat Perjanjian</p>
-                                  <input type="file" name="file" class="form-control-file" id="basicInputFile" />
+                                  <input type="file" name="file" class="form-control-file" id="basicInputFile"
+                                    value="" />
                                   <span class="sm" style="color:red ;">
                                     <label for="" style="color:red ;">
                                       File yang bisa di Upload hanya file dengan ekstensi .doc, .docx, .xls, .xlsx,
@@ -260,7 +263,7 @@ if (empty($_SESSION['username'])) {
                   </div>
                 </div>
                 <div class="col-sm-12 offset-sm-12 modal-footer">
-                  <button type="submit" class="btn btn-info mr-1 btn-sm" name="upload">Simpan</button>
+                  <button type="submit" class="btn btn-info mr-1 btn-sm" name="ubah">Simpan</button>
                   <button type="reset" class="btn btn-outline-danger btn-sm">Reset</button>
                 </div>
               </div>

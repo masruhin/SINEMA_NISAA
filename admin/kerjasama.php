@@ -235,6 +235,7 @@ if(empty($_SESSION['username'])){
                                               <div class="input-group-prepend">
                                                 <span class="input-group-text"><i data-feather='link'></i></span>
                                               </div>
+
                                               <input type="text" class="form-control"
                                                 value="<?php echo $hasil['jenis_dok']?>" readonly />
                                             </div>
@@ -442,8 +443,19 @@ if(empty($_SESSION['username'])){
                                               <div class="input-group-prepend">
                                                 <span class="input-group-text"><i data-feather='link'></i></span>
                                               </div>
-                                              <input type="text" class="form-control"
-                                                value="<?php echo $hasil['jenis_dok']?>" />
+                                              <select class="select2 form-select form-control" name="jenis_dok"
+                                                required>
+                                                <option value="" readonly>-- Pilih Status Kerjasama --
+                                                </option>
+                                                <option value="aktif">
+                                                  Aktif
+                                                </option>
+                                                <option value="nonaktif">
+                                                  Tidak Aktif
+                                                </option>
+                                              </select>
+                                              <!-- <input type="text" class="form-control"
+                                                value="<?php echo $hasil['jenis_dok']?>" /> -->
                                             </div>
                                           </div>
                                         </div>
