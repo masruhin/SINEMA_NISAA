@@ -104,23 +104,23 @@ if(empty($_SESSION['username'])){
                       class="open_modal btn btn-icon btn-icon rounded-circle btn-primary waves-effect waves-float waves-light btn-sm"
                       data-toggle="modal" data-target="#view<?php echo $hasil['id_kerjasama']; ?>"><i
                         data-feather='eye'></i></a>
-                    <a href="kerjasama_edit.php?id_kerjasama=<?php echo $hasil['id_kerjasama']?>" type="button"
+                    <!-- <a href="kerjasama_edit.php?id_kerjasama=<?php echo $hasil['id_kerjasama']?>" type="button"
                       class="btn btn-icon btn-icon rounded-circle btn-success waves-effect waves-float waves-light btn-sm"><i
-                        data-feather='edit-3'></i></a>
+                        data-feather='edit-3'></i></a> -->
                     <a href="#" type="button"
                       class="open_modal btn btn-icon btn-icon rounded-circle btn-danger waves-effect waves-float waves-light btn-sm"
                       data-toggle="modal" data-target="#deleteEmployeeModal<?php echo $hasil['id_kerjasama']; ?>"><i
                         data-feather='trash-2'></i></a>
-                    <!-- <a href="#" type="button"
+                    <a href="#" type="button"
                       class="open_modal btn btn-icon btn-icon rounded-circle btn-success waves-effect waves-float waves-light btn-sm"
                       data-toggle="modal" data-target="#edit<?php echo $hasil['id_kerjasama']; ?>"><i
-                        data-feather='edit'></i></a> -->
+                        data-feather='edit'></i></a>
                   </td>
                 </tr>
 
                 <!-- MODAL VIEW -->
-                <div class="modal fade text-left" id="view<?php echo $hasil['id_kerjasama']; ?>" tabindex="-1"
-                  role="dialog" aria-labelledby="myModalLabel16" aria-hidden="true">
+                <div class="modal fade text-left" id="view<?php echo $hasil['id_kerjasama']; ?>" role="dialog"
+                  aria-labelledby="myModalLabel16" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -320,8 +320,8 @@ if(empty($_SESSION['username'])){
                 <!-- END MODAL VIEw -->
 
                 <!-- MODAL EDIT -->
-                <div class="modal fade text-left" id="edit<?php echo $hasil['id_kerjasama']; ?>" tabindex="-1"
-                  role="dialog" aria-labelledby="myModalLabel16" aria-hidden="true">
+                <div class="modal fade text-left" id="edit<?php echo $hasil['id_kerjasama']; ?>" role="dialog"
+                  aria-labelledby="myModalLabel16" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -437,25 +437,31 @@ if(empty($_SESSION['username'])){
                                       <div class="row">
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <P class="form-label" for="first-name-icon">Jenis Dokumen
-                                              Kerjasama</P>
-                                            <div class="input-group mb-1">
-                                              <div class="input-group-prepend">
-                                                <span class="input-group-text"><i data-feather='link'></i></span>
+                                            <p>Jenis Dokumen Kerjasama</p>
+                                            <!-- <p class="form-p" for="first-name-icon">Status</p> -->
+                                            <div class="input-group input-group-merge">
+                                              <span class="input-group-text"><i data-feather='link'></i></span>
+                                              <div class="col-lg-10">
+                                                <select class="select2 form-select form-control" name="status_kerjasama"
+                                                  required>
+                                                  <option value="" readonly>-- Pilih Status Kerjasama --
+                                                  </option>
+                                                  <?php
+                                                    include "config.php";
+                                                        //mengambil nama-nama propinsi yang ada di database
+                                                      $data	 = mysqli_query($kon, "SELECT jenis_dok.id_jenis_dok,
+                                                      jenis_dok.jenis_dok
+                                                    FROM
+                                                      kerjasama
+                                                      RIGHT JOIN jenis_dok ON jenis_dok.id_jenis_dok = kerjasama.id_jenis_dok 
+                                                    GROUP BY
+                                                      jenis_dok.id_jenis_dok");
+                                                      while($p=mysqli_fetch_array($data)){
+                                                      echo "<option value=\"$p[id_jenis_dok]\">$p[jenis_dok]</option>\n";
+                                                      }
+                                                    ?>
+                                                </select>
                                               </div>
-                                              <select class="select2 form-select form-control" name="jenis_dok"
-                                                required>
-                                                <option value="" readonly>-- Pilih Status Kerjasama --
-                                                </option>
-                                                <option value="aktif">
-                                                  Aktif
-                                                </option>
-                                                <option value="nonaktif">
-                                                  Tidak Aktif
-                                                </option>
-                                              </select>
-                                              <!-- <input type="text" class="form-control"
-                                                value="<?php echo $hasil['jenis_dok']?>" /> -->
                                             </div>
                                           </div>
                                         </div>
@@ -587,8 +593,7 @@ if(empty($_SESSION['username'])){
 
   <!-- Modal ADD-->
   <div class="modal-size-lg d-inline-block">
-    <div class="modal fade text-left" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17"
-      aria-hidden="true">
+    <div class="modal fade text-left" id="add" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -647,8 +652,10 @@ if(empty($_SESSION['username'])){
   <div class="sidenav-overlay"></div>
   <div class="drag-target"></div>
   <?php include "footer.php";?>
-  <script type="text/javascript">
-
+  <script>
+  $(document).ready(function() {
+    $(".select2").select2();
+  });
   </script>
   </body>
 
