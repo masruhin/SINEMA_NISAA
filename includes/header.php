@@ -168,6 +168,20 @@ include 'config.php';
                 <span data-i18n="Documentation"><strong>Statistik</strong> </span>
               </a>
             </li>
+            <?php 
+            if (!empty($_SESSION)) {
+              echo ' <li data-menu="">
+              <a class="dropdown-item d-flex align-items-center" href="survei.php">
+                <i data-feather="bar-chart-2"></i>
+                <span data-i18n="Documentation"><strong>Survei Kepuasan</strong> </span>
+              </a>
+            </li>
+              ';
+            }else {
+              echo '';
+            }
+            ?>
+
           </ul>
 
         </div>
