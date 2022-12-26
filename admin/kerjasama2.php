@@ -83,9 +83,9 @@ if(empty($_SESSION['username'])){
 												exit();
 											}
 											while($hasil = mysqli_fetch_array($data)){
-                        // echo '<pre>';
-                        // print_r($hasil);
-                        // echo'</pre>';
+                        echo '<pre>';
+                        print_r($hasil);
+                        echo'</pre>';
 											?>
                 <tr>
                   <td>
@@ -341,7 +341,6 @@ if(empty($_SESSION['username'])){
                 </div>
                 <!-- END MODAL VIEw -->
 
-
                 <!-- MODAL EDIT -->
                 <div class="modal fade text-left" id="edit<?php echo $hasil['id_kerjasama']; ?>" role="dialog"
                   aria-labelledby="myModalLabel16" aria-hidden="true">
@@ -439,29 +438,12 @@ if(empty($_SESSION['username'])){
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <p>Fakultas Penggiat Kerjasama</p>
-                                            <!-- <p class="form-p" for="first-name-icon">Status</p> -->
-                                            <div class="input-group input-group-merge">
-                                              <span class="input-group-text"><i data-feather='link'></i></span>
-                                              <div class="col-lg-10">
-                                                <select class="form-control select2" name="id_jenis_dok"
-                                                  style="width: 100%;">
-                                                  <option value="" selected="selected">-- Fakultas Penggiat --
-                                                  </option>
-                                                  <?php
-                                                  $no = 1;
-                                                  $query = "SELECT * FROM fakultas ORDER BY id_fak ASC";
-                                                  $qry = mysqli_query($kon, $query);
-                                                  while ($row = mysqli_fetch_array($qry)) {
-                                                  ?>
-                                                  <option value="<?php echo $row['id_fak'] ?>">
-                                                    <?php echo $no++  ." | ". $row['fak_nama']; ?>
-                                                  </option>
-                                                  <?php
-                                                  }
-                                                  ?>
-                                                </select>
-                                              </div>
+                                            <P class="form-label" for="fak_nama">Fakultas Penggiat
+                                              Kerjasama</P>
+                                            <div class="input-group ">
+                                              <span class="input-group-text"><i data-feather="layers"></i></span>
+                                              <input type="text" id="fak_nama" class="form-control"
+                                                value="<?php echo $hasil['fak_nama'];?>" name="fak_nama" />
                                             </div>
                                           </div>
                                         </div>
@@ -482,22 +464,24 @@ if(empty($_SESSION['username'])){
                                             <div class="input-group input-group-merge">
                                               <span class="input-group-text"><i data-feather='link'></i></span>
                                               <div class="col-lg-10">
-                                                <select class="form-control select2" name="id_jenis_dok"
-                                                  style="width: 100%;">
-                                                  <option value="" selected="selected">--- Pilih Jenis Dokumen Kerjasama
-                                                    ---</option>
-                                                  <?php
-                                                  $no = 1;
-                                                  $query = "SELECT * FROM jenis_dok ORDER BY jenis_dok";
-                                                  $q = mysqli_query($kon, $query);
-                                                  while ($row = mysqli_fetch_array($q)) {
-                                                  ?>
-                                                  <option value="<?php echo $row['id_jenis_dok'] ?>">
-                                                    <?php echo $no++  ." | ". $row['jenis_dok']; ?>
+                                                <select class="select2 form-select form-control" name="status_kerjasama"
+                                                  required>
+                                                  <option value="" readonly>-- Pilih Status Kerjasama --
                                                   </option>
                                                   <?php
-                                                  }
-                                                  ?>
+                                                    include "config.php";
+                                                        //mengambil nama-nama propinsi yang ada di database
+                                                      $data	 = mysqli_query($kon, "SELECT jenis_dok.id_jenis_dok,
+                                                      jenis_dok.jenis_dok
+                                                    FROM
+                                                      kerjasama
+                                                      RIGHT JOIN jenis_dok ON jenis_dok.id_jenis_dok = kerjasama.id_jenis_dok 
+                                                    GROUP BY
+                                                      jenis_dok.id_jenis_dok");
+                                                      while($p=mysqli_fetch_array($data)){
+                                                      echo "<option value=\"$p[id_jenis_dok]\">$p[jenis_dok]</option>\n";
+                                                      }
+                                                    ?>
                                                 </select>
                                               </div>
                                             </div>
@@ -552,13 +536,10 @@ if(empty($_SESSION['username'])){
                                           <div class="mb-1">
                                             <P class="form-label" for="fak_nama">File Dokumen
                                               Kerjasama</P>
-                                            <label for="" style="color:red ;">
-                                              * Dokumen Sebelumnya
-                                              <b style="color:blue"><?php echo $hasil ['file'];?></b>.
-                                            </label>
                                             <div class="input-group ">
-                                              <input type="file" name="file" class="form-control-file"
-                                                id="basicInputFile" />
+                                              <span class="input-group-text"><i data-feather="file"></i></span>
+                                              <input type="text" id="file" class="form-control"
+                                                value="<?php echo $hasil['file'];?>" name="file" />
                                             </div>
                                           </div>
                                         </div>
@@ -571,6 +552,7 @@ if(empty($_SESSION['username'])){
                           </section>
                           <div class="col-sm-12 offset-sm-12 modal-footer">
                             <button type="submit" class="btn btn-info mr-1 btn-sm" name="ubah">Simpan</button>
+                            <button type="reset" class="btn btn-outline-danger btn-sm">Reset</button>
                           </div>
                           <?php 
                               }
@@ -582,6 +564,7 @@ if(empty($_SESSION['username'])){
                   </div>
                 </div>
                 <!-- END MODAL EDIT -->
+
 
                 <!-- MODAL HAPUS -->
                 <div id="deleteEmployeeModal<?php echo $hasil['id_jenis_dok']; ?>" class="modal fade">

@@ -115,24 +115,6 @@
                 <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"
                   data-i18n="Raise Support" target="_blank">
                   <i data-feather="life-buoy"></i>
-                  <span data-i18n="Raise Support">Laporan Kinerja Tahunan</span></a>
-              </li>
-              <li data-menu="">
-                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"
-                  data-i18n="Raise Support" target="_blank">
-                  <i data-feather="life-buoy"></i>
-                  <span data-i18n="Raise Support">Laporan Kepuasan Mitra</span></a>
-              </li>
-              <li data-menu="">
-                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"
-                  data-i18n="Raise Support" target="_blank">
-                  <i data-feather="life-buoy"></i>
-                  <span data-i18n="Raise Support">Laporan Monev</span></a>
-              </li>
-              <li data-menu="">
-                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"
-                  data-i18n="Raise Support" target="_blank">
-                  <i data-feather="life-buoy"></i>
                   <span data-i18n="Raise Support">Laporan Kerjasama</span></a>
               </li>
             </ul>

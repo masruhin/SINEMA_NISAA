@@ -51,7 +51,7 @@ if (empty($_SESSION['username'])) {
 											while($hasil = mysqli_fetch_array($data)){
 											?>
             <input type="hidden" name="id_kerjasama" value="<?= $row['id_kerjasama']?>">
-            <form action="kerjasama_proses.php" method="post" enctype="multipart/form-data">
+            <form action="kerjasama_proses_edit.php" method="post" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-lg-4">
                   <div class="card">
