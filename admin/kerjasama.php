@@ -702,11 +702,10 @@ if(empty($_SESSION['username'])){
             <thead>
               <tr>
                 <th>No</th>
-                <th>KODE FAKULTAS</th>
-                <th>NAMA FAKULTAS</th>
-                <th>KETERANGAN</th>
-                <th>TGL DIBUAT</th>
-                <th>TGL DIUBAH</th>
+                <th>Nama Instansi</th>
+                <th>Situs Instansi</th>
+                <!-- <th>TGL DIBUAT</th>
+                <th>TGL DIUBAH</th> -->
                 <th style="text-align:center ;">Aksi</th>
               </tr>
             </thead>
@@ -714,7 +713,7 @@ if(empty($_SESSION['username'])){
               <?php 
 											include "config.php";
 											$no = 1;
-											$data = mysqli_query($kon, "SELECT * FROM fakultas ORDER BY fak_nama ASC");
+											$data = mysqli_query($kon, "SELECT * FROM instansi ORDER BY situs_nama ASC");
 											if (!$data) {
 												printf("Error: %s\n", mysqli_error($kon));
 												exit();
@@ -725,43 +724,42 @@ if(empty($_SESSION['username'])){
                 <td>
                   <?php echo $no++; ?>
                 </td>
-                <td><?php echo $hasil ['fak_kode'];?></td>
-                <td><?php echo $hasil ['fak_nama'];?></td>
-                <td><?php echo $hasil ['fak_ket'];?></td>
-                <td><?php echo $hasil ['date_created'];?></td>
-                <td><?php echo $hasil ['date_updated'];?></td>
+                <td><?php echo $hasil ['instansi_nama'];?></td>
+                <td style="color: blue;"> <a href=""><?php echo $hasil ['situs_nama'];?></a> </td>
+                <!-- <td><?php echo $hasil ['date_created'];?></td>
+                <td><?php echo $hasil ['date_updated'];?></td> -->
                 <td style="text-align:center ;">
                   <a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal"
-                    data-target="#edit<?php echo $hasil['id_fak']; ?>">Edit</a> |
+                    data-target="#edit<?php echo $hasil['id_instansi']; ?>">Edit</a> |
                   <a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal"
-                    data-target="#deleteEmployeeModal<?php echo $hasil['id_fak']; ?>">Hapus</a>
+                    data-target="#hapusinstansi<?php echo $hasil['id_instansi']; ?>">Hapus</a>
                 </td>
               </tr>
 
               <!-- MODAL EDIT -->
-              <div class="modal fade text-left modal-success" id="edit<?php echo $hasil['id_fak']; ?>" tabindex="-1"
-                role="dialog" aria-labelledby="myModalLabel110" aria-hidden="true">
+              <div class="modal fade text-left modal-success" id="edit<?php echo $hasil['id_instansi']; ?>"
+                tabindex="-1" role="dialog" aria-labelledby="myModalLabel110" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="myModalLabel110">Edit Data Fakultas</h5>
+                      <h5 class="modal-title" id="myModalLabel110">Edit Data</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form class="form form-horizontal" action="fakultas_act.php" method="POST">
+                      <form class="form form-horizontal" action="instansi_act.php" method="POST">
                         <?php
-                  $id = $hasil['id_fak']; 
-                  $query_edit = mysqli_query($kon, "SELECT * FROM fakultas WHERE id_fak='$id'");
-                  while ($row = mysqli_fetch_array($query_edit)) {  
-                  ?>
-                        <input type="hidden" name="id_fak" value="<?= $row['id_fak']?>">
+                          $id = $hasil['id_instansi']; 
+                          $query_edit = mysqli_query($kon, "SELECT * FROM instansi WHERE id_instansi='$id'");
+                          while ($row = mysqli_fetch_array($query_edit)) {  
+                          ?>
+                        <input type="hidden" name="id_instansi" value="<?= $row['id_instansi']?>">
                         <div class="row">
                           <div class="col-12">
                             <div div class="form-group row">
                               <div class="col-sm-4 col-form-label">
-                                <label for="fak_kode"><strong>Kode Fakultas </strong></label>
+                                <label for="instansi_nama"><strong>Nama Instansi</strong></label>
                               </div>
                               <div class="col-sm-8">
                                 <div class="input-group input-group-merge">
@@ -770,14 +768,16 @@ if(empty($_SESSION['username'])){
                                       <i data-feather="terminal"></i>
                                     </span>
                                   </div>
-                                  <input type="text" id="fak_kode" class="form-control" name="fak_kode"
-                                    placeholder="Isikan dengan nama Fakultas" value="<?= $row['fak_kode']?>" />
+                                  <input type="text" id="instansi_nama" class="form-control" name="instansi_nama"
+                                    placeholder="Isikan dengan Nama Instansi / Perusahaan"
+                                    value="<?= $row['instansi_nama']?>" />
                                 </div>
                               </div>
                             </div>
                             <div class="form-group row">
                               <div class="col-sm-4 col-form-label">
-                                <label for="fak_nama"><strong>Nama Fakultas </strong></label>
+                                <label for="situs_nama"><strong>Nama Situs Website
+                                  </strong></label>
                               </div>
                               <div class="col-sm-8">
                                 <div class="input-group input-group-merge">
@@ -786,20 +786,8 @@ if(empty($_SESSION['username'])){
                                       <i data-feather="layers"></i>
                                     </span>
                                   </div>
-                                  <input type="text" id="fak_nama" class="form-control" name="fak_nama"
-                                    placeholder="Isikan dengan nama Fakultas" value="<?= $row['fak_nama']?>" />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="form-group row">
-                              <div class="col-sm-4 col-form-label">
-                                <label for="fak_ket"><strong> Keterangan </strong></label>
-                              </div>
-                              <div class="col-sm-8">
-                                <div class="input-group input-group">
-                                  <textarea class="form-control" id="" name="fak_ket" colspan="4" rows="3"
-                                    placeholder="Keterangan Fakultas"><?= $row['fak_ket']?>
-                              </textarea>
+                                  <input type="text" id="situs_nama" class="form-control" name="situs_nama"
+                                    placeholder="Isikan dengan nama Situs" value="<?= $row['situs_nama']?>" />
                                 </div>
                               </div>
                             </div>
@@ -837,25 +825,25 @@ if(empty($_SESSION['username'])){
               <!-- END MODAL EDIT -->
 
               <!-- MODAL HAPUS -->
-              <div id="deleteEmployeeModal<?php echo $hasil['id_fak']; ?>" class="modal fade">
+              <div id="hapusinstansi<?php echo $hasil['id_instansi']; ?>" class="modal fade">
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <form method="post" action="fakultas_act.php">
+                    <form method="post" action="instansi_act.php">
                       <?php
-          $id = $hasil['id_fak']; 
-          $query_edit = mysqli_query($kon, "SELECT * FROM fakultas WHERE id_fak='$id'");
-          //$result = mysqli_query($conn, $query);
-          while ($row = mysqli_fetch_array($query_edit)) {  
-          ?>
-                      <input type="hidden" class="form-control" value="<?php echo $hasil['id_fak']; ?>" name="id_fak"
-                        required>
+                        $id = $hasil['id_instansi']; 
+                        $query_edit = mysqli_query($kon, "SELECT * FROM instansi WHERE id_instansi='$id'");
+                        //$result = mysqli_query($conn, $query);
+                        while ($row = mysqli_fetch_array($query_edit)) {  
+                        ?>
+                      <input type="hidden" class="form-control" value="<?php echo $hasil['id_instansi']; ?>"
+                        name="id_instansi" required>
 
                       <div class="modal-header">
                         <h4 class="modal-title">Delete</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                       </div>
                       <div class="modal-body">
-                        <p>Apakah Kamu akan menghapus Universitas <?php echo $hasil['fak_nama']; ?>?</p>
+                        <p>Apakah Kamu akan menghapus Situs Instansi <?php echo $hasil['instansi_nama']; ?>?</p>
                       </div>
                       <div class="col-sm-12 offset-sm-12 modal-footer">
                         <button type="submit" class="btn btn-danger mr-1 btn-sm" name="delete">Hapus</button>
@@ -888,18 +876,18 @@ if(empty($_SESSION['username'])){
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="myModalLabel110"><strong>Tambah Data Fakultas</strong></h5>
+        <h5 class="modal-title" id="myModalLabel110"><strong>Tambah Data</strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form class="form form-horizontal" action="fakultas_act.php" method="POST">
+        <form class="form form-horizontal" action="instansi_act.php" method="POST">
           <div class="row">
             <div class="col-12">
               <div div class="form-group row">
                 <div class="col-sm-4 col-form-label">
-                  <label for="fak_kode"><strong>Kode Fakultas </strong></label>
+                  <label for="instansi_nama"><strong>Nama Instansi</strong></label>
                 </div>
                 <div class="col-sm-8">
                   <div class="input-group input-group-merge">
@@ -908,14 +896,14 @@ if(empty($_SESSION['username'])){
                         <i data-feather="terminal"></i>
                       </span>
                     </div>
-                    <input type="text" id="fak_kode" class="form-control" name="fak_kode"
-                      placeholder="Isikan dengan Kode Fakultas" />
+                    <input type="text" id="instansi_nama" class="form-control" name="instansi_nama"
+                      placeholder="Isikan dengan " />
                   </div>
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-sm-4 col-form-label">
-                  <label for="fak_nama"><strong>Nama Fakultas </strong></label>
+                  <label for="situs_nama"><strong>Nama Situs Website </strong></label>
                 </div>
                 <div class="col-sm-8">
                   <div class="input-group input-group-merge">
@@ -924,20 +912,8 @@ if(empty($_SESSION['username'])){
                         <i data-feather="layers"></i>
                       </span>
                     </div>
-                    <input type="text" id="fak_nama" class="form-control" name="fak_nama"
-                      placeholder="Isikan dengan nama Fakultas" />
-                  </div>
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-4 col-form-label">
-                  <label for="fak_ket"><strong> Keterangan </strong></label>
-                </div>
-                <div class="col-sm-8">
-                  <div class="input-group input-group">
-                    <textarea class="form-control" id="" name="fak_ket" colspan="4" rows="3"
-                      placeholder="Keterangan Fakultas">
-                              </textarea>
+                    <input type="text" id="situs_nama" class="form-control" name="situs_nama"
+                      placeholder="Isikan dengan nama Situs" />
                   </div>
                 </div>
               </div>

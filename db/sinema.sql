@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2022 at 11:36 PM
+-- Generation Time: Dec 27, 2022 at 10:20 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -116,6 +116,27 @@ CREATE TABLE `file` (
 
 INSERT INTO `file` (`id_file`, `judul_file`, `nama_file`, `tipe_file`, `ukuran_file`, `file`, `tgl_entry`) VALUES
 (1, 'dokumen pendukung', 'data.xls', 'xls', '300mb', 'img', '2022-12-05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `instansi`
+--
+
+CREATE TABLE `instansi` (
+  `id_instansi` int(11) NOT NULL,
+  `instansi_nama` varchar(255) NOT NULL,
+  `situs_nama` varchar(255) NOT NULL,
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `instansi`
+--
+
+INSERT INTO `instansi` (`id_instansi`, `instansi_nama`, `situs_nama`, `date_created`, `date_updated`) VALUES
+(1, 'aa', 'www', '2022-12-27 03:50:23', '2022-12-27 09:19:29');
 
 -- --------------------------------------------------------
 
@@ -519,7 +540,7 @@ CREATE TABLE `tikm` (
 --
 
 INSERT INTO `tikm` (`id_ikm`, `puas`, `cukup`, `kurang`) VALUES
-(1, 2, 1, 1);
+(1, 2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -648,6 +669,12 @@ ALTER TABLE `file`
   ADD PRIMARY KEY (`id_file`);
 
 --
+-- Indexes for table `instansi`
+--
+ALTER TABLE `instansi`
+  ADD PRIMARY KEY (`id_instansi`);
+
+--
 -- Indexes for table `jenis_dok`
 --
 ALTER TABLE `jenis_dok`
@@ -725,6 +752,12 @@ ALTER TABLE `bentuk_kerjasama`
 --
 ALTER TABLE `fakultas`
   MODIFY `id_fak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `instansi`
+--
+ALTER TABLE `instansi`
+  MODIFY `id_instansi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `jenis_dok`
