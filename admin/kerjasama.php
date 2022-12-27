@@ -693,7 +693,7 @@ if(empty($_SESSION['username'])){
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Data Fakultas</h4>
+          <h4 class="card-title">Data Situs Instansi</h4>
           <button type="button" class="btn btn-outline-success round btn-sm" data-toggle="modal"
             data-target="#tambah_data">Tambah</button>
         </div>
