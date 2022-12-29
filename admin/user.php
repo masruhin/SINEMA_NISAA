@@ -47,7 +47,13 @@ if(empty($_SESSION['username'])){
                   </td>
                   <td><?php echo $hasil ['username'];?></td>
                   <td><?php echo $hasil ['nama_user'];?></td>
-                  <td><?php echo $hasil ['blokir'];?></td>
+                  <td><?php 
+                  if ($hasil ['blokir'] == 'Y') {
+                    echo '<div class="badge badge-pill badge-glow badge-danger">nonaktif';
+                  }else {
+                    echo '<div class="badge badge-pill badge-glow badge-success">aktif';
+                  }?>
+                  </td>
                   <td><?php echo $hasil ['level'];?></td>
                   <td style="text-align:center ;">
                     <a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal"
