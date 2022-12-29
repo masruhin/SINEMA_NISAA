@@ -161,9 +161,9 @@
               <i data-feather="settings"></i>
               <span data-i18n="Misc"><strong>Users</strong></span></a>
             <ul class="dropdown-menu">
-              <li data-menu="">
-                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"
-                  data-i18n="Raise Support" target="_blank">
+              <li data-menu="" <?php if (isset($_GET["users"])){echo 'class="active"';}?>>
+                <a class="dropdown-item d-flex align-items-center" href="user.php?users" data-toggle="dropdown"
+                  data-i18n="Raise Support">
                   <i data-feather="life-buoy"></i>
                   <span data-i18n="Raise Support">Pengaturan Users</span></a>
               </li>
