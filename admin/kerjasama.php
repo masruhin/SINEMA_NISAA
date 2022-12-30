@@ -362,7 +362,8 @@ if(empty($_SESSION['username'])){
                               LEFT JOIN unit c ON c.id_unit= a.id_unit WHERE id_kerjasama='$id'");
                               while ($row = mysqli_fetch_array($query_edit)) {  
                               ?>
-                        <form class="form form-horizontal" action="jenis_dok_act.php" method="POST">
+                        <form action="kerjasama_proses_edit.php" method="post" enctype="multipart/form-data"
+                          id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                           <input type="hidden" name="id_kerjasama" value="<?= $row['id_kerjasama']?>">
                           <section id="input-sizing">
                             <div class="row match-height">
@@ -415,7 +416,7 @@ if(empty($_SESSION['username'])){
                                               Akhir</P>
                                             <div class="input-group ">
                                               <span class="input-group-text"><i data-feather="calendar"></i></span>
-                                              <input type="date" id="tanggal_awal" class="form-control"
+                                              <input type="date" id="tanggal_akhir" class="form-control"
                                                 value="<?php echo $hasil ['tanggal_akhir'];?>" name="tanggal_akhir" />
                                             </div>
                                           </div>
@@ -532,7 +533,7 @@ if(empty($_SESSION['username'])){
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <P class="form-label" for="fak_nama">File Dokumen
+                                            <P class="form-label" for="file">File Dokumen
                                               Kerjasama</P>
                                             <label for="" style="color:red ;">
                                               * Dokumen Sebelumnya
@@ -552,7 +553,8 @@ if(empty($_SESSION['username'])){
                             </div>
                           </section>
                           <div class="col-sm-12 offset-sm-12 modal-footer">
-                            <button type="submit" class="btn btn-info mr-1 btn-sm" name="ubah">Simpan</button>
+                            <button type="submit" class="btn btn-info mr-1 btn-sm" name="update"
+                              value="Update">Simpan</button>
                           </div>
                           <?php 
                               }
