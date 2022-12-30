@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2022 at 10:20 AM
+-- Generation Time: Dec 30, 2022 at 08:49 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -120,27 +120,6 @@ INSERT INTO `file` (`id_file`, `judul_file`, `nama_file`, `tipe_file`, `ukuran_f
 -- --------------------------------------------------------
 
 --
--- Table structure for table `instansi`
---
-
-CREATE TABLE `instansi` (
-  `id_instansi` int(11) NOT NULL,
-  `instansi_nama` varchar(255) NOT NULL,
-  `situs_nama` varchar(255) NOT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `instansi`
---
-
-INSERT INTO `instansi` (`id_instansi`, `instansi_nama`, `situs_nama`, `date_created`, `date_updated`) VALUES
-(1, 'aa', 'www', '2022-12-27 03:50:23', '2022-12-27 09:19:29');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `jenis_dok`
 --
 
@@ -186,8 +165,7 @@ CREATE TABLE `kerjasama` (
 --
 
 INSERT INTO `kerjasama` (`id_kerjasama`, `id_jenis_dok`, `id_fak`, `id_unit`, `judul_kerjasama`, `deskripsi_kerjasama`, `status_kerjasama`, `tanggal_awal`, `tanggal_akhir`, `no_ref_kerjasama`, `file`, `date_created`, `date_updated`) VALUES
-(13, 1, 3, 1, 'satu', 'satu', 'aktif', '2022-12-24', '2022-12-31', 'satu', '2022-12-24_CV.pdf', '2022-12-24 07:34:44', NULL),
-(14, 1, 4, 2, 'dua', 'dua', 'nonaktif', '2022-12-24', '2022-12-31', 'dua', '2022-12-24_SURAT PERNYATAAN.pdf', '2022-12-24 07:35:30', NULL);
+(14, 1, 4, 2, 'dua', 'dua', 'nonaktif', '2022-12-24', '2022-12-31', 'dua', '', '2022-12-24 07:35:30', '2022-12-30 18:33:44');
 
 -- --------------------------------------------------------
 
@@ -540,7 +518,7 @@ CREATE TABLE `tikm` (
 --
 
 INSERT INTO `tikm` (`id_ikm`, `puas`, `cukup`, `kurang`) VALUES
-(1, 2, 1, 2);
+(1, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -608,19 +586,21 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `nama_user` varchar(100) NOT NULL,
   `level` enum('admin','superadmin','user') NOT NULL DEFAULT 'user',
-  `blokir` enum('Y','N') NOT NULL DEFAULT 'N'
+  `blokir` enum('Y','N') NOT NULL DEFAULT 'N',
+  `status` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `nama_user`, `level`, `blokir`) VALUES
-(1, 'member', '17c4520f6cfd1ab53d8745e84681eb49', 'member', 'user', 'Y'),
-(2, 'superadmin', '17c4520f6cfd1ab53d8745e84681eb49', 'superadmin', 'admin', 'Y'),
-(3, 'masruhin', '04f7bfe02b96496002b53d146d527f28', 'masruhin', 'user', 'N'),
-(4, 'sample', '5e8ff9bf55ba3508199d22e984129be6', 'sample', 'user', 'Y'),
-(5, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'user', 'user', 'Y');
+INSERT INTO `users` (`id`, `username`, `password`, `nama_user`, `level`, `blokir`, `status`) VALUES
+(1, 'member', '17c4520f6cfd1ab53d8745e84681eb49', 'member', 'user', 'Y', 1),
+(2, 'superadmin', '17c4520f6cfd1ab53d8745e84681eb49', 'superadmin', 'admin', 'Y', 1),
+(3, 'masruhin', '17c4520f6cfd1ab53d8745e84681eb49', 'masruhin', 'user', 'N', 1),
+(4, 'sample', '17c4520f6cfd1ab53d8745e84681eb49', 'sample', 'user', 'Y', 0),
+(5, 'user', '17c4520f6cfd1ab53d8745e84681eb49', 'user', 'user', 'Y', 0),
+(6, 'masuk', 'f3770595e0cb4d9a988bd5da98d2187d', 'masuk', 'user', 'N', 0);
 
 -- --------------------------------------------------------
 
@@ -667,12 +647,6 @@ ALTER TABLE `fakultas`
 --
 ALTER TABLE `file`
   ADD PRIMARY KEY (`id_file`);
-
---
--- Indexes for table `instansi`
---
-ALTER TABLE `instansi`
-  ADD PRIMARY KEY (`id_instansi`);
 
 --
 -- Indexes for table `jenis_dok`
@@ -754,12 +728,6 @@ ALTER TABLE `fakultas`
   MODIFY `id_fak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `instansi`
---
-ALTER TABLE `instansi`
-  MODIFY `id_instansi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `jenis_dok`
 --
 ALTER TABLE `jenis_dok`
@@ -811,7 +779,7 @@ ALTER TABLE `universitas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `web`

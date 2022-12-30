@@ -84,3 +84,22 @@ if (isset($_POST['ubah'])) {
   $id = isset($_GET['id_kerjasama']) ? $_GET['id_kerjasama'] : null;
   
 }
+if(isset($_POST['delete']))
+{
+  $id = isset($_GET['id_kerjasama']) ? $_GET['id_kerjasama'] : null;
+  $id = $_POST['id_kerjasama'];
+	//delete
+	$sql = "DELETE FROM kerjasama WHERE id_kerjasama = '$id'";
+	if(mysqli_query($kon, $sql))
+	{
+		echo "<script type='text/javascript'>
+			alert('Berhasil Hapus data.'); 
+			document.location = 'kerjasama.php'; 
+		</script>";
+	} 
+	else
+	{
+		echo "ERROR: Could not able to execute $sql. " . mysqli_error($kon);
+	}
+
+}

@@ -1,22 +1,55 @@
-<?php
+<?php 
+
+//when you start work on login. Firstly start session.
 session_start();
-include "includes/config.php";
-if(isset($_POST['submit'])){
-	$username = $_POST['username'];
-	$password = md5($_POST['password']);
 
-	$sql = mysqli_query($kon, "SELECT username, nama_user, password, level, blokir FROM users WHERE password = '$password' AND blokir='Y'");
-	$jumlah = mysqli_num_rows($sql);
+//include connection file here
+include('includes/config.php');
 
-	if($jumlah>0){
-		$row = mysqli_fetch_array($sql);
-		$_SESSION['username'] = $row['username'];
-		echo "<script> alert('Berhasil Login..'); location.replace('index.php') </script>";	
-	}else{
-		echo "<script> alert('Gagal Login, Pastikan username dan password benar.'); location.replace('login.php') </script>";	
-	}
+//here i am checking. User logged in or not.
+if(!empty($_SESSION['id']))
+{
+    header("location:login.php");
 }
+
+$error = '';  //Initialize error variable
+
+if(isset($_POST['submit'])) 
+{
+
+    $username = $_POST['username'];
+    $password = md5($_POST['password']); 
+
+    //check query for user and password exist in user table or not
+    $sql = "SELECT * FROM users WHERE username = '$username' and password = '$password'";
+
+    $row = mysqli_query($kon,$sql);
+    $count = mysqli_num_rows($row);
+
+    if($count > 0)
+    {
+        $rows = mysqli_fetch_object($row);
+        if($rows->status == '1')
+        {
+            $_SESSION['id'] = $rows->id;
+            $_SESSION['username'] = $rows->username;
+            echo "<script> alert('Berhasil Login..'); location.replace('index.php') </script>";
+        }
+        else
+        {
+          echo "<script> alert('Gagal Login, Akun anda Belum Aktif'); location.replace('login.php') </script>";	
+        }
+        
+    }
+    else 
+    {
+      echo "<script> alert('Gagal Login, Pastikan username dan password benar.'); location.replace('login.php') </script>";	
+    }
+    
+ }
+
 ?>
+
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
   <!-- BEGIN: Head-->
