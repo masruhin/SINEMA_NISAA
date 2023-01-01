@@ -386,7 +386,7 @@ if(empty($_SESSION['username'])){
                                               <div class="col-md-10">
                                                 <select class="select2 form-select form-control" name="status_kerjasama"
                                                   required>
-                                                  <option value="" readonly>-- Pilih Status Kerjasama --
+                                                  <option value="status_kerjasama" readonly>-- Pilih Status Kerjasama --
                                                   </option>
                                                   <option value="aktif">
                                                     Aktif
@@ -439,6 +439,33 @@ if(empty($_SESSION['username'])){
                                                   ?>
                                                   <option value="<?php echo $row['id_fak'] ?>">
                                                     <?php echo $no++  ." | ". $row['fak_nama']; ?>
+                                                  </option>
+                                                  <?php
+                                                  }
+                                                  ?>
+                                                </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-12">
+                                          <div class="mb-1">
+                                            <p>Fakultas Penggiat Kerjasama</p>
+                                            <!-- <p class="form-p" for="first-name-icon">Status</p> -->
+                                            <div class="input-group input-group-merge">
+                                              <span class="input-group-text"><i data-feather='link'></i></span>
+                                              <div class="col-lg-10">
+                                                <select class="form-control select2" name="id_fak" style="width: 100%;">
+                                                  <option value="" selected="selected">-- Unit Penggiat --
+                                                  </option>
+                                                  <?php
+                                                  $no = 1;
+                                                  $query = "SELECT * FROM unit ORDER BY id_unit ASC";
+                                                  $qry = mysqli_query($kon, $query);
+                                                  while ($row = mysqli_fetch_array($qry)) {
+                                                  ?>
+                                                  <option value="<?php echo $row['id_unit'] ?>">
+                                                    <?php echo $no++  ." | ". $row['unit_nama']; ?>
                                                   </option>
                                                   <?php
                                                   }

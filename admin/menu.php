@@ -166,6 +166,15 @@
                   data-i18n="Raise Support">
                   <i data-feather="life-buoy"></i>
                   <span data-i18n="Raise Support">Pengaturan Users</span></a>
+                <a class="dropdown-item" href="#">
+                  <i class="mr-50" data-feather="edit"></i>
+                  Update Profile</a>
+                <a class="dropdown-item" href="page-auth-login-v2.html">
+                  <i class="mr-50" data-feather="key"></i>
+                  Update Password</a>
+                <a class="dropdown-item" href="logout.php">
+                  <i class="mr-50" data-feather="log-out"></i>
+                  Keluar</a>
               </li>
             </ul>
           </li>

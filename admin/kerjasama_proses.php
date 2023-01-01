@@ -30,7 +30,7 @@ if (isset($_POST['upload'])) {
   
   if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
       if($ukuran < 304407000){ 
-          move_uploaded_file($file_tmp, 'aset/' . $nama);
+          move_uploaded_file($file_tmp, '../dok/' . $nama);
           $query    = mysqli_query($kon, "INSERT INTO kerjasama (status_kerjasama,
                                                                   tanggal_awal,
                                                                   tanggal_akhir,
@@ -82,7 +82,34 @@ if (isset($_POST['upload'])) {
 }
 if (isset($_POST['ubah'])) {
   $id = isset($_GET['id_kerjasama']) ? $_GET['id_kerjasama'] : null;
+  $id = $_POST['id_kerjasama'];
+  $status = $_POST['status_kerjasama'];
+  $tawal = $_POST['tanggal_awal'];
+  $takhir = $_POST['tanggal_akhir'];
+  $fak = $_POST['id_fak'];
+  $id_dok = $_POST['id_jenis_dok'];
+  $judul = $_POST['judul_kerjasama'];
+  $deskripsi = $_POST['deskripsi_kerjasama'];
+  $ref = $_POST['no_ref_kerjasama'];
+  $unit = $_POST['id_unit'];
+
+  $ekstensi_diperbolehkan    = array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'rar', 'zip', 'png', 'jpg', 'mp4', 'avi');
+  $nama = date("Y-m-d").'_'.basename($_FILES['file']['name']);
+  $x        = explode('.', $nama);
+  $ekstensi    = strtolower(end($x));
+  $ukuran        = $_FILES['file']['size'];
+  $file_tmp    = $_FILES['file']['tmp_name']; 
   
+  $query = "UPDATE instansi SET instansi_nama='$instansi_nama', situs_nama='$situs_nama' WHERE id_instansi='$id' ";
+    if (mysqli_query($kon,$query)) {
+    # credirect ke page unit
+    echo "<script type='text/javascript'>
+          alert('Berhasil Ubah data.'); 
+          document.location = 'kerjasama.php'; 
+        </script>";
+    }else{
+    echo "ERROR, data gagal diupdate". mysqli_error($kon);
+    }
 }
 if(isset($_POST['delete']))
 {

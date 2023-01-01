@@ -1,5 +1,5 @@
 <?php
-$dir="aset/";
+$dir="../dok/";
 $filename=$_GET['file'];
 $file_path=$dir.$filename;
 $ctype="application/octet-stream";

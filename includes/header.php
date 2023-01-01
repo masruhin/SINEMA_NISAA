@@ -150,8 +150,8 @@ include 'config.php';
                 <span data-i18n="Documentation"><strong>Profile</strong> </span>
               </a>
             </li>
-            <li data-menu="" <?php if (isset($_GET["Download"])){echo 'class="active"';}?>>
-              <a class="dropdown-item d-flex align-items-center" href="#kerjasama">
+            <li data-menu="" <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
+              <a class="dropdown-item d-flex align-items-center" href="kerjasama?kerjasama">
                 <i data-feather="download"></i>
                 <span data-i18n="Documentation"> <strong>Kerjasama</strong> </span>
               </a>
@@ -163,7 +163,7 @@ include 'config.php';
               </a>
             </li> -->
             <li data-menu="">
-              <a class="dropdown-item d-flex align-items-center" href="member-statistik.php">
+              <a class="dropdown-item d-flex align-items-center" href="#">
                 <i data-feather="bar-chart-2"></i>
                 <span data-i18n="Documentation"><strong>Statistik</strong> </span>
               </a>

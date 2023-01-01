@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2022 at 08:49 PM
+-- Generation Time: Jan 01, 2023 at 01:01 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -165,7 +165,8 @@ CREATE TABLE `kerjasama` (
 --
 
 INSERT INTO `kerjasama` (`id_kerjasama`, `id_jenis_dok`, `id_fak`, `id_unit`, `judul_kerjasama`, `deskripsi_kerjasama`, `status_kerjasama`, `tanggal_awal`, `tanggal_akhir`, `no_ref_kerjasama`, `file`, `date_created`, `date_updated`) VALUES
-(14, 1, 4, 2, 'dua', 'dua', 'nonaktif', '2022-12-24', '2022-12-31', 'dua', '', '2022-12-24 07:35:30', '2022-12-30 18:33:44');
+(14, 1, 4, 2, 'dua', 'dua', 'nonaktif', '2022-12-24', '2022-12-31', 'dua', '', '2022-12-24 07:35:30', '2022-12-30 18:33:44'),
+(15, 1, 3, 1, 'ok', 'ok', 'aktif', '2023-01-01', '2023-01-31', '121212', '2023-01-01_CV.pdf', '2023-01-01 11:40:55', NULL);
 
 -- --------------------------------------------------------
 
@@ -737,7 +738,7 @@ ALTER TABLE `jenis_dok`
 -- AUTO_INCREMENT for table `kerjasama`
 --
 ALTER TABLE `kerjasama`
-  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `lembaga`
