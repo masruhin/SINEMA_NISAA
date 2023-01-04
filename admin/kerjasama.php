@@ -376,26 +376,28 @@ if(empty($_SESSION['username'])){
                                     </div>
                                     <div class="card-body list-group-item" id="accordionTwo">
                                       <div class="row">
-                                        <div class="col-12">
+                                        <!-- <div class="col-12">
                                           <div class="mb-1">
                                             <p>Status Kerjasama</p>
-                                            <!-- <p class="form-p" for="first-name-icon">Status</p> -->
                                             <div class="input-group input-group-merge">
                                               <span class="input-group-text"><i data-feather='chevrons-down'></i></span>
                                               <div class="col-lg-10">
                                                 <?php $status = $hasil['status_kerjasama']; ?>
-                                                <select class="select2 form-select form-control"
+                                                <select class="select2 form-select form-control" id="status_kerjasama"
                                                   name="status_kerjasama">
-                                                  <option <?php echo ($status == 'aktif') ? "selected": "" ?>>aktif
+                                                  <option <?php echo ($status == 'aktif') ? "selected": "" ?>
+                                                    value="aktif">
+                                                    aktif
                                                   </option>
-                                                  <option <?php echo ($status == 'nonaktif') ? "selected": "" ?>>
+                                                  <option <?php echo ($status == 'nonaktif') ? "selected": "" ?>
+                                                    value="nonaktif">
                                                     nonaktif
                                                   </option>
                                                 </select>
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-12">
                                           <div class="mb-1">
                                             <P class="form-label" for="tawal">Tanggal
@@ -418,24 +420,25 @@ if(empty($_SESSION['username'])){
                                             </div>
                                           </div>
                                         </div>
+
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <p>Fakultas Penggiat Kerjasama</p>
-                                            <!-- <p class="form-p" for="first-name-icon">Status</p> -->
+                                            <p>Unit Penggiat</p>
                                             <div class="input-group input-group-merge">
                                               <span class="input-group-text"><i data-feather='link'></i></span>
                                               <div class="col-lg-10">
-                                                <select class="form-control select2" name="id_fak" style="width: 100%;">
-                                                  <option value="" selected="selected">-- Fakultas Penggiat --
+                                                <select class="form-control select2" name="id_unit"
+                                                  style="width: 100%;">
+                                                  <option value="" selected="selected">-- Unit Penggiat --
                                                   </option>
                                                   <?php
                                                   $no = 1;
-                                                  $query = "SELECT * FROM fakultas ORDER BY id_fak ASC";
-                                                  $qry = mysqli_query($kon, $query);
-                                                  while ($row = mysqli_fetch_array($qry)) {
+                                                  $q_u = "SELECT * FROM unit ORDER BY id_unit ASC";
+                                                  $qry = mysqli_query($kon, $q_u);
+                                                  while ($row_u = mysqli_fetch_array($qry)) {
                                                   ?>
-                                                  <option value="<?php echo $row['id_fak'] ?>">
-                                                    <?php echo $no++  ." | ". $row['fak_nama']; ?>
+                                                  <option value="<?php echo $row_u['id_unit'] ?>">
+                                                    <?php echo $no++  ." | ". $row_u['unit_nama']; ?>
                                                   </option>
                                                   <?php
                                                   }
@@ -447,26 +450,18 @@ if(empty($_SESSION['username'])){
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <p>Unit Penggiat</p>
-                                            <!-- <p class="form-p" for="first-name-icon">Status</p> -->
+                                            <p>Status</p>
                                             <div class="input-group input-group-merge">
-                                              <span class="input-group-text"><i data-feather='link'></i></span>
+                                              <span class="input-group-text"><i data-feather='chevrons-down'></i></span>
                                               <div class="col-lg-10">
-                                                <select class="form-control select2" name="id_u" style="width: 100%;">
-                                                  <option value="" selected="selected">-- Unit Penggiat --
+                                                <select name="status_kerjasama" class="select2 form-select form-control"
+                                                  required>
+                                                  <option value="aktif">
+                                                    aktif
                                                   </option>
-                                                  <?php
-                                                  $no = 1;
-                                                  $query = "SELECT * FROM unit ORDER BY id_unit ASC";
-                                                  $qry = mysqli_query($kon, $query);
-                                                  while ($row = mysqli_fetch_array($qry)) {
-                                                  ?>
-                                                  <option value="<?php echo $row['id_unit'] ?>">
-                                                    <?php echo $no++  ." | ". $row['unit_nama']; ?>
+                                                  <option value="nonaktif">
+                                                    nonaktif
                                                   </option>
-                                                  <?php
-                                                  }
-                                                  ?>
                                                 </select>
                                               </div>
                                             </div>
@@ -494,12 +489,38 @@ if(empty($_SESSION['username'])){
                                                     ---</option>
                                                   <?php
                                                   $no = 1;
-                                                  $query = "SELECT * FROM jenis_dok ORDER BY jenis_dok";
-                                                  $q = mysqli_query($kon, $query);
-                                                  while ($row = mysqli_fetch_array($q)) {
+                                                  $q_jenis = "SELECT * FROM jenis_dok ORDER BY jenis_dok";
+                                                  $hasil_jenis = mysqli_query($kon, $q_jenis);
+                                                  while ($row_jenis = mysqli_fetch_array($hasil_jenis)) {
                                                   ?>
-                                                  <option value="<?php echo $row['id_jenis_dok'] ?>">
-                                                    <?php echo $no++  ." | ". $row['jenis_dok']; ?>
+                                                  <option value="<?php echo $row_jenis['id_jenis_dok'] ?>">
+                                                    <?php echo $no++  ." | ". $row_jenis['jenis_dok']; ?>
+                                                  </option>
+                                                  <?php
+                                                  }
+                                                  ?>
+                                                </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-12">
+                                          <div class="mb-1">
+                                            <p>Fakultas Penggiat</p>
+                                            <div class="input-group input-group-merge">
+                                              <span class="input-group-text"><i data-feather='link'></i></span>
+                                              <div class="col-lg-10">
+                                                <select class="form-control select2" name="id_f" style="width: 100%;">
+                                                  <option value="" selected="selected">-- Fakultas Penggiat --
+                                                  </option>
+                                                  <?php
+                                                  $no = 1;
+                                                  $q_unit = "SELECT * FROM fakultas ORDER BY id_fak ASC";
+                                                  $qry = mysqli_query($kon, $q_unit);
+                                                  while ($row_unit = mysqli_fetch_array($qry)) {
+                                                  ?>
+                                                  <option value="<?php echo $row_unit['id_fak'] ?>">
+                                                    <?php echo $no++  ." | ". $row_unit['fak_nama']; ?>
                                                   </option>
                                                   <?php
                                                   }

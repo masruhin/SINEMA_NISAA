@@ -4,10 +4,13 @@
   // $id	= $_POST['id_suratmasuk'];
   $id = $_POST['id_kerjasama'];
   $status = $_POST['status_kerjasama'];
+
   $tawal = $_POST['tawal'];
   $takhir = $_POST['takhir'];
-  $id_fak = $_POST['id_fak'];
-  $id_u = $_POST['id_u'];
+  $id_fak = $_POST['id_f'];
+  $id_u = $_POST['id_unit'];
+    var_dump($id_fak);
+  die();
   $id_dok = $_POST['id_dok'];
   $judul = $_POST['judul'];
   $deskripsi = $_POST['deskripsi'];

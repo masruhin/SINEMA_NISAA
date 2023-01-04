@@ -195,13 +195,10 @@ if (empty($_SESSION['username'])) {
                                     <select class="select2 form-control form-control-md" name="id_fak" id="id_fak">
                                       <option value="" selected="selected">-- Pilih Penggiat Kerjasama --</option>
                                       <?php
-                                      $query =
-                                          'SELECT * FROM fakultas ORDER BY id_fak';
+                                      $query ='SELECT * FROM fakultas ORDER BY id_fak';
                                       $hasil = mysqli_query($kon, $query);
                                       while ($row = mysqli_fetch_array($hasil)) { ?>
-                                      <option value="<?php echo $row[
-                                          'id_fak'
-                                      ]; ?>">
+                                      <option value="<?php echo $row['id_fak']; ?>">
                                         <?php echo $row['fak_kode'] .
                                             ' | ' .
                                             $row['fak_nama']; ?></option>
