@@ -30,7 +30,7 @@ if (isset($_POST['upload'])) {
   
   if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
       if($ukuran < 304407000){ 
-          move_uploaded_file($file_tmp, 'aset/' . $nama);
+          move_uploaded_file($file_tmp, '../dok/' . $nama);
           $query    = mysqli_query($kon, "INSERT INTO kerjasama (status_kerjasama,
                                                                   tanggal_awal,
                                                                   tanggal_akhir,
@@ -83,4 +83,23 @@ if (isset($_POST['upload'])) {
 if (isset($_POST['ubah'])) {
   $id = isset($_GET['id_kerjasama']) ? $_GET['id_kerjasama'] : null;
   
+}
+if(isset($_POST['delete']))
+{
+  $id = isset($_GET['id_kerjasama']) ? $_GET['id_kerjasama'] : null;
+  $id = $_POST['id_kerjasama'];
+	//delete
+	$sql = "DELETE FROM kerjasama WHERE id_kerjasama = '$id'";
+	if(mysqli_query($kon, $sql))
+	{
+		echo "<script type='text/javascript'>
+			alert('Berhasil Hapus data.'); 
+			document.location = 'kerjasama.php'; 
+		</script>";
+	} 
+	else
+	{
+		echo "ERROR: Could not able to execute $sql. " . mysqli_error($kon);
+	}
+
 }

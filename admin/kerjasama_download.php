@@ -1,5 +1,5 @@
 <?php
-$dir="aset/";
+$dir="../dok/";
 $filename=$_GET['file'];
 $file_path=$dir.$filename;
 $ctype="application/octet-stream";
@@ -18,6 +18,9 @@ if(!empty($file_path) && file_exists($file_path)){ /*check keberadaan file*/
    readfile($file_path);
    exit();
 }else{
-   echo "The File does not exist.";
+  echo "<script type='text/javascript'>
+  alert('Tidak Ada File.'); 
+  document.location = 'kerjasama.php'; 
+</script>";
 }
 ?>

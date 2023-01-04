@@ -26,6 +26,7 @@ if(empty($_SESSION['username'])){
                   <th>Username</th>
                   <th>Nama User</th>
                   <th>Status</th>
+                  <!-- <th>Ubah Status</th> -->
                   <th>Group</th>
                   <th style="text-align:center ;">Aksi</th>
                 </tr>
@@ -47,9 +48,30 @@ if(empty($_SESSION['username'])){
                   </td>
                   <td><?php echo $hasil ['username'];?></td>
                   <td><?php echo $hasil ['nama_user'];?></td>
-                  <td><?php echo $hasil ['blokir'];?></td>
-                  <td><?php echo $hasil ['level'];?></td>
-                  <td style="text-align:center ;">
+                  <td>
+                    <?php 
+                    if ($hasil['status']==1) {
+                      echo "<div class='badge badge-pill badge-glow badge-success' id=str".$hasil['id'].">Aktif</div>";
+                    }else {
+                      echo "<div class='badge badge-pill badge-glow badge-danger' id=str".$hasil['id'].">Nonaktif</div>";
+
+                    }
+                    ?>
+                  </td>
+                  <!-- <td>
+                    <select class="select2 form-select form-control" name="status_kerjasama"
+                      onchange="active_user(this.value,<?php echo $hasil['id']?>)">
+                      <option value="1">
+                        Aktif
+                      </option>
+                      <option value="0">
+                        Nonaktif
+                      </option>
+                    </select>
+                  </td> -->
+                  <td><?php echo $hasil ['level'];?>
+                  </td>
+                  <td style=" text-align:center ;">
                     <a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal"
                       data-target="#edit<?php echo $hasil['id_fak']; ?>">Edit</a> |
                     <a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal"
@@ -278,7 +300,23 @@ if(empty($_SESSION['username'])){
   <div class="drag-target"></div>
   <?php include "footer.php";?>
   <script type="text/javascript">
-
+  function active_user(val, id) {
+    $.ajax({
+      type: 'POST',
+      url: 'user_ubah.php',
+      data: {
+        val: val,
+        id: id
+      },
+      success: function(result) {
+        if (result == 1) {
+          $('#str' + id).html('Aktif')
+        } else {
+          $('#str' + id).html('Nonaktif')
+        }
+      },
+    });
+  }
   </script>
   </body>
 
