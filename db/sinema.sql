@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
 -- version 4.8.4
--- https://www.phpmyadmin.net/
---
+-- https://www.phpmyadmi-n.net/
+------------------
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2023 at 01:01 PM
+-- Generation Time: Jan 05, 2023 at 12:19 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -120,6 +120,25 @@ INSERT INTO `file` (`id_file`, `judul_file`, `nama_file`, `tipe_file`, `ukuran_f
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `instansi`
+--
+
+CREATE TABLE `instansi` (
+  `id_instansi` int(11) NOT NULL,
+  `nama_instansi` varchar(100) NOT NULL,
+  `situs_instansi` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `instansi`
+--
+
+INSERT INTO `instansi` (`id_instansi`, `nama_instansi`, `situs_instansi`) VALUES
+(1, 'LLDIKTI', 'https://lldikti6.kemdikbud.go.id/');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jenis_dok`
 --
 
@@ -155,18 +174,10 @@ CREATE TABLE `kerjasama` (
   `tanggal_awal` date NOT NULL,
   `tanggal_akhir` date NOT NULL,
   `no_ref_kerjasama` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `file` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `file` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `kerjasama`
---
-
-INSERT INTO `kerjasama` (`id_kerjasama`, `id_jenis_dok`, `id_fak`, `id_unit`, `judul_kerjasama`, `deskripsi_kerjasama`, `status_kerjasama`, `tanggal_awal`, `tanggal_akhir`, `no_ref_kerjasama`, `file`, `date_created`, `date_updated`) VALUES
-(14, 1, 4, 2, 'dua', 'dua', 'nonaktif', '2022-12-24', '2022-12-31', 'dua', '', '2022-12-24 07:35:30', '2022-12-30 18:33:44'),
-(15, 1, 3, 1, 'ok', 'ok', 'aktif', '2023-01-01', '2023-01-31', '121212', '2023-01-01_CV.pdf', '2023-01-01 11:40:55', NULL);
 
 -- --------------------------------------------------------
 
@@ -650,6 +661,12 @@ ALTER TABLE `file`
   ADD PRIMARY KEY (`id_file`);
 
 --
+-- Indexes for table `instansi`
+--
+ALTER TABLE `instansi`
+  ADD PRIMARY KEY (`id_instansi`);
+
+--
 -- Indexes for table `jenis_dok`
 --
 ALTER TABLE `jenis_dok`
@@ -729,6 +746,12 @@ ALTER TABLE `fakultas`
   MODIFY `id_fak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `instansi`
+--
+ALTER TABLE `instansi`
+  MODIFY `id_instansi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `jenis_dok`
 --
 ALTER TABLE `jenis_dok`
@@ -738,7 +761,7 @@ ALTER TABLE `jenis_dok`
 -- AUTO_INCREMENT for table `kerjasama`
 --
 ALTER TABLE `kerjasama`
-  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `lembaga`

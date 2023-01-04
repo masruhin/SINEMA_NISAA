@@ -47,6 +47,12 @@
                   <i data-feather='file-text'></i>
                   <span data-i18n="Raise Support">Data Kerjasama</span></a>
               </li>
+              <li data-menu="" <?php if (isset($_GET["instansi"])){echo 'class="active"';}?>>
+                <a class="dropdown-item d-flex align-items-center" href="instansi.php?instansi" data-toggle="dropdown"
+                  data-i18n="Raise Support">
+                  <i data-feather='file-text'></i>
+                  <span data-i18n="Raise Support">Situs Instansi</span></a>
+              </li>
             </ul>
           </li>
           <li class="dropdown nav-item" data-menu="dropdown"
