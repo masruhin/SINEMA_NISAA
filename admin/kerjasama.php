@@ -378,21 +378,18 @@ if(empty($_SESSION['username'])){
                                       <div class="row">
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <P class="form-label" for="first-name-icon">Status</P>
-                                            <div class="input-group mb-1">
-                                              <div class="input-group-prepend">
-                                                <span class="input-group-text"><i data-feather="pocket"></i></span>
-                                              </div>
-                                              <div class="col-md-10">
-                                                <select class="select2 form-select form-control" name="status_kerjasama"
-                                                  required>
-                                                  <option value="" readonly>-- Pilih Status Kerjasama --
+                                            <p>Status Kerjasama</p>
+                                            <!-- <p class="form-p" for="first-name-icon">Status</p> -->
+                                            <div class="input-group input-group-merge">
+                                              <span class="input-group-text"><i data-feather='chevrons-down'></i></span>
+                                              <div class="col-lg-10">
+                                                <?php $status = $hasil['status_kerjasama']; ?>
+                                                <select class="select2 form-select form-control"
+                                                  name="status_kerjasama">
+                                                  <option <?php echo ($status == 'aktif') ? "selected": "" ?>>aktif
                                                   </option>
-                                                  <option value="aktif">
-                                                    Aktif
-                                                  </option>
-                                                  <option value="nonaktif">
-                                                    Tidak Aktif
+                                                  <option <?php echo ($status == 'nonaktif') ? "selected": "" ?>>
+                                                    nonaktif
                                                   </option>
                                                 </select>
                                               </div>
@@ -401,23 +398,23 @@ if(empty($_SESSION['username'])){
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <P class="form-label" for="tanggal_awal">Tanggal
+                                            <P class="form-label" for="tawal">Tanggal
                                               Awal</P>
                                             <div class="input-group ">
                                               <span class="input-group-text"><i data-feather="calendar"></i></span>
-                                              <input type="date" id="tanggal_awal" class="form-control"
-                                                value="<?php echo $hasil ['tanggal_awal'];?>" name="tanggal_awal" />
+                                              <input type="date" id="tawal" class="form-control"
+                                                value="<?php echo $hasil ['tanggal_awal'];?>" name="tawal" />
                                             </div>
                                           </div>
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <P class="form-label" for="tanggal_akhir">Tanggal
+                                            <P class="form-label" for="takhir">Tanggal
                                               Akhir</P>
                                             <div class="input-group ">
                                               <span class="input-group-text"><i data-feather="calendar"></i></span>
-                                              <input type="date" id="tanggal_akhir" class="form-control"
-                                                value="<?php echo $hasil ['tanggal_akhir'];?>" name="tanggal_akhir" />
+                                              <input type="date" id="takhir" class="form-control"
+                                                value="<?php echo $hasil ['tanggal_akhir'];?>" name="takhir" />
                                             </div>
                                           </div>
                                         </div>
@@ -448,6 +445,33 @@ if(empty($_SESSION['username'])){
                                             </div>
                                           </div>
                                         </div>
+                                        <div class="col-12">
+                                          <div class="mb-1">
+                                            <p>Unit Penggiat</p>
+                                            <!-- <p class="form-p" for="first-name-icon">Status</p> -->
+                                            <div class="input-group input-group-merge">
+                                              <span class="input-group-text"><i data-feather='link'></i></span>
+                                              <div class="col-lg-10">
+                                                <select class="form-control select2" name="id_u" style="width: 100%;">
+                                                  <option value="" selected="selected">-- Unit Penggiat --
+                                                  </option>
+                                                  <?php
+                                                  $no = 1;
+                                                  $query = "SELECT * FROM unit ORDER BY id_unit ASC";
+                                                  $qry = mysqli_query($kon, $query);
+                                                  while ($row = mysqli_fetch_array($qry)) {
+                                                  ?>
+                                                  <option value="<?php echo $row['id_unit'] ?>">
+                                                    <?php echo $no++  ." | ". $row['unit_nama']; ?>
+                                                  </option>
+                                                  <?php
+                                                  }
+                                                  ?>
+                                                </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
@@ -465,8 +489,7 @@ if(empty($_SESSION['username'])){
                                             <div class="input-group input-group-merge">
                                               <span class="input-group-text"><i data-feather='link'></i></span>
                                               <div class="col-lg-10">
-                                                <select class="form-control select2" name="id_jenis_dok"
-                                                  style="width: 100%;">
+                                                <select class="form-control select2" name="id_dok" style="width: 100%;">
                                                   <option value="" selected="selected">--- Pilih Jenis Dokumen Kerjasama
                                                     ---</option>
                                                   <?php
@@ -493,31 +516,29 @@ if(empty($_SESSION['username'])){
                                               <div class="input-group-prepend">
                                                 <span class="input-group-text"><i data-feather='at-sign'></i></span>
                                               </div>
-                                              <input type="text" class="form-control" name="judul_kerjasama"
+                                              <input type="text" class="form-control" name="judul"
                                                 value="<?php echo $hasil['judul_kerjasama']?>" />
                                             </div>
                                           </div>
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <P class="form-label" for="deskripsi_kerjasama">Deskripsi
+                                            <P class="form-label" for="deskripsi">Deskripsi
                                               Kerjasama</P>
                                             <div class="input-group ">
                                               <span class="input-group-text"><i data-feather="calendar"></i></span>
-                                              <input type="text" id="deskripsi_kerjasama" class="form-control"
-                                                value="<?php echo $hasil ['deskripsi_kerjasama'];?>"
-                                                name="deskripsi_kerjasama" />
+                                              <input type="text" id="deskripsi" class="form-control"
+                                                value="<?php echo $hasil ['deskripsi_kerjasama'];?>" name="deskripsi" />
                                             </div>
                                           </div>
                                         </div>
                                         <div class="col-12">
                                           <div class="mb-1">
-                                            <P class="form-label" for="tanggal_akhir">No Ref Kerjasama</P>
+                                            <P class="form-label" for="no_ref">No Ref Kerjasama</P>
                                             <div class="input-group ">
                                               <span class="input-group-text"><i data-feather='map-pin'></i></span>
-                                              <input type="text" id="no_ref_kerjasama" class="form-control"
-                                                value="<?php echo $hasil ['no_ref_kerjasama'];?>"
-                                                name="no_ref_kerjasama" />
+                                              <input type="text" id="no_ref" class="form-control"
+                                                value="<?php echo $hasil ['no_ref_kerjasama'];?>" name="no_ref" />
                                             </div>
                                           </div>
                                         </div>

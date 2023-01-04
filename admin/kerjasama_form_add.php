@@ -35,14 +35,12 @@ if (empty($_SESSION['username'])) {
                               <div class="input-group input-group-merge">
                                 <span class="input-group-text"><i data-feather='chevrons-down'></i></span>
                                 <div class="col-lg-10">
-                                  <select class="select2 form-select form-control" name="status_kerjasama" required>
-                                    <option value="" readonly>-- Pilih Status Kerjasama --
+                                  <select name="status_kerjasama" class="select2 form-select form-control" required>
+                                    <option>
+                                      aktif
                                     </option>
-                                    <option value="aktif">
-                                      Aktif
-                                    </option>
-                                    <option value="nonaktif">
-                                      Tidak Aktif
+                                    <option>
+                                      nonaktif
                                     </option>
                                   </select>
                                 </div>
