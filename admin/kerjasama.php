@@ -386,12 +386,12 @@ if(empty($_SESSION['username'])){
                                               <div class="col-md-10">
                                                 <select class="select2 form-select form-control" name="status_kerjasama"
                                                   required>
-                                                  <option value="status_kerjasama" readonly>-- Pilih Status Kerjasama --
+                                                  <option readonly>-- Pilih Status Kerjasama --
                                                   </option>
-                                                  <option value="aktif">
+                                                  <option>
                                                     Aktif
                                                   </option>
-                                                  <option value="nonaktif">
+                                                  <option>
                                                     Tidak Aktif
                                                   </option>
                                                 </select>
@@ -455,7 +455,8 @@ if(empty($_SESSION['username'])){
                                             <div class="input-group input-group-merge">
                                               <span class="input-group-text"><i data-feather='link'></i></span>
                                               <div class="col-lg-10">
-                                                <select class="form-control select2" name="id_fak" style="width: 100%;">
+                                                <select class="form-control select2" name="id_unit"
+                                                  style="width: 100%;">
                                                   <option value="" selected="selected">-- Unit Penggiat --
                                                   </option>
                                                   <?php
