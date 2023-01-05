@@ -236,24 +236,6 @@ if(empty($_SESSION['username'])){
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Gambar</label>
-                      <div class="input-group col-sm-10">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="images" name="logo">
-                          <label class="custom-file-label" for="images">Pilih Gambar Logo</label>
-                        </div>
-                      </div>
-                      <div class="col-sm-2"></div>
-                      <!-- <div class="col-sm-10">
-                        <div class="border text-center p-3">
-                          <img src="<?= $srcLogo; ?>" class="img-fluid img-rounded" id="preview-img">
-                          <div style="color: rgb(255,0,0);">*Catatan : Kosongkan gambar jika tidak ingin merubah banner.
-                          </div>
-                        </div>
-                      </div> -->
-                    </div>
-
-                    <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Nomor Ponsel</label>
                       <div class="input-group col-sm-10">
                         <div class="input-group-prepend">
@@ -293,21 +275,32 @@ if(empty($_SESSION['username'])){
                         <label id="instagram-error" for="instagram" class="error" style="display:none;"></label>
                       </div>
                     </div>
-
+                    <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Gambar</label>
+                      <div class="input-group col-sm-10">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                          <label class="custom-file-label" for="gambar">Pilih Gambar Logo</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-2"></div>
+                      <!-- <div class="col-sm-10">
+                        <div class="border text-center p-3">
+                          <img src="<?= $srcLogo; ?>" class="img-fluid img-rounded" id="preview-img">
+                          <div style="color: rgb(255,0,0);">*Catatan : Kosongkan gambar jika tidak ingin merubah banner.
+                          </div>
+                        </div>
+                      </div> -->
+                    </div>
                   </div>
                 </div>
-
               </div>
               <!-- card body -->
 
               <!-- card-footer -->
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-2"></div>
-
-                  <button type="submit" class="btn btn-info mr-1 btn-sm" name="tambah">Simpan</button>
-                  <button type="reset" class="btn btn-outline-danger btn-sm">Reset</button>
-                </div>
+              <div class="col-sm-12 offset-sm-12 modal-footer">
+                <button type="submit" class="btn btn-info mr-1 btn-sm" name="upload">Simpan</button>
+                <button type="reset" class="btn btn-outline-danger btn-sm">Reset</button>
               </div>
               <!-- card-footer -->
 

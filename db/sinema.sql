@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
 -- version 4.8.4
--- https://www.phpmyadmi-n.net/
-------------------
+-- https://www.phpmyadmin.net/
+--
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2023 at 12:19 AM
+-- Generation Time: Jan 05, 2023 at 09:26 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -624,19 +624,24 @@ CREATE TABLE `web` (
   `id` int(11) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
-  `gambar` varchar(255) NOT NULL,
+  `telpon` varchar(15) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `instagram` varchar(100) NOT NULL,
   `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `status` enum('Y','N') NOT NULL DEFAULT 'Y'
+  `status` enum('Y','N') NOT NULL DEFAULT 'Y',
+  `gambar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `web`
 --
 
-INSERT INTO `web` (`id`, `judul`, `deskripsi`, `gambar`, `date_created`, `date_updated`, `status`) VALUES
-(1, 'MOU', 'perjanjian dengan perusahaan teh 2 tang', 'DEBUG.jpg', '2022-11-23 17:00:00', NULL, 'Y'),
-(2, 'MOU', 'perjanjian dengan Polres Slawi', 'mou.jpg', '2022-11-23 17:00:00', NULL, 'Y');
+INSERT INTO `web` (`id`, `judul`, `deskripsi`, `telpon`, `email`, `alamat`, `instagram`, `date_created`, `date_updated`, `status`, `gambar`) VALUES
+(1, 'MOU', 'perjanjian dengan perusahaan teh 2 tang', '', '', '', '', '2022-11-23 17:00:00', NULL, 'Y', 'DEBUG.jpg'),
+(2, 'MOU', 'perjanjian dengan Polres Slawi', '', '', '', '', '2022-11-23 17:00:00', NULL, 'Y', 'mou.jpg'),
+(4, 'satuasdadad', 'a', 'a', 'a', 'a@mgsli.com', 'a', '2023-01-05 08:23:59', NULL, 'Y', '2023-01-05_hrg.png');
 
 --
 -- Indexes for dumped tables
@@ -734,94 +739,10 @@ ALTER TABLE `web`
 --
 
 --
--- AUTO_INCREMENT for table `bentuk_kerjasama`
---
-ALTER TABLE `bentuk_kerjasama`
-  MODIFY `id_bkerja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT for table `fakultas`
---
-ALTER TABLE `fakultas`
-  MODIFY `id_fak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `instansi`
---
-ALTER TABLE `instansi`
-  MODIFY `id_instansi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `jenis_dok`
---
-ALTER TABLE `jenis_dok`
-  MODIFY `id_jenis_dok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `kerjasama`
---
-ALTER TABLE `kerjasama`
-  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `lembaga`
---
-ALTER TABLE `lembaga`
-  MODIFY `id_lembaga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT for table `negara`
---
-ALTER TABLE `negara`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=238;
-
---
--- AUTO_INCREMENT for table `negara_kategori`
---
-ALTER TABLE `negara_kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `tikm`
---
-ALTER TABLE `tikm`
-  MODIFY `id_ikm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `unit`
---
-ALTER TABLE `unit`
-  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `universitas`
---
-ALTER TABLE `universitas`
-  MODIFY `id_univ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT for table `web`
 --
 ALTER TABLE `web`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `kerjasama`
---
-ALTER TABLE `kerjasama`
-  ADD CONSTRAINT `kerjasama_ibfk_1` FOREIGN KEY (`id_jenis_dok`) REFERENCES `jenis_dok` (`id_jenis_dok`),
-  ADD CONSTRAINT `kerjasama_ibfk_3` FOREIGN KEY (`id_unit`) REFERENCES `unit` (`id_unit`),
-  ADD CONSTRAINT `kerjasama_ibfk_4` FOREIGN KEY (`id_fak`) REFERENCES `fakultas` (`id_fak`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
