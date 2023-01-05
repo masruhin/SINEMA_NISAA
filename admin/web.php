@@ -208,8 +208,7 @@ if(empty($_SESSION['username'])){
 
   <!-- Modal ADD-->
   <div class="modal-size-lg d-inline-block">
-    <div class="modal fade text-left" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17"
-      aria-hidden="true">
+    <div class="modal fade text-left" id="add" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -219,40 +218,48 @@ if(empty($_SESSION['username'])){
             </button>
           </div>
           <div class="modal-body">
-            <form class="form-horizontal" method="POST" action="<?= "$aksi?act=ubah"; ?>" enctype="multipart/form-data"
-              id="myForm">
-
+            <form class="form-horizontal" method="POST" action="web_act.php" enctype="multipart/form-data" id="myForm">
               <div class="card-body">
-
-                <?php
-                                   if( $query->num_rows > 0 ){
-                                        echo "<input type=\"hidden\" class=\"form-control\" name=\"id\" value=\"$configs->id\">";
-                                   }
-                              ?>
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Judul</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Masukkan Judul" name="judul"
-                          value="<?= $configs->judul ?>" required>
+                        <input type="text" class="form-control" placeholder="Masukkan Judul Kerjasama" name="judul">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Deskripsi</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control" placeholder="Masukkan Deskripsi" name="deskripsi"
-                          value="<?= $configs->deskripsi ?>" required>
+                          required>
                       </div>
                     </div>
+                    <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Gambar</label>
+                      <div class="input-group col-sm-10">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="images" name="logo">
+                          <label class="custom-file-label" for="images">Pilih Gambar Logo</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-2"></div>
+                      <!-- <div class="col-sm-10">
+                        <div class="border text-center p-3">
+                          <img src="<?= $srcLogo; ?>" class="img-fluid img-rounded" id="preview-img">
+                          <div style="color: rgb(255,0,0);">*Catatan : Kosongkan gambar jika tidak ingin merubah banner.
+                          </div>
+                        </div>
+                      </div> -->
+                    </div>
+
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Nomor Ponsel</label>
                       <div class="input-group col-sm-10">
                         <div class="input-group-prepend">
                           <span class="input-group-text">+62</span>
                         </div>
-                        <input type="text" class="form-control" name="telpon" id="telpon"
-                          value="<?= $configs->telpon ?>" required>
+                        <input type="text" class="form-control" name="telpon" id="telpon" required>
                       </div>
                       <div class="col-sm-2"></div>
                       <div class="col-sm-10">
@@ -262,15 +269,14 @@ if(empty($_SESSION['username'])){
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">E-Mail</label>
                       <div class="col-sm-10">
-                        <input type="email" class="form-control" placeholder="Masukkan Email" name="email"
-                          value="<?= $configs->email ?>" required>
+                        <input type="email" class="form-control" placeholder="Masukkan Email" name="email" required>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Alamat</label>
                       <div class="col-sm-10">
                         <textarea name="alamat" class="form-control custom" rows="5" placeholder="Masukkan Alamat"
-                          required><?= $configs->alamat ?></textarea>
+                          required></textarea>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -280,28 +286,11 @@ if(empty($_SESSION['username'])){
                           <span class="input-group-text">@</span>
                         </div>
                         <input type="text" class="form-control" placeholder="Masukkan Instagram Tanpa @"
-                          name="instagram" value="<?= $configs->instagram ?>" required>
+                          name="instagram" required>
                       </div>
                       <div class="col-sm-2"></div>
                       <div class="col-sm-10">
                         <label id="instagram-error" for="instagram" class="error" style="display:none;"></label>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Logp</label>
-                      <div class="input-group col-sm-10">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="images" name="logo">
-                          <label class="custom-file-label" for="images">Pilih Gambar Logo</label>
-                        </div>
-                      </div>
-                      <div class="col-sm-2"></div>
-                      <div class="col-sm-10">
-                        <div class="border text-center p-3">
-                          <img src="<?= $srcLogo; ?>" class="img-fluid img-rounded" id="preview-img">
-                          <div style="color: rgb(255,0,0);">*Catatan : Kosongkan gambar jika tidak ingin merubah banner.
-                          </div>
-                        </div>
                       </div>
                     </div>
 
@@ -315,11 +304,9 @@ if(empty($_SESSION['username'])){
               <div class="card-footer">
                 <div class="row">
                   <div class="col-sm-2"></div>
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-info">
-                      <i class="far fa-save"></i> Simpan
-                    </button>
-                  </div>
+
+                  <button type="submit" class="btn btn-info mr-1 btn-sm" name="tambah">Simpan</button>
+                  <button type="reset" class="btn btn-outline-danger btn-sm">Reset</button>
                 </div>
               </div>
               <!-- card-footer -->
