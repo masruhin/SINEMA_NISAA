@@ -70,7 +70,7 @@ if(empty($_SESSION['username'])){
 											?>
                 <tr>
                   <td>
-                    <?php echo $no++; ?>
+                    <?php echo $hasil['id_kerjasama']; ?>
                   </td>
                   <td><?php echo $hasil ['jenis_dok'];?></td>
                   <td><?php echo $hasil ['judul_kerjasama'];?></td>
@@ -101,7 +101,7 @@ if(empty($_SESSION['username'])){
                     <?php echo $hasil ['tanggal_akhir'];?>
                   </td>
                   <td><?php echo $hasil ['no_ref_kerjasama'];?></td>
-                  <td><?php echo tanggal_indonesia("2022-02-02");?></td>
+                  <td><?php echo tanggal_indonesia($hasil['date_created']);?></td>
                   <td style="text-align:center ;">
                     <a href="#" type="button"
                       class="open_modal btn btn-icon btn-icon rounded-circle btn-primary waves-effect waves-float waves-light btn-sm"

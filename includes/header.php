@@ -156,18 +156,24 @@ include 'config.php';
                 <span data-i18n="Documentation"> <strong>Kerjasama</strong> </span>
               </a>
             </li>
+            <li data-menu="" <?php if (isset($_GET["info"])){echo 'class="active"';}?>>
+              <a class="dropdown-item d-flex align-items-center" href="info.php?info">
+                <i data-feather="info"></i>
+                <span data-i18n="Documentation"> <strong>Informasi Kerjasama</strong> </span>
+              </a>
+            </li>
             <!-- <li data-menu="" <?php if (isset($_GET["kontak"])){echo 'class="active"';}?>>
               <a class="dropdown-item d-flex align-items-center" href="kontak-kami.php?kontak">
                 <i data-feather="phone-call"></i>
                 <span data-i18n="Documentation">Kontak Kami</span>
               </a>
             </li> -->
-            <li data-menu="">
+            <!-- <li data-menu="">
               <a class="dropdown-item d-flex align-items-center" href="#">
                 <i data-feather="bar-chart-2"></i>
                 <span data-i18n="Documentation"><strong>Statistik</strong> </span>
               </a>
-            </li>
+            </li> -->
             <?php 
             if (!empty($_SESSION)) {
               echo ' <li data-menu="">

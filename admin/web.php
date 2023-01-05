@@ -171,7 +171,7 @@ if(empty($_SESSION['username'])){
                                   while ($row = mysqli_fetch_array($query_edit)) {  
                                   ?>
                         <input type="hidden" class="form-control" value="<?php echo $hasil['id_lembaga']; ?>"
-                          name="id_lembaga" required>
+                          name="id_lembaga">
 
                         <div class="modal-header">
                           <h4 class="modal-title">Delete</h4>
@@ -231,8 +231,7 @@ if(empty($_SESSION['username'])){
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Deskripsi</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Masukkan Deskripsi" name="deskripsi"
-                          required>
+                        <input type="text" class="form-control" placeholder="Masukkan Deskripsi" name="deskripsi">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -241,7 +240,7 @@ if(empty($_SESSION['username'])){
                         <div class="input-group-prepend">
                           <span class="input-group-text">+62</span>
                         </div>
-                        <input type="text" class="form-control" name="telpon" id="telpon" required>
+                        <input type="text" class="form-control" name="telpon" id="telpon">
                       </div>
                       <div class="col-sm-2"></div>
                       <div class="col-sm-10">
@@ -251,14 +250,14 @@ if(empty($_SESSION['username'])){
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">E-Mail</label>
                       <div class="col-sm-10">
-                        <input type="email" class="form-control" placeholder="Masukkan Email" name="email" required>
+                        <input type="email" class="form-control" placeholder="Masukkan Email" name="email">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Alamat</label>
                       <div class="col-sm-10">
-                        <textarea name="alamat" class="form-control custom" rows="5" placeholder="Masukkan Alamat"
-                          required></textarea>
+                        <textarea name="alamat" class="form-control custom" rows="5"
+                          placeholder="Masukkan Alamat"></textarea>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -268,7 +267,7 @@ if(empty($_SESSION['username'])){
                           <span class="input-group-text">@</span>
                         </div>
                         <input type="text" class="form-control" placeholder="Masukkan Instagram Tanpa @"
-                          name="instagram" required>
+                          name="instagram">
                       </div>
                       <div class="col-sm-2"></div>
                       <div class="col-sm-10">

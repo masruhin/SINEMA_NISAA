@@ -95,8 +95,7 @@ $d_negara = mysqli_num_rows($q_negara);
             <ol class="carousel-indicators">
               <?php
               for($i=0; $i<$data->num_rows;$i++){
-                  echo '
-                  <li data-target="#carousel-wrap" data-slide-to="'.$i.'"';
+                  echo '<li data-target="#carousel-wrap" data-slide-to="'.$i.'"';
                   if($i==0){echo'class="active"';}echo'></li>';
               }?>
             </ol>
