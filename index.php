@@ -2,6 +2,7 @@
 include "includes/header.php";
 include "includes/config.php";
 $data = mysqli_query($kon, "SELECT * FROM web ORDER BY id ASC");
+$galeri = mysqli_query($kon, "SELECT * FROM galeri ORDER BY id ASC");
 
 $q_univ = $kon->query("SELECT * FROM universitas");
 $d_univ = mysqli_num_rows($q_univ);
@@ -94,8 +95,8 @@ $d_negara = mysqli_num_rows($q_negara);
           <div id="carousel-wrap" class="carousel slide col-lg-6 col-12" data-ride="carousel">
             <ol class="carousel-indicators">
               <?php
-              for($i=0; $i<$data->num_rows;$i++){
-                  echo '<li data-target="#carousel-wrap" data-slide-to="'.$i.'"';
+              for($i=0; $i<$galeri->num_rows;$i++){
+                  echo '<li gale$galeri-target="#carousel-wrap" gale$galeri-slide-to="'.$i.'"';
                   if($i==0){echo'class="active"';}echo'></li>';
               }?>
             </ol>
@@ -103,8 +104,8 @@ $d_negara = mysqli_num_rows($q_negara);
               <div class="card-body">
                 <div class="carousel-inner">
                   <?php
-            if($data->num_rows > 0){
-              while ($row = $data->fetch_assoc()) {
+            if($galeri->num_rows > 0){
+              while ($row = $galeri->fetch_assoc()) {
               if($row['id'] == 1){
                 echo'<div class="carousel-item active">';}else{echo'<div class="carousel-item">';}
                 echo'
@@ -144,7 +145,7 @@ $d_negara = mysqli_num_rows($q_negara);
                     <th>No</th>
                     <th>Jenis</th>
                     <th>Judul</th>
-                    <th>File</th>
+                    <!-- <th>File</th> -->
                     <th>Status</th>
                     <th>Masa Berlaku</th>
                     <th>No Ref</th>
@@ -191,7 +192,7 @@ $d_negara = mysqli_num_rows($q_negara);
                     </td>
                     <td><?php echo $hasil ['jenis_dok'];?></td>
                     <td><?php echo $hasil ['judul_kerjasama'];?></td>
-                    <td>
+                    <!-- <td>
                       <?php if ($hasil['file']!=0) {?>
                       <button
                         onclick="JavaScript:window.location.href='kerjasama_download.php?file=<?php echo $hasil['file']?>';"
@@ -200,7 +201,7 @@ $d_negara = mysqli_num_rows($q_negara);
                       <span class="badge badge-pill badge-light-danger mr-1 lg">Tidak ada file!</span>
                       <?php }
                     ?>
-                    </td>
+                    </td> -->
                     <?php 
                     if ($hasil['status_kerjasama']=='aktif') {?>
                     <td>
@@ -393,7 +394,7 @@ $d_negara = mysqli_num_rows($q_negara);
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="col-12">
+                                          <!-- <div class="col-12">
                                             <div class="mb-1">
                                               <P class="form-label" for="fak_nama">File Dokumen
                                                 Kerjasama</P>
@@ -403,7 +404,7 @@ $d_negara = mysqli_num_rows($q_negara);
                                                   value="<?php echo $hasil['file'];?>" name="file" readonly />
                                               </div>
                                             </div>
-                                          </div>
+                                          </div> -->
                                         </div>
                                       </div>
                                     </div>

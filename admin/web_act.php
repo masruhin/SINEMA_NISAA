@@ -29,9 +29,9 @@ if (isset($_POST['upload'])) {
       if($ukuran < 304407000){ 
           move_uploaded_file($file_tmp, '../img/' . $nama);
           $query    = mysqli_query($kon, "INSERT INTO web (judul,deskripsi,telpon,email,alamat,instagram,gambar) 
-                                          VALUES('$judul','$deskripsi','$alamat','$telpon','$email','$instagram','$nama')");
-          // var_dump($query);
-          // die();
+                                          VALUES('$judul','$deskripsi','$telepon','$email','$alamat','$instagram','$nama')");
+          var_dump($query);
+          die();
           if($query){
             echo "<script type='text/javascript'>
             alert('Berhasil Tambah data.'); 

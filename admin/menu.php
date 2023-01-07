@@ -102,7 +102,7 @@
                 <a class="dropdown-item d-flex align-items-center" href="bentuk_kerjasama_data.php?ksm"
                   data-toggle="dropdown" data-i18n="Raise Support">
                   <i data-feather='check-square'></i>
-                  <span data-i18n="Raise Support">Bentuk Kerjasama</span></a>
+                  <span data-i18n="Raise Support">Jenis Kegiatan</span></a>
               </li>
               <li data-menu="" <?php if (isset($_GET["ksm"])){echo 'class="active"';}?>>
                 <a class="dropdown-item d-flex align-items-center" href="jenis_dok_data.php?ksm" data-toggle="dropdown"
@@ -148,6 +148,12 @@
               <i data-feather="settings"></i>
               <span data-i18n="Misc"><strong>Pengaturan</strong></span></a>
             <ul class="dropdown-menu">
+              <li data-menu="" <?php if (isset($_GET["config"])){echo 'class="active"';}?>>
+                <a class="dropdown-item d-flex align-items-center" href="galeri.php?config" data-toggle="dropdown"
+                  data-i18n="Raise Support">
+                  <i data-feather="life-buoy"></i>
+                  <span data-i18n="Raise Support">Pengaturan Galeri</span></a>
+              </li>
               <li data-menu="" <?php if (isset($_GET["config"])){echo 'class="active"';}?>>
                 <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"
                   data-i18n="Raise Support">

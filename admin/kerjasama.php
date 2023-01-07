@@ -36,6 +36,7 @@ if(empty($_SESSION['username'])){
                 <?php 
 											include "config.php";
 											$no = 1;
+                      
 											$data = mysqli_query($kon, "SELECT
                       a.id_kerjasama,
                       b.id_jenis_dok,
@@ -58,17 +59,18 @@ if(empty($_SESSION['username'])){
                       kerjasama a
                       LEFT JOIN jenis_dok b ON b.id_jenis_dok = a.id_jenis_dok
                       LEFT JOIN fakultas d ON d.id_fak = a.id_fak
-                      LEFT JOIN unit c ON c.id_unit= a.id_unit ORDER BY id_kerjasama asc");
+                      LEFT JOIN unit c ON c.id_unit= a.id_unit ORDER BY id_kerjasama desc");
 											if (!$data) {
 												printf("Error: %s\n", mysqli_error($kon));
 												exit();
 											}
 											while($hasil = mysqli_fetch_array($data)){
-                        // echo '<pre>';
-                        // print_r($hasil);
-                        // echo'</pre>';
+                       
 											?>
                 <tr>
+                  <!-- <td>
+                    <?php echo $no++; ?>
+                  </td> -->
                   <td>
                     <?php echo $hasil['id_kerjasama']; ?>
                   </td>
@@ -376,29 +378,6 @@ if(empty($_SESSION['username'])){
                                     </div>
                                     <div class="card-body list-group-item" id="accordionTwo">
                                       <div class="row">
-                                        <!-- <div class="col-12">
-                                          <div class="mb-1">
-                                            <P class="form-label" for="first-name-icon">Status</P>
-                                            <div class="input-group mb-1">
-                                              <div class="input-group-prepend">
-                                                <span class="input-group-text"><i data-feather="pocket"></i></span>
-                                              </div>
-                                              <div class="col-md-10">
-                                                <select class="select2 form-select form-control" name="status_kerjasama"
-                                                  required>
-                                                  <option value="" readonly>-- Pilih Status Kerjasama --
-                                                  </option>
-                                                  <option value="aktif">
-                                                    Aktif
-                                                  </option>
-                                                  <option value="nonaktif">
-                                                    Tidak Aktif
-                                                  </option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div> -->
                                         <div class="col-12">
                                           <div class="mb-1">
                                             <P class="form-label" for="tawal">Tanggal

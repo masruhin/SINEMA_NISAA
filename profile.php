@@ -19,12 +19,29 @@ include "includes/config.php";
                 <div class="card-body">
                   <div class="meetup-header d-flex align-items-center">
                     <div class="meetup-day">
-                      <h6 class="mb-0"> <?php echo date("D"); ?></h6>
+                      <h6 class="mb-0"> <?php echo hari_ini(); ?></h6>
                       <h3 class="mb-0"> <?php echo date("j"); ?></h3>
                     </div>
                     <div class="my-auto">
-                      <h4 class="card-title mb-25">SINEMA</h4>
-                      <p class="card-text mb-0">Sistem Informasi Kerjasama</p>
+                      <?php 
+                      include 'includes/config.php';
+                      $data = mysqli_query($kon, "SELECT * FROM web");
+                      if (!$data) {
+                        printf("Error: %s\n", mysqli_error($kon));
+                        exit();
+                      }
+                      while($hasil = mysqli_fetch_array($data)){
+                      ?>
+                      <h4 class="card-title mb-25">
+                        <?php
+                        echo $hasil["judul"];
+                        ?>
+                      </h4>
+                      <p class="card-text mb-0">
+                        <?php
+                        echo $hasil['deskripsi'];
+                        ?>
+                      </p>
                     </div>
                   </div>
                   <div class="media">
@@ -34,9 +51,8 @@ include "includes/config.php";
                       </div>
                     </div>
                     <div class="media-body">
-                      <?php date("F j, Y, g:i a"); ?>
-                      <h6 class="mb-0"><?php echo date("F j, Y"); ?></h6>
-                      <small><?php echo date("g:i a"); ?></small>
+                      <h6 class="mb-0"><?php echo tanggal_indonesia(date('Y-m-d'));?></h6>
+                      <h6><?php echo date("H:i"); ?></h6>
                     </div>
                   </div>
                   <div class="media">
@@ -46,8 +62,11 @@ include "includes/config.php";
                       </div>
                     </div>
                     <div class="media-body">
-                      <h6 class="mb-0">Central Park</h6>
-                      <small>Manhattan, New york City</small>
+                      <h6 class="mb-0">
+                      </h6>
+                      <small><?php
+                        echo $hasil['alamat'];
+                        ?></small>
                     </div>
                   </div>
                 </div>
@@ -67,10 +86,15 @@ include "includes/config.php";
                       <hr>
                     </div>
                     <div class="mb-1">
-                      Email : info@bhamada.ac.id <br />
-                      Telephone : (0283) 6197570 <br />
-                      Alamat : Jl. Cut Nyak Dhien No.16, Desa Kalisapu, Kecamatan Slawi, <br />
-                      Kabupaten Tegal 52416
+                      Email : <?php
+                        echo $hasil['email'];
+                        ?> <br />
+                      Telephone : <?php
+                        echo $hasil['telpon'];
+                        ?> <br />
+                      Alamat : <?php
+                        echo $hasil['alamat'];
+                        ?>
                       </p>
                       <hr>
                     </div>
@@ -112,3 +136,4 @@ include "includes/config.php";
 </body>
 
 </html>
+<?php } ?>
