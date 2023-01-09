@@ -69,7 +69,8 @@ if(empty($_SESSION['username'])){
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form class="form form-horizontal" action="galeri_act.php" method="POST">
+                          <form method="POST" action="galeri_act.php" enctype="multipart/form-data">
+                            <!-- <form class="form form-horizontal" action="galeri_act.php" method="POST"> -->
                             <?php
                               $id = $hasil['id']; 
                               $query_edit = mysqli_query($kon, "SELECT * FROM galeri WHERE id='$id'");
@@ -96,7 +97,6 @@ if(empty($_SESSION['username'])){
                                   <label class="col-sm-2 col-form-label">Gambar</label>
                                   <div class="input-group col-sm-10">
                                     <div class="custom-file">
-                                      foto<br>
                                       <input type="file" class="custom-file-input" id="gambar" name="gambar">
                                       <label class="custom-file-label" for="gambar">Pilih Gambar Logo</label>
                                     </div>
@@ -106,7 +106,6 @@ if(empty($_SESSION['username'])){
                                     <div class="border text-center p-3">
                                       <img src="<?php echo "../img/$row[gambar]" ?>" class="img-fluid img-rounded"
                                         id="preview-img">
-                                      <input type="checkbox" name="ubah_foto" value="true"> Ceklis jika ingin mengubah
                                       <div style="color: rgb(255,0,0);">*Catatan : Kosongkan gambar jika tidak ingin
                                         merubah banner.
                                       </div>

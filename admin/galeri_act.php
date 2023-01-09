@@ -55,117 +55,79 @@ if (isset($_POST['upload'])) {
   }
 }
 
-
-// Cek apakah galeri ingin mengubah fotonya atau tidak
-
-if(isset($_POST['ubah_foto'])){ // Jika galeri menceklis checkbox yang ada di form ubah, lakukan :
-
-  // Ambil data foto yang dipilih dari form
+if (isset($_POST['ubah'])) {
+  // $id = isset($_GET['id']) ? $_GET['id'] : null;
+  $id = $_POST['id'];
   $judul = $_POST['judul'];
   $deskripsi = $_POST['deskripsi'];
+  $gambar = $_FILES['gambar']['name'];
+  if ($gambar != "") {
+    $ekstensi_diperbolehkan = array('png', 'jpg', 'mp4', 'jpeg');
+    $x = explode('.', $gambar);
+    $ekstensi = strtolower(end($x));
+    $file_tmp = $_FILES['gambar']['tmp_name'];
+    $angka_acak = rand(1,999);
 
-  $sumber = $_FILES['gambar']['name'];
+    $namabaru = $angka_acak.'-'.$gambar;
 
-  $nama_gambar = $_FILES['gambar']['tmp_name'];
+    if (in_array($ekstensi, $ekstensi_diperbolehkan)) {
+      move_uploaded_file($file_tmp, '../img/'. $namabaru);
 
-  
-
-  // Rename nama fotonya dengan menambahkan tanggal dan jam upload
-
-  $fotobaru = date('dmYHis').$sumber;
-
-  
-
-  // Set path folder tempat menyimpan fotonya
-
-  $path = "../img/".$fotobaru;
-
-
-
-  if(move_uploaded_file($nama_gambar, $path)){ // Cek apakah gambar berhasil diupload atau tidak
-
-      // Query untuk menampilkan data galeri berdasarkan id yang dikirim
-
-      $query = "SELECT * FROM galeri WHERE id='".$id."'";
-
-      $sql = mysqli_query($kon, $query); // Eksekusi/Jalankan query dari variabel $query
-
-      $data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
-
-
-
-      // Cek apakah file gambar sebelumnya ada di folder foto
-
-      if(is_file("../img/".$data['foto'])) // Jika gambar ada
-
-          unlink("../img/".$data['foto']); // Hapus file gambar sebelumnya yang ada di folder images
-
-      
-
-      // Proses ubah data ke Database
-
-      $query = "update galeri set judul='$judul', deskripsi='$deskripsi', gambar='$fotobaru' where id='$id' ";
-
-      $sql = mysqli_query($kon, $query); // Eksekusi/ Jalankan query dari variabel $query
-var_dump($sql);
-die();
-
-
-      if($sql){ // Cek jika proses simpan ke database sukses atau tidak
-
-          // Jika Sukses, Lakukan :
-
-          header("location: index.php"); // Redirect ke halaman index.php
-
-      }else{
-
-          // Jika Gagal, Lakukan :
-
-          echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
-
-          echo "<br><a href='index.php'>Kembali Ke Form</a>";
-
+      $query = "UPDATE galeri SET judul='$judul', deskripsi='$deskripsi', gambar ='$namabaru' WHERE id='$id'";
+      $result = mysqli_query($kon, $query); 
+      // var_dump($result);
+      // die();
+      if (!$result) {
+        die ("Query gagal dijalankan: ".mysqli_errno($kon).
+                             " - ".mysqli_error($kon));
+      }else {
+      //tampil alert dan akan redirect ke halaman index.php
+      //silahkan ganti index.php sesuai halaman yang akan dituju
+      echo "<script>alert('Data berhasil diubah.');window.location='galeri.php';</script>";
       }
-
-  }else{
-
-      // Jika gambar gagal diupload, Lakukan :
-
-      echo   "<script> alert('Maaf, Gambar gagal untuk diupload'); 
-
-              location = 'index.php'; 
-
-              </script>";
-
+    } else {     
+      //jika file ekstensi tidak jpg dan png maka alert ini yang tampil
+         echo "<script>alert('Ekstensi gambar yang boleh hanya jpg atau png.');window.location='galeri.php';</script>";
+     }
+    
+  }else {
+    // jalankan query UPDATE berdasarkan ID yang produknya kita edit
+    $query  = "UPDATE galeri SET judul='$judul', deskripsi='$deskripsi' WHERE id='$id'";
+    // $query .= "WHERE id = '$id'";
+    $result = mysqli_query($kon, $query);
+    // periska query apakah ada error
+    if(!$result){
+          die ("Query gagal dijalankan: ".mysqli_errno($kon).
+                           " - ".mysqli_error($kon));
+    } else {
+      //tampil alert dan akan redirect ke halaman index.php
+      //silahkan ganti index.php sesuai halaman yang akan dituju
+        echo "<script>alert('Data berhasil diubah.');window.location='galeri.php';</script>";
+    }
   }
-
-}else{ // Jika galeri tidak menceklis checkbox yang ada di form ubah, lakukan :
-
-  // Proses ubah data ke Database
-
-  $query = "update galeri set username='$username' where id='$id' ";
-
-  $sql = mysqli_query($kon, $query); // Eksekusi/ Jalankan query dari variabel $query
+} 
 
 
-
-  if($sql){ // Cek jika proses simpan ke database sukses atau tidak
-
-      // Jika Sukses, Lakukan :
-
-      header("location: index.php"); // Redirect ke halaman index.php
-
-  }else{
-
-      // Jika Gagal, Lakukan :
-
-      echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
-
-      echo "<br><a href='index.php'>Kembali Ke Form</a>";
-
-  }
+if(isset($_POST['delete']))
+{
+  $id = isset($_GET['id']) ? $_GET['id'] : null;
+  $id = $_POST['id'];
+	//delete
+	$sql = "DELETE FROM galeri WHERE id = '$id'";
+	if(mysqli_query($kon, $sql))
+	{
+		echo "<script type='text/javascript'>
+			alert('Berhasil Hapus data.'); 
+			document.location = 'galeri.php'; 
+		</script>";
+	} 
+	else
+	{
+		echo "ERROR: Could not able to execute $sql. " . mysqli_error($kon);
+	}
 
 }
+
 
 
 
