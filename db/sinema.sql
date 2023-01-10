@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2023 at 12:39 AM
+-- Generation Time: Jan 10, 2023 at 11:34 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -120,6 +120,19 @@ INSERT INTO `file` (`id_file`, `judul_file`, `nama_file`, `tipe_file`, `ukuran_f
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `galeri`
+--
+
+CREATE TABLE `galeri` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `gambar` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `instansi`
 --
 
@@ -213,7 +226,71 @@ INSERT INTO `kerjasama` (`id_kerjasama`, `id_jenis_dok`, `id_fak`, `id_unit`, `j
 (27, 3, NULL, NULL, 'KBIT Siti Khodijah Slawi', 'Pelaksanaan Pendidikan, Penelitian dan Pengabdian Masyarakat Prodi D3 Keperawatan Fakultas Ilmu Kesehatan', 'aktif', '2022-02-11', '2027-02-10', '009/Univ.BHAMADA.KL/II/2022', NULL, '2023-01-05 15:48:37', NULL),
 (28, 3, NULL, NULL, 'Klinik Pratama Hibatullah Harjawinangun ', 'Lahan Praktik Mahasiswa Prodi D3 Kebidanan', 'aktif', '2021-10-01', '2026-09-30', '006/Univ.BHAMADA/KL/X/2021\r\n', NULL, '2023-01-05 15:48:37', NULL),
 (29, 3, NULL, NULL, 'Lembaga Sertifikasi Profesi K3 Industri Buana Lestari', 'Tempat Penyelenggaraan uji kompetensi Keselamatan dan Kesehatan Kerja (K3)', 'nonaktif', '2021-12-06', '2024-12-05', '033/Univ.BHAMADA/KL/XII/2021', NULL, '2023-01-05 15:48:37', NULL),
-(30, 3, NULL, NULL, 'Lyceum  of  the  Philippines  University (LPU) Philippines', 'Lyceum  of  the  Philippines  University (LPU) Philippines', 'aktif', '2019-01-17', '2024-01-16', NULL, NULL, '2023-01-05 15:48:37', NULL);
+(30, 3, NULL, NULL, 'Lyceum  of  the  Philippines  University (LPU) Philippines', 'Lyceum  of  the  Philippines  University (LPU) Philippines', 'aktif', '2019-01-17', '2024-01-16', NULL, NULL, '2023-01-05 15:48:37', NULL),
+(31, 3, NULL, NULL, 'Lyceum  of  the  Philippines  University (LPU) Philippines', 'Tri Dharma \r\n', 'aktif', '2019-01-17', '2024-01-16', '011/Univ.BHAMADA/KL/III/2022\r\n', NULL, '2023-01-06 08:22:36', NULL),
+(32, 3, NULL, NULL, 'PAUD Bina Prestasi', 'Pelaksanaan Pendidikan, Penelitian dan Pengabdian Masyarakat Prodi D3 Keperawatan Fakultas Ilmu Kesehatan\r\n', 'aktif', '2022-03-11', '2027-03-10', '011/Univ.BHAMADA/KL/III/2022\r\n', NULL, '2023-01-06 08:22:36', NULL),
+(33, 3, NULL, NULL, 'Pemerintah Kab. Tegal\r\n', 'Tri Dharma Prodi  K3\r\n', 'aktif', '2020-12-22', '2025-12-21', '213/STIKES-BMD/KL/XII/2020', NULL, '2023-01-06 08:22:36', NULL),
+(34, 3, NULL, NULL, 'Pemerintah Kota Cirebon\r\n', 'Tri Dharma \r\n', 'aktif', '2020-12-22', '2025-12-21', '220/STIKES-BMD/KL/I/2021', NULL, '2023-01-06 08:22:36', NULL),
+(35, 3, NULL, NULL, 'Pemerintah Kota Tegal\r\n', 'Tri Dharma \r\n', 'aktif', '2021-07-16', '2026-07-15', '221/STIKES-BMD/KL/VII/2021\r\n', NULL, '2023-01-06 08:22:36', NULL),
+(36, 3, NULL, NULL, 'Perhimpunan Bank Pengkreditan Rakyat Indonesia Jawa Tengah\r\n', 'Program  Merdeka Belajar Kampus Merdeka (MBKM), Lahan Praktik Mahasiswa Fakultas Ekonomi dan Bisnis, Tridharma PT\r\n', 'aktif', '2022-01-24', '2027-01-23', '006/Univ.BHAMADA/KL/2022', NULL, '2023-01-06 08:22:36', NULL),
+(37, 3, NULL, NULL, 'Praktik Mandiri Bidan (Neni Kus A)\r\n', 'Lahan Praktik Mahasiswa Prodi D3 Kebidanan\r\n', 'aktif', '2021-11-08', '2026-11-07', '018/Univ.BHAMADA/KL/XI/2021', NULL, '2023-01-06 08:22:36', NULL),
+(38, 3, NULL, NULL, 'Praktik Mandiri Bidan (R. Siti Iva R)\r\n', 'Lahan Praktik Mahasiswa Prodi D3 Kebidanan\r\n', 'aktif', '2021-11-08', '2026-11-07', '017/Univ.BHAMADA/KL/XI/2021', NULL, '2023-01-06 08:22:36', NULL),
+(39, 3, NULL, NULL, 'Praktik Mandiri Bidan (Yeti Nurul S)\r\n', 'Lahan Praktik Mahasiswa Prodi D3 Kebidanan\r\n', 'aktif', '2021-11-08', '2026-11-07', '016/Univ.BHAMADA/KL/XI/2021', NULL, '2023-01-06 08:22:36', NULL),
+(40, 3, NULL, NULL, 'PT Amarilys Karisma Gemilang\r\n', NULL, 'nonaktif', '2021-11-08', '2026-11-07', '016/Univ.BHAMADA/KL/XI/2021', NULL, '2023-01-06 08:22:36', NULL),
+(41, 3, NULL, NULL, 'PT Barata Indonesia\r\n', '-', 'aktif', '2021-11-08', '2026-11-07', '014/Univ.BHAMADA/KL/IV/2022\r\n', NULL, '2023-01-06 08:36:32', NULL),
+(42, 3, NULL, NULL, 'PT Kasyr Sibernetika Indonesia\r\n', 'Program MBKM, Lahan Praktik Mahasiswa Fakultas Ekonomi dan Bisnis, Tridharma PT\r\n', 'aktif', '2022-01-18', '2027-01-17', '002/Univ.BHAMADA/KL/IV/2022', NULL, '2023-01-06 08:36:32', NULL),
+(43, 3, NULL, NULL, 'PT Nibras Berkah Mullia\r\n', 'Program  MBKM, Lahan Praktik Mahasiswa Fakultas Ekonomi dan Bisnis, Tridharma PT\r\n', 'aktif', '2022-01-18', '2027-01-17', '003/Univ.BHAMADA/KL/I/2022\r\n', NULL, '2023-01-06 08:36:32', NULL),
+(44, 3, NULL, NULL, 'PT Putra Bungsu\r\n', '-', 'nonaktif', '2022-01-18', '2027-01-17', '015/Univ.BHAMADA/KL/IV/2022\r\n', NULL, '2023-01-06 08:36:32', NULL),
+(45, 3, NULL, NULL, 'PT Shinzou \r\n', 'Internship\r\n', 'aktif', '2021-10-18', '2024-10-17', '013/Univ.BHAMADA/KL/X/2021\r\n', NULL, '2023-01-06 08:36:32', NULL),
+(46, 3, NULL, NULL, 'PT Somatra Polareka Sarana\r\n', 'Tri Dharma Prodi  K3\r\n', 'aktif', '2018-07-11', '2023-07-10', '182/STIKES-BMD/KL/VII/2018\r\n', NULL, '2023-01-06 08:36:32', NULL),
+(47, 3, NULL, NULL, 'RA Siti Khodijah Slawi\r\n', 'Pelaksanaan Pendidikan, Penelitian dan Pengabdian Masyarakat Prodi D3 Keperawatan Fakultas Ilmu Kesehatan\r\n', 'aktif', '2022-02-11', '2027-02-10', '008/Univ.BHAMADA/KL/II/2022\r\n', NULL, '2023-01-06 08:36:32', NULL),
+(48, 3, NULL, NULL, 'Radar Tegal\r\n', 'Pemasangan Iklan\r\n', 'aktif', '2021-10-19', '2022-10-19', '014/Univ.BHAMADA/KL/X/2021\r\n', NULL, '2023-01-06 08:36:32', NULL),
+(49, 3, NULL, NULL, 'RS Mitra Siaga Tegal\r\n', 'Lahan Praktik Mahasiswa D3 Keperawatan, S1 Keperawatan\r\n', 'aktif', '2021-09-29', '2024-09-28', '004/Univ.BHAMADA/KL/IX/2021\r\n', NULL, '2023-01-06 08:36:32', NULL),
+(50, 3, NULL, NULL, 'RSI Al Ikhlas Pemalang\r\n', 'Lahan Praktik Mahasiswa D3 Keperawatan\r\n', 'aktif', '2021-10-15', '2024-10-14', '011/Univ.BHAMADA/KL/X/2021\r\n', NULL, '2023-01-06 08:36:32', NULL),
+(51, 3, NULL, NULL, 'RSI Bhakti Asih Brebes\r\n', 'Lahan Praktik Mahasiswa D3 Keperawatan\r\n', 'aktif', '2021-10-15', '2023-10-14', '012/Univ.BHAMADA/KL/X/2021\r\n', NULL, '2023-01-06 08:51:50', NULL),
+(52, 3, NULL, NULL, 'RSI PKU Muhammadiyah Kab. Tegal\r\n', 'Lahan Praktik Mahasiswa D3 Keperawatan, S1 Keperawatan dan Profesi Ners\r\n', 'aktif', '2019-12-12', '2022-12-11', '205/STIKES-BMD/KL/XII/2019\r\n', NULL, '2023-01-06 08:51:50', NULL),
+(53, 3, NULL, NULL, 'RSJD Dr. Amino Gondohutomo Semarang\r\n', 'Lahan Praktik Mahasiswa Prodi D3 Keperawatan, Prodi S1 Keperawatan dan Prodi Profesi Ners\r\n', 'aktif', '2020-12-02', '2023-12-01', '038/Univ.BHAMADA/KL/XII/2021\r\n', NULL, '2023-01-06 08:51:50', NULL),
+(54, 3, NULL, NULL, 'RSJD Surakarta\r\n', 'Lahan Praktik Mahasiswa Prodi D3 Keperawatan, Prodi S1 Keperawatan dan Prodi Profesi Ners\r\n', 'aktif', '2021-09-23', '2024-09-22', '002/Univ.BHAMADA/KL/I/2021\r\n', NULL, '2023-01-06 08:51:50', NULL),
+(55, 3, NULL, NULL, 'RSU Muhammadiyah Siti Aminah Bumiayu\r\n', 'Lahan Praktik Mahasiswa Prodi D3 Keperawatan, Prodi S1 Keperawatan, Prodi S1 Farmasi, S1 Informatika, S1 Bisnis Digital\r\n', 'aktif', '2022-08-03', '2024-08-03', '022/Univ.BHAMADA/KL/VIII/2022\r\n', NULL, '2023-01-06 08:51:50', NULL),
+(56, 3, NULL, NULL, 'RSUD Brebes\r\n', 'Lahan Praktik Mahasiswa Prodi D3 Keperawatan, Prodi S1 Keperawatan, Prodi S1 Farmasi\r\n', 'aktif', '2021-10-11', '2023-10-10', '008/Univ.BHAMADA/KL/X/2021\r\n', NULL, '2023-01-06 08:51:50', NULL),
+(57, 3, NULL, NULL, 'RSUD Bumiayu\r\n', 'Lahan Praktik Mahasiswa Prodi D3 Keperawatan\r\n', 'aktif', '2021-10-11', '2023-10-10', '018/Univ.BHAMADA/KL/V/2022\r\n', NULL, '2023-01-06 08:51:50', NULL),
+(58, 3, NULL, NULL, 'RSUD Dokter Soeselo Kab. Tegal\r\n', 'Lahan Praktik Mahasiswa Prodi D3 Keperawatan, Prodi S1 Keperawatan, Prodi D3 Kebidanan, Prodi S1 Farmasi\r\n', 'aktif', '2020-12-23', '2023-12-22', '214/STIKES-BMD/KL/XII/2020\r\n', NULL, '2023-01-06 08:51:50', NULL),
+(59, 3, NULL, NULL, 'RSUD Dr. M. Ashari Pemalang\r\n', 'Lahan Praktik Mahasiswa Prodi D3 Keperawatan\r\n', 'aktif', '2021-09-28', '2026-09-27', '015/Univ.BHAMADA/KL/X/2021\r\n', NULL, '2023-01-06 08:51:50', NULL),
+(60, 3, NULL, NULL, 'RSUD Gunung Jati Cirebon\r\n', 'Lahan Praktik Mahasiswa Prodi Profesi Ners\r\n', 'aktif', '2021-09-28', '2024-09-27', '001/Univ.BHAMADA/KL/IX/2021\r\n', NULL, '2023-01-06 08:51:50', NULL),
+(61, 3, NULL, NULL, 'RSUD Kardinah Kota Tegal\r\n', 'Lahan Praktik Mahasiswa Prodi D3 Keperawatan, Prodi S1 Keperawatan, Prodi D3 Kebidanan, Prodi S1 Farmasi\r\n', 'aktif', '2019-07-16', '2022-07-15', '019/Univ.BHAMADA/KL/V/2022\r\n', NULL, '2023-01-06 09:04:17', NULL),
+(62, 3, NULL, NULL, 'RSUD Suradadi Kabupaten Tegal\r\n', 'Lahan Praktik Mahasiswa Prodi D3 Keperawatan, Prodi S1 Keperawatan, Prodi S1 Farmasi\r\n', 'aktif', '2020-12-21', '2025-12-20', '216/STIKES-BMD/KL/XII/2020\r\n', NULL, '2023-01-06 09:04:17', NULL),
+(63, 3, NULL, NULL, 'SMK Astrindo Kota Tegal\r\n', 'Program MBKM, Tempat Program Praktek Lapangan, Penelitian dan Pengabdian Kepada Masyarakat Fakultas Ilmu Komputer\r\n', 'aktif', '2022-07-06', '2027-07-05', '021/Univ.BHAMADA/KL/VII/2022\r\n', NULL, '2023-01-06 09:04:17', NULL),
+(64, 3, NULL, NULL, 'SMK Bina Nusa Slawi\r\n', 'Program MBKM, Tempat Program Praktek Lapangan, Penelitian dan Pengabdian Kepada Masyarakat Fakultas Ilmu Komputer\r\n', 'aktif', '2022-01-18', '2027-01-17', '004/Univ.BHAMADA/KL/II/2022\r\n', NULL, '2023-01-06 09:04:17', NULL),
+(65, 3, NULL, NULL, 'Systems Plus College Foundation (SPCF) - College of Nursing Philippines\r\n', 'Exchange of Faculty members, Join research activities, Jurnal Publication, Staff development projects\r\n', 'aktif', '2022-06-02', '2027-06-01', '-', NULL, '2023-01-06 09:04:17', NULL),
+(66, 3, NULL, NULL, 'Systems Plus College Foundation (SPCF) Philippines\r\n', 'Tri Dharma \r\n', 'aktif', '2019-01-17', '2014-01-16', '-', NULL, '2023-01-06 09:04:17', NULL),
+(67, 3, NULL, NULL, 'Systems Plus College Foundation (SPCF) Philippines\r\n', 'MOA: Student\'s Mobility  & Visiting Lecturer Program\r\n', 'aktif', '2019-07-19', '2023-07-18', '-', NULL, '2023-01-06 09:04:17', NULL),
+(68, 3, NULL, NULL, 'Systems Plus College Foundation (SPCF) Philippines\r\n', 'MOA: Joint Research, Publication, and Seminar/Conference\r\n', 'aktif', '2019-07-19', '2023-07-18', NULL, NULL, '2023-01-06 09:04:17', NULL),
+(69, 3, NULL, NULL, 'Tarlac Agricultural University (TAU) Philippines\r\n', 'Tri Dharma \r\n', 'aktif', '2019-01-17', '2024-01-16', '-', NULL, '2023-01-06 09:04:17', NULL),
+(70, 3, NULL, NULL, 'Universitas Balikpapan\r\n', 'Program MBKM, Publikasi bersama, Seminar nasional/Internasional, Nara sumber kegiatan, Tridharma PT Prodi DIV K3\r\n', 'aktif', '2021-10-25', '2026-10-24', '002/Univ.BHAMADA/MoU/X/2021\r\n', NULL, '2023-01-06 09:04:17', NULL),
+(71, 3, NULL, NULL, 'Universitas Dian Nuswantoro (UDINUS)\r\n', 'Bimbingan Pembuatan Kurikulum\r\n', 'aktif', '2022-06-24', '2023-06-23', '016/UNIV-BMD/FIKOM/V/2022\r\n', NULL, '2023-01-06 09:17:43', NULL),
+(72, 3, NULL, NULL, 'Universitas Muhadi Setiabudi Brebes\r\n', 'Tri Dharma \r\n', 'aktif', '2019-06-25', '2024-06-24', '194/STIKES-BMD/KL/VI/2019\r\n', NULL, '2023-01-06 09:17:43', NULL),
+(73, 3, NULL, NULL, 'Universitas Muhammadiyah Surakarta\r\n', 'Tri Dharma \r\n', 'aktif', '2019-05-02', '2024-05-01', '193/STIKES-BMD/KL/IV/2019\r\n', NULL, '2023-01-06 09:17:43', NULL),
+(74, 3, NULL, NULL, 'Universitas Panca Sakti \r\n', 'Joint Conferences, Seminar, Workshop\r\n', 'aktif', '2021-11-25', '2025-11-24', '-', NULL, '2023-01-06 09:17:43', NULL),
+(75, 3, NULL, NULL, 'Universitas Setia Budi \r\n', 'Tri Dharma PT\r\n', 'aktif', '2019-10-17', '2023-10-16', '200/STIKES-BMD/KL/X/2019\r\n', NULL, '2023-01-06 09:17:43', NULL),
+(76, 3, NULL, NULL, 'Universitas Swadaya Gunung Jati Cirebon\r\n', '-', 'aktif', '2019-01-17', '2023-01-16', '188/STIKES-BMD/KL/I/2019\r\n', NULL, '2023-01-06 09:17:43', NULL),
+(77, 3, NULL, NULL, 'Universitas Trilogi\r\n', 'Merdeka Belajar, Kelas Merdeka, dan Tri Dharma PT\r\n', 'aktif', '2021-12-16', '2024-12-15', '003/Univ.BHAMADA/MoU/XII/2021\r\n', NULL, '2023-01-06 09:17:43', NULL),
+(78, 3, NULL, NULL, 'University of Perpetual Help System DALTA (UPHSD) Calamba, Laguna, Philippines\r\n', 'Tri Dharma \r\n', 'aktif', '2019-01-17', '2024-01-16', '-', NULL, '2023-01-06 09:17:43', NULL),
+(79, 3, NULL, NULL, 'LPK Kokorono Siji\r\n', 'Pengembangan potensi diri dalam Profesi Keperawatan\r\n', 'aktif', '2022-07-12', '2025-07-11', '020/Univ.BHAMADA/KL/VII/2022\r\n', NULL, '2023-01-06 09:17:43', NULL),
+(80, 3, NULL, NULL, 'PT Mitra Sinergi Sukses\r\n', 'Kegiatan Penyaluran Tenaga Kerja Terampil ke Luar Negeri\r\n', 'aktif', '2022-08-22', '2024-08-21', '024/Univ.BHAMADA/KL/VIII/2022\r\n', NULL, '2023-01-06 09:17:43', NULL),
+(81, 3, NULL, NULL, 'Perpustakaan Dinas Kearsipan dan Perpustakaan Kabupaten Tegal\r\n', 'Kerjasama Aplikasi Satu Pintu \"POCILIB\"\r\n', 'aktif', '2019-01-14', '2024-01-13', '041/10/…./2021\r\n', NULL, '2023-01-06 10:19:59', '2023-01-06 10:20:17'),
+(82, 3, NULL, NULL, 'Forum Perpustakaan Perguruan Tinggi Jawa Tengah - FPPTI Wilayah Jawa Tengah', 'Pemberdayaan dan Pemanfaatan Perpustakaan di Lingkungan FPPTI Wilayah Jawa Tengah\r\n', 'aktif', '2020-02-14', '2022-02-13', '50/Perpus-BMD/II/2020', NULL, '2023-01-06 10:21:17', NULL),
+(83, 3, NULL, NULL, 'Forum Perpustakaan Perguruan Tinggi Jawa Tengah FPPTI Wilayah Jawa Tengah\r\n', 'Kerjasama Perpustakaan di lingkup FPPTI Wilayah Jawa Tengah\r\n', 'aktif', '2020-04-14', '2023-04-13', '043/PERPUS-BMD/IV/2020\r\n', NULL, '2023-01-06 10:22:10', NULL),
+(84, 3, NULL, NULL, 'Ikatan Perpustakaan Provinsi Jawa Tengah\r\n', 'Kerjasama Perpustakaan \r\n', 'aktif', '2019-11-06', '2024-11-05', '45/PERPUS/PKGT/XI/2019', NULL, '2023-01-06 10:22:41', NULL),
+(85, 3, NULL, NULL, 'Perpustakaan Cemara SMK N 1 Tegal\r\n', 'Pemanfaatan fasilitas perpustakaan bagi sivitas akademika kedua belah pihak\r\n', 'aktif', '2018-08-07', '2023-08-06', '-', NULL, '2023-01-06 10:23:26', NULL),
+(86, 3, NULL, NULL, 'Perpustakaan SMK N 2 Adiwerna\r\n', 'Pemanfaatan fasilitas perpustakaan bagi sivitas akademika kedua belah pihak\r\n', 'aktif', '2020-08-24', '2025-08-23', '-', NULL, '2023-01-06 10:24:47', NULL),
+(87, 3, NULL, NULL, 'Kantor Dinas Kearsipan dan Perpustakaan Kabupaten Tegal\r\n', 'Tridharma\r\n', 'aktif', '2019-12-02', '2022-12-01', '47/PERPUST-BMD/XII/2019', NULL, '2023-01-06 10:25:34', NULL),
+(88, 3, NULL, NULL, 'Universitas Panca Sakti ', 'Pemanfaatan fasilitas perpustakaan bagi sivitas akademika kedua belah pihak\r\n', 'aktif', '2019-11-08', '2024-11-07', '042/PERPUS.BMD/X/2019', NULL, '2023-01-06 10:26:10', NULL),
+(89, 3, NULL, NULL, 'Politeknik Harapan Bersama\r\n', 'Pemberian akses informasi dan layanan perpustakaan serta kepustakaan untuk pengembangan akademik, Tridharma\r\n', 'aktif', '2018-08-15', '2023-08-14', '032/Perpus/LL/VIII/2018', NULL, '2023-01-06 10:27:58', '2023-01-06 10:28:15'),
+(90, 3, NULL, NULL, 'Poltekes Kemenkes Semarang\r\n', 'Pemberian akses informasi dan layanan perpustakaan serta kepustakaan untuk pengembangan akademik, Tridharma\r\n', 'aktif', '2019-10-10', '2024-10-09', '042/PERPUS.BMD/X/2019', NULL, '2023-01-06 10:29:00', NULL),
+(91, 3, NULL, NULL, 'Perpustakaan Politeknik Keselamatan Transportasi Jalan Tegal \r\n', 'Pemberian akses informasi dan layanan perpustakaan serta kepustakaan untuk pengembangan akademik, Tridharma\r\n', 'aktif', '2019-11-26', '2024-11-25', '46/PERPUS BMD/XI/2019\r\n', NULL, '2023-01-06 10:29:36', NULL),
+(92, 3, NULL, NULL, 'PT Enam KUBUKU Indonesia\r\n', 'Penggunaan Aplikasi Program Perpustakaan Digital\r\n', 'aktif', '2021-04-21', '2026-04-20', NULL, NULL, '2023-01-06 10:30:11', NULL),
+(93, 3, NULL, NULL, 'Perpustakaan Nasional RI\r\n', 'Kerja Sama Perpustakaan\r\n', 'aktif', '2019-12-16', '2024-12-15', NULL, '171/STIKES-BMD/KL/XII/2019', '2023-01-06 10:31:02', NULL),
+(94, 3, NULL, NULL, 'Gadar Medik Indonesia\r\n', '-', 'aktif', '2022-10-11', '2025-12-10', '-', NULL, '2023-01-06 10:31:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -675,8 +752,7 @@ CREATE TABLE `web` (
 --
 
 INSERT INTO `web` (`id`, `judul`, `deskripsi`, `telpon`, `email`, `alamat`, `instagram`, `date_created`, `date_updated`, `status`, `gambar`) VALUES
-(5, '', '', '', '', '', '', '2023-01-05 15:55:14', NULL, 'Y', '2023-01-05_1.jpeg'),
-(6, '', '', '', '', '', '', '2023-01-05 15:57:52', NULL, 'Y', '2023-01-05_dua.jpeg');
+(8, 'SINEMA', 'Sistem Informasi Kerjasama', '', 'info@bhamada.ac.id', 'Jl. Cut Nyak Dhien No.16, Desa Kalisapu, Kecamatan Slawi, Kabupaten Tegal 52416', '-', '2023-01-06 13:56:36', NULL, 'Y', '2023-01-06_2023-01-06_logo.png');
 
 --
 -- Indexes for dumped tables
@@ -699,6 +775,12 @@ ALTER TABLE `fakultas`
 --
 ALTER TABLE `file`
   ADD PRIMARY KEY (`id_file`);
+
+--
+-- Indexes for table `galeri`
+--
+ALTER TABLE `galeri`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `instansi`
@@ -771,10 +853,22 @@ ALTER TABLE `web`
 --
 
 --
+-- AUTO_INCREMENT for table `galeri`
+--
+ALTER TABLE `galeri`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `kerjasama`
+--
+ALTER TABLE `kerjasama`
+  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+
+--
 -- AUTO_INCREMENT for table `web`
 --
 ALTER TABLE `web`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
