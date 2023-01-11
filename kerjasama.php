@@ -34,7 +34,7 @@ $d_negara = mysqli_num_rows($q_negara);
                     <th>No</th>
                     <th>Jenis</th>
                     <th>Judul</th>
-                    <th>File</th>
+                    <!-- <th>File</th> -->
                     <th>Status</th>
                     <th>Masa Berlaku</th>
                     <th>No Ref</th>
@@ -81,7 +81,7 @@ $d_negara = mysqli_num_rows($q_negara);
                     </td>
                     <td><?php echo $hasil ['jenis_dok'];?></td>
                     <td><?php echo $hasil ['judul_kerjasama'];?></td>
-                    <td>
+                    <!-- <td>
                       <?php if ($hasil['file']!=0) {?>
                       <button
                         onclick="JavaScript:window.location.href='kerjasama_download.php?file=<?php echo $hasil['file']?>';"
@@ -90,7 +90,7 @@ $d_negara = mysqli_num_rows($q_negara);
                       <span class="badge badge-pill badge-light-danger mr-1 lg">Tidak ada file!</span>
                       <?php }
                     ?>
-                    </td>
+                    </td> -->
                     <?php 
                     if ($hasil['status_kerjasama']=='aktif') {?>
                     <td>

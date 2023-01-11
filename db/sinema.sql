@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2023 at 06:23 AM
+-- Generation Time: Jan 11, 2023 at 09:52 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -774,7 +774,7 @@ CREATE TABLE `web` (
 --
 
 INSERT INTO `web` (`id`, `judul`, `deskripsi`, `telpon`, `email`, `alamat`, `instagram`, `date_created`, `date_updated`, `status`, `gambar`) VALUES
-(8, 'SINEMA', 'Sistem Informasi Kerjasama', '', 'info@bhamada.ac.id', 'Jl. Cut Nyak Dhien No.16, Desa Kalisapu, Kecamatan Slawi, Kabupaten Tegal 52416', '-', '2023-01-06 13:56:36', NULL, 'Y', '2023-01-06_2023-01-06_logo.png');
+(8, 'SINEMA', 'Sistem Informasi Kerjasama', '(0283) 6197570', 'info@bhamada.ac.id', 'Jl. Cut Nyak Dhien No.16, Desa Kalisapu, Kecamatan Slawi, Kabupaten Tegal 52416', '-', '2023-01-06 13:56:36', '2023-01-11 08:31:17', 'Y', '2023-01-06_2023-01-06_logo.png');
 
 --
 -- Indexes for dumped tables

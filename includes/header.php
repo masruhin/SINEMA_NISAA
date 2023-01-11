@@ -153,14 +153,14 @@ include 'config.php';
             </li>
             <li data-menu="" <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
               <a class="dropdown-item d-flex align-items-center" href="kerjasama?kerjasama">
-                <i data-feather="download"></i>
+                <i data-feather='share-2'></i>
                 <span data-i18n="Documentation"> <strong>Kerjasama</strong> </span>
               </a>
             </li>
             <li data-menu="" <?php if (isset($_GET["info"])){echo 'class="active"';}?>>
               <a class="dropdown-item d-flex align-items-center" href="info.php?info">
-                <i data-feather="info"></i>
-                <span data-i18n="Documentation"> <strong>Informasi Kerjasama</strong> </span>
+                <i data-feather="download"></i>
+                <span data-i18n="Documentation"> <strong>Informasi</strong> </span>
               </a>
             </li>
             <!-- <li data-menu="" <?php if (isset($_GET["kontak"])){echo 'class="active"';}?>>

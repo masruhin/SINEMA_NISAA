@@ -241,3 +241,51 @@ if(empty($_SESSION['username'])){
   </body>
 
   </html>
+
+
+  <div class="row match-height">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Situs Instansi Pemerintah / Swasta</h4>
+        </div>
+        <div class="card-body table-responsive">
+          <table id="dataTables" class="table table-striped">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>NAMA INSTANSI</th>
+                <th>NAMA SITUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+											include "includes/config.php";
+											$no = 1;
+											$data = mysqli_query($kon, "SELECT * FROM instansi ORDER BY nama_instansi ASC");
+											if (!$data) {
+												printf("Error: %s\n", mysqli_error($kon));
+												exit();
+											}
+											while($hasil = mysqli_fetch_array($data)){
+											?>
+              <tr>
+                <td>
+                  <?php echo $no++; ?>
+                </td>
+                <td><?php echo $hasil ['nama_instansi'];?></td>
+                <td><a href="<?php echo $hasil ['situs_instansi'];?>"
+                    target="_blank"><strong><?php echo $hasil ['situs_instansi'];?></strong></a>
+                </td>
+              </tr>
+
+
+              <?php               
+									} 
+									?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
