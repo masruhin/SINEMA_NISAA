@@ -40,6 +40,7 @@ include 'config.php';
     <link rel="stylesheet" type="text/css" href="vendor/assets/css/style.css">
   </head>
 
+
   <body class="horizontal-layout horizontal-menu  navbar-floating footer-static  " data-open="hover"
     data-menu="horizontal-menu" data-col="">
 

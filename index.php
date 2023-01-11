@@ -16,6 +16,8 @@ $d_unit = mysqli_num_rows($q_unit);
 $q_negara = $kon->query("SELECT * FROM negara");
 $d_negara = mysqli_num_rows($q_negara);
 ?>
+
+
 <div class="app-content content ">
   <div class="content-overlay"></div>
   <div class="header-navbar-shadow"></div>
@@ -24,7 +26,7 @@ $d_negara = mysqli_num_rows($q_negara);
       <!-- Dashboard Ecommerce Starts -->
       <section id="dashboard-ecommerce">
         <div class="row match-height">
-          <div class="col-lg-6 col-12">
+          <div class="col-lg-4 col-12">
             <div class="row match-height">
               <!-- Bar Chart - Orders -->
               <div class="col-lg-6 col-md-3 col-6">
@@ -92,7 +94,7 @@ $d_negara = mysqli_num_rows($q_negara);
           </div>
           <!-- Revenue Report Card -->
 
-          <div id="carousel-wrap" class="carousel slide col-lg-6 col-12" data-ride="carousel">
+          <div id="carousel-wrap" class="carousel slide col-lg-8 col-12" data-ride="carousel">
             <ol class="carousel-indicators">
               <?php
               for($i=0; $i<$galeri->num_rows;$i++){
@@ -102,14 +104,15 @@ $d_negara = mysqli_num_rows($q_negara);
             </ol>
             <div class="card">
               <div class="card-body">
-                <div class="carousel-inner">
+                <div class="carousel-inner"
+                  style="height:500px;background-size:cover;background-position: center center;">
                   <?php
             if($galeri->num_rows > 0){
               while ($row = $galeri->fetch_assoc()) {
               if($row['id'] == 1){
-                echo'<div class="carousel-item active">';}else{echo'<div class="carousel-item">';}
+                echo'<div class="carousel-item active" style="height:500px;background-size:cover;background-position: center center;">';}else{echo'<div class="carousel-item">';}
                 echo'
-                  <img src="img/'.$row['gambar'].'" alt="'.$row['judul'].'" style="height:400px;width:900px;">
+                  <img src="img/'.$row['gambar'].'" alt="'.$row['judul'].'" style="height:500px;background-size:cover;background-position: center center;">
                   <div class="carousel-caption d-none d-md-block">
                       <h3 class="text-white">'.$row['judul'].'</h3>
                       <p class="text-white">'.$row['deskripsi'].'</p>

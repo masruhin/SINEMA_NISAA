@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2023 at 11:34 PM
+-- Generation Time: Jan 11, 2023 at 06:23 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -129,6 +129,28 @@ CREATE TABLE `galeri` (
   `deskripsi` text NOT NULL,
   `gambar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `galeri`
+--
+
+INSERT INTO `galeri` (`id`, `judul`, `deskripsi`, `gambar`) VALUES
+(1, 'PT. Shinzou Panca Indonesia', 'Internship', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.13.jpeg'),
+(2, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.14 (1).jpeg'),
+(3, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.14 (2).jpeg'),
+(4, 'PT KASYR SIBERNETIKA INDONESIA', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.15 (1).jpeg'),
+(5, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.16 (1).jpeg'),
+(6, 'MOU', 'Pemberangkatan Kaigon Jepang', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.16 (2).jpeg'),
+(7, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.16.jpeg'),
+(8, 'MOU', 'PORLES TEGAL', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.17 (1).jpeg'),
+(9, 'MOU', 'PORLES TEGAL', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.17 (2).jpeg'),
+(10, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.17.jpeg'),
+(11, 'MOU', 'Kuliah Umum', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.18 (1).jpeg'),
+(12, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.18 (2).jpeg'),
+(13, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.18.jpeg'),
+(14, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.19 (1).jpeg'),
+(15, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.19 (2).jpeg'),
+(16, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.19.jpeg');
 
 -- --------------------------------------------------------
 
@@ -856,7 +878,7 @@ ALTER TABLE `web`
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `kerjasama`
