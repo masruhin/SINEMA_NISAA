@@ -260,7 +260,7 @@ if(empty($_SESSION['username'])){
             </thead>
             <tbody>
               <?php 
-											include "includes/config.php";
+											include "config.php";
 											$no = 1;
 											$data = mysqli_query($kon, "SELECT * FROM instansi ORDER BY nama_instansi ASC");
 											if (!$data) {

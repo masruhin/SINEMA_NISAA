@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2023 at 09:52 AM
+-- Generation Time: Jan 11, 2023 at 04:29 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -135,7 +135,6 @@ CREATE TABLE `galeri` (
 --
 
 INSERT INTO `galeri` (`id`, `judul`, `deskripsi`, `gambar`) VALUES
-(1, 'PT. Shinzou Panca Indonesia', 'Internship', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.13.jpeg'),
 (2, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.14 (1).jpeg'),
 (3, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.14 (2).jpeg'),
 (4, 'PT KASYR SIBERNETIKA INDONESIA', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.15 (1).jpeg'),
@@ -650,6 +649,26 @@ INSERT INTO `negara_kategori` (`id_kategori`, `kategori_nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `panduan`
+--
+
+CREATE TABLE `panduan` (
+  `id` int(11) NOT NULL,
+  `dok` varchar(255) NOT NULL,
+  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `panduan`
+--
+
+INSERT INTO `panduan` (`id`, `dok`, `date_created`, `date_updated`) VALUES
+(3, '2023-01-11_Buku Pedoman Kerja Sama Tahun 2021.pdf', '2023-01-11 14:50:44', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tikm`
 --
 
@@ -841,6 +860,12 @@ ALTER TABLE `negara_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
+-- Indexes for table `panduan`
+--
+ALTER TABLE `panduan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tikm`
 --
 ALTER TABLE `tikm`
@@ -885,6 +910,12 @@ ALTER TABLE `galeri`
 --
 ALTER TABLE `kerjasama`
   MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+
+--
+-- AUTO_INCREMENT for table `panduan`
+--
+ALTER TABLE `panduan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `web`

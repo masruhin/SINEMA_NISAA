@@ -47,11 +47,23 @@
                   <i data-feather='file-text'></i>
                   <span data-i18n="Raise Support">Data Kerjasama</span></a>
               </li>
-              <li data-menu="" <?php if (isset($_GET["instansi"])){echo 'class="active"';}?>>
-                <a class="dropdown-item d-flex align-items-center" href="instansi.php?instansi" data-toggle="dropdown"
+              <li data-menu="" <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
+                <a class="dropdown-item d-flex align-items-center" href="instansi.php?kerjasama" data-toggle="dropdown"
                   data-i18n="Raise Support">
-                  <i data-feather='file-text'></i>
+                  <i data-feather='link'></i>
                   <span data-i18n="Raise Support">Situs Instansi</span></a>
+              </li>
+              <li data-menu="" <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
+                <a class="dropdown-item d-flex align-items-center" href="bentuk_kerjasama_data.php?kerjasama"
+                  data-toggle="dropdown" data-i18n="Raise Support">
+                  <i data-feather='check-square'></i>
+                  <span data-i18n="Raise Support">Bentuk Kerjasama</span></a>
+              </li>
+              <li data-menu="" <?php if (isset($_GET["kerjasama"])){echo 'class="active"';}?>>
+                <a class="dropdown-item d-flex align-items-center" href="jenis_dok_data.php?kerjasama"
+                  data-toggle="dropdown" data-i18n="Raise Support"">
+                <i data-feather='twitch'></i>
+                <span data-i18n=" Raise Support">Jenis Kerjasama</span></a>
               </li>
             </ul>
           </li>
@@ -87,31 +99,46 @@
               </li>
             </ul>
           </li>
-          <li class="dropdown nav-item" data-menu="dropdown">
+
+          <li class="dropdown nav-item" data-menu="dropdown"
+            <?php if (isset($_GET["master"])){echo 'class="active"';}?>>
+            <a class="dropdown-toggle nav-link d-flex align-items-center" data-toggle="dropdown">
+              <i data-feather="info"></i>
+              <span data-i18n="Misc"><strong>Informasi</strong></span></a>
+            <ul class="dropdown-menu">
+              <li data-menu="" <?php if (isset($_GET["info"])){echo 'class="active"';}?>>
+                <a class="dropdown-item d-flex align-items-center" href="panduan.php?info">
+                  <i data-feather='book-open'></i>
+                  <span data-i18n="Documentation"> <strong>Panduan Kerjasama</strong> </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- <li class="dropdown nav-item" data-menu="dropdown">
             <a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-toggle="dropdown">
               <i data-feather="paperclip"></i>
               <span data-i18n="Misc"><strong>Referensi Kerjasama</strong></span></a>
-            <ul class="dropdown-menu">
-              <!-- <li data-menu="" <?php if (isset($_GET["ksm"])){echo 'class="active"';}?>>
+            <ul class="dropdown-menu"> -->
+          <!-- <li data-menu="" <?php if (isset($_GET["ksm"])){echo 'class="active"';}?>>
                 <a class="dropdown-item d-flex align-items-center" href="lembaga_data.php?ksm" data-toggle="dropdown"
                   data-i18n="Raise Support">
                   <i data-feather='slack'></i>
                   <span data-i18n="Raise Support">Jenis Lembaga</span></a>
               </li> -->
-              <li data-menu="" <?php if (isset($_GET["ksm"])){echo 'class="active"';}?>>
-                <a class="dropdown-item d-flex align-items-center" href="bentuk_kerjasama_data.php?ksm"
-                  data-toggle="dropdown" data-i18n="Raise Support">
-                  <i data-feather='check-square'></i>
-                  <span data-i18n="Raise Support">Jenis Kegiatan</span></a>
-              </li>
-              <li data-menu="" <?php if (isset($_GET["ksm"])){echo 'class="active"';}?>>
-                <a class="dropdown-item d-flex align-items-center" href="jenis_dok_data.php?ksm" data-toggle="dropdown"
-                  data-i18n="Raise Support"">
+          <!-- <li data-menu="" <?php if (isset($_GET["ksm"])){echo 'class="active"';}?>>
+            <a class="dropdown-item d-flex align-items-center" href="bentuk_kerjasama_data.php?ksm"
+              data-toggle="dropdown" data-i18n="Raise Support">
+              <i data-feather='check-square'></i>
+              <span data-i18n="Raise Support">Jenis Kegiatan</span></a>
+          </li>
+          <li data-menu="" <?php if (isset($_GET["ksm"])){echo 'class="active"';}?>>
+            <a class="dropdown-item d-flex align-items-center" href="jenis_dok_data.php?ksm" data-toggle="dropdown"
+              data-i18n="Raise Support"">
                 <i data-feather='twitch'></i>
                 <span data-i18n=" Raise Support">Jenis Kerjasama</span></a>
-              </li>
-            </ul>
           </li>
+        </ul>
+        </li> -->
           <li class="dropdown nav-item" data-menu="dropdown">
             <a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-toggle="dropdown">
               <i data-feather="database"></i>
@@ -151,15 +178,15 @@
               <li data-menu="" <?php if (isset($_GET["config"])){echo 'class="active"';}?>>
                 <a class="dropdown-item d-flex align-items-center" href="galeri.php?config" data-toggle="dropdown"
                   data-i18n="Raise Support">
-                  <i data-feather="life-buoy"></i>
+                  <i data-feather='sliders'></i>
                   <span data-i18n="Raise Support">Pengaturan Galeri</span></a>
               </li>
-              <li data-menu="" <?php if (isset($_GET["config"])){echo 'class="active"';}?>>
+              <!-- <li data-menu="" <?php if (isset($_GET["config"])){echo 'class="active"';}?>>
                 <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"
                   data-i18n="Raise Support">
                   <i data-feather="life-buoy"></i>
                   <span data-i18n="Raise Support">Pengaturan akun</span></a>
-              </li>
+              </li> -->
               <li data-menu="">
                 <a class="dropdown-item d-flex align-items-center" href="web.php?config" data-toggle="dropdown"
                   data-i18n="Raise Support">
