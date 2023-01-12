@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2023 at 04:29 PM
+-- Generation Time: Jan 12, 2023 at 09:45 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -127,7 +127,7 @@ CREATE TABLE `galeri` (
   `id` int(11) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `deskripsi` text NOT NULL,
-  `gambar` varchar(255) NOT NULL
+  `gambar` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -135,6 +135,7 @@ CREATE TABLE `galeri` (
 --
 
 INSERT INTO `galeri` (`id`, `judul`, `deskripsi`, `gambar`) VALUES
+(1, 'MOU', 'Kerjasamaa', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.19.jpeg'),
 (2, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.14 (1).jpeg'),
 (3, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.14 (2).jpeg'),
 (4, 'PT KASYR SIBERNETIKA INDONESIA', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.15 (1).jpeg'),
@@ -148,8 +149,7 @@ INSERT INTO `galeri` (`id`, `judul`, `deskripsi`, `gambar`) VALUES
 (12, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.18 (2).jpeg'),
 (13, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.18.jpeg'),
 (14, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.19 (1).jpeg'),
-(15, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.19 (2).jpeg'),
-(16, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.19.jpeg');
+(15, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.19 (2).jpeg');
 
 -- --------------------------------------------------------
 
@@ -909,7 +909,7 @@ ALTER TABLE `galeri`
 -- AUTO_INCREMENT for table `kerjasama`
 --
 ALTER TABLE `kerjasama`
-  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `panduan`

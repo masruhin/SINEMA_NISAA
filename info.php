@@ -73,36 +73,36 @@ $d_negara = mysqli_num_rows($q_negara);
                 </li>
 
                 <!-- cancellation and return -->
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link" id="cancellation-return" data-toggle="pill" href="#faq-cancellation-return"
                     aria-expanded="false" role="tab">
                     <i data-feather="refresh-cw" class="font-medium-3 mr-1"></i>
                     <span class="font-weight-bold">Cancellation & Return</span>
                   </a>
-                </li>
+                </li> -->
 
                 <!-- my order -->
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link" id="my-order" data-toggle="pill" href="#faq-my-order" aria-expanded="false"
                     role="tab">
                     <i data-feather="package" class="font-medium-3 mr-1"></i>
                     <span class="font-weight-bold">My Orders</span>
                   </a>
-                </li>
+                </li> -->
 
                 <!-- product and services-->
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link" id="product-services" data-toggle="pill" href="#faq-product-services"
                     aria-expanded="false" role="tab">
                     <i data-feather="settings" class="font-medium-3 mr-1"></i>
                     <span class="font-weight-bold">Product & Services</span>
                   </a>
                 </li>
-              </ul>
+              </ul> -->
 
-              <!-- FAQ image -->
-              <img src="vendor/app-assets/images/illustration/faq-illustrations.svg" class="img-fluid d-none d-md-block"
-                alt="demand img" />
+                <!-- FAQ image -->
+                <img src="vendor/app-assets/images/illustration/faq-illustrations.svg"
+                  class="img-fluid d-none d-md-block" alt="demand img" />
             </div>
           </div>
 
@@ -128,7 +128,8 @@ $d_negara = mysqli_num_rows($q_negara);
                   <div class="card">
                     <div class="card-header" id="paymentOne" data-toggle="collapse" role="button"
                       data-target="#faq-payment-one" aria-expanded="false" aria-controls="faq-payment-one">
-                      <span class="lead collapse-title">Klik & Download Untuk Mengetahui Informasi Dokumen</span>
+                      <span class="badge badge-pill badge-light-success mr-1 lg" style="background-color: rgb(255 205 21 / 83%);
+    color: #020202 !important;">Klik & Download Untuk Mengetahui Informasi Dokumen</span>
                     </div>
 
                     <div id="faq-payment-one" class="collapse" aria-labelledby="paymentOne"
@@ -202,7 +203,8 @@ $d_negara = mysqli_num_rows($q_negara);
                   <div class="card">
                     <div class="card-header" id="deliveryOne" data-toggle="collapse" role="button"
                       data-target="#faq-delivery-one" aria-expanded="false" aria-controls="faq-delivery-one">
-                      <span class="lead collapse-title">Data Situs Instansi (Silahkan Klik)</span>
+                      <span class="badge badge-pill badge-light-success mr-1 lg" style="background-color: rgb(255 205 21 / 83%);
+    color: #020202 !important;">Data Situs Instansi (Silahkan Klik)</span>
                     </div>
 
                     <div id="faq-delivery-one" class="collapse" aria-labelledby="deliveryOne"
@@ -250,9 +252,8 @@ $d_negara = mysqli_num_rows($q_negara);
               </div>
 
               <!-- cancellation return  -->
-              <div class="tab-pane" id="faq-cancellation-return" role="tabpanel" aria-labelledby="cancellation-return"
+              <!-- <div class="tab-pane" id="faq-cancellation-return" role="tabpanel" aria-labelledby="cancellation-return"
                 aria-expanded="false">
-                <!-- icon and header -->
                 <div class="d-flex align-items-center">
                   <div class="avatar avatar-tag bg-light-primary mr-1">
                     <i data-feather="refresh-cw" class="font-medium-4"></i>
@@ -263,7 +264,6 @@ $d_negara = mysqli_num_rows($q_negara);
                   </div>
                 </div>
 
-                <!-- frequent answer and question  collapse  -->
                 <div class="collapse-margin collapse-icon mt-2" id="faq-cancellation-qna">
                   <div class="card">
                     <div class="card-header" id="cancellationOne" data-toggle="collapse" role="button"
@@ -401,9 +401,7 @@ $d_negara = mysqli_num_rows($q_negara);
                 </div>
               </div>
 
-              <!-- my order -->
               <div class="tab-pane" id="faq-my-order" role="tabpanel" aria-labelledby="my-order" aria-expanded="false">
-                <!-- icon and header -->
                 <div class="d-flex align-items-center">
                   <div class="avatar avatar-tag bg-light-primary mr-1">
                     <i data-feather="package" class="font-medium-4"></i>
@@ -414,7 +412,6 @@ $d_negara = mysqli_num_rows($q_negara);
                   </div>
                 </div>
 
-                <!-- frequent answer and question  collapse  -->
                 <div class="collapse-margin collapse-icon mt-2" id="faq-my-order-qna">
                   <div class="card">
                     <div class="card-header" id="myOrderOne" data-toggle="collapse" role="button"
@@ -508,10 +505,8 @@ $d_negara = mysqli_num_rows($q_negara);
                 </div>
               </div>
 
-              <!-- product services -->
               <div class="tab-pane" id="faq-product-services" role="tabpanel" aria-labelledby="product-services"
                 aria-expanded="false">
-                <!-- icon and header -->
                 <div class="d-flex align-items-center">
                   <div class="avatar avatar-tag bg-light-primary mr-1">
                     <i data-feather="settings" class="font-medium-4"></i>
@@ -522,7 +517,6 @@ $d_negara = mysqli_num_rows($q_negara);
                   </div>
                 </div>
 
-                <!-- frequent answer and question  collapse  -->
                 <div class="collapse-margin collapse-icon mt-2" id="faq-product-qna">
                   <div class="card">
                     <div class="card-header" id="productOne" data-toggle="collapse" role="button"
@@ -596,12 +590,11 @@ $d_negara = mysqli_num_rows($q_negara);
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
       </section>
-      <!-- / frequently asked questions tabs pills -->
 
       <!-- contact us -->
       <?php 
