@@ -1,6 +1,12 @@
 <?php
 session_start();
 include 'config.php';
+$data = mysqli_query($kon, "SELECT * FROM web");
+if (!$data) {
+  printf("Error: %s\n", mysqli_error($kon));
+  exit();
+}
+while($hasil = mysqli_fetch_array($data)){
 ?>
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
@@ -195,3 +201,4 @@ include 'config.php';
       </div>
     </div>
     <!-- END MENU -->
+    <?php } ?>

@@ -28,6 +28,12 @@
 <script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script src="../vendor/app-assets/vendors/js/file-uploaders/dropzone.min.js"></script>
 <script src="../vendor/app-assets/js/scripts/forms/form-file-uploader.js"></script>
+
+
+<!-- swal -->
+
+<!-- <script src="../vendor/app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script> -->
+<script src="../vendor/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
 <script>
 $(function() {
   $("#dataTables").DataTable({

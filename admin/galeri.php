@@ -50,9 +50,9 @@ if(empty($_SESSION['username'])){
                   <td><img src="../img/<?php echo $hasil['gambar']; ?>" width="100" height="100"></td>
                   <td style="text-align:center ;">
                     <a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal"
-                      data-target="#edit<?php echo $hasil['id']; ?>">Edit</a> |
-                    <a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal"
-                      data-target="#deleteEmployeeModal<?php echo $hasil['id']; ?>">Hapus</a>
+                      data-target="#edit<?php echo $hasil['id']; ?>">Edit</a>
+                    <!-- <a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal"
+                      data-target="#deleteEmployeeModal<?php echo $hasil['id']; ?>">Hapus</a> -->
                   </td>
                 </tr>
 
@@ -83,14 +83,14 @@ if(empty($_SESSION['username'])){
                                   <label class="col-sm-2 col-form-label">Judul</label>
                                   <div class="col-sm-10">
                                     <input type="text" class="form-control" placeholder="Masukkan Judul Kerjasama"
-                                      name="judul">
+                                      name="judul" value="<?php echo $row['judul']?>">
                                   </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class=" form-group row">
                                   <label class="col-sm-2 col-form-label">Deskripsi</label>
                                   <div class="col-sm-10">
                                     <input type="text" class="form-control" placeholder="Masukkan Deskripsi"
-                                      name="deskripsi">
+                                      name="deskripsi" value="<?php echo $row['deskripsi']?>">
                                   </div>
                                 </div>
                                 <div class="form-group row">

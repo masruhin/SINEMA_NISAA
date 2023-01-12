@@ -17,6 +17,7 @@ if(empty($_SESSION['username'])){
             <div class="card-header">
               <h4 class="card-title">Kerjasama</h4>
               <a href="kerjasama_form_add.php" type="button" class="btn btn-outline-success round btn-sm">Tambah</a>
+              <button type="button" class="btn btn-outline-success" id="type-success">Success</button>
             </div>
             <div class="card-body table-responsive">
               <table id="dataTables" class="table table-striped">
@@ -59,7 +60,7 @@ if(empty($_SESSION['username'])){
                       kerjasama a
                       LEFT JOIN jenis_dok b ON b.id_jenis_dok = a.id_jenis_dok
                       LEFT JOIN fakultas d ON d.id_fak = a.id_fak
-                      LEFT JOIN unit c ON c.id_unit= a.id_unit ORDER BY id_kerjasama asc");
+                      LEFT JOIN unit c ON c.id_unit= a.id_unit ORDER BY date_created desc");
 											if (!$data) {
 												printf("Error: %s\n", mysqli_error($kon));
 												exit();
@@ -374,7 +375,29 @@ if(empty($_SESSION['username'])){
 <div class="drag-target"></div>
 
 <?php include "footer.php";?>
+<script type="text/javascript">
+var success = $('#type-success'),
+  error = $('#type-error'),
+  warning = $('#type-warning'),
+  info = $('#type-info');
 
+
+
+// Success
+if (success.length) {
+  success.on('click', function() {
+    Swal.fire({
+      title: 'Good job!',
+      text: 'You clicked sdsdsdsd button!',
+      icon: 'success',
+      customClass: {
+        confirmButton: 'btn btn-primary'
+      },
+      buttonsStyling: false
+    });
+  });
+}
+</script>
 </body>
 
 </html>
