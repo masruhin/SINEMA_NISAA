@@ -36,6 +36,7 @@ if (empty($_SESSION['username'])) {
               $unit     = $data['id_unit'];
               $judul    = $data['judul_kerjasama'];
               $deskripsi = $data['deskripsi_kerjasama'];
+              $status    = $data['status_kerjasama'];
               $tanggal_awal   = $data['tanggal_awal'];
               $tanggal_akhir  = $data['tanggal_akhir'];
               $noref          = $data['no_ref_kerjasama'];
@@ -47,21 +48,9 @@ if (empty($_SESSION['username'])) {
               <div class="row">
                 <div class="col-md-12">
                   <div class="card">
-                    <div class="card-header">
-                      <h4 class="card-title">Edit</h4>
-                    </div>
                     <div class="card-body">
 
                       <div class="row">
-
-                        <div class="col-md-6 col-12 mb-1">
-                          <div class="form-group row">
-                            <label for="colFormLabel" class="col-sm-3 col-form-label">Default</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="colFormLabel" placeholder="Normal Input" />
-                            </div>
-                          </div>
-                        </div>
 
                         <div class="col-md-6 col-12 mb-1">
                           <div class="form-group row">
@@ -80,6 +69,63 @@ if (empty($_SESSION['username'])) {
                                       } 
                                 ?>
                               </select>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-3 col-form-label">Unit Penggiat</label>
+                            <div class="col-sm-9">
+                              <select name="id_unit" class="select2 form-control" tabindex="-1">
+                                <option value="<?php echo $data['unit_nama'];?>">
+                                  <?php echo $data['unit_nama'];?>
+                                </option>
+                                <option>-- Pilh untuk mengganti --</option>
+                                <?php include 'config.php';
+                                $sql2  		= "SELECT unit_nama FROM unit";                        
+                                $query2  	= mysqli_query($kon, $sql2);
+                                while ($data2 = mysqli_fetch_array($query2)){
+                                      echo '<option value="'.$data2['unit_nama'].'">'.$data2['unit_nama'].'</option>';
+                                      } 
+                                ?>
+                              </select>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="col-md-6 col-12 mb-1">
+                          <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-3 col-form-label">Judul Kerjasama</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="colFormLabel" name="judul_kerjasama"
+                                placeholder="Normal Input" / value="<?= $judul ?>">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-3 col-form-label">Deskripsi Kerjasama</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="colFormLabel" name="judul_kerjasama"
+                                placeholder="Normal Input" / value="<?= $deskripsi ?>">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-3 col-form-label">Status</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="colFormLabel" name="judul_kerjasama"
+                                placeholder="Normal Input" / value="<?= $status ?>">
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-3 col-form-label">Tanggal Awal</label>
+                            <div class="col-sm-9">
+                              <div class="input-group ">
+                                <span class="input-group-text"><i data-feather="calendar"></i></span>
+                                <input type="date" id="tawal" class="form-control" value="<?php echo $tanggal_awal;?>"
+                                  name="tawal" />
+                              </div>
                             </div>
                           </div>
                         </div>
