@@ -38,7 +38,7 @@ if(empty($_SESSION['username'])){
                   <?php 
 											include "config.php";
 											$no = 1;
-											$data = mysqli_query($kon, "SELECT
+											$data = mysqli_query($kon, "SELECT 
                       a.id_kerjasama,
                       b.id_jenis_dok,
                       b.jenis_dok,
@@ -61,6 +61,8 @@ if(empty($_SESSION['username'])){
                       LEFT JOIN jenis_dok b ON b.id_jenis_dok = a.id_jenis_dok
                       LEFT JOIN fakultas d ON d.id_fak = a.id_fak
                       LEFT JOIN unit c ON c.id_unit= a.id_unit ORDER BY date_created desc");
+                      // print_r('date');
+                      // die();
 											if (!$data) {
 												printf("Error: %s\n", mysqli_error($kon));
 												exit();

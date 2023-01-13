@@ -139,6 +139,7 @@ $d_negara = mysqli_num_rows($q_negara);
                           <thead>
                             <tr>
                               <th>No</th>
+                              <th>Judul</th>
                               <th>Nama Dokumen</th>
                               <th>File</th>
                               <th>Tanggal DI Upload</th>
@@ -159,6 +160,7 @@ $d_negara = mysqli_num_rows($q_negara);
                               <td>
                                 <?php echo $no++; ?>
                               </td>
+                              <td><?php echo $hasil ['judul'];?></td>
                               <td><?php echo $hasil ['dok'];?></td>
                               <td>
                                 <?php if ($hasil['dok']!=0) {?>

@@ -54,91 +54,102 @@ if(empty($_SESSION['username'])){
                   <td><?php echo $hasil ['date_updated'];?></td>
                   <td style="text-align:center ;">
                     <a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal"
-                      data-target="#edit<?php echo $hasil['id_lembaga']; ?>">Edit</a> |
+                      data-target="#edit<?php echo $hasil['id']; ?>">Edit</a> |
                     <a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal"
-                      data-target="#deleteEmployeeModal<?php echo $hasil['id_lembaga']; ?>">Hapus</a>
+                      data-target="#deleteEmployeeModal<?php echo $hasil['id']; ?>">Hapus</a>
                   </td>
                 </tr>
 
                 <!-- MODAL EDIT -->
                 <div class="modal-size-lg d-inline-block">
-                  <div class="modal fade text-left" id="edit<?php echo $hasil['id_lembaga']; ?>" tabindex="-1"
-                    role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
+                  <div class="modal fade text-left" id="edit<?php echo $hasil['id']; ?>" tabindex="-1" role="dialog"
+                    aria-labelledby="myModalLabel17" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="myModalLabel110">Edit Data Lembaga</h5>
+                          <h5 class="modal-title" id="myModalLabel110">Edit Website</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form class="form form-horizontal" action="lembaga_act.php" method="POST">
+                          <form class="form form-horizontal" action="web_act.php" method="POST">
                             <?php
-                              $id = $hasil['id_lembaga']; 
-                              $query_edit = mysqli_query($kon, "SELECT * FROM lembaga WHERE id_lembaga='$id'");
-                              while ($row = mysqli_fetch_array($query_edit)) {  
+                              $id = $hasil['id']; 
+                              $query_edit = mysqli_query($kon, "SELECT * FROM web WHERE id='$id'");
+                              while ($result = mysqli_fetch_array($query_edit)) {  
                               ?>
-                            <input type="hidden" name="id_lembaga" value="<?= $row['id_lembaga']?>">
+                            <input type="hidden" name="id" value="<?= $result['id']?>">
                             <div class="row">
-                              <div class="col-12">
-                                <div div class="form-group row">
-                                  <div class="col-sm-4 col-form-label">
-                                    <label for="lembaga_kode"><strong>Kode Lembaga </strong></label>
+                              <div class="col-md-12">
+                                <div class="form-group row">
+                                  <label class="col-sm-2 col-form-label">Judul</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Masukkan Judul Kerjasama"
+                                      name="judul" value="<?php echo $result['judul']?>">
                                   </div>
-                                  <div class="col-sm-8">
-                                    <div class="input-group input-group-merge">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                          <i data-feather="terminal"></i>
-                                        </span>
-                                      </div>
-                                      <input type="text" id="lembaga_kode" class="form-control" name="lembaga_kode"
-                                        placeholder="Isikan dengan nama Lembaga" value="<?= $row['lembaga_kode']?>" />
+                                </div>
+                                <div class=" form-group row">
+                                  <label class="col-sm-2 col-form-label">Deskripsi</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Masukkan Deskripsi"
+                                      name="deskripsi" value="<?php echo $result['deskripsi']?>">
+                                  </div>
+                                </div>
+                                <div class=" form-group row">
+                                  <label class="col-sm-2 col-form-label">Nomor Ponsel</label>
+                                  <div class="input-group col-sm-10">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">+62</span>
                                     </div>
+                                    <input type="text" class="form-control" name="telpon" id="telpon "
+                                      value="<?php echo $result['telpon']?>">
+                                  </div>
+                                  <div class="col-sm-2"></div>
+                                  <div class="col-sm-10">
+                                    <label id="telpon-error" for="telpon" class="error" style="display:none;"></label>
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <div class="col-sm-4 col-form-label">
-                                    <label for="lembaga_nama"><strong>Nama Lembaga </strong></label>
+                                  <label class="col-sm-2 col-form-label">E-Mail</label>
+                                  <div class="col-sm-10">
+                                    <input type="email" class="form-control" placeholder="Masukkan Email" name="email"
+                                      value="<?php echo $result['email']?>">
                                   </div>
-                                  <div class="col-sm-8">
-                                    <div class="input-group input-group-merge">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                          <i data-feather="layers"></i>
-                                        </span>
-                                      </div>
-                                      <input type="text" id="lembaga_nama" class="form-control" name="lembaga_nama"
-                                        placeholder="Isikan dengan nama Lembaga" value="<?= $row['lembaga_nama']?>" />
-                                    </div>
+                                </div>
+                                <div class=" form-group row">
+                                  <label class="col-sm-2 col-form-label">Alamat</label>
+                                  <div class="col-sm-10">
+                                    <textarea name="alamat" class="form-control custom" rows="5"
+                                      placeholder="Masukkan Alamat"><?php echo $result['alamat']?></textarea>
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <div class="col-sm-4 col-form-label">
-                                    <label for="lembaga_ket"><strong> Keterangan </strong></label>
-                                  </div>
-                                  <div class="col-sm-8">
-                                    <div class="input-group input-group">
-                                      <textarea class="form-control" id="" name="lembaga_ket" colspan="4" rows="3"
-                                        placeholder="Keterangan Lembaga"><?= $row['lembaga_ket']?>
-                                                </textarea>
+                                  <label class="col-sm-2 col-form-label">Instagram</label>
+                                  <div class="input-group col-sm-10">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">@</span>
                                     </div>
+                                    <input type="text" class="form-control" placeholder="Masukkan Instagram Tanpa @"
+                                      name="instagram" <?php echo $result['instagram']?>>
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <div class="col-sm-4 col-form-label">
-                                    <label for="date_created"><strong> Tgl diBuat </strong></label>
+                                  <label class="col-sm-2 col-form-label">Gambar</label>
+                                  <div class="input-group col-sm-10">
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                      <label class="custom-file-label" for="gambar">Pilih Gambar Logo</label>
+                                    </div>
                                   </div>
-                                  <div class="col-sm-8">
-                                    <div class="input-group input-group-merge">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                          <i data-feather="phone-call"></i>
-                                        </span>
+                                  <div class="col-sm-2"></div>
+                                  <div class="col-sm-10">
+                                    <div class="border text-center p-3">
+                                      <img src="<?php echo "../img/$result[gambar]" ?>" class="img-fluid img-rounded"
+                                        id="preview-img">
+                                      <div style="color: rgb(255,0,0);">*Catatan : Kosongkan gambar jika tidak ingin
+                                        merubah banner.
                                       </div>
-                                      <input type="text" id="date_created" class="form-control" name="date_created"
-                                        placeholder="tanggal dibuat" value="<?= $row['date_created']?>" disabled />
                                     </div>
                                   </div>
                                 </div>
@@ -160,18 +171,17 @@ if(empty($_SESSION['username'])){
                 <!-- END MODAL EDIT -->
 
                 <!-- MODAL HAPUS -->
-                <div id="deleteEmployeeModal<?php echo $hasil['id_lembaga']; ?>" class="modal fade">
+                <div id="deleteEmployeeModal<?php echo $hasil['id']; ?>" class="modal fade">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <form method="post" action="Lembaga_act.php">
                         <?php
-                                  $id = $hasil['id_lembaga']; 
+                                  $id = $hasil['id']; 
                                   $query_edit = mysqli_query($kon, "SELECT * FROM Lembaga WHERE id_lembaga='$id'");
                                   //$result = mysqli_query($conn, $query);
                                   while ($row = mysqli_fetch_array($query_edit)) {  
                                   ?>
-                        <input type="hidden" class="form-control" value="<?php echo $hasil['id_lembaga']; ?>"
-                          name="id_lembaga">
+                        <input type="hidden" class="form-control" value="<?php echo $hasil['id']; ?>" name="id_lembaga">
 
                         <div class="modal-header">
                           <h4 class="modal-title">Delete</h4>
@@ -312,9 +322,30 @@ if(empty($_SESSION['username'])){
   <!-- Modal ADD-->
   <div class="sidenav-overlay"></div>
   <div class="drag-target"></div>
+
   <?php include "footer.php";?>
   <script type="text/javascript">
+  var success = $('#type-success'),
+    error = $('#type-error'),
+    warning = $('#type-warning'),
+    info = $('#type-info');
 
+
+
+  // Success
+  if (success.length) {
+    success.on('click', function() {
+      Swal.fire({
+        title: 'Good job!',
+        text: 'You clicked sdsdsdsd button!',
+        icon: 'success',
+        customClass: {
+          confirmButton: 'btn btn-primary'
+        },
+        buttonsStyling: false
+      });
+    });
+  }
   </script>
   </body>
 

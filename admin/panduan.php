@@ -24,6 +24,7 @@ if(empty($_SESSION['username'])){
               <thead>
                 <tr>
                   <th>No</th>
+                  <th>judul</th>
                   <th>Nama Dokumen</th>
                   <th>File</th>
                   <th>Tanggal Di Upload</th>
@@ -46,6 +47,7 @@ if(empty($_SESSION['username'])){
                   <td>
                     <?php echo $no++; ?>
                   </td>
+                  <td><?php echo $hasil ['judul'];?></td>
                   <td><?php echo $hasil ['dok'];?></td>
                   <td>
                     <?php if ($hasil['dok']!=0) {?>
@@ -90,6 +92,18 @@ if(empty($_SESSION['username'])){
                             <div class="row">
                               <div class="col-md-12">
                                 <div class="form-group row">
+                                  <label for="colFormLabel" class="col-sm-2 col-form-label">
+                                    <span class="badge badge-pill badge-light-success mr-1 lg"
+                                      style="background-color: rgb(255 205 21 / 83%); height:25px; color: #020202 !important;">Judul
+                                      Dokumen</span>
+                                  </label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="colFormLabel" name="judul"
+                                      placeholder="Masukan Judul" value="<?php echo $row['judul'];?>">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row">
                                   <label class="col-sm-2 col-form-label">Dokumen Sebelumnya</label>
                                   <div class="col-sm-10">
                                     <div class="border text-center p-1">
@@ -102,6 +116,7 @@ if(empty($_SESSION['username'])){
 
                                   </div>
                                 </div>
+
                                 <div class="form-group row">
                                   <label class="col-sm-2 col-form-label">Dokumen</label>
                                   <div class="input-group col-sm-10">
@@ -204,17 +219,33 @@ if(empty($_SESSION['username'])){
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group row">
-                      <p for="basicInputFile">Upload Dokumen Panduan Kerjasama</p>
-                      <input type="file" name="dok" class="form-control-file" id="basicInputFile" />
-                      <span class="sm" style="color:red ;">
-                        <label for="" style="color:red ;">
-                          File yang bisa di Upload hanya file dengan ekstensi .doc, .docx, .xls, .xlsx,
-                          .ppt,
-                          .pptx, .pdf, .rar, .exe, .zip dan besar file (file size) maksimal hanya <b>3
-                            MB</b>.
-                        </label>
-                      </span>
+                      <label for="colFormLabel" class="col-sm-4 col-form-label">
+                        <span class="badge badge-pill badge-light-success mr-1 lg"
+                          style="background-color: rgb(255 205 21 / 83%); height:25px; color: #020202 !important;">Judul
+                          Dokumen</span>
+                      </label>
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" id="colFormLabel" name="judul"
+                          placeholder="Masukan Judul">
+                      </div>
                     </div>
+
+                    <div class="mb-1">
+                      <P class="form-label" for="file"><span class="badge badge-pill badge-light-success mr-1 lg"
+                          style="background-color: rgb(255 205 21 / 83%); height:25px; color: #020202 !important;">Upload
+                          Dokumen Panduan Kerjasama</span></P>
+                      <div class="input-group ">
+                        <input type="file" name="dok" class="form-control-file" id="basicInputFile" />
+                      </div>
+                      <label for="" style="color:red ;">
+                        File yang bisa di Upload hanya file dengan ekstensi .doc, .docx, .xls, .xlsx,
+                        .ppt,
+                        .pptx, .pdf, .rar, .exe, .zip dan besar file (file size) maksimal hanya <b>3
+                          MB</b>.
+                        <!-- <b style="color:blue"><?php echo $file;?></b>. -->
+                      </label>
+                    </div>
+
                   </div>
                 </div>
               </div>

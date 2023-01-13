@@ -8,6 +8,7 @@ include "config.php";
 
 if (isset($_POST['upload'])) {
 
+  $judul = $_POST['judul'];
   $date = date('Y-m-d');
   
   $ekstensi_diperbolehkan    = array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'rar', 'zip', 'png', 'jpg', 'mp4', 'avi');
@@ -22,8 +23,8 @@ if (isset($_POST['upload'])) {
   if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
       if($ukuran < 304407000){ 
           move_uploaded_file($file_tmp, '../dok_panduan/' . $nama);
-          $query    = mysqli_query($kon, "INSERT INTO panduan (dok) 
-                                          VALUES('$nama')");
+          $query    = mysqli_query($kon, "INSERT INTO panduan (judul, dok) 
+                                          VALUES('$judul', '$nama')");
           // var_dump($query);
           // die();
           if($query){
@@ -57,6 +58,8 @@ if (isset($_POST['upload'])) {
 if (isset($_POST['ubah'])) {
   // $id = isset($_GET['id']) ? $_GET['id'] : null;
   $id = $_POST['id'];
+  $judul = $_POST['judul'];
+
   $gambar = $_FILES['dok']['name'];
   if ($gambar != "") {
     $ekstensi_diperbolehkan = array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'rar', 'zip', 'png', 'jpg', 'mp4', 'avi');
@@ -70,7 +73,7 @@ if (isset($_POST['ubah'])) {
     if (in_array($ekstensi, $ekstensi_diperbolehkan)) {
       move_uploaded_file($file_tmp, '../dok_panduan/'. $namabaru);
 
-      $query = "UPDATE panduan SET dok ='$namabaru' WHERE id='$id'";
+      $query = "UPDATE panduan SET judul='$judul', dok ='$namabaru' WHERE id='$id'";
       $result = mysqli_query($kon, $query); 
       // var_dump($result);
       // die();
@@ -87,6 +90,20 @@ if (isset($_POST['ubah'])) {
          echo "<script>alert('Ekstensi gambar yang boleh hanya jpg atau png.');window.location='panduan.php';</script>";
      }
     
+  }else {
+    // jalankan query UPDATE berdasarkan ID yang produknya kita edit
+    $query  = "UPDATE panduan SET judul='$judul' WHERE id='$id'";
+    // $query .= "WHERE id = '$id'";
+    $result = mysqli_query($kon, $query);
+    // periska query apakah ada error
+    if(!$result){
+          die ("Query gagal dijalankan: ".mysqli_errno($kon).
+                           " - ".mysqli_error($kon));
+    } else {
+      //tampil alert dan akan redirect ke halaman index.php
+      //silahkan ganti index.php sesuai halaman yang akan dituju
+        echo "<script>alert('Data berhasil diubah.');window.location='panduan.php';</script>";
+    }
   }
 } 
 

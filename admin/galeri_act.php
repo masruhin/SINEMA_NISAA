@@ -62,7 +62,7 @@ if (isset($_POST['ubah'])) {
   $deskripsi = $_POST['deskripsi'];
   $gambar = $_FILES['gambar']['name'];
   if ($gambar != "") {
-    $ekstensi_diperbolehkan = array('png', 'jpg', 'mp4', 'jpeg');
+    $ekstensi_diperbolehkan = array ('png', 'jpg', 'mp4', 'jpeg');
     $x = explode('.', $gambar);
     $ekstensi = strtolower(end($x));
     $file_tmp = $_FILES['gambar']['tmp_name'];
