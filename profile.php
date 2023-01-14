@@ -21,6 +21,7 @@ include "includes/config.php";
                     <div class="meetup-day">
                       <h6 class="mb-0"> <?php echo hari_ini(); ?></h6>
                       <h3 class="mb-0"> <?php echo date("j"); ?></h3>
+                      <hr>
                     </div>
                     <div class="my-auto">
                       <?php 
@@ -32,6 +33,7 @@ include "includes/config.php";
                       }
                       while($hasil = mysqli_fetch_array($data)){
                       ?>
+
                       <h4 class="card-title mb-25">
                         <?php
                         echo $hasil["judul"];
@@ -42,6 +44,9 @@ include "includes/config.php";
                         echo $hasil['deskripsi'];
                         ?>
                       </p>
+                      <div class="mb-1">
+                        <hr>
+                      </div>
                     </div>
                   </div>
                   <div class="media">
@@ -85,19 +90,53 @@ include "includes/config.php";
                       <b>UNIVERSITAS BHAMADA SLAWI <br /></b>
                       <hr>
                     </div>
+                    <div class="form-group row">
+                      <label for="colFormLabel" class="col-sm-2 col-form-label"> <span
+                          class="badge badge-pill badge-light-success mr-1 lg"
+                          style="background-color: rgb(255 205 21 / 83%); height:25px; color: #020202 !important;">Alamat
+                          Email</span></label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="colFormLabel" name="no_ref_kerjasama"
+                          placeholder="Normal Input" / value="<?php echo $hasil["judul"];?>" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="colFormLabel" class="col-sm-2 col-form-label"> <span
+                          class="badge badge-pill badge-light-success mr-1 lg"
+                          style="background-color: rgb(255 205 21 / 83%); height:25px; color: #020202 !important;">No
+                          Telepon
+                        </span></label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="colFormLabel" name="no_ref_kerjasama"
+                          placeholder="Normal Input" / value="<?php echo $hasil["telpon"];?>" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="colFormLabel" class="col-sm-2 col-form-label"> <span
+                          class="badge badge-pill badge-light-success mr-1 lg"
+                          style="background-color: rgb(255 205 21 / 83%); height:25px; color: #020202 !important;">Alamat
+                        </span></label>
+                      <div class="col-sm-10">
+                        <textarea class="form-control" aria-label="With textarea"
+                          readonly><?php echo $hasil["alamat"];?></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="colFormLabel" class="col-sm-2 col-form-label"> <span
+                          class="badge badge-pill badge-light-success lg"
+                          style="background-color: rgb(255 205 21 / 83%); height:25px; color: #020202 !important;">Instagram
+                        </span></label>
+                      <div class="col-sm-10">
+                        <a href="https://www.instagram.com/humasbhamadaslawi/?next=%2F"
+                          class="btn btn-outline-primary waves-effect" href="https://pixinvent.com/" role="button"
+                          target="_blank"
+                          style="border: 1px solid #ffffff !important;"><?php echo $hasil["instagram"];?></a>
+                      </div>
+                    </div>
                     <div class="mb-1">
-                      Email : <?php
-                        echo $hasil['email'];
-                        ?> <br />
-                      Telephone : <?php
-                        echo $hasil['telpon'];
-                        ?> <br />
-                      Alamat : <?php
-                        echo $hasil['alamat'];
-                        ?>
-                      </p>
                       <hr>
                     </div>
+
                     <div class="u_row">
                       <div class="vc_row wpb_row vc_row-fluid">
                         <div data-vc-parallax="1.5" data-vc-parallax-o-fade="on"

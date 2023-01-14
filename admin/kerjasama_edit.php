@@ -197,7 +197,7 @@ if (empty($_SESSION['username'])) {
                           <div class="mb-1">
                             <P class="form-label" for="file">File Dokumen
                               Kerjasama</P>
-                            <label for="" style="color:red ;">
+                            <label for="" style="color:#59b711 ;">
                               * Dokumen Sebelumnya
                               <b style="color:blue"><?php echo $file;?></b>.
                             </label>

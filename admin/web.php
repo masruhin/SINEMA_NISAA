@@ -14,10 +14,10 @@ if(empty($_SESSION['username'])){
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Pengaturan Tampilan Website</h4>
-            <button type="button" class="btn btn-outline-success round btn-sm" data-toggle="modal" data-target="#add">
+            <h4 class="card-title">Pengaturan Tampilan Web</h4>
+            <!-- <button type="button" class="btn btn-outline-success round btn-sm" data-toggle="modal" data-target="#add">
               <strong>Tambah</strong>
-            </button>
+            </button> -->
           </div>
           <div class="card-body table-responsive">
             <table id="dataTables" class="table table-striped">
@@ -26,9 +26,11 @@ if(empty($_SESSION['username'])){
                   <th>No</th>
                   <th>Judul</th>
                   <th>Deskripsi</th>
+                  <th>Telpon</th>
+                  <th>Email</th>
+                  <th>Alamat</th>
+                  <th>Instagram</th>
                   <th>Gambar</th>
-                  <th>TGL DIBUAT</th>
-                  <th>TGL DIUBAH</th>
                   <th style="text-align:center;">Aksi</th>
                 </tr>
               </thead>
@@ -49,14 +51,16 @@ if(empty($_SESSION['username'])){
                   </td>
                   <td><?php echo $hasil ['judul'];?></td>
                   <td><?php echo $hasil ['deskripsi'];?></td>
-                  <td><img src="../img/<?php echo $hasil['gambar']; ?>" width="100" height="100"></td>
-                  <td><?php echo $hasil ['date_created'];?></td>
-                  <td><?php echo $hasil ['date_updated'];?></td>
+                  <td><?php echo $hasil ['telpon'];?></td>
+                  <td><?php echo $hasil ['email'];?></td>
+                  <td><?php echo $hasil ['alamat'];?></td>
+                  <td><?php echo $hasil ['instagram'];?></td>
+                  <td><img src="../img-web/<?php echo $hasil['gambar']; ?>" width="100" height="100"></td>
                   <td style="text-align:center ;">
                     <a href="#" type="button" class="open_modal btn btn-outline-info round btn-sm" data-toggle="modal"
-                      data-target="#edit<?php echo $hasil['id']; ?>">Edit</a> |
-                    <a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal"
-                      data-target="#deleteEmployeeModal<?php echo $hasil['id']; ?>">Hapus</a>
+                      data-target="#edit<?php echo $hasil['id']; ?>">Edit</a>
+                    <!-- <a href="#" type="button" class="open_modal btn btn-outline-danger round btn-sm" data-toggle="modal"
+                      data-target="#deleteEmployeeModal<?php echo $hasil['id']; ?>">Hapus</a> -->
                   </td>
                 </tr>
 
@@ -67,71 +71,62 @@ if(empty($_SESSION['username'])){
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="myModalLabel110">Edit Website</h5>
+                          <h5 class="modal-title" id="myModalLabel110">Edit Data Web</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form class="form form-horizontal" action="web_act.php" method="POST">
+                          <form method="POST" action="web_act.php" enctype="multipart/form-data">
+                            <!-- <form class="form form-horizontal" action="galeri_act.php" method="POST"> -->
                             <?php
                               $id = $hasil['id']; 
                               $query_edit = mysqli_query($kon, "SELECT * FROM web WHERE id='$id'");
-                              while ($result = mysqli_fetch_array($query_edit)) {  
+                              while ($row = mysqli_fetch_array($query_edit)) {  
                               ?>
-                            <input type="hidden" name="id" value="<?= $result['id']?>">
+                            <input type="hidden" name="id" value="<?= $row['id']?>">
                             <div class="row">
                               <div class="col-md-12">
                                 <div class="form-group row">
                                   <label class="col-sm-2 col-form-label">Judul</label>
                                   <div class="col-sm-10">
                                     <input type="text" class="form-control" placeholder="Masukkan Judul Kerjasama"
-                                      name="judul" value="<?php echo $result['judul']?>">
-                                  </div>
-                                </div>
-                                <div class=" form-group row">
-                                  <label class="col-sm-2 col-form-label">Deskripsi</label>
-                                  <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Masukkan Deskripsi"
-                                      name="deskripsi" value="<?php echo $result['deskripsi']?>">
-                                  </div>
-                                </div>
-                                <div class=" form-group row">
-                                  <label class="col-sm-2 col-form-label">Nomor Ponsel</label>
-                                  <div class="input-group col-sm-10">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text">+62</span>
-                                    </div>
-                                    <input type="text" class="form-control" name="telpon" id="telpon "
-                                      value="<?php echo $result['telpon']?>">
-                                  </div>
-                                  <div class="col-sm-2"></div>
-                                  <div class="col-sm-10">
-                                    <label id="telpon-error" for="telpon" class="error" style="display:none;"></label>
+                                      name="judul" value="<?php echo $row['judul']?>">
                                   </div>
                                 </div>
                                 <div class="form-group row">
-                                  <label class="col-sm-2 col-form-label">E-Mail</label>
+                                  <label class="col-sm-2 col-form-label">Deskripsi</label>
                                   <div class="col-sm-10">
-                                    <input type="email" class="form-control" placeholder="Masukkan Email" name="email"
-                                      value="<?php echo $result['email']?>">
+                                    <input type="text" class="form-control" placeholder="Masukkan Deskripsi"
+                                      name="deskripsi" value="<?php echo $row['deskripsi']?>">
                                   </div>
                                 </div>
-                                <div class=" form-group row">
+                                <div class="form-group row">
+                                  <label class="col-sm-2 col-form-label">Telpon</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Masukkan Telpon" name="telpon"
+                                      value="<?php echo $row['telpon']?>">
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                  <label class="col-sm-2 col-form-label">Email</label>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Masukkan Email" name="email"
+                                      value="<?php echo $row['email']?>">
+                                  </div>
+                                </div>
+                                <div class="form-group row">
                                   <label class="col-sm-2 col-form-label">Alamat</label>
                                   <div class="col-sm-10">
-                                    <textarea name="alamat" class="form-control custom" rows="5"
-                                      placeholder="Masukkan Alamat"><?php echo $result['alamat']?></textarea>
+                                    <input type="text" class="form-control" placeholder="Masukkan Alamat" name="alamat"
+                                      value="<?php echo $row['alamat']?>">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label class="col-sm-2 col-form-label">Instagram</label>
-                                  <div class="input-group col-sm-10">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text">@</span>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Masukkan Instagram Tanpa @"
-                                      name="instagram" <?php echo $result['instagram']?>>
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Masukkan Instagram"
+                                      name="instagram" value="<?php echo $row['instagram']?>">
                                   </div>
                                 </div>
                                 <div class="form-group row">
@@ -145,7 +140,7 @@ if(empty($_SESSION['username'])){
                                   <div class="col-sm-2"></div>
                                   <div class="col-sm-10">
                                     <div class="border text-center p-3">
-                                      <img src="<?php echo "../img/$result[gambar]" ?>" class="img-fluid img-rounded"
+                                      <img src="<?php echo "../img-web/$row[gambar]" ?>" class="img-fluid img-rounded"
                                         id="preview-img">
                                       <div style="color: rgb(255,0,0);">*Catatan : Kosongkan gambar jika tidak ingin
                                         merubah banner.
@@ -174,21 +169,21 @@ if(empty($_SESSION['username'])){
                 <div id="deleteEmployeeModal<?php echo $hasil['id']; ?>" class="modal fade">
                   <div class="modal-dialog">
                     <div class="modal-content">
-                      <form method="post" action="Lembaga_act.php">
+                      <form method="post" action="galeri_act.php">
                         <?php
                                   $id = $hasil['id']; 
-                                  $query_edit = mysqli_query($kon, "SELECT * FROM Lembaga WHERE id_lembaga='$id'");
+                                  $query_edit = mysqli_query($kon, "SELECT * FROM galeri WHERE id='$id'");
                                   //$result = mysqli_query($conn, $query);
                                   while ($row = mysqli_fetch_array($query_edit)) {  
                                   ?>
-                        <input type="hidden" class="form-control" value="<?php echo $hasil['id']; ?>" name="id_lembaga">
+                        <input type="hidden" class="form-control" value="<?php echo $hasil['id']; ?>" name="id">
 
                         <div class="modal-header">
                           <h4 class="modal-title">Delete</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">
-                          <p>Apakah Kamu akan menghapus Lembaga <?php echo $hasil['lembaga_nama']; ?>?</p>
+                          <p>Apakah Kamu akan menghapus Tampilan Gambar judul <?php echo $hasil['judul']; ?>?</p>
                         </div>
                         <div class="col-sm-12 offset-sm-12 modal-footer">
                           <button type="submit" class="btn btn-danger mr-1 btn-sm" name="delete">Hapus</button>
@@ -245,43 +240,27 @@ if(empty($_SESSION['username'])){
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Nomor Ponsel</label>
-                      <div class="input-group col-sm-10">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">+62</span>
-                        </div>
-                        <input type="text" class="form-control" name="telpon" id="telpon">
-                      </div>
-                      <div class="col-sm-2"></div>
+                      <label class="col-sm-2 col-form-label">Telpon</label>
                       <div class="col-sm-10">
-                        <label id="telpon-error" for="telpon" class="error" style="display:none;"></label>
+                        <input type="text" class="form-control" placeholder="Masukkan Telpon" name="telpon">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">E-Mail</label>
+                      <label class="col-sm-2 col-form-label">Email</label>
                       <div class="col-sm-10">
-                        <input type="email" class="form-control" placeholder="Masukkan Email" name="email">
+                        <input type="text" class="form-control" placeholder="Masukkan Email" name="email">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Alamat</label>
                       <div class="col-sm-10">
-                        <textarea name="alamat" class="form-control custom" rows="5"
-                          placeholder="Masukkan Alamat"></textarea>
+                        <input type="text" class="form-control" placeholder="Masukkan Alamat" name="alamat">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Instagram</label>
-                      <div class="input-group col-sm-10">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">@</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Masukkan Instagram Tanpa @"
-                          name="instagram">
-                      </div>
-                      <div class="col-sm-2"></div>
                       <div class="col-sm-10">
-                        <label id="instagram-error" for="instagram" class="error" style="display:none;"></label>
+                        <input type="text" class="form-control" placeholder="Masukkan Instagram" name="instagram">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -292,14 +271,6 @@ if(empty($_SESSION['username'])){
                           <label class="custom-file-label" for="gambar">Pilih Gambar Logo</label>
                         </div>
                       </div>
-                      <div class="col-sm-2"></div>
-                      <!-- <div class="col-sm-10">
-                        <div class="border text-center p-3">
-                          <img src="<?= $srcLogo; ?>" class="img-fluid img-rounded" id="preview-img">
-                          <div style="color: rgb(255,0,0);">*Catatan : Kosongkan gambar jika tidak ingin merubah banner.
-                          </div>
-                        </div>
-                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -322,30 +293,9 @@ if(empty($_SESSION['username'])){
   <!-- Modal ADD-->
   <div class="sidenav-overlay"></div>
   <div class="drag-target"></div>
-
   <?php include "footer.php";?>
   <script type="text/javascript">
-  var success = $('#type-success'),
-    error = $('#type-error'),
-    warning = $('#type-warning'),
-    info = $('#type-info');
 
-
-
-  // Success
-  if (success.length) {
-    success.on('click', function() {
-      Swal.fire({
-        title: 'Good job!',
-        text: 'You clicked sdsdsdsd button!',
-        icon: 'success',
-        customClass: {
-          confirmButton: 'btn btn-primary'
-        },
-        buttonsStyling: false
-      });
-    });
-  }
   </script>
   </body>
 

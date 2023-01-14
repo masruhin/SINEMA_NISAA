@@ -68,7 +68,7 @@ $d_negara = mysqli_num_rows($q_negara);
                       kerjasama a
                       LEFT JOIN jenis_dok b ON b.id_jenis_dok = a.id_jenis_dok
                       LEFT JOIN fakultas d ON d.id_fak = a.id_fak
-                      LEFT JOIN unit c ON c.id_unit= a.id_unit ORDER BY id_kerjasama asc");
+                      LEFT JOIN unit c ON c.id_unit= a.id_unit ORDER BY date_created desc");
 											if (!$data) {
 												printf("Error: %s\n", mysqli_error($kon));
 												exit();
