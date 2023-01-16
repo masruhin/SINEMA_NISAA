@@ -34,11 +34,15 @@
 
 <!-- <script src="../vendor/app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script> -->
 <script src="../vendor/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
-<script>
-$(function() {
-  $("#dataTables").DataTable({
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#dataTables').DataTable({
     "responsive": true,
     "autoWidth": true,
+    lengthMenu: [
+      [5, 10, 25, 50, -1],
+      [5, 10, 25, 50, 'All'],
+    ],
   });
 });
 </script>

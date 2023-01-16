@@ -480,7 +480,6 @@ $d_negara = mysqli_num_rows($q_negara);
 
 <div class="sidenav-overlay"></div>
 <div class="drag-target"></div>
-
 <?php include "includes/footer.php";?>
 
 </body>

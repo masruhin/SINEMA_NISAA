@@ -19,12 +19,24 @@
 <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script>
-$(function() {
-  $("#dataTables").DataTable({
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#dataTables').DataTable({
     "responsive": true,
     "autoWidth": true,
+    lengthMenu: [
+      [5, 10, 25, 50, -1],
+      [5, 10, 25, 50, 'All'],
+    ],
   });
+});
+</script>
+<script>
+$(function() {
+  // $("#dataTables").DataTable({
+  //   "responsive": true,
+  //   "autoWidth": true,
+  // });
   $('.select2').select2()
   $('.formatrupiah').mask('000.000.000', {
     reverse: true
