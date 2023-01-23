@@ -34,6 +34,7 @@
 
 <!-- <script src="../vendor/app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script> -->
 <script src="../vendor/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+<<<<<<< HEAD
 <script>
 $(function() {
   $("#dataTables").DataTable({
@@ -42,8 +43,17 @@ $(function() {
       [5, 10, 20, -1],
       [5, 10, 20, 'Semua']
     ],
+=======
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#dataTables').DataTable({
+>>>>>>> 5997785bf50c752fcb502a7d8f9ed19fdf430edc
     "responsive": true,
     "autoWidth": true,
+    lengthMenu: [
+      [5, 10, 25, 50, -1],
+      [5, 10, 25, 50, 'All'],
+    ],
   });
 });
 </script>

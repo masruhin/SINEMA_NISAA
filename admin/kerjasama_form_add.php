@@ -51,7 +51,7 @@ if (empty($_SESSION['username'])) {
                             <div class="mb-1">
                               <p class="form-p" for="tanggal_awal">Tanggal
                                 Awal</p>
-                              <div class="input-group ">
+                              <div class="input-group  ">
                                 <span class="input-group-text"><i data-feather="calendar"></i></span>
                                 <input type="date" id="tanggal_awal" class="form-control" name="tanggal_awal"
                                   required />
@@ -66,6 +66,65 @@ if (empty($_SESSION['username'])) {
                                 <span class="input-group-text"><i data-feather="calendar"></i></span>
                                 <input type="date" id="tanggal_akhir" class="form-control" name="tanggal_akhir"
                                   required />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="mb-1">
+                              <p class="form-p" for="id_unit">Unit Penggiat Kerjasama</p>
+                              <div class="input-group input-group-merge">
+                                <span class="input-group-text"><i data-feather='paperclip'></i></i></span>
+                                <div class="col-10">
+                                  <select class="select2 form-control form-control-md" name="id_unit" id="id_unit">
+                                    <option value="" selected="selected">-- Pilih Penggiat Kerjasama --</option>
+                                    <?php
+                                      $query =
+                                          'SELECT * FROM unit ORDER BY id_unit';
+                                      $hasil = mysqli_query($kon, $query);
+                                      while ($row = mysqli_fetch_array($hasil)) { ?>
+                                    <option value="<?php echo $row[
+                                          'id_unit'
+                                      ]; ?>">
+                                      <?php echo $row['id_unit'] .
+                                            ' | ' .
+                                            $row['unit_nama']; ?></option>
+                                    <?php }
+                                      ?>
+                                  </select>
+                                </div>
+                                <span class="sm" style="color:red ;">
+                                  <label for="" style="color:red ;">
+                                    *boleh dikosongkan
+                                  </label>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="mb-1">
+                              <p class="form-p" for="id_fak">Fakultas Penggiat Kerjasama</p>
+                              <div class="input-group input-group-merge">
+                                <span class="input-group-text"><i data-feather='paperclip'></i></i></span>
+                                <div class="col-10">
+                                  <select class="select2 form-control form-control-md" name="id_fak" id="id_fak">
+                                    <option value="" selected="selected">-- Pilih Penggiat Kerjasama --</option>
+                                    <?php
+                                      $query ='SELECT * FROM fakultas ORDER BY id_fak';
+                                      $hasil = mysqli_query($kon, $query);
+                                      while ($row = mysqli_fetch_array($hasil)) { ?>
+                                    <option value="<?php echo $row['id_fak']; ?>">
+                                      <?php echo $row['fak_kode'] .
+                                            ' | ' .
+                                            $row['fak_nama']; ?></option>
+                                    <?php }
+                                      ?>
+                                  </select>
+                                </div>
+                                <span class="sm" style="color:red ;">
+                                  <label for="" style="color:red ;">
+                                    *boleh dikosongkan
+                                  </label>
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -155,65 +214,7 @@ if (empty($_SESSION['username'])) {
                                 </div>
                               </div>
                             </div>
-                            <div class="col-12">
-                              <div class="mb-1">
-                                <p class="form-p" for="id_unit">Unit Penggiat Kerjasama</p>
-                                <div class="input-group input-group-merge">
-                                  <span class="input-group-text"><i data-feather='paperclip'></i></i></span>
-                                  <div class="col-10">
-                                    <select class="select2 form-control form-control-md" name="id_unit" id="id_unit">
-                                      <option value="" selected="selected">-- Pilih Penggiat Kerjasama --</option>
-                                      <?php
-                                      $query =
-                                          'SELECT * FROM unit ORDER BY id_unit';
-                                      $hasil = mysqli_query($kon, $query);
-                                      while ($row = mysqli_fetch_array($hasil)) { ?>
-                                      <option value="<?php echo $row[
-                                          'id_unit'
-                                      ]; ?>">
-                                        <?php echo $row['id_unit'] .
-                                            ' | ' .
-                                            $row['unit_nama']; ?></option>
-                                      <?php }
-                                      ?>
-                                    </select>
-                                  </div>
-                                  <span class="sm" style="color:red ;">
-                                    <label for="" style="color:red ;">
-                                      *boleh dikosongkan
-                                    </label>
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-12">
-                              <div class="mb-1">
-                                <p class="form-p" for="id_fak">Fakultas Penggiat Kerjasama</p>
-                                <div class="input-group input-group-merge">
-                                  <span class="input-group-text"><i data-feather='paperclip'></i></i></span>
-                                  <div class="col-10">
-                                    <select class="select2 form-control form-control-md" name="id_fak" id="id_fak">
-                                      <option value="" selected="selected">-- Pilih Penggiat Kerjasama --</option>
-                                      <?php
-                                      $query ='SELECT * FROM fakultas ORDER BY id_fak';
-                                      $hasil = mysqli_query($kon, $query);
-                                      while ($row = mysqli_fetch_array($hasil)) { ?>
-                                      <option value="<?php echo $row['id_fak']; ?>">
-                                        <?php echo $row['fak_kode'] .
-                                            ' | ' .
-                                            $row['fak_nama']; ?></option>
-                                      <?php }
-                                      ?>
-                                    </select>
-                                  </div>
-                                  <span class="sm" style="color:red ;">
-                                    <label for="" style="color:red ;">
-                                      *boleh dikosongkan
-                                    </label>
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
+
                           </div>
                         </div>
                       </div>
