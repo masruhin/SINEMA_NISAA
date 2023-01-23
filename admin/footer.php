@@ -37,6 +37,11 @@
 <script>
 $(function() {
   $("#dataTables").DataTable({
+    pageLength: 5,
+    lengthMenu: [
+      [5, 10, 20, -1],
+      [5, 10, 20, 'Semua']
+    ],
     "responsive": true,
     "autoWidth": true,
   });

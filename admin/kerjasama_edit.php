@@ -85,7 +85,8 @@ if (empty($_SESSION['username'])) {
                             <div class="col-sm-9">
                               <select name="id_fak" class="select2 form-control" tabindex="-1">
                                 <option value="<?php echo $data['id_fak'];?>">
-                                  <?php echo $data['fak_kode'] ." | ". $data['fak_nama']; ?>
+                                  <!-- <?php echo $data['fak_kode'] ." | ". $data['fak_nama']; ?> -->
+                                  <?php echo $data['fak_nama']; ?>
                                 </option>
                                 <option disabled>-- Pilh untuk mengganti --</option>
                                 <?php include 'config.php';

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2023 at 09:45 AM
+-- Generation Time: Jan 23, 2023 at 03:46 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -90,9 +90,9 @@ CREATE TABLE `fakultas` (
 --
 
 INSERT INTO `fakultas` (`id_fak`, `fak_kode`, `fak_nama`, `fak_ket`, `date_created`, `date_updated`) VALUES
-(3, 'FIKES', 'Fakultas Ilmu kesehatan', '', '2022-11-25 17:00:00', NULL),
-(4, 'FIKOM', 'Fakultas Ilmu Komputer', '', '2022-11-25 17:00:00', NULL),
-(5, 'FEB', 'Fakultas Ekonomi dan Bisnis', '', '2022-11-25 17:00:00', NULL);
+(1, 'FIKES', 'Fakultas Ilmu kesehatan', '', '2022-11-25 17:00:00', '2023-01-12 21:14:49'),
+(2, 'FIKOM', 'Fakultas Ilmu Komputer', '', '2022-11-25 17:00:00', '2023-01-12 21:14:56'),
+(3, 'FEB', 'Fakultas Ekonomi dan Bisnis', '', '2022-11-25 17:00:00', '2023-01-12 21:15:08');
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ INSERT INTO `galeri` (`id`, `judul`, `deskripsi`, `gambar`) VALUES
 (1, 'MOU', 'Kerjasamaa', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.19.jpeg'),
 (2, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.14 (1).jpeg'),
 (3, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.14 (2).jpeg'),
-(4, 'PT KASYR SIBERNETIKA INDONESIA', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.15 (1).jpeg'),
+(4, 'PT KASYR SIBERNETIKA INDONESIA -', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.15 (1).jpeg'),
 (5, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.16 (1).jpeg'),
 (6, 'MOU', 'Pemberangkatan Kaigon Jepang', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.16 (2).jpeg'),
 (7, 'MOU', 'Kerjasama', '2023-01-11_WhatsApp Image 2023-01-06 at 08.36.16.jpeg'),
@@ -187,9 +187,9 @@ CREATE TABLE `jenis_dok` (
 --
 
 INSERT INTO `jenis_dok` (`id_jenis_dok`, `jenis_dok`, `jenis_ket`) VALUES
-(1, 'MEMORANDUM OR UNDERSTANDING / NOTA KESEPAHAMAN / PIAGAM KERJA', 'MOU'),
-(2, 'IMPLEMENTATION ARRANGEMENT / PETUNJUK PELAKSANAAN TEKNIS', 'IA'),
-(3, 'MEMORANDUM OF AGREEMENT / PERJANJIAN KERJASAMA', 'MOA                                                      ');
+(1, 'MOU', 'MEMORANDUM OR UNDERSTANDING / NOTA KESEPAHAMAN / PIAGAM KERJA'),
+(2, 'IA', 'IMPLEMENTATION ARRANGEMENT / PETUNJUK PELAKSANAAN TEKNIS'),
+(3, 'MOA', 'MEMORANDUM OF AGREEMENT / PERJANJIAN KERJASAMA');
 
 -- --------------------------------------------------------
 
@@ -218,7 +218,7 @@ CREATE TABLE `kerjasama` (
 --
 
 INSERT INTO `kerjasama` (`id_kerjasama`, `id_jenis_dok`, `id_fak`, `id_unit`, `judul_kerjasama`, `deskripsi_kerjasama`, `status_kerjasama`, `tanggal_awal`, `tanggal_akhir`, `no_ref_kerjasama`, `file`, `date_created`, `date_updated`) VALUES
-(1, 3, NULL, NULL, 'Apotek A-24 Kota Tegal', 'Lahan Praktik Mahasiswa Prodi S1 Farmasi', 'aktif', '2021-11-16', '2021-11-16', '031/Univ.BHAMADA/KL/XI/2021', NULL, '2023-01-05 13:56:51', '2023-01-05 13:57:32'),
+(1, 3, 1, 1, 'Apotek A-24 Kota Tegal', 'Lahan Praktik Mahasiswa Prodi S1 Farmasi', 'aktif', '2021-11-16', '2021-11-16', '031/Univ.BHAMADA/KL/XI/2021', NULL, '2023-01-05 13:56:51', '2023-01-13 12:33:14'),
 (2, 3, NULL, NULL, 'Apotek Banjaran Sehat Kab. Tegal', 'Lahan Praktik Mahasiswa Prodi S1 Farmasi', 'aktif', '2021-11-16', '2026-11-15', '027/Univ.BHAMADA/KL/XI/2021', NULL, '2023-01-05 14:27:22', NULL),
 (3, 3, NULL, NULL, 'Apotek Budi Farma Pangkah Kab. Tegal', 'Lahan Praktik Mahasiswa Prodi S1 Farmasi', 'aktif', '2021-11-16', '2026-11-15', '027/Univ.BHAMADA/KL/XI/2021', NULL, '2023-01-05 14:36:36', NULL),
 (4, 3, NULL, NULL, 'Apotek Budi Farma Putra Kab. Tegal', 'Lahan Praktik Mahasiswa Prodi S1 Farmasi', 'aktif', '2021-11-16', '2026-11-15', '029/Univ.BHAMADA/KL/XI/2021', NULL, '2023-01-05 14:36:36', NULL),
@@ -310,8 +310,8 @@ INSERT INTO `kerjasama` (`id_kerjasama`, `id_jenis_dok`, `id_fak`, `id_unit`, `j
 (90, 3, NULL, NULL, 'Poltekes Kemenkes Semarang\r\n', 'Pemberian akses informasi dan layanan perpustakaan serta kepustakaan untuk pengembangan akademik, Tridharma\r\n', 'aktif', '2019-10-10', '2024-10-09', '042/PERPUS.BMD/X/2019', NULL, '2023-01-06 10:29:00', NULL),
 (91, 3, NULL, NULL, 'Perpustakaan Politeknik Keselamatan Transportasi Jalan Tegal \r\n', 'Pemberian akses informasi dan layanan perpustakaan serta kepustakaan untuk pengembangan akademik, Tridharma\r\n', 'aktif', '2019-11-26', '2024-11-25', '46/PERPUS BMD/XI/2019\r\n', NULL, '2023-01-06 10:29:36', NULL),
 (92, 3, NULL, NULL, 'PT Enam KUBUKU Indonesia\r\n', 'Penggunaan Aplikasi Program Perpustakaan Digital\r\n', 'aktif', '2021-04-21', '2026-04-20', NULL, NULL, '2023-01-06 10:30:11', NULL),
-(93, 3, NULL, NULL, 'Perpustakaan Nasional RI\r\n', 'Kerja Sama Perpustakaan\r\n', 'aktif', '2019-12-16', '2024-12-15', NULL, '171/STIKES-BMD/KL/XII/2019', '2023-01-06 10:31:02', NULL),
-(94, 3, NULL, NULL, 'Gadar Medik Indonesia\r\n', '-', 'aktif', '2022-10-11', '2025-12-10', '-', NULL, '2023-01-06 10:31:46', NULL);
+(93, 3, NULL, NULL, 'Perpustakaan Nasional RI\r\n', 'Kerja Sama Perpustakaan\r\n', 'aktif', '2019-12-16', '2024-12-15', '171/STIKES-BMD/KL/XII/2019', '', '2023-01-06 10:31:02', '2023-01-14 02:10:37'),
+(94, 3, NULL, NULL, 'Gadar Medik Indonesia\r\n', '-', 'aktif', '2022-10-11', '2025-12-10', '-', NULL, '2023-01-06 03:31:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -654,6 +654,7 @@ INSERT INTO `negara_kategori` (`id_kategori`, `kategori_nama`) VALUES
 
 CREATE TABLE `panduan` (
   `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
   `dok` varchar(255) NOT NULL,
   `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
@@ -663,8 +664,8 @@ CREATE TABLE `panduan` (
 -- Dumping data for table `panduan`
 --
 
-INSERT INTO `panduan` (`id`, `dok`, `date_created`, `date_updated`) VALUES
-(3, '2023-01-11_Buku Pedoman Kerja Sama Tahun 2021.pdf', '2023-01-11 14:50:44', NULL);
+INSERT INTO `panduan` (`id`, `judul`, `dok`, `date_created`, `date_updated`) VALUES
+(3, 'Dokumen Buku Pedoman 2021', '2023-01-11_Buku Pedoman Kerja Sama Tahun 2021.pdf', '2023-01-11 14:50:44', '2023-01-13 16:42:36');
 
 -- --------------------------------------------------------
 
@@ -763,7 +764,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `password`, `nama_user`, `level`, `blokir`, `status`) VALUES
 (1, 'member', '17c4520f6cfd1ab53d8745e84681eb49', 'member', 'user', 'Y', 1),
 (2, 'superadmin', '17c4520f6cfd1ab53d8745e84681eb49', 'superadmin', 'admin', 'Y', 1),
-(3, 'masruhin', '17c4520f6cfd1ab53d8745e84681eb49', 'masruhin', 'user', 'N', 1),
+(3, 'masruhin', '17c4520f6cfd1ab53d8745e84681eb49', 'masruhin', 'user', 'N', 0),
 (4, 'sample', '17c4520f6cfd1ab53d8745e84681eb49', 'sample', 'user', 'Y', 0),
 (5, 'user', '17c4520f6cfd1ab53d8745e84681eb49', 'user', 'user', 'Y', 0),
 (6, 'masuk', 'f3770595e0cb4d9a988bd5da98d2187d', 'masuk', 'user', 'N', 0);
@@ -776,24 +777,21 @@ INSERT INTO `users` (`id`, `username`, `password`, `nama_user`, `level`, `blokir
 
 CREATE TABLE `web` (
   `id` int(11) NOT NULL,
-  `judul` varchar(255) DEFAULT NULL,
-  `deskripsi` varchar(255) DEFAULT NULL,
-  `telpon` varchar(15) DEFAULT NULL,
+  `judul` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `telpon` varchar(50) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `alamat` text,
   `instagram` varchar(100) DEFAULT NULL,
-  `date_created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `status` enum('Y','N') DEFAULT 'Y',
-  `gambar` varchar(255) DEFAULT NULL
+  `gambar` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `web`
 --
 
-INSERT INTO `web` (`id`, `judul`, `deskripsi`, `telpon`, `email`, `alamat`, `instagram`, `date_created`, `date_updated`, `status`, `gambar`) VALUES
-(8, 'SINEMA', 'Sistem Informasi Kerjasama', '(0283) 6197570', 'info@bhamada.ac.id', 'Jl. Cut Nyak Dhien No.16, Desa Kalisapu, Kecamatan Slawi, Kabupaten Tegal 52416', '-', '2023-01-06 13:56:36', '2023-01-11 08:31:17', 'Y', '2023-01-06_2023-01-06_logo.png');
+INSERT INTO `web` (`id`, `judul`, `deskripsi`, `telpon`, `email`, `alamat`, `instagram`, `gambar`) VALUES
+(1, 'SINEMA', 'Sistem Informasi Kerjasama', '0283 6197570', 'humasbhamada@gmail.com', 'Jl. Cut Nyak Dhien No.16, Desa Kalisapu, Kecamatan Slawi, Kabupaten Tegal 52416', '@humasbhamadaslawi', '2023-01-14_2023-01-06_logo.png');
 
 --
 -- Indexes for dumped tables
@@ -903,13 +901,13 @@ ALTER TABLE `web`
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `kerjasama`
 --
 ALTER TABLE `kerjasama`
-  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id_kerjasama` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `panduan`
@@ -921,7 +919,7 @@ ALTER TABLE `panduan`
 -- AUTO_INCREMENT for table `web`
 --
 ALTER TABLE `web`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
