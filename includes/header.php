@@ -165,7 +165,7 @@ while($hasil = mysqli_fetch_array($data)){
             </li>
             <li data-menu="" <?php if (isset($_GET["info"])){echo 'class="active"';}?>>
               <a class="dropdown-item d-flex align-items-center" href="info.php?info">
-                <i data-feather="download"></i>
+                <i data-feather='help-circle'></i>
                 <span data-i18n="Documentation"> <strong>Informasi</strong> </span>
               </a>
             </li>

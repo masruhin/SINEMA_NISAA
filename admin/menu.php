@@ -139,26 +139,26 @@
           </li>
         </ul>
         </li> -->
-          <li class="dropdown nav-item" data-menu="dropdown">
+          <li class="dropdown nav-item" data-menu="dropdown" <?php if (isset($_GET["lap"])){echo 'class="active"';}?>>
             <a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-toggle="dropdown">
               <i data-feather="database"></i>
               <span data-i18n="Misc"><strong>Laporan</strong></span></a>
             <ul class="dropdown-menu">
-              <li data-menu="">
-                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"
-                  data-i18n="Raise Support" target="_blank">
+              <li data-menu="" <?php if (isset($_GET["lap"])){echo 'class="active"';}?>>
+                <a class="dropdown-item d-flex align-items-center" href="lap_kinerja.php?lap" data-toggle="dropdown"
+                  data-i18n="Raise Support">
                   <i data-feather="life-buoy"></i>
                   <span data-i18n="Raise Support">Laporan Kinerja Tahunan</span></a>
               </li>
-              <li data-menu="">
-                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"
-                  data-i18n="Raise Support" target="_blank">
+              <li data-menu="" <?php if (isset($_GET["lap"])){echo 'class="active"';}?>>
+                <a class="dropdown-item d-flex align-items-center" href="" data-toggle="dropdown"
+                  data-i18n="Raise Support">
                   <i data-feather="life-buoy"></i>
                   <span data-i18n="Raise Support">Laporan Kepuasan Mitra</span></a>
               </li>
-              <li data-menu="">
-                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="dropdown"
-                  data-i18n="Raise Support" target="_blank">
+              <li data-menu="" <?php if (isset($_GET["lap"])){echo 'class="active"';}?>>
+                <a class="dropdown-item d-flex align-items-center" href="lap_monev.php?lap" data-toggle="dropdown"
+                  data-i18n="Raise Support">
                   <i data-feather="life-buoy"></i>
                   <span data-i18n="Raise Support">Laporan Monev</span></a>
               </li>
